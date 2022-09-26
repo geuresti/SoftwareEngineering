@@ -21,7 +21,7 @@ During the tournaments, be able to generate brackets based on team standings
 ## **Profiles**
 Include:
 - Name
--Height
--Weight
--Experience levels
+- Height
+- Weight
+- Experience levels
 - Position
