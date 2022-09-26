@@ -25,3 +25,6 @@ Include:
 - Weight
 - Experience levels
 - Position
+
+
+*User Stories in Projects tab*
