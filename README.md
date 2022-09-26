@@ -27,4 +27,4 @@ Include:
 - Position
 
 
-*User Stories in Projects tab*
+User Stories: https://docs.google.com/spreadsheets/d/15RWY9ZkfjyAiRsdRSctwtcQJONTGUZrHWqrj32_OZ7A/edit?usp=sharing
