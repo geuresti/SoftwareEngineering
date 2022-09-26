@@ -12,13 +12,13 @@ Users need logins
 - Browser: can view live score
 
 ## Features
-##### Live scoring:
+##### **Live scoring**:
 if there is a match, allow people to view live scores, who's on the bench and who's in play, time remaining, freethrow % . Reference ESPN stats
 
-##### Generate brackets:
+##### **Generate brackets**:
 During the tournaments, be able to generate brackets based on team standings
 
-## Profiles
+## **Profiles**
 Include:
 - Name
 -Height
