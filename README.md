@@ -29,3 +29,6 @@ Include:
 
 ## User Stories:
 https://docs.google.com/spreadsheets/d/15RWY9ZkfjyAiRsdRSctwtcQJONTGUZrHWqrj32_OZ7A/edit?usp=sharing
+
+## Architecture & Design:
+https://docs.google.com/document/d/1yZYY7rPpfFXo33XAoqJRIsgZOqpgRATw0L3Rn8OqpwI/edit?usp=sharing
