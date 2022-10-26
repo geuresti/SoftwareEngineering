@@ -62,7 +62,16 @@ export default function App(){
   
         </View>
       </View>
-    
+            <View style={{position: 'absolute', top: 450, left: 80, right: 0, bottom: 0, justifyContent: 'center', alignItems: 'center'}}>
+        <TouchableOpacity
+            //onPress={() => console.log("button pressed!")} 
+            onPress={() =>Alert.alert("registered")}
+            style={styles.button}>
+        <Text style={{color: "#FFFFFF", fontFamily: 'monospace'}}>Register</Text>
+        </TouchableOpacity>
+        
+  
+        </View>
    );
 
 }
