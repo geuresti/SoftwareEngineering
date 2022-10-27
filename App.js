@@ -8,6 +8,9 @@ import { createStackNavigator } from '@react-navigation/stack';
 
 import LoginScreen from "./LoginScreen.js"
 import UserList from "./UserList.js"
+import AdminPage from './AdminPage.js';
+import CreateTeam from './CreateTeam.js';
+import TeamList from './TeamList.js';
 
 const Stack = createStackNavigator();
 
@@ -32,6 +35,33 @@ const App = () => {
 
           }}
         />
+
+        <Stack.Screen
+          name="AdminPage"
+          component={AdminPage}
+          options={{
+            title: 'Admin Page', //Set Header Title
+
+          }}
+        />
+
+        <Stack.Screen
+          name="CreateTeam"
+          component={CreateTeam}
+          options={{
+            title: 'Create Team', //Set Header Title
+
+          }}
+        />  
+
+        <Stack.Screen
+          name="TeamList"
+          component={TeamList}
+          options={{
+            title: 'Team List', //Set Header Title
+
+          }}
+        />  
         </Stack.Navigator>
     </NavigationContainer>
   );
