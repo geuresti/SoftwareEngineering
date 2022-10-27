@@ -75,7 +75,7 @@ const Login = ({ navigation }) => {
               [
                 {
                   text: 'Ok',
-                  onPress: () => navigation.navigate('UserList'),
+                  onPress: () => navigation.navigate('AdminPage'),
                 },
               ],
               { cancelable: false }
