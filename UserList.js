@@ -3,10 +3,13 @@ import { Text, View, Image, ImageBackground, TouchableOpacity, TextInput, StyleS
 import Mybutton from './pages/components/Mybutton';
 import Mytext from './pages/components/Mytext';
 import { openDatabase } from 'react-native-sqlite-storage';
+import dbModel from './dbModel';
 
 var db = openDatabase({ name: 'UserDatabase.db' });
 
 const UserList = ({ navigation }) => {
+  dao = new dbModel()
+
   let [userEmail, setUserEmail] = useState('');
   let [userPassword, setUserPassword] = useState('');
   let [userID, setUserID] = useState('');
@@ -72,34 +75,22 @@ const UserList = ({ navigation }) => {
         };
       
         let deleteUser = () => {
-          db.transaction((tx) => {
-            tx.executeSql(
-              'DELETE FROM  user_table where user_id=?',
-              [userID],
-              (tx, results) => {
-                console.log('Results', results.rowsAffected);
-                if (results.rowsAffected > 0) {
-                  Alert.alert(
-                    'Success',
-                    'User deleted successfully',
-                    [
-                      {
-                        text: 'Ok',
-                        //onPress: () => navigation.navigate('UserList'),
-                      },
-                    ],
-                    { cancelable: false }
-                  );
-                } else {
-                  alert('Please insert a valid User Id');
-                }
-              }
-            );
-          });
+          dao.deleteUser(userID)
+          Alert.alert(
+            'Success',
+            'You have Registered Successfully',
+            [
+              {
+                text: 'Ok',
+                onPress: () => navigation.navigate('UserList'),
+              },
+            ],
+            { cancelable: false }
+          );
+          
         };
     
         let updateUser = () => {
-          console.log(userID, userEmail, userPassword);
       
           if (!userID) {
             alert('Please fill User id');
@@ -113,29 +104,17 @@ const UserList = ({ navigation }) => {
             alert('Password must be at least 7 characters');
             return;
           }
-      
-          db.transaction((tx) => {
-            tx.executeSql(
-              'UPDATE user_table set user_email=?, user_password=? where user_id=?',
-              [userEmail, userPassword, userID],
-              (tx, results) => {
-                console.log('Results', results.rowsAffected);
-                if (results.rowsAffected > 0) {
-                  Alert.alert(
-                    'Success',
-                    'User updated successfully',
-                    [
-                      {
-                        text: 'Ok',
-                        onPress: () => navigation.navigate('UserList'),
-                      },
-                    ],
-                    { cancelable: false }
-                  );
-                } else alert('Update Failed');
-              }
-            );
-          });
+          dao.updateUser(userID, userEmail, userPassword);
+ 
+          Alert.alert('Success','User updated successfully',
+             [
+              {
+               text: 'Ok',
+               onPress: () => navigation.navigate('UserList'),
+              },
+             ],
+              { cancelable: false }
+              );
         };
 
         return (
