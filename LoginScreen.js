@@ -3,11 +3,13 @@ import { Text, View, Image, ImageBackground, TouchableOpacity, TextInput, StyleS
 import Mybutton from './pages/components/Mybutton';
 import Mytext from './pages/components/Mytext';
 import { openDatabase } from 'react-native-sqlite-storage';
+import dbModel from './dbModel';
 
 var db = openDatabase({ name: 'UserDatabase.db' });
 
 const Login = ({ navigation }) => {
-  
+  dao = new dbModel()
+
 
     const styles = StyleSheet.create({
         input: {
@@ -27,7 +29,7 @@ const Login = ({ navigation }) => {
             
         }
       });
-    
+    /*
       useEffect(() => {
         db.transaction(function (txn) {
           txn.executeSql(
@@ -45,13 +47,13 @@ const Login = ({ navigation }) => {
             }
           );
         });
-      }, []);
+      }, []);*/
 
   let [userEmail, setUserEmail] = useState('');
   let [userPassword, setUserPassword] = useState('');
 
   let register_user = () => {
-    console.log(userEmail, userPassword);
+    //console.log(userEmail, userPassword);
 
     if (!userEmail) {
       alert('Please fill email');
@@ -62,28 +64,19 @@ const Login = ({ navigation }) => {
       return;
     }
 
-    db.transaction(function (tx) {
-      tx.executeSql(
-        'INSERT INTO user_table(user_email, user_password) VALUES (?,?)',
-        [userEmail, userPassword],
-        (tx, results) => {
-          console.log('Results', results.rowsAffected);
-          if (results.rowsAffected > 0) {
-            Alert.alert(
-              'Success',
-              'You are Registered Successfully',
-              [
-                {
-                  text: 'Ok',
-                  onPress: () => navigation.navigate('AdminPage'),
-                },
-              ],
-              { cancelable: false }
-            );
-          } else alert('Registration Failed');
-        }
-      );
-    });
+    dao.createUser(userEmail, userPassword)
+    Alert.alert(
+      'Success',
+      'You are Registered Successfully',
+      [
+        {
+          text: 'Ok',
+          onPress: () => navigation.navigate('AdminPage'),
+        },
+      ],
+      { cancelable: false }
+    );
+    
   };
     
     
