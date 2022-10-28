@@ -3,10 +3,13 @@ import { Text, View, Image, ImageBackground, TouchableOpacity, TextInput, StyleS
 import Mybutton from './pages/components/Mybutton';
 import Mytext from './pages/components/Mytext';
 import { openDatabase } from 'react-native-sqlite-storage';
+import dbModel from './dbModel';
 
 var db = openDatabase({ name: 'UserDatabase.db' });
 
 const CreateTeam = ({ navigation }) => {
+  dao = new dbModel()
+
     const styles = StyleSheet.create({
         input: {
           borderColor: "gray",
@@ -26,59 +29,30 @@ const CreateTeam = ({ navigation }) => {
         }
       });
 
-
-      useEffect(() => {
-        db.transaction(function (txn) {
-          txn.executeSql(
-            "SELECT name FROM sqlite_master WHERE type='table' AND name='team_table'",
-            [],
-            function (tx, res) {
-              console.log('item:', res.rows.length);
-              if (res.rows.length == 0) {
-                txn.executeSql('DROP TABLE IF EXISTS team_table', []);
-                txn.executeSql(
-                  'CREATE TABLE IF NOT EXISTS team_table(team_id INTEGER PRIMARY KEY AUTOINCREMENT, team_name VARCHAR(50))',
-                  []
-                );
-              }
-            }
-          );
-        });
-      }, []);
-
   let [teamname, setTeamName] = useState('');
 
   let register_team = () => {
     console.log(teamname);
 
     if (!teamname) {
-      alert('Please fill email');
+      alert('Please fill team name');
       return;
     }
     
 
-    db.transaction(function (tx) {
-      tx.executeSql(
-        'INSERT INTO team_table(team_name) VALUES (?)',
-        [teamname],
-        (tx, results) => {
-          console.log('Results', results.rowsAffected);
-          if (results.rowsAffected > 0) {
-            Alert.alert(
-              'Success',
-              'Team Registered Successfully',
-              [
-                {
-                  text: 'Ok',
-                  onPress: () => navigation.navigate('TeamList'),
-                },
-              ],
-              { cancelable: false }
-            );
-          } else alert('Registration Failed');
-        }
-      );
-    });
+    dao.createTeam(teamname)
+    Alert.alert(
+      'Success',
+      'Team Registered Successfully',
+      [
+        {
+          text: 'Ok',
+          onPress: () => navigation.navigate('AdminPage'),
+        },
+      ],
+      { cancelable: false }
+    );
+    
   };
 
 
