@@ -57,8 +57,9 @@ const AdminPage = ({ navigation }) => {
         />
 
 
-        <View style={{position: 'absolute', top: 0, left: 10, right: 0, bottom: 190, justifyContent: 'center', alignItems: 'center'}}>
+        
             <Text style={{color: "#FFFFFF", fontSize: 30, fontFamily: 'Bungee-Regular', bottom: 0}}>ADMIN PAGE</Text> 
+            <View style={{position: 'absolute', top: 0, left: 10, right: 0, bottom: 190, justifyContent: 'center', alignItems: 'center'}}>
             <TouchableOpacity
             //onPress={() => console.log("button pressed!")} 
             onPress={() =>Alert.alert("live scoring")}
@@ -66,19 +67,20 @@ const AdminPage = ({ navigation }) => {
             <Text style={{color: "#FFFFFF", fontSize: 30, fontFamily: 'Bungee-Regular'}}>LIVE SCORING</Text>
             </TouchableOpacity>
         </View>
+
         <View style={{position: 'absolute', top: 100, left: 10, right: 0, bottom: 0, justifyContent: 'center', alignItems: 'center'}}>
         <TouchableOpacity
-            onPress={() => navigation.navigate('UserList')} 
+            onPress={() => navigation.navigate('TeamList')} 
         
-            customClick={() => navigation.navigate('UserList')}
+            customClick={() => navigation.navigate('TeamList')}
             style={styles.button1}>
         <Text style={{color: "#FFFFFF", fontSize: 28, fontFamily: 'Bungee-Regular'}}>BROWSE TEAMS</Text>
         </TouchableOpacity>
         </View>
         <View style={{position: 'absolute', top: 300, left: 10, right: 0, bottom: 0, justifyContent: 'center', alignItems: 'center'}}>
         <TouchableOpacity
-            onPress={() => navigation.navigate('CreateTeam')} 
-            customClick={() => navigation.navigate('CreateTeam')}
+            onPress={() => navigation.navigate('TeamList')} 
+            customClick={() => navigation.navigate('TeamList')}
             style={styles.button1}>
         <Text style={{color: "#FFFFFF", fontSize: 28, fontFamily: 'Bungee-Regular'}}>BROWSE PLAYERS</Text>
         </TouchableOpacity>
