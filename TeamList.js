@@ -69,31 +69,21 @@ const TeamList = ({ navigation }) => {
         };
       
         let deleteTeam = () => {
-          db.transaction((tx) => {
-            tx.executeSql(
-              'DELETE FROM team_table where team_id=?',
-              [teamID],
-              (tx, results) => {
-                console.log('Results', results.rowsAffected);
-                if (results.rowsAffected > 0) {
-                  Alert.alert(
-                    'Success',
-                    'User deleted successfully',
-                    [
-                      {
-                        text: 'Ok',
-                        //onPress: () => navigation.navigate('UserList'),
-                      },
-                    ],
-                    { cancelable: false }
-                  );
-                } else {
-                  alert('Please insert a valid User Id');
-                }
-              }
-            );
-          });
+          dao.deleteTeam(teamID)
+          Alert.alert(
+            'Success',
+            'You have Registered Successfully',
+            [
+              {
+                text: 'Ok',
+                onPress: () => navigation.navigate('TeamList'),
+              },
+            ],
+            { cancelable: false }
+          );
+          
         };
+        
     
         let updateTeam = () => {
           console.log(teamID, teamname);
@@ -107,28 +97,17 @@ const TeamList = ({ navigation }) => {
             return;
           }
       
-          db.transaction((tx) => {
-            tx.executeSql(
-              'UPDATE team_table set team_name=? where team_id=?',
-              [teamname, teamID],
-              (tx, results) => {
-                console.log('Results', results.rowsAffected);
-                if (results.rowsAffected > 0) {
-                  Alert.alert(
-                    'Success',
-                    'User updated successfully',
-                    [
-                      {
-                        text: 'Ok',
-                        onPress: () => navigation.navigate('TeamList'),
-                      },
-                    ],
-                    { cancelable: false }
-                  );
-                } else alert('Update Failed');
-              }
-            );
-          });
+          dao.updateTeam(teamID, teamname);
+ 
+          Alert.alert('Success','User updated successfully',
+             [
+              {
+               text: 'Ok',
+               onPress: () => navigation.navigate('TeamList'),
+              },
+             ],
+              { cancelable: false }
+              );
         };
 
         return (
