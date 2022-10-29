@@ -1,7 +1,6 @@
 import 'react-native-gesture-handler';
 
 import * as React from 'react';
-import { Button, View, Text } from 'react-native';
 
 import { NavigationContainer } from '@react-navigation/native';
 import { createStackNavigator } from '@react-navigation/stack';
@@ -31,7 +30,7 @@ const App = () => {
           name="UserList"
           component={UserList}
           options={{
-            title: 'UserList', //Set Header Title
+            title: 'UserList', 
 
           }}
         />
@@ -40,7 +39,7 @@ const App = () => {
           name="AdminPage"
           component={AdminPage}
           options={{
-            title: 'Admin Page', //Set Header Title
+            title: 'Admin Page',
 
           }}
         />
@@ -49,7 +48,7 @@ const App = () => {
           name="CreateTeam"
           component={CreateTeam}
           options={{
-            title: 'Create Team', //Set Header Title
+            title: 'Create Team', 
 
           }}
         />  
@@ -58,8 +57,7 @@ const App = () => {
           name="TeamList"
           component={TeamList}
           options={{
-            title: 'Team List', //Set Header Title
-
+            title: 'Team List', 
           }}
         />  
         </Stack.Navigator>
