@@ -1,6 +1,5 @@
 import React from "react";
-//import Login from "./login.js";
-import { Text, View, ScrollView, KeyboardAvoidingView, Image, ImageBackground, TouchableOpacity, TextInput, StyleSheet, Button, Alert} from "react-native";
+import { Text, View, ImageBackground, TouchableOpacity, TextInput, StyleSheet, Alert} from "react-native";
 
 
 export default function Team(){
