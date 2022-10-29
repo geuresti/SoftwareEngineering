@@ -1,7 +1,5 @@
-import React, { useEffect, useState } from 'react';
-import { Text, View, Image, ImageBackground, TouchableOpacity, TextInput, StyleSheet, Button, Alert, SafeAreaView, FlatList} from "react-native";
-import Mybutton from './pages/components/Mybutton';
-import Mytext from './pages/components/Mytext';
+import React, { useState } from 'react';
+import { Text, View, ImageBackground, TouchableOpacity, TextInput, StyleSheet, Alert} from "react-native";
 import { openDatabase } from 'react-native-sqlite-storage';
 import dbModel from './dbModel';
 
