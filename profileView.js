@@ -1,6 +1,5 @@
 import React from "react";
-import Login from "./login.js";
-import { Text, View, Image, ImageBackground, TouchableOpacity, TextInput, StyleSheet, Button, Alert} from "react-native";
+import { Text, View, Image, ImageBackground, TouchableOpacity, StyleSheet, Alert} from "react-native";
 
 
 export default function App(){

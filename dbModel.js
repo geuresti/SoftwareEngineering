@@ -1,6 +1,3 @@
-import React, { useEffect, useState } from 'react';
-import { Text, View, Image, ImageBackground, TouchableOpacity, TextInput, StyleSheet, Button, Alert, SafeAreaView, FlatList} from "react-native";
-
 import { openDatabase } from 'react-native-sqlite-storage';
 
 var db = openDatabase({ name: 'UserDatabase.db' });
@@ -119,7 +116,3 @@ db.transaction(function (txn) {
 
     }
   }
-
-  
-    
-
