@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { Text, View, Image, ImageBackground, TouchableOpacity, TextInput, StyleSheet, Button, Alert, SafeAreaView, FlatList} from "react-native";
-import Mybutton from './pages/components/Mybutton';
-import Mytext from './pages/components/Mytext';
+//import Mybutton from './pages/components/Mybutton';
+//import Mytext from './pages/components/Mytext';
 import { openDatabase } from 'react-native-sqlite-storage';
 import dbModel from './dbModel';
 
@@ -15,21 +15,30 @@ const UserList = ({ navigation }) => {
   let [userID, setUserID] = useState('');
     const styles = StyleSheet.create({
         textheader: {
-          color: '#111',
+          color: 'white',
           fontSize: 12,
           fontWeight: '700',
       
         },
         textbottom: {
-          color: '#111',
+          color: 'white',
           fontSize: 18,
         },
         button: {
           //flex: 1,
           alignItems: "center",
-          backgroundColor: "#171414",
+          backgroundColor: "#B62727",
           padding: 15
           
+      },
+      input:
+      {
+        color: 'white',
+        backgroundColor: "#383434",
+          width: "100%",
+          borderWidth: 2,
+          borderRadius: 3,
+          padding: 10,
       }
 
       });
@@ -50,7 +59,7 @@ const UserList = ({ navigation }) => {
       let listViewItemSeparator = () => {
         return (
           <View
-            style={{ height: 0.2, width: '100%', backgroundColor: '#808080' }}
+            style={{ height: 0.2, width: '100%', backgroundColor: '#171414' }}
           />
         );
       };
@@ -59,7 +68,7 @@ const UserList = ({ navigation }) => {
         return (
         <View
             key={item.user_id}
-            style={{ backgroundColor: '#EEE', marginTop: 20, padding: 30, borderRadius: 10 }}>
+            style={{ backgroundColor: '#383434', marginTop: 20, padding: 30, borderRadius: 10 }}>
         <Text style={styles.textheader}>Id</Text>
         <Text style={styles.textbottom}>{item.user_id}</Text>
       
@@ -78,7 +87,7 @@ const UserList = ({ navigation }) => {
           dao.deleteUser(userID)
           Alert.alert(
             'Success',
-            'You have Registered Successfully',
+            'You have Deleted Successfully',
             [
               {
                 text: 'Ok',
@@ -119,7 +128,7 @@ const UserList = ({ navigation }) => {
 
         return (
           <SafeAreaView style={{ flex: 1 }}>
-            <View style={{ flex: 1, backgroundColor: 'white' }}>
+            <View style={{ flex: 1, backgroundColor: '#171414' }}>
               <View style={{ flex: 1 }}>
                 <FlatList
                   data={flatListItems}
@@ -130,10 +139,11 @@ const UserList = ({ navigation }) => {
               
 
               
-            <Text style={{fontSize:20 , fontFamily: 'monospace', color: 'orange'}}>ID</Text>
+            <Text style={{fontSize:20 , fontFamily: 'monospace', color: 'white'}}>ID</Text>
            <TextInput 
             style = {styles.input} keyboardType="number-pad"
            textAlign={'center'}
+           placeholderTextColor="white" 
             placeholder="ID"
             onChangeText={
               (userID) => setUserID(userID)
@@ -141,20 +151,22 @@ const UserList = ({ navigation }) => {
             />
         
         
-        <Text style={{fontSize:20 , fontFamily: 'monospace', color: 'orange'}}>Email</Text>
+        <Text style={{fontSize:20 , fontFamily: 'monospace', color: 'white'}}>Email</Text>
         <TextInput 
           style = {styles.input} keyboardType="number-pad"
           textAlign={'center'}
-          placeholder="ID"
+          placeholder="Email"
+          placeholderTextColor="white" 
           onChangeText={
             (userEmail) => setUserEmail(userEmail)
           }
           />
 
-        <Text style={{fontSize:20 , fontFamily: 'monospace', color: 'orange'}}>Password</Text>
+        <Text style={{fontSize:20 , fontFamily: 'monospace', color: 'white'}}>Password</Text>
         <TextInput 
-          style = {styles.input} keyboardType="email-address"
+          style = {[styles.input,{color:"white"}]} keyboardType="email-address"
           textAlign={'center'}
+          placeholderTextColor="white" 
           placeholder="Password"
           onChangeText={
             (userPassword) => setUserPassword(userPassword)
@@ -172,7 +184,7 @@ const UserList = ({ navigation }) => {
               <TouchableOpacity
             //onPress={() => console.log("button pressed!")} 
                 onPress={updateUser}
-                style={styles.button}>
+                style={[styles.button , {backgroundColor: "#CA5A37"}]}>
                 <Text style={{color: "#FFFFFF", fontFamily: 'monospace'}}>Update User</Text>
               </TouchableOpacity>
               </View>

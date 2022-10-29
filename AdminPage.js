@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { Text, View, Image, ImageBackground, TouchableOpacity, TextInput, StyleSheet, Button, Alert, SafeAreaView, FlatList} from "react-native";
-import Mybutton from './pages/components/Mybutton';
-import Mytext from './pages/components/Mytext';
+//import Mybutton from './pages/components/Mybutton';
+//import Mytext from './pages/components/Mytext';
 
 
 const AdminPage = ({ navigation }) => {
@@ -79,8 +79,8 @@ const AdminPage = ({ navigation }) => {
         </View>
         <View style={{position: 'absolute', top: 300, left: 10, right: 0, bottom: 0, justifyContent: 'center', alignItems: 'center'}}>
         <TouchableOpacity
-            onPress={() => navigation.navigate('TeamList')} 
-            customClick={() => navigation.navigate('TeamList')}
+            onPress={() => navigation.navigate('UserList')} 
+            customClick={() => navigation.navigate('UserList')}
             style={styles.button1}>
         <Text style={{color: "#FFFFFF", fontSize: 28, fontFamily: 'Bungee-Regular'}}>BROWSE PLAYERS</Text>
         </TouchableOpacity>
