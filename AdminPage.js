@@ -28,7 +28,7 @@ const AdminPage = ({ navigation }) => {
       alignItems: "center",
       backgroundColor: "#CA5A37",
       padding: 5,
-      paddingHorizontal: 32,
+      paddingHorizontal: 70,
       justifyContent: 'center'
 
       
@@ -58,12 +58,12 @@ const AdminPage = ({ navigation }) => {
 
 
         
-            <Text style={{color: "#FFFFFF", fontSize: 30, fontFamily: 'Bungee-Regular', bottom: 0}}>ADMIN PAGE</Text> 
-            <View style={{position: 'absolute', top: 0, left: 10, right: 0, bottom: 190, justifyContent: 'center', alignItems: 'center'}}>
+            <Text style={{position: 'absolute', top: 100, left: 60, right: 0, bottom: 300, color: "#FFFFFF", fontSize: 40, fontFamily: 'Bungee-Regular'}}>ADMIN PAGE</Text> 
+            <View style={{position: 'absolute', top: 0, left: 10, right: 0, bottom: 110, justifyContent: 'center', alignItems: 'center'}}>
             <TouchableOpacity
             //onPress={() => console.log("button pressed!")} 
             onPress={() =>Alert.alert("live scoring")}
-            style={styles.button1}>
+            style={[styles.button1,{paddingHorizontal: 70}]}>
             <Text style={{color: "#FFFFFF", fontSize: 30, fontFamily: 'Bungee-Regular'}}>LIVE SCORING</Text>
             </TouchableOpacity>
         </View>
@@ -73,7 +73,7 @@ const AdminPage = ({ navigation }) => {
             onPress={() => navigation.navigate('TeamList')} 
         
             customClick={() => navigation.navigate('TeamList')}
-            style={styles.button1}>
+            style={styles.button2}>
         <Text style={{color: "#FFFFFF", fontSize: 28, fontFamily: 'Bungee-Regular'}}>BROWSE TEAMS</Text>
         </TouchableOpacity>
         </View>
