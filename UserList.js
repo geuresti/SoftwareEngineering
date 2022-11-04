@@ -3,9 +3,26 @@ import { Text, View, Image, ImageBackground, TouchableOpacity, TextInput, StyleS
 //import Mybutton from './pages/components/Mybutton';
 //import Mytext from './pages/components/Mytext';
 import { openDatabase } from 'react-native-sqlite-storage';
+import Realm from "realm";
 import dbModel from './dbModel';
 
 var db = openDatabase({ name: 'UserDatabase.db' });
+
+realm = new Realm({path: 'logins.realm',
+schema:[
+    {
+    name: "User",
+    properties: {
+        username: "string",
+        pass: "string",
+    },
+    primaryKey: "username",
+
+
+    },
+],
+
+});
 
 const UserList = ({ navigation }) => {
   dao = new dbModel()
@@ -43,8 +60,12 @@ const UserList = ({ navigation }) => {
 
       });
 
-      let [flatListItems, setFlatListItems] = useState([]);
+      //let [flatListItems, setFlatListItems] = useState([]);
+        this.state = {
+          FlatListItems: [],
+        };
 
+      /*
       useEffect(() => {
         db.transaction((tx) => {
           tx.executeSql('SELECT * FROM user_table', [], (tx, results) => {
@@ -55,6 +76,25 @@ const UserList = ({ navigation }) => {
           });
         });
       }, []);
+      */
+
+      //useEffect(() => {
+
+        const tasks = realm.objects("User");
+        console.log(tasks);
+        //var temp = [];
+        console.log(tasks.length)
+        //for (let i = 0; i < tasks.length; ++i)
+        //{
+          //   temp.push(tasks[i]);
+            //  console.log(tasks[i])
+        //}
+        this.state = {
+          FlatListItems: tasks,
+        };
+        
+
+     // });
     
       let listViewItemSeparator = () => {
         return (
@@ -73,10 +113,10 @@ const UserList = ({ navigation }) => {
         <Text style={styles.textbottom}>{item.user_id}</Text>
       
         <Text style={styles.textheader}>Email</Text>
-        <Text style={styles.textbottom}>{item.user_email}</Text>
+        <Text style={styles.textbottom}>{item.username}</Text>
       
         <Text style={styles.textheader}>Password</Text>
-        <Text style={styles.textbottom}>{item.user_password}</Text>
+        <Text style={styles.textbottom}>{item.pass}</Text>
         
           
         </View>
@@ -84,7 +124,14 @@ const UserList = ({ navigation }) => {
         };
       
         let deleteUser = () => {
-          dao.deleteUser(userID)
+          //dao.deleteUser(username)
+          realm.write(() => {
+            const testDel = realm.objectForPrimaryKey("User", userEmail);
+          //const testDel = realm.objects("User").filtered(`username = ${userEmail}`);
+          console.log(testDel);
+          realm.delete(testDel)
+        });
+          //realm.delete(realm.objects("User").filtered('username =' + userEmail));
           Alert.alert(
             'Success',
             'You have Deleted Successfully',
@@ -113,8 +160,15 @@ const UserList = ({ navigation }) => {
             alert('Password must be at least 7 characters');
             return;
           }
-          dao.updateUser(userID, userEmail, userPassword);
- 
+          //dao.updateUser(userID, userEmail, userPassword);
+          realm.write(() => {
+            const testUp = realm.objectForPrimaryKey("User", userEmail);
+          //const testDel = realm.objects("User").filtered(`username = ${userEmail}`);
+          console.log(testUp);
+          testUp.username = userEmail;
+          testUp.pass = userPassword;
+        });
+          
           Alert.alert('Success','User updated successfully',
              [
               {
@@ -131,7 +185,7 @@ const UserList = ({ navigation }) => {
             <View style={{ flex: 1, backgroundColor: '#171414' }}>
               <View style={{ flex: 1 }}>
                 <FlatList
-                  data={flatListItems}
+                  data={this.state.FlatListItems}
                   ItemSeparatorComponent={listViewItemSeparator}
                   keyExtractor={(item, index) => index.toString()}
                   renderItem={({ item }) => listItemView(item)}
