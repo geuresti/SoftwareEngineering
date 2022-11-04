@@ -24,12 +24,21 @@ schema:[
 ],
 
 });
+realm2 = new Realm({path: 'team.realm',
+schema:[
+    {
+    name: "Team",
+    properties: {
+        teamName: "string",
+        //teamid: { type: 'int', default: 0 },
+    },
+    primaryKey: "teamName",
 
 
+    },
+],
 
-
-
-
+});
 
 
 const LoginScreen = ({ navigation }) => {
@@ -81,6 +90,7 @@ const styles = StyleSheet.create({
       alert('Password must be at least 8 characters');
       return;
     }
+
     let user;
     realm.write(() => {
         user = realm.create("User", {username: userEmail, pass: userPassword});

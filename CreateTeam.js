@@ -6,6 +6,36 @@ import { openDatabase } from 'react-native-sqlite-storage';
 import dbModel from './dbModel';
 
 var db = openDatabase({ name: 'UserDatabase.db' });
+realm = new Realm({path: 'logins.realm',
+schema:[
+    {
+    name: "User",
+    properties: {
+        username: "string",
+        pass: "string",
+    },
+    primaryKey: "username",
+
+
+    },
+],
+
+});
+realm2 = new Realm({path: 'team.realm',
+schema:[
+    {
+    name: "Team",
+    properties: {
+        teamName: "string",
+        //teamid: { type: 'int', default: 0 },
+    },
+    primaryKey: "teamName",
+
+
+    },
+],
+
+});
 
 const CreateTeam = ({ navigation }) => {
   dao = new dbModel()
@@ -40,7 +70,11 @@ const CreateTeam = ({ navigation }) => {
     }
     
 
-    dao.createTeam(teamname)
+    //dao.createTeam(teamname)
+    let team;
+    realm2.write(() => {
+        team = realm2.create("Team", {teamName: teamname});
+      })
     Alert.alert(
       'Success',
       'Team Registered Successfully',

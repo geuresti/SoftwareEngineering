@@ -23,6 +23,21 @@ schema:[
 ],
 
 });
+realm = new Realm({path: 'team.realm',
+schema:[
+    {
+    name: "Team",
+    properties: {
+        teamName: "string",
+        //teamid: { type: 'int', default: 0 },
+    },
+    primaryKey: "teamName",
+
+
+    },
+],
+
+});
 
 const UserList = ({ navigation }) => {
   dao = new dbModel()

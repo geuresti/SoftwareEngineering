@@ -5,10 +5,40 @@ import { Text, View, Image, ImageBackground, TouchableOpacity, TextInput, StyleS
 import { openDatabase } from 'react-native-sqlite-storage';
 
 var db = openDatabase({ name: 'UserDatabase.db' });
+realm = new Realm({path: 'logins.realm',
+schema:[
+    {
+    name: "User",
+    properties: {
+        username: "string",
+        pass: "string",
+    },
+    primaryKey: "username",
+
+
+    },
+],
+
+});
+realm2 = new Realm({path: 'team.realm',
+schema:[
+    {
+    name: "Team",
+    properties: {
+        teamName: "string",
+        //teamid: { type: 'int', default: 0 },
+    },
+    primaryKey: "teamName",
+
+
+    },
+],
+
+});
 
 const TeamList = ({ navigation }) => {
-    let [teamname, setTeamName] = useState('');
-    let [teamID, setTeamID] = useState('');
+    //let [teamname, setTeamName] = useState('');
+    //let [teamID, setTeamID] = useState('');
 
     const styles = StyleSheet.create({
       textheader: {
@@ -40,18 +70,35 @@ const TeamList = ({ navigation }) => {
 
       });
 
-      let [flatListItems, setFlatListItems] = useState([]);
 
-      useEffect(() => {
-        db.transaction((tx) => {
-          tx.executeSql('SELECT * FROM team_table', [], (tx, results) => {
-            var temp = [];
-            for (let i = 0; i < results.rows.length; ++i)
-              temp.push(results.rows.item(i));
-            setFlatListItems(temp);
-          });
-        });
-      }, []);
+            //let [flatListItems, setFlatListItems] = useState([]);
+            this.state = {
+              FlatListItems: [],
+            };
+    
+          /*
+          useEffect(() => {
+            db.transaction((tx) => {
+              tx.executeSql('SELECT * FROM user_table', [], (tx, results) => {
+                var temp = [];
+                for (let i = 0; i < results.rows.length; ++i)
+                  temp.push(results.rows.item(i));
+                setFlatListItems(temp);
+              });
+            });
+          }, []);
+          */
+    
+          //useEffect(() => {
+    
+            const tasks = realm2.objects("Team");
+            console.log(tasks);
+            //var temp = [];
+            console.log(tasks.length)
+
+            this.state = {
+              FlatListItems: tasks,
+            };
     
       let listViewItemSeparator = () => {
         return (
@@ -66,11 +113,9 @@ const TeamList = ({ navigation }) => {
         <View
             key={item.user_id}
             style={{ backgroundColor: '#383434', marginTop: 20, padding: 30, borderRadius: 10 }}>
-        <Text style={styles.textheader}>Id</Text>
-        <Text style={styles.textbottom}>{item.team_id}</Text>
       
-        <Text style={styles.textheader}>Email</Text>
-        <Text style={styles.textbottom}>{item.team_name}</Text>
+        <Text style={styles.textheader}>TeamName</Text>
+        <Text style={styles.textbottom}>{item.teamName}</Text>
         
           
         </View>
@@ -78,7 +123,13 @@ const TeamList = ({ navigation }) => {
         };
       
         let deleteTeam = () => {
-          dao.deleteTeam(teamID)
+          realm2.write(() => {
+            const teamDel = realm2.objectForPrimaryKey("Team", teamName);
+          //const testDel = realm.objects("User").filtered(`username = ${userEmail}`);
+          console.log(teamDel);
+          realm2.delete(teamDel)
+        });
+          //dao.deleteTeam(teamID)
           Alert.alert(
             'Success',
             'You have Deleted Successfully',
@@ -106,8 +157,15 @@ const TeamList = ({ navigation }) => {
             return;
           }
       
-          dao.updateTeam(teamID, teamname);
- 
+          //dao.updateTeam(teamID, teamname);
+          realm2.write(() => {
+            const teamUp = realm2.objectForPrimaryKey("Team", teamname);
+          //const testDel = realm.objects("User").filtered(`username = ${userEmail}`);
+          console.log(teamUp);
+          testUp.teamName = teamname;
+          //testUp.pass = userPassword;
+        });
+          
           Alert.alert('Success','User updated successfully',
              [
               {
@@ -124,7 +182,7 @@ const TeamList = ({ navigation }) => {
             <View style={{ flex: 1, backgroundColor: '#171414' }}>
               <View style={{ flex: 1 }}>
                 <FlatList
-                  data={flatListItems}
+                  data={this.state.FlatListItems}
                   ItemSeparatorComponent={listViewItemSeparator}
                   keyExtractor={(item, index) => index.toString()}
                   renderItem={({ item }) => listItemView(item)}

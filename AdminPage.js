@@ -61,8 +61,8 @@ const AdminPage = ({ navigation }) => {
             <Text style={{position: 'absolute', top: 100, left: 60, right: 0, bottom: 300, color: "#FFFFFF", fontSize: 40, fontFamily: 'Bungee-Regular'}}>ADMIN PAGE</Text> 
             <View style={{position: 'absolute', top: 0, left: 10, right: 0, bottom: 110, justifyContent: 'center', alignItems: 'center'}}>
             <TouchableOpacity
-            //onPress={() => console.log("button pressed!")} 
-            onPress={() =>Alert.alert("live scoring")}
+              onPress={() => navigation.navigate('CreateTeam')} 
+              customClick={() => navigation.navigate('CreateTeam')}
             style={[styles.button1,{paddingHorizontal: 70}]}>
             <Text style={{color: "#FFFFFF", fontSize: 30, fontFamily: 'Bungee-Regular'}}>LIVE SCORING</Text>
             </TouchableOpacity>
