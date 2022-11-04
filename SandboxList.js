@@ -160,8 +160,15 @@ const SandboxList = ({ navigation }) => {
             alert('Password must be at least 7 characters');
             return;
           }
-          dao.updateUser(userID, userEmail, userPassword);
- 
+          //dao.updateUser(userID, userEmail, userPassword);
+          realm.write(() => {
+            const testUp = realm.objectForPrimaryKey("User", userEmail);
+          //const testDel = realm.objects("User").filtered(`username = ${userEmail}`);
+          console.log(testUp);
+          testUp.username = userEmail;
+          testUp.pass = userPassword;
+        });
+          
           Alert.alert('Success','User updated successfully',
              [
               {
