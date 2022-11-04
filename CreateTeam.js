@@ -4,6 +4,8 @@ import { Text, View, Image, ImageBackground, TouchableOpacity, TextInput, StyleS
 //import Mytext from './pages/components/Mytext';
 import { openDatabase } from 'react-native-sqlite-storage';
 import dbModel from './dbModel';
+import Realm from "realm";
+
 
 var db = openDatabase({ name: 'UserDatabase.db' });
 realm = new Realm({path: 'logins.realm',
@@ -27,14 +29,15 @@ schema:[
     name: "Team",
     properties: {
         teamName: "string",
-        //teamid: { type: 'int', default: 0 },
+        //teamids: "string",
+        teamids: "string",
     },
     primaryKey: "teamName",
 
 
     },
 ],
-
+schemaVersion:4
 });
 
 const CreateTeam = ({ navigation }) => {
@@ -73,7 +76,7 @@ const CreateTeam = ({ navigation }) => {
     //dao.createTeam(teamname)
     let team;
     realm2.write(() => {
-        team = realm2.create("Team", {teamName: teamname});
+        team = realm2.create("Team", {teamName: teamname, teamids: "0"});
       })
     Alert.alert(
       'Success',

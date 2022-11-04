@@ -23,20 +23,21 @@ schema:[
 ],
 
 });
-realm = new Realm({path: 'team.realm',
+realm2 = new Realm({path: 'team.realm',
 schema:[
     {
     name: "Team",
     properties: {
         teamName: "string",
-        //teamid: { type: 'int', default: 0 },
+        //teamids: "string",
+        teamids: "string",
     },
     primaryKey: "teamName",
 
 
     },
 ],
-
+schemaVersion:4
 });
 
 const UserList = ({ navigation }) => {

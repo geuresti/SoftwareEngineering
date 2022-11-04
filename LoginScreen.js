@@ -30,14 +30,15 @@ schema:[
     name: "Team",
     properties: {
         teamName: "string",
-        //teamid: { type: 'int', default: 0 },
+        //teamManager: "string",
+        teamids: "string",
     },
     primaryKey: "teamName",
 
 
     },
 ],
-
+schemaVersion:4
 });
 
 

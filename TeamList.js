@@ -3,6 +3,7 @@ import { Text, View, Image, ImageBackground, TouchableOpacity, TextInput, StyleS
 //import Mybutton from './pages/components/Mybutton';
 //import Mytext from './pages/components/Mytext';
 import { openDatabase } from 'react-native-sqlite-storage';
+import Realm from "realm";
 
 var db = openDatabase({ name: 'UserDatabase.db' });
 realm = new Realm({path: 'logins.realm',
@@ -26,19 +27,20 @@ schema:[
     name: "Team",
     properties: {
         teamName: "string",
-        //teamid: { type: 'int', default: 0 },
+        //teamids: "string",
+        teamids: "string",
     },
     primaryKey: "teamName",
 
 
     },
 ],
-
+schemaVersion:4
 });
 
 const TeamList = ({ navigation }) => {
-    //let [teamname, setTeamName] = useState('');
-    //let [teamID, setTeamID] = useState('');
+    let [teamname, setTeamName] = useState('');
+    let [teamID, setTeamID] = useState('');
 
     const styles = StyleSheet.create({
       textheader: {
@@ -113,7 +115,8 @@ const TeamList = ({ navigation }) => {
         <View
             key={item.user_id}
             style={{ backgroundColor: '#383434', marginTop: 20, padding: 30, borderRadius: 10 }}>
-      
+        <Text style={styles.textheader}>teamids</Text>
+        <Text style={styles.textbottom}>{item.teamids}</Text>
         <Text style={styles.textheader}>TeamName</Text>
         <Text style={styles.textbottom}>{item.teamName}</Text>
         
@@ -124,7 +127,7 @@ const TeamList = ({ navigation }) => {
       
         let deleteTeam = () => {
           realm2.write(() => {
-            const teamDel = realm2.objectForPrimaryKey("Team", teamName);
+            const teamDel = realm2.objectForPrimaryKey("Team", teamname);
           //const testDel = realm.objects("User").filtered(`username = ${userEmail}`);
           console.log(teamDel);
           realm2.delete(teamDel)
@@ -146,7 +149,7 @@ const TeamList = ({ navigation }) => {
         
     
         let updateTeam = () => {
-          console.log(teamID, teamname);
+          //console.log(teamID, teamname);
       
           if (!teamID) {
             alert('Please fill team id');
@@ -162,7 +165,8 @@ const TeamList = ({ navigation }) => {
             const teamUp = realm2.objectForPrimaryKey("Team", teamname);
           //const testDel = realm.objects("User").filtered(`username = ${userEmail}`);
           console.log(teamUp);
-          testUp.teamName = teamname;
+          teamUp.teamName = teamname;
+          teamUp.teamids = teamID;
           //testUp.pass = userPassword;
         });
           
