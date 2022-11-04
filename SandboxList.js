@@ -124,7 +124,14 @@ const SandboxList = ({ navigation }) => {
         };
       
         let deleteUser = () => {
-          dao.deleteUser(userID)
+          //dao.deleteUser(username)
+          realm.write(() => {
+            const testDel = realm.objectForPrimaryKey("User", userEmail);
+          //const testDel = realm.objects("User").filtered(`username = ${userEmail}`);
+          console.log(testDel);
+          realm.delete(testDel)
+        });
+          //realm.delete(realm.objects("User").filtered('username =' + userEmail));
           Alert.alert(
             'Success',
             'You have Deleted Successfully',
