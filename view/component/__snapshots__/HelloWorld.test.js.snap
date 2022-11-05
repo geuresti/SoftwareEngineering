@@ -1,0 +1,31 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`HelloWorld Snapshot Test 1`] = `
+<View
+  style={
+    Object {
+      "alignItems": "center",
+      "flex": 1,
+      "justifyContent": "center",
+    }
+  }
+>
+  <Text
+    style={
+      Array [
+        Object {
+          "color": "blue",
+          "fontSize": 36,
+          "textAlign": "center",
+        },
+        Object {
+          "color": "green",
+        },
+      ]
+    }
+  >
+    Hello 
+    Hello!
+  </Text>
+</View>
+`;
