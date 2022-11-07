@@ -3,7 +3,7 @@ import { Text, View, Image, ImageBackground, TouchableOpacity, TextInput, StyleS
 import PlayerDao from "./model/PlayerDao.js"
 
 
-const ProfileEdit = ({ props, navigation }) => {
+const ProfileEdit = ({ navigation }) => {
 
 
   const styles = StyleSheet.create({
@@ -57,9 +57,9 @@ input: {
 
   let playerDao = new PlayerDao()
   let curr = playerDao.getCurrentPlayer()
-  let player = playerDao.readPlayer(curr)
+  let player = playerDao.readPlayer(curr.email)
 
-  
+
    return (
     <View style={{flex:1, alignItems:'center', justifyContent:'center'}}>
     <ImageBackground
