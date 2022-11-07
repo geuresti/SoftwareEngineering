@@ -4,15 +4,14 @@ import * as React from 'react';
 
 import { NavigationContainer } from '@react-navigation/native';
 import { createStackNavigator } from '@react-navigation/stack';
-
-//import LoginScreen from "./LoginScreen.js"
-//import UserList from "./UserList.js"
 import AdminPage from './AdminPage.js';
 import CreateTeam from './CreateTeam.js';
 import TeamList from './TeamList.js';
 import LoginScreen from './LoginScreen.js';
 import UserList from './UserList.js';
 import Realm from "realm";
+import ProfileEdit from './ProfileEdit.js';
+import ProfileView from './ProfileView.js';
 
 
 const Stack = createStackNavigator();
@@ -66,6 +65,24 @@ const App = () => {
             title: 'Team List', 
           }}
         />  
+
+        <Stack.Screen
+          name="ProfileEdit"
+          component={ProfileEdit}
+          options={{
+            title: 'Edit Profile', //Set Header Title
+            
+          }}
+        />
+
+        <Stack.Screen
+          name="ProfileView"
+          component={ProfileView}
+          options={{
+            title: 'Player Profile', //Set Header Title
+            
+          }}
+        />
         </Stack.Navigator>
     </NavigationContainer>
     
