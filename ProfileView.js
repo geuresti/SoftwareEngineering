@@ -1,8 +1,9 @@
 import React from "react";
-import { Text, View, Image, ImageBackground, TouchableOpacity, StyleSheet, Alert} from "react-native";
+import { Text, View, Image, ImageBackground, TouchableOpacity, TextInput, StyleSheet, Alert, navigation} from "react-native";
+import PlayerDao from "./model/PlayerDao.js"
 
 
-export default function App(){
+const ProfileView = ({ navigation }) => {
   const styles = StyleSheet.create({
     texttype: {fontSize:25 , fontFamily: 'Bungee-Regular', color: '#D9D9D9'},
     profileText: {
@@ -31,7 +32,13 @@ export default function App(){
 
     
 }
+
   });
+
+  let playerDao = new PlayerDao()
+  let curr = playerDao.getCurrentPlayer()
+  let player = playerDao.readPlayer(curr.email)
+
    return (
     <View style={{flex:1, alignItems:'center', justifyContent:'center'}}>
     <ImageBackground
@@ -47,16 +54,16 @@ export default function App(){
      source={require('./headshot3.png')}></Image>
    </View>
    <View style={styles.profileTextNames}>
-    <Text style={[styles.texttype, {fontSize: 30}]}>USERNAME</Text>
-    <Text style={[styles.texttype, {fontSize: 20, bottom:30}]}>Team Name</Text>
+    <Text style={[styles.texttype, {fontSize: 30}]}>{player.email}</Text>
+    <Text style={[styles.texttype, {fontSize: 20, bottom:30}]}>{player.team_id}</Text>
    </View>
    <View style={styles.profileText}>
-        <Text style={styles.texttype}>FIRST LAST</Text>
-        <Text style={[styles.texttype, {fontSize: 14}]}>Height: 6'4   Weight: 280 lbs</Text>
-        <Text style={[styles.texttype, {fontSize: 18}]}>Experience Level:</Text>
-        <Text style={[styles.texttype, {fontSize: 14}]}>Intermediate</Text>
+        <Text style={styles.texttype}>{player.first_name} {player.last_name}</Text>
+        <Text style={[styles.texttype, {fontSize: 14}]}>Height: {player.height}  Weight: {player.weight} lbs</Text>
+        <Text style={[styles.texttype, {fontSize: 18}]}>Experience Level: </Text>
+        <Text style={[styles.texttype, {fontSize: 14}]}>{player.experience}</Text>
         <Text style={[styles.texttype, {fontSize: 18}]}>Position:</Text>
-        <Text style={[styles.texttype, {fontSize: 14}]}>power forward</Text>
+        <Text style={[styles.texttype, {fontSize: 14}]}>{player.position}</Text>
         </View>
         <View style={{position: 'absolute', top: 0, left: 240, right: 0, bottom: 680, justifyContent: 'center', alignItems: 'center'}}>
         <TouchableOpacity
@@ -81,3 +88,4 @@ export default function App(){
   </View>
    );
 }
+export default ProfileView
