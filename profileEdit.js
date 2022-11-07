@@ -56,7 +56,10 @@ input: {
   });
 
   let playerDao = new PlayerDao()
-  let player = playerDao.readPlayer("p_test")
+  let curr = playerDao.getCurrentPlayer()
+  let player = playerDao.readPlayer(curr)
+
+  
    return (
     <View style={{flex:1, alignItems:'center', justifyContent:'center'}}>
     <ImageBackground
@@ -72,7 +75,7 @@ input: {
      source={require('./headshot3.png')}></Image>
    </View>
    <View style={styles.profileTextNames}>
-    <Text style={[styles.texttype, {fontSize: 30}]}>{player.email}</Text>
+    <Text style={[styles.texttype, {fontSize: 30, }]}>{player.email}</Text>
     <Text style={[styles.texttype, {fontSize: 20, bottom:30}]}>Team Name</Text>
    </View>
      
