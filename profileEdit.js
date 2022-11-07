@@ -1,8 +1,11 @@
 import React from "react";
-import { Text, View, Image, ImageBackground, TouchableOpacity, TextInput, StyleSheet, Alert} from "react-native";
+import { Text, View, Image, ImageBackground, TouchableOpacity, TextInput, StyleSheet, Alert, navigation} from "react-native";
+import PlayerDao from "./model/PlayerDao.js"
 
 
-export default function App(){
+const ProfileEdit = ({ props, navigation }) => {
+
+
   const styles = StyleSheet.create({
     texttype: {fontSize:25 , fontFamily: 'Bungee-Regular', color: '#D9D9D9'},
     profileText: {
@@ -51,6 +54,9 @@ input: {
     
 },
   });
+
+  let playerDao = new PlayerDao()
+  let player = playerDao.readPlayer("p_test")
    return (
     <View style={{flex:1, alignItems:'center', justifyContent:'center'}}>
     <ImageBackground
@@ -66,7 +72,7 @@ input: {
      source={require('./headshot3.png')}></Image>
    </View>
    <View style={styles.profileTextNames}>
-    <Text style={[styles.texttype, {fontSize: 30}]}>USERNAME</Text>
+    <Text style={[styles.texttype, {fontSize: 30}]}>{player.email}</Text>
     <Text style={[styles.texttype, {fontSize: 20, bottom:30}]}>Team Name</Text>
    </View>
      
@@ -128,3 +134,5 @@ input: {
   </View>
    );
 }
+
+export default ProfileEdit
