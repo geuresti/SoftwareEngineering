@@ -29,9 +29,18 @@ schema:[
 
 });
 
-
+var loggedInPlayer = ""
 
 export default class Player{
+
+    setCurrentPlayer(useremail){
+        loggedInPlayer = useremail
+    }
+
+    getCurrentPlayer(){
+        return player_realm.objectForPrimaryKey("Player", loggedInPlayer); 
+    }
+    
     createPlayer(useremail){
        player_realm.write(() => {
         player_realm.create("Player", {email: useremail, first_name: "",
@@ -50,11 +59,12 @@ export default class Player{
             shotPercent: 0
             })
         })
-        return 
+        let player = player_realm.objectForPrimaryKey("Player", useremail);
+        return player 
     }
 
-    readPlayer(email){
-        const player = player_realm.objectForPrimaryKey("Player", email);
+    readPlayer(useremail){
+        let player = player_realm.objectForPrimaryKey("Player", useremail);
         return player
     }
 }
