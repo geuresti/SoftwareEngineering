@@ -2,15 +2,6 @@ import React, { useState } from 'react';
 import { Text, View, TouchableOpacity, TextInput, StyleSheet, Alert, SafeAreaView, FlatList} from "react-native";
 import Realm from "realm";
 
-/*
-    NOTES:
-
-    - when a new notif is created, the text box isn't cleared for the 
-        senderID / content fields and if you then press "Create Notification"
-        again, the db tries to create a second notification with the same 
-        ID as the first one. (refresh page upon create?)
-*/
-
 realm = new Realm({path: 'notifications.realm',
 schema:[
     {
@@ -28,16 +19,21 @@ schema:[
 });
 
 
-const TestingList = ({ navigation }) => {
+const NotificationCRD = ({ navigation }) => {
   
   const db = realm.objects("Notification");
   console.log("NOTIFICATIONS:", db);
   console.log("length:", db.length);
 
+  console.log("last:", db[db.length-1]); // nasty with it fr ngl
+  console.log("last_id:", parseInt(db[db.length-1].id));
+  console.log("next_id:", db[db.length-1].id) + 1; 
+
   let notifID = db.length
-  console.log("CURRENT ID:", notifID);    // THIS ISN't updating in REAL TIME
+  console.log("CURRENT ID:", notifID);    
   let [senderID, setSenderID] = useState('');
   let [notifContent, setNotifContent] = useState('');
+  let [itemID, setItemID] = useState('');
 
     const styles = StyleSheet.create({
         textheader: {
@@ -67,15 +63,6 @@ const TestingList = ({ navigation }) => {
       }
 
       }); 
-
-      //  this.state = {
-       //   notifID: db.length,
-        //}
-
-        // does this line affect anything?
-     //   this.state = {
-     //     FlatListItems: [],
-     //   };
 
         this.state = {
           FlatListItems: db,
@@ -110,21 +97,20 @@ const TestingList = ({ navigation }) => {
           );
         };
       
-        // UNTESTED
         let deleteNotif = () => {
           realm.write(() => {
-          const testDel = realm.objectForPrimaryKey("Notification", notifID);
+          const testDel = realm.objectForPrimaryKey("Notification", parseInt(itemID));
           console.log(testDel);
           realm.delete(testDel)
         });
 
           Alert.alert(
             'Success',
-            'You have Deleted Successfully',
+            'Notification Successfully Deleted',
             [
               {
                 text: 'Ok',
-                onPress: () => navigation.navigate('TestingList'),
+                onPress: () => navigation.navigate('NotificationCRD'),
               },
             ],
             { cancelable: false }
@@ -132,48 +118,35 @@ const TestingList = ({ navigation }) => {
           
         };
 
-        /*
-        id: "int",
-        senderID: {type: "int", default: 0},
-        content: "string",
-        */
         let createNotif = () => {
-          let user;
-          realm.write(() => {
-            user = realm.create("Notification", {id: notifID, content: notifContent, senderID: parseInt(senderID)});
-          })
-        }
-    
-        // UNTESTED
-        let updateNotif = () => {
-      
-            // CONTROLLER BEHAVIOR
-          if (!senderID) {
-            alert('Please provide sender ID');
+
+          if (!notifID) {
+            alert("Please provide notification ID");
             return;
           }
           if (!notifContent) {
-            alert('Please provide content');
+            alert('Please provide content for the notification');
             return;
           }
 
           realm.write(() => {
-            const testUp = realm.objectForPrimaryKey("Notification", notifID);
-          console.log(testUp);
-          testUp.senderID = senderID;
-          testUp.content = notifContent;
-        });
-          
-          Alert.alert('Success','User updated successfully',
-             [
+            let next_ID = db[db.length-1].id + 1
+            new_notification = realm.create("Notification", {id: next_ID, content: notifContent, senderID: parseInt(senderID)});
+          })
+
+          Alert.alert(
+            'Success',
+            'Notification Successfully Created',
+            [
               {
-               text: 'Ok',
-               onPress: () => navigation.navigate('TestingList'),
+                text: 'Ok',
+                onPress: () => navigation.navigate('NotificationCRD'),
               },
-             ],
-              { cancelable: false }
-              );
-        };
+            ],
+            { cancelable: false }
+          );
+        }
+        
 
         return (
           <SafeAreaView style={{ flex: 1 }}>
@@ -186,46 +159,54 @@ const TestingList = ({ navigation }) => {
                   renderItem={({ item }) => listItemView(item)}
                 />
               
+                <Text style={{fontSize:20 , fontFamily: 'monospace', color: 'white'}}>Sender ID</Text>
+                <TextInput 
+                  style = {styles.input} keyboardType="number-pad"
+                  textAlign={'center'}
+                  placeholderTextColor="white" 
+                  placeholder="Sender ID"
+                  onChangeText={
+                    (senderID) => setSenderID(senderID)
+                  }
+                />
+        
+                <Text style={{fontSize:20 , fontFamily: 'monospace', color: 'white'}}>Content</Text>
+                <TextInput 
+                  style = {styles.input} keyboardType="default"
+                  textAlign={'center'}
+                  placeholder="Notification Content"
+                  placeholderTextColor="white" 
+                  onChangeText={
+                    (notifContent) => setNotifContent(notifContent)
+                  }
+                />
+        
+                <TouchableOpacity
+                  onPress={createNotif}
+                  style={styles.button}>
+                  <Text style={{color: "#FFFFFF", fontFamily: 'monospace'}}>Create Notification</Text>
+                </TouchableOpacity>
 
-              
-            <Text style={{fontSize:20 , fontFamily: 'monospace', color: 'white'}}>Sender ID</Text>
-           <TextInput 
-            style = {styles.input} keyboardType="number-pad"
-           textAlign={'center'}
-           placeholderTextColor="white" 
-            placeholder="Sender ID"
-            onChangeText={
-              (senderID) => setSenderID(senderID)
-            }
-            />
-        
-        
-        <Text style={{fontSize:20 , fontFamily: 'monospace', color: 'white'}}>Content</Text>
-        <TextInput 
-          style = {styles.input} keyboardType="default"
-          textAlign={'center'}
-          placeholder="Notification Content"
-          placeholderTextColor="white" 
-          onChangeText={
-            (notifContent) => setNotifContent(notifContent)
-          }
-          />
-        
-          <TouchableOpacity
-                onPress={createNotif}
-                style={styles.button}>
-                <Text style={{color: "#FFFFFF", fontFamily: 'monospace'}}>Create Notification</Text>
-              </TouchableOpacity>
+                <Text style={{fontSize:20 , fontFamily: 'monospace', color: 'white'}}>Notification ID</Text>
+                <TextInput 
+                  style = {styles.input} keyboardType="number-pad"
+                  textAlign={'center'}
+                  placeholderTextColor="white" 
+                  placeholder="Notification ID"
+                  onChangeText={
+                    (itemID) => setItemID(itemID)
+                  }
+                />
 
-              <TouchableOpacity
-                onPress={deleteNotif}
-                style={[styles.button , {backgroundColor: "#CA5A37"}]}>
-                <Text style={{color: "#FFFFFF", fontFamily: 'monospace'}}>Delete Notification</Text>
-              </TouchableOpacity>
+                <TouchableOpacity
+                  onPress={deleteNotif}
+                  style={[styles.button , {backgroundColor: "#CA5A37"}]}>
+                  <Text style={{color: "#FFFFFF", fontFamily: 'monospace'}}>Delete Notification</Text>
+                </TouchableOpacity>
               </View>
             </View>
           </SafeAreaView>
         );
       };
       
-      export default TestingList;
+      export default NotificationCRD;
