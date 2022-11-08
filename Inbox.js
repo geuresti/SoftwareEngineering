@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Text, View, TouchableOpacity, TextInput, StyleSheet, Alert, SafeAreaView, FlatList} from "react-native";
+import { RefreshControl, Text, View, TouchableOpacity, TextInput, StyleSheet, Alert, SafeAreaView, FlatList} from "react-native";
 import Realm from "realm";
 
 /*
@@ -27,6 +27,15 @@ schema:[
 schemaVersion: 2
 });
 
+//const db = realm.objects("Notifications");
+this.state = { 
+  FlatListItems: [],
+};
+
+const db = realm.objects("Notifications");
+this.state = { 
+  FlatListItems: db,
+};
 
 const TestingList = ({ navigation }) => {
   
@@ -34,8 +43,14 @@ const TestingList = ({ navigation }) => {
       //  window.location.reload();
     // }
 
+
   let testing = () => {
-  const db = realm.objects("Notifications").filtered("recieverUsername = $0", inboxOwner)
+   const db = realm.objects("Notifications").filtered("recieverUsername = $0", inboxOwner);
+
+   
+   this.state = {
+    FlatListItems: db,
+  };
   //const db = db.db1.find( { recieverUsername: inboxOwner } )
   //const db = db1.filtered(`recieverUsername = ${inboxOwner}`);
   console.log("NOTIFICATIONS:", db);
@@ -53,24 +68,25 @@ const TestingList = ({ navigation }) => {
   console.log("CURRENT ID:", notifID);    // THIS ISN't updating in REAL TIME
   //let [senderID, setSenderID] = useState('');
   //let [notifContent, setNotifContent] = useState('');
-  this.state = {
-    FlatListItems: db,
-  };
+
   Alert.alert(
     'Success',
     'Filtered',
     [
       {
         text: 'Ok',
+        onPress: () => navigation.navigate('AdminPage'),
+        customClick: () => navigation.navigate('AdminPage'),
         onPress: () => navigation.navigate('Inbox'),
+        customClick: () => navigation.navigate('Inbox'),
       },
     ],
     { cancelable: false }
   );
+};
 
- // refreshPage();
 
-}
+  //console.log(testing());
   let [inboxOwner, setInboxOwner] = useState('');
   //let [recieverUser, setRecieverUser] = useState('');
 
@@ -113,7 +129,7 @@ const TestingList = ({ navigation }) => {
      //   };
 
 
-        
+
         
       let listViewItemSeparator = () => {
         return (
@@ -153,14 +169,12 @@ const TestingList = ({ navigation }) => {
         senderID: {type: "int", default: 0},
         content: "string",
         
-
         let createNotif = () => {
           let user;
           realm.write(() => {
             user = realm.create("Notifications", {id: notifID, content: notifContent, senderUsername: senderUser, recieverUsername: recieverUser});
           })
         }
-
         */
     
 
@@ -173,13 +187,14 @@ const TestingList = ({ navigation }) => {
                   ItemSeparatorComponent={listViewItemSeparator}
                   keyExtractor={(item, index) => index.toString()}
                   renderItem={({ item }) => listItemView(item)}
+                  extraData={this.state}
                 />
               
 
               
             <Text style={{fontSize:20 , fontFamily: 'monospace', color: 'white'}}>Reciever Username</Text>
            <TextInput 
-            style = {styles.input} keyboardType="number-pad"
+            style = {styles.input}
            textAlign={'center'}
            placeholderTextColor="white" 
             placeholder="Reciever Username"
