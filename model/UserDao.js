@@ -31,16 +31,24 @@ export default class User{
         return player
     }
 
+    readAllUsers(){
+
+    }
+
     updateUser(email, newPassword){
-        let player = user_realm.objectForPrimaryKey("User", email)
-        player.pass = newPassword
-        return player
+        user_realm.write(() => {
+            let updated = user_realm.objectForPrimaryKey("User", email);
+            updated.pass = newPassword;
+        })
+        return this.readUser(email)
     }
 
     deleteUser(email){
-        let player = user_realm.objectForPrimaryKey("User", email)
-        user_realm.delete(player)
-        return player // returns null??
+        user_realm.write(() => {
+            let deletedUser = user_realm.objectForPrimaryKey("User", email);
+            if(deletedUser) {user_realm.delete(deletedUser)}
+        })
+        return this.readUser(email);
     }
 }
 
