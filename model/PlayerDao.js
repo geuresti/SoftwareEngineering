@@ -67,5 +67,21 @@ export default class Player{
         let player = player_realm.objectForPrimaryKey("Player", useremail);
         return player
     }
+      /* update start */
+    updatePlayer(useremail, first_name="", last_name ="". team_id="", height=0, weight=0, position="", experience="", isManager ="", avgPoints =0, avgBlocks=0, avgSteals =0,assists=0, freethrowPercent=0,shotPercent=0){
+        realm.write(() => {  
+            let player = player_realm.objectForPrimaryKey("Player", useremail);
+            return player
+        
+    
+    })};
+  
+    deletePlayer(useremail){
+        realm.write(() => {
+            let player = player_realm.objectForPrimaryKey("Player", useremail);
+            player_realm.delete(player)
+            return player 
+        
+    })};
 }
 
