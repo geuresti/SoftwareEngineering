@@ -1,8 +1,5 @@
 import React, { useEffect, useState } from 'react';
 import { Text, View, Image, ImageBackground, TouchableOpacity, TextInput, StyleSheet, Button, Alert, SafeAreaView, FlatList} from "react-native";
-//import Mybutton from './pages/components/Mybutton';
-//import Mytext from './pages/components/Mytext';
-
 
 const AdminPage = ({ navigation }) => {
   const styles = StyleSheet.create({
@@ -89,9 +86,9 @@ const AdminPage = ({ navigation }) => {
         <TouchableOpacity
             //inbox button, transparent
             //onPress={() => console.log("button pressed!")} 
-            onPress={() =>Alert.alert("inbox")}
+            onPress={() => navigation.navigate('NotificationCRD')} 
             style={styles.button3}>
-        <Text style={{color: "transparent", fontSize: 28, fontFamily: 'Bungee-Regular'}}> </Text>
+        <Text style={{color: "white", fontSize: 28, fontFamily: 'Bungee-Regular'}}> Msgs</Text>
         </TouchableOpacity>
         </View>
 
@@ -99,9 +96,10 @@ const AdminPage = ({ navigation }) => {
         <TouchableOpacity
             //profile button, transparent
             //onPress={() => console.log("button pressed!")} 
-            onPress={() =>Alert.alert("profile")}
+            onPress={() => navigation.navigate('ProfileView')} 
+            //customClick={() => navigation.navigate('ProfileView')}
             style={styles.button3}>
-        <Text style={{color: "transparent", fontSize: 28, fontFamily: 'Bungee-Regular'}}> </Text>
+        <Text style={{color: "white", fontSize: 28, fontFamily: 'Bungee-Regular'}}> Profile </Text>
         </TouchableOpacity>
   
         </View>
