@@ -39,3 +39,16 @@ test('read player by email', () => {
     
     
   });
+  
+   test('update player by email', () => {
+    let email = "update@email.com"
+    let update = playerDao.playerUpdate(email)
+    let read = playerDao.readPlayer(email)
+    expect(update).toEqual(read)
+  });
+
+  test('delete player by email', () => {
+    let email = "jest_delete@email.com"
+    let deleted = playerDao.playerDelete(email)
+    expect(deleted).toEqual(null)
+  });
