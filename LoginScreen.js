@@ -1,15 +1,11 @@
 import 'react-native-gesture-handler';
-
-//import * as React from 'react';
 import React, { useEffect, useState } from 'react';
 import { Text, View, Image, ImageBackground, TouchableOpacity, TextInput, StyleSheet, Button, Alert, SafeAreaView, FlatList} from "react-native";
 import Realm from "realm";
-import { openDatabase } from 'react-native-sqlite-storage';
-import dbModel from './dbModel';
+import PlayerDao from "./model/PlayerDao.js"
+import Player from './model/PlayerDao.js';
 
-
-
-realm = new Realm({path: 'logins.realm',
+const realm = new Realm({path: 'logins.realm',
 schema:[
     {
     name: "User",
@@ -24,7 +20,7 @@ schema:[
 ],
 
 });
-realm2 = new Realm({path: 'team.realm',
+const realm2 = new Realm({path: 'team.realm',
 schema:[
     {
     name: "Team",
@@ -64,6 +60,7 @@ const styles = StyleSheet.create({
         
     }
   });
+  var playerDao = new PlayerDao()
 
   let [userEmail, setUserEmail] = useState('');
   let [userPassword, setUserPassword] = useState('');
@@ -92,19 +89,24 @@ const styles = StyleSheet.create({
       return;
     }
 
-    let user;
+    
     realm.write(() => {
-        user = realm.create("User", {username: userEmail, pass: userPassword});
+        let user = realm.create("User", {username: userEmail, pass: userPassword});
       })
 
+    
+    playerDao.createPlayer(userEmail)
+    playerDao.setCurrentPlayer(userEmail)
     Alert.alert(
       'Success',
       'You are Registered Successfully',
       [
         {
           text: 'Ok',
-          onPress: () => navigation.navigate('AdminPage'),
-        },
+          onPress: () => navigation.navigate('AdminPage')
+            },
+            
+        
       ],
       { cancelable: false }
     );
