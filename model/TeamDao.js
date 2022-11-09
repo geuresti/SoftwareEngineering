@@ -56,9 +56,9 @@ export default class Team{
         return teams
     }
 
-    updateUser(teamInput, teamManager="", players=[""], record="0-0-0", avgPoints=0, avgBlocks=0, avgSteals=0, avgAssists=0, freethrowPercent=0, shotPercent=0){
-        user_realm.write(() => {
-            let updated = user_realm.objectForPrimaryKey("User", teamInput);
+    updateTeam(teamInput, teamManager="", players=[""], record="0-0-0", avgPoints=0, avgBlocks=0, avgSteals=0, avgAssists=0, freethrowPercent=0, shotPercent=0){
+        team_realm.write(() => {
+            let updated = team_realm.objectForPrimaryKey("Team", teamInput);
             updated.teamManager = teamManager;
             updated.players = players;
             updated.record = record;
@@ -72,7 +72,7 @@ export default class Team{
         return this.readTeam(teamInput)
     }
 
-    deleteUser(teamInput){
+    deleteTeam(teamInput){
         team_realm.write(() => {
             let deletedTeam = team_realm.objectForPrimaryKey("Team", teamInput);
             if(deletedTeam) {team_realm.delete(deletedTeam)}
