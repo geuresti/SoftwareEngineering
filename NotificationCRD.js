@@ -116,15 +116,21 @@ const TestingList = ({ navigation }) => {
         <Text style={styles.textheader}>Notification Content</Text>
         <Text style={styles.textbottom}>{item.content}</Text>
         
-          
+        <TouchableOpacity 
+        onPress={() => deleteNotif(item)} >
+        <Text style={{color: "#FFFFFF", fontFamily: 'monospace'}}>Delete</Text>
+        </TouchableOpacity>
         </View>
+        
           );
+          
         };
       
         // UNTESTED
-        let deleteNotif = () => {
+        let deleteNotif = (item) => {
+          console.log("testing", item.id);
           realm.write(() => {
-          const testDel = realm.objectForPrimaryKey("Notifications", notifID);
+          const testDel = realm.objectForPrimaryKey("Notifications", item.id);
           console.log(testDel);
           realm.delete(testDel)
         });
@@ -135,7 +141,7 @@ const TestingList = ({ navigation }) => {
             [
               {
                 text: 'Ok',
-                onPress: () => navigation.navigate('TestingList'),
+                onPress: () => navigation.navigate('NotificationCRD'),
               },
             ],
             { cancelable: false }
@@ -251,11 +257,7 @@ const TestingList = ({ navigation }) => {
                 <Text style={{color: "#FFFFFF", fontFamily: 'monospace'}}>Create Notification</Text>
               </TouchableOpacity>
 
-              <TouchableOpacity
-                onPress={deleteNotif}
-                style={[styles.button , {backgroundColor: "#CA5A37"}]}>
-                <Text style={{color: "#FFFFFF", fontFamily: 'monospace'}}>Delete Notification</Text>
-              </TouchableOpacity>
+
               </View>
             </View>
           </SafeAreaView>
