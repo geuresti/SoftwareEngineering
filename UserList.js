@@ -1,14 +1,11 @@
 import React, { useEffect, useState } from 'react';
 import { Text, View, Image, ImageBackground, TouchableOpacity, TextInput, StyleSheet, Button, Alert, SafeAreaView, FlatList} from "react-native";
-//import Mybutton from './pages/components/Mybutton';
-//import Mytext from './pages/components/Mytext';
-import { openDatabase } from 'react-native-sqlite-storage';
+
 import Realm from "realm";
-import dbModel from './dbModel';
+import UserDao from "./model/UserDao"
 
-var db = openDatabase({ name: 'UserDatabase.db' });
 
-realm = new Realm({path: 'logins.realm',
+const realm = new Realm({path: 'logins.realm',
 schema:[
     {
     name: "User",
@@ -23,7 +20,7 @@ schema:[
 ],
 
 });
-realm2 = new Realm({path: 'team.realm',
+const realm2 = new Realm({path: 'team.realm',
 schema:[
     {
     name: "Team",
@@ -40,12 +37,12 @@ schema:[
 schemaVersion:4
 });
 
+let userDao = new UserDao()
+
 const UserList = ({ navigation }) => {
-  dao = new dbModel()
 
   let [userEmail, setUserEmail] = useState('');
   let [userPassword, setUserPassword] = useState('');
-  let [userID, setUserID] = useState('');
     const styles = StyleSheet.create({
         textheader: {
           color: 'white',
@@ -76,41 +73,11 @@ const UserList = ({ navigation }) => {
 
       });
 
-      //let [flatListItems, setFlatListItems] = useState([]);
+        const allUsers = userDao.readAllUsers()
+
         this.state = {
-          FlatListItems: [],
+          FlatListItems: allUsers,
         };
-
-      /*
-      useEffect(() => {
-        db.transaction((tx) => {
-          tx.executeSql('SELECT * FROM user_table', [], (tx, results) => {
-            var temp = [];
-            for (let i = 0; i < results.rows.length; ++i)
-              temp.push(results.rows.item(i));
-            setFlatListItems(temp);
-          });
-        });
-      }, []);
-      */
-
-      //useEffect(() => {
-
-        const tasks = realm.objects("User");
-        console.log(tasks);
-        //var temp = [];
-        console.log(tasks.length)
-        //for (let i = 0; i < tasks.length; ++i)
-        //{
-          //   temp.push(tasks[i]);
-            //  console.log(tasks[i])
-        //}
-        this.state = {
-          FlatListItems: tasks,
-        };
-        
-
-     // });
     
       let listViewItemSeparator = () => {
         return (
@@ -125,8 +92,6 @@ const UserList = ({ navigation }) => {
         <View
             key={item.user_id}
             style={{ backgroundColor: '#383434', marginTop: 20, padding: 30, borderRadius: 10 }}>
-        <Text style={styles.textheader}>Id</Text>
-        <Text style={styles.textbottom}>{item.user_id}</Text>
       
         <Text style={styles.textheader}>Email</Text>
         <Text style={styles.textbottom}>{item.username}</Text>
@@ -139,35 +104,44 @@ const UserList = ({ navigation }) => {
           );
         };
       
-        let deleteUser = () => {
-          //dao.deleteUser(username)
-          realm.write(() => {
-            const testDel = realm.objectForPrimaryKey("User", userEmail);
-          //const testDel = realm.objects("User").filtered(`username = ${userEmail}`);
-          console.log(testDel);
-          realm.delete(testDel)
-        });
-          //realm.delete(realm.objects("User").filtered('username =' + userEmail));
-          Alert.alert(
-            'Success',
-            'You have Deleted Successfully',
-            [
-              {
-                text: 'Ok',
-                onPress: () => navigation.navigate('UserList'),
-              },
-            ],
-            { cancelable: false }
-          );
+
+        let delUser = () => {
+
+          if(userDao.readUser(userEmail)){
+            userDao.deleteUser(userEmail)
+            alert(
+              'Success',
+              'You have Deleted Successfully',
+              [
+                {
+                  text: 'Ok',
+                  onPress: () => navigation.navigate('UserList'),
+                },
+              ],
+              { cancelable: false }
+            );
+            
+          }
           
-        };
+          else{
+            alert(
+              'User does not exist',
+              [
+                {
+                  text: 'Ok',
+                  onPress: () => navigation.navigate('UserList'),
+                },
+              ],
+              { cancelable: false }
+            );
+            
+          };
+          }
+
+          
     
         let updateUser = () => {
       
-          if (!userID) {
-            alert('Please fill User id');
-            return;
-          }
           if (!userEmail) {
             alert('Please fill name');
             return;
@@ -177,24 +151,37 @@ const UserList = ({ navigation }) => {
             return;
           }
           //dao.updateUser(userID, userEmail, userPassword);
-          realm.write(() => {
-            const testUp = realm.objectForPrimaryKey("User", userEmail);
-          //const testDel = realm.objects("User").filtered(`username = ${userEmail}`);
-          console.log(testUp);
-          testUp.username = userEmail;
-          testUp.pass = userPassword;
-        });
+          let updatedUser = userDao.updateUser(userEmail,userPassword)
           
-          Alert.alert('Success','User updated successfully',
-             [
-              {
-               text: 'Ok',
-               onPress: () => navigation.navigate('UserList'),
-              },
-             ],
+          if(updatedUser!=null){
+            Alert.alert(
+              'Success',
+              'You have Updated Successfully',
+              [
+                {
+                  text: 'Ok',
+                  onPress: () => navigation.navigate('UserList'),
+                },
+              ],
               { cancelable: false }
-              );
+            );
+          
+          }
+        
+          else{
+            Alert.alert(
+              'User does not exist',
+              [
+                {
+                text: 'Ok',
+                onPress: () => navigation.navigate('UserList'),
+              },
+            ],
+            { cancelable: false }
+          );
+          
         };
+        }
 
         return (
           <SafeAreaView style={{ flex: 1 }}>
@@ -207,18 +194,6 @@ const UserList = ({ navigation }) => {
                   renderItem={({ item }) => listItemView(item)}
                 />
               
-
-              
-            <Text style={{fontSize:20 , fontFamily: 'monospace', color: 'white'}}>ID</Text>
-           <TextInput 
-            style = {styles.input} keyboardType="number-pad"
-           textAlign={'center'}
-           placeholderTextColor="white" 
-            placeholder="ID"
-            onChangeText={
-              (userID) => setUserID(userID)
-            }
-            />
         
         
         <Text style={{fontSize:20 , fontFamily: 'monospace', color: 'white'}}>Email</Text>
@@ -246,7 +221,7 @@ const UserList = ({ navigation }) => {
       
           <TouchableOpacity
             //onPress={() => console.log("button pressed!")} 
-                onPress={deleteUser}
+                onPress={delUser}
                 style={styles.button}>
                 <Text style={{color: "#FFFFFF", fontFamily: 'monospace'}}>Delete User</Text>
               </TouchableOpacity>
