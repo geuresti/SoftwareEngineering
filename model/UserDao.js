@@ -32,7 +32,8 @@ export default class User{
     }
 
     readAllUsers(){
-
+        const users = user_realm.objects("User");
+        return users
     }
 
     updateUser(email, newPassword){
