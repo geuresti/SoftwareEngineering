@@ -36,6 +36,16 @@ export default class User{
         return users
     }
 
+    authenticateUser(email, password){
+        let user = user_realm.objectForPrimaryKey("User", email)
+        if(user){
+            if(user.pass === password){
+                return true
+            }
+        }
+        return false
+    }
+
     updateUser(email, newPassword){
         user_realm.write(() => {
             let updated = user_realm.objectForPrimaryKey("User", email);
