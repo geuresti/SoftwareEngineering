@@ -69,3 +69,29 @@ test('read user by email', () => {
     expect(read).toBe(null)
     
   });
+
+  test('user auth - invalid user', () => {
+
+    let email = "test_user@gmail.com"
+    let password = "test_password"
+    let notPassword = "notPassword"
+    let created = userDao.createUser(email, password)
+
+    let auth = userDao.authenticateUser(email, notPassword)
+    expect(auth).toBeFalsy()
+
+    
+  });
+
+  test('user auth - valid user', () => {
+
+    let email = "test_user@gmail.com"
+    let password = "test_password"
+    let created = userDao.createUser(email, password)
+
+    let auth = userDao.authenticateUser(email, password)
+    expect(auth).toBeTruthy()
+    
+  });
+
+
