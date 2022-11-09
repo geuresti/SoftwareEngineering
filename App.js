@@ -12,7 +12,8 @@ import UserList from './UserList.js';
 import Realm from "realm";
 import ProfileEdit from './ProfileEdit.js';
 import ProfileView from './ProfileView.js';
-
+import NotificationCRD from './NotificationCRD.js'
+import PlayerList from './PlayerList.js';
 
 const Stack = createStackNavigator();
 
@@ -83,6 +84,25 @@ const App = () => {
             
           }}
         />
+
+        <Stack.Screen
+          name="NotificationCRD"
+          component={NotificationCRD}
+          options={{
+            title: 'Notifications', 
+
+          }}
+        />
+
+        <Stack.Screen
+          name="PlayerList"
+          component={PlayerList}
+          options={{
+            title: 'PlayerList', 
+
+          }}
+        />
+
         </Stack.Navigator>
     </NavigationContainer>
     
