@@ -85,6 +85,27 @@ const TestingList = ({ navigation }) => {
   );
 };
 
+let deleteNotif = (item) => {
+  console.log("testing", item.id);
+  realm.write(() => {
+  const testDel = realm.objectForPrimaryKey("Notifications", item.id);
+  console.log(testDel);
+  realm.delete(testDel)
+});
+
+  Alert.alert(
+    'Success',
+    'You have Deleted Successfully',
+    [
+      {
+        text: 'Ok',
+        onPress: () => navigation.navigate('Inbox'),
+      },
+    ],
+    { cancelable: false }
+  );
+  
+};
 
   //console.log(testing());
   let [inboxOwner, setInboxOwner] = useState('');
@@ -156,9 +177,14 @@ const TestingList = ({ navigation }) => {
       
         <Text style={styles.textheader}>Notification Content</Text>
         <Text style={styles.textbottom}>{item.content}</Text>
-        
-          
+
+        <TouchableOpacity 
+        onPress={() => deleteNotif(item)} >
+        <Text style={{color: "#FFFFFF", fontFamily: 'monospace'}}>Dismiss</Text>
+        </TouchableOpacity>
         </View>
+        
+
           );
         };
       
