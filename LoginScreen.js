@@ -5,42 +5,7 @@ import Realm from "realm";
 import PlayerDao from "./model/PlayerDao.js"
 import UserDao from "./model/UserDao.js"
 
-const realm = new Realm({path: 'logins.realm',
-schema:[
-    {
-    name: "User",
-    properties: {
-        username: "string",
-        pass: "string",
-    },
-    primaryKey: "username",
-
-
-    },
-],
-
-});
-const realm2 = new Realm({path: 'team.realm',
-schema:[
-    {
-    name: "Team",
-    properties: {
-        teamName: "string",
-        //teamManager: "string",
-        teamids: "string",
-    },
-    primaryKey: "teamName",
-
-
-    },
-],
-schemaVersion:4
-});
-
-
 const LoginScreen = ({ navigation }) => {
-
-
 
 const styles = StyleSheet.create({
     input: {
@@ -65,30 +30,55 @@ const styles = StyleSheet.create({
   let [userEmail, setUserEmail] = useState('');
   let [userPassword, setUserPassword] = useState('');
 
-  /*
-  const addTask = () => {
-    realm.write(() => {
-        task1 = realm.create("Task", {
-            username: userEmail,
-            pass: userPassword,
-        });
-    });
-    
-};
-*/
+  let login_user = () => {
+    let loggedUser = userDao.authenticateUser(userEmail, userPassword)
+    if(loggedUser){
+      playerDao.setCurrentPlayer(userEmail)
+
+      Alert.alert(
+        'Success',
+        'You have logged in successfully',
+        [
+          {
+            text: 'Ok',
+            onPress: () => navigation.navigate('AdminPage'),
+          },
+        ],
+        { cancelable: false }
+      );
+    }
+    else{
+
+      alert(
+        'Log in info does not exist',
+        [
+          {
+            text: 'Ok',
+            onPress: () => navigation.navigate('LoginScreen'),
+          },
+        ],
+        { cancelable: false }
+      );
+
+    }
+  }
 
   let register_user = () => {
-    //console.log(userEmail, userPassword);
-
+    let checkUser = userDao.readUser(userEmail)
     if (!userEmail) {
       alert('Please fill email');
       return;
     }
+
+    if(checkUser){
+      alert('Username already exists')
+      return;
+    }
+
     if (userPassword.length < 8) {
       alert('Password must be at least 8 characters');
       return;
     }
-
     
     userDao.createUser(userEmail, userPassword)
     
@@ -109,9 +99,6 @@ const styles = StyleSheet.create({
     );
     
   };
-
-
-
 
         return (
             
@@ -154,16 +141,28 @@ const styles = StyleSheet.create({
             }
             />
         </View>
+
+        <View style={{position: 'absolute', top: 450, left: 0, right: 200, bottom: 0, justifyContent: 'center', alignItems: 'center'}}>
+        
+        <TouchableOpacity
+            onPress={login_user}
+            style={styles.button}>
+        <Text style={{color: "#FFFFFF", fontFamily: 'monospace'}}>Login</Text>
+        </TouchableOpacity>
+        </View>
+
+          
         <View style={{position: 'absolute', top: 450, left: 200, right: 0, bottom: 0, justifyContent: 'center', alignItems: 'center'}}>
         
         <TouchableOpacity
             //onPress={() => console.log("button pressed!")} 
             onPress={register_user}
             style={styles.button}>
-        <Text style={{color: "#FFFFFF", fontFamily: 'monospace'}}>Login</Text>
+        <Text style={{color: "#FFFFFF", fontFamily: 'monospace'}}>Register</Text>
         </TouchableOpacity>
+            </View>
     
-        </View>
+        
         </View>
 
     
