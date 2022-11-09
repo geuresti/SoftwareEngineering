@@ -29,7 +29,7 @@ const ProfileView = ({ navigation }) => {
       button2:{
          //flex: 1,
     alignItems: "center",
-    backgroundColor: "#ff6347",
+    backgroundColor: "#CA5A37",
     padding: 0,
     paddingHorizontal: 30,
     justifyContent: 'center'
