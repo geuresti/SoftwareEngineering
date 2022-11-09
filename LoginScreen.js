@@ -3,7 +3,7 @@ import React, { useEffect, useState } from 'react';
 import { Text, View, Image, ImageBackground, TouchableOpacity, TextInput, StyleSheet, Button, Alert, SafeAreaView, FlatList} from "react-native";
 import Realm from "realm";
 import PlayerDao from "./model/PlayerDao.js"
-import Player from './model/PlayerDao.js';
+import UserDao from "./model/UserDao.js"
 
 const realm = new Realm({path: 'logins.realm',
 schema:[
@@ -61,7 +61,7 @@ const styles = StyleSheet.create({
     }
   });
   var playerDao = new PlayerDao()
-
+  var userDao = new UserDao()
   let [userEmail, setUserEmail] = useState('');
   let [userPassword, setUserPassword] = useState('');
 
@@ -90,10 +90,7 @@ const styles = StyleSheet.create({
     }
 
     
-    realm.write(() => {
-        let user = realm.create("User", {username: userEmail, pass: userPassword});
-      })
-
+    userDao.createUser(userEmail, userPassword)
     
     playerDao.createPlayer(userEmail)
     playerDao.setCurrentPlayer(userEmail)
