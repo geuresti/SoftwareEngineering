@@ -9,11 +9,11 @@ import dbModel from './dbModel';
 
 const ProfileView = ({ navigation }) => {
   const styles = StyleSheet.create({
-    texttype: {fontSize:25 , fontFamily: 'Bungee-Regular', color: '#D9D9D9'},
+    texttype: {fontSize:20 , fontFamily: 'Bungee-Regular', color: '#D9D9D9'},
     profileText: {
       position: 'absolute',
-      top: 190,
-      left: 150, 
+      top: 100,
+      left: 170, 
       right: 0,
       bottom: 0,
       justifyContent: 'flex-start',
@@ -70,30 +70,30 @@ const ProfileView = ({ navigation }) => {
      source={require('./headshot3.png')}></Image>
    </View>
    <View style={styles.profileTextNames}>
-    <Text style={[styles.texttype, {fontSize: 30}]}>{player.email}</Text>
-    <Text style={[styles.texttype, {fontSize: 20, bottom:30}]}>{player.team_id}</Text>
+    <Text style={[styles.texttype, {fontSize: 20}]}>{player.email}</Text>
+    <Text style={[styles.texttype, {fontSize: 15, bottom:30}]}>{player.team_id}</Text>
    </View>
    <View style={styles.profileText}>
         <Text style={styles.texttype}>{player.first_name} {player.last_name}</Text>
-        <Text style={[styles.texttype, {fontSize: 14}]}>Height: {player.height}  Weight: {player.weight} lbs</Text>
-        <Text style={[styles.texttype, {fontSize: 18}]}>Experience Level: </Text>
-        <Text style={[styles.texttype, {fontSize: 14}]}>{player.experience}</Text>
-        <Text style={[styles.texttype, {fontSize: 18}]}>Position:</Text>
-        <Text style={[styles.texttype, {fontSize: 14}]}>{player.position}</Text>
-        <Text style={[styles.texttype, {fontSize: 18}]}>Is Manager:</Text>
-        <Text style={[styles.texttype, {fontSize:18}]}>{player.isManager}</Text>
-        <Text style={[styles.texttype, {fontSize: 18}]}>Average Points:</Text>
-        <Text style = {[styles.texttype, {fontSize:18}]}>{player.avgPoints}</Text>
-        <Text style={[styles.texttype, {fontSize: 18}]}>Average Blocks:</Text>
-        <Text style = {[styles.texttype, {fontSize:18}]}>{player.avgBlocks}</Text>
-        <Text style={[styles.texttype, {fontSize: 18}]}>Average Steals:</Text>
-        <Text style = {[styles.texttype, {fontSize:18}]}>{player.avgSteals}</Text>
-        <Text style={[styles.texttype, {fontSize: 18}]}>Average Assists:</Text>
-        <Text style = {[styles.texttype, {fontSize:18}]}>{player.assists}</Text>
-        <Text style={[styles.texttype, {fontSize: 18}]}>Free Throw Percent:</Text>
-        <Text style = {[styles.texttype, {fontSize:18}]}>{player.freethrowPrecent}</Text>
-        <Text style={[styles.texttype, {fontSize: 18}]}>Shot Percent:</Text>
-        <Text style = {[styles.texttype, {fontSize:18}]}>{player.shotPercent}</Text>
+        <Text style={[styles.texttype, {fontSize: 10}]}>Height: {player.height}  Weight: {player.weight} lbs</Text>
+        <Text style={[styles.texttype, {fontSize: 14}]}>Experience Level: </Text>
+        <Text style={[styles.texttype, {fontSize: 10}]}>{player.experience}</Text>
+        <Text style={[styles.texttype, {fontSize: 14}]}>Position:</Text>
+        <Text style={[styles.texttype, {fontSize: 10}]}>{player.position}</Text>
+        <Text style={[styles.texttype, {fontSize: 14}]}>Is Manager:</Text>
+        <Text style={[styles.texttype, {fontSize:10}]}>{player.isManager}</Text>
+        <Text style={[styles.texttype, {fontSize: 14}]}>Average Points:</Text>
+        <Text style = {[styles.texttype, {fontSize:10}]}>{player.avgPoints}</Text>
+        <Text style={[styles.texttype, {fontSize: 14}]}>Average Blocks:</Text>
+        <Text style = {[styles.texttype, {fontSize:10}]}>{player.avgBlocks}</Text>
+        <Text style={[styles.texttype, {fontSize: 14}]}>Average Steals:</Text>
+        <Text style = {[styles.texttype, {fontSize:10}]}>{player.avgSteals}</Text>
+        <Text style={[styles.texttype, {fontSize: 14}]}>Average Assists:</Text>
+        <Text style = {[styles.texttype, {fontSize:10}]}>{player.assists}</Text>
+        <Text style={[styles.texttype, {fontSize: 14}]}>Free Throw Percent:</Text>
+        <Text style = {[styles.texttype, {fontSize:10}]}>{player.freethrowPrecent}</Text>
+        <Text style={[styles.texttype, {fontSize: 14}]}>Shot Percent:</Text>
+        <Text style = {[styles.texttype, {fontSize:10}]}>{player.shotPercent}</Text>
 
 
         
