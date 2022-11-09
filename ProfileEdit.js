@@ -121,7 +121,7 @@ input: {
          //  }
          />
     </View>
-        <View style={{position: 'absolute', top: -220, left: 0, right: 0, bottom:0, justifyContent: 'center', alignItems: 'center'}}>
+        <View style={{position: 'absolute', top: -230, left: 0, right: 0, bottom:0, justifyContent: 'center', alignItems: 'center'}}>
         <TextInput 
           style = {styles.input} keyboardType='numeric'
           textAlign={'center'}
@@ -132,7 +132,7 @@ input: {
           />
         </View>
      
-    <View style={{position: 'absolute', top: -130, left: 0, right: 0, bottom: 0, justifyContent: 'center', alignItems: 'center'}}>
+    <View style={{position: 'absolute', top: -150, left: 0, right: 0, bottom: 0, justifyContent: 'center', alignItems: 'center'}}>
         <TextInput 
           style = {styles.input} keyboardType='numeric'
           textAlign={'center'}
@@ -144,7 +144,7 @@ input: {
         </View>
 
       
-    <View style={{position: 'absolute', top: -40, left: 0, right: 0, bottom: 0, justifyContent: 'center', alignItems: 'center'}}>
+    <View style={{position: 'absolute', top: -70, left: 0, right: 0, bottom: 0, justifyContent: 'center', alignItems: 'center'}}>
         <TextInput 
           style = {[styles.input,{width:"90%"} ]} keyboardType = "default" 
           textAlign={'center'}
@@ -154,7 +154,7 @@ input: {
           } */
           />
         </View>
-        <View style={{position: 'absolute', top: 50, left: 0, right: 0, bottom: 0, justifyContent: 'center', alignItems: 'center'}}>
+        <View style={{position: 'absolute', top: 10, left: 0, right: 0, bottom: 0, justifyContent: 'center', alignItems: 'center'}}>
     <TextInput 
           style = {[styles.input,{width:"90%"} ]} keyboardType = "default"
           textAlign={'center'}
@@ -164,7 +164,7 @@ input: {
           } */
           />
         </View>
-        <View style={{position: 'absolute', top: 140, left: 0, right: 0, bottom: 0, justifyContent: 'center', alignItems: 'center'}}>
+        <View style={{position: 'absolute', top: 90, left: 0, right: 0, bottom: 0, justifyContent: 'center', alignItems: 'center'}}>
     <TextInput 
           style = {[styles.input,{width:"90%"} ]} keyboardType = "default"
           textAlign={'center'}
@@ -174,7 +174,7 @@ input: {
           } */
           />
         </View>
-        <View style={{position: 'absolute', top: 200, left: 0, right: 0, bottom: 0, justifyContent: 'center', alignItems: 'center'}}>
+        <View style={{position: 'absolute', top: 170, left: 0, right: 0, bottom: 0, justifyContent: 'center', alignItems: 'center'}}>
     <TextInput 
           style = {[styles.input,{width:"90%"} ]} keyboardType = "default"
           textAlign={'center'}
@@ -184,7 +184,7 @@ input: {
           } */
           />
         </View>
-        <View style={{position: 'absolute', top: 280, left: 0, right: 0, bottom: 0, justifyContent: 'center', alignItems: 'center'}}>
+        <View style={{position: 'absolute', top: 250, left: 0, right: 0, bottom: 0, justifyContent: 'center', alignItems: 'center'}}>
     <TextInput 
           style = {[styles.input,{width:"90%"} ]} keyboardType = "default"
           textAlign={'center'}
@@ -194,7 +194,7 @@ input: {
           } */
           />
         </View>
-        <View style={{position: 'absolute', top: 350, left: 0, right: 0, bottom: 0, justifyContent: 'center', alignItems: 'center'}}>
+        <View style={{position: 'absolute', top: 330, left: 0, right: 0, bottom: 0, justifyContent: 'center', alignItems: 'center'}}>
     <TextInput 
           style = {[styles.input,{width:"90%"} ]} keyboardType = "default"
           textAlign={'center'}
@@ -204,7 +204,7 @@ input: {
           } */
           />
         </View>
-        <View style={{position: 'absolute', top: 430, left: 0, right: 0, bottom: 0, justifyContent: 'center', alignItems: 'center'}}>
+        <View style={{position: 'absolute', top: 410, left: 0, right: 0, bottom: 0, justifyContent: 'center', alignItems: 'center'}}>
     <TextInput 
           style = {[styles.input,{width:"90%"} ]} keyboardType = "default"
           textAlign={'center'}
@@ -214,7 +214,7 @@ input: {
           } */
           />
         </View>
-        <View style={{position: 'absolute', top: 510, left: 0, right: 0, bottom: 0, justifyContent: 'center', alignItems: 'center'}}>
+        <View style={{position: 'absolute', top: 495, left: 0, right: 0, bottom: 0, justifyContent: 'center', alignItems: 'center'}}>
     <TextInput 
           style = {[styles.input,{width:"90%"} ]} keyboardType = "default"
           textAlign={'center'}
@@ -224,7 +224,7 @@ input: {
           } */
           />
         </View>
-        <View style={{position: 'absolute', top: 590, left: 0, right: 0, bottom: 0, justifyContent: 'center', alignItems: 'center'}}>
+        <View style={{position: 'absolute', top: 580, left: 0, right: 0, bottom: 0, justifyContent: 'center', alignItems: 'center'}}>
     <TextInput 
           style = {[styles.input,{width:"90%"} ]} 
           textAlign={'center'}
