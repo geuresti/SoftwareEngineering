@@ -54,10 +54,13 @@ input: {
     
 },
   });
+  
 
   let playerDao = new PlayerDao()
   let curr = playerDao.getCurrentPlayer()
   let player = playerDao.readPlayer(curr.email)
+  let playerUpdate = playerDao.updatePlayer(curr.email, f_new="", l_new ="", id_new="", h_new=0, w_new=0, p_new="", e_new="", m_new = Boolean(), points_new =0, blocks_new=0, steals_new =0,a_new=0, f_throw_per=0,s_new_percent=0)
+  // let playerDelete = playerDao.deletePlayer(curr.deletePlayer)
 
 
    return (
@@ -70,39 +73,168 @@ input: {
      }}
      source={require("./profilebg.png")}
    />
-   <View style={{ position: 'absolute', top: 200, left: 50, height: 30, width: 30, resizeMode: 'stretch', alignItems:'center'}}>
-   <Image
-     source={require('./headshot3.png')}></Image>
-   </View>
-   <View style={styles.profileTextNames}>
-    <Text style={[styles.texttype, {fontSize: 30, }]}>{player.email}</Text>
-    <Text style={[styles.texttype, {fontSize: 20, bottom:30}]}>Team Name</Text>
-   </View>
+   
+   
+    
+   
      
-        <View style={{position: 'absolute', top: 30, left: 0, right: 0, bottom:0, justifyContent: 'center', alignItems: 'center'}}>
+    <View style={{position: 'absolute', top: -550, left: 0, right: 0, bottom: 0, justifyContent: 'center', alignItems: 'center'}}>
+    <TextInput 
+          style = {[styles.input,{width:"90%"} ]}  keyboardType="email-address"
+          textAlign={'center'}
+          placeholder="User Email" 
+          //onChangeText={
+            // playerUpdate.email
+        //}
+        />
+        </View>
+
+    <View style={{position: 'absolute', top: -470, left: 0, right: 0, bottom: 0, justifyContent: 'center', alignItems: 'center'}}>
+    <TextInput 
+          style = {[styles.input,{width:"90%"} ]} keyboardType = "default"
+          textAlign={'center'}
+          placeholder="First Name" 
+          // onChangeText={
+          // playerUpdate.f_name
+          // }
+          />
+
+    </View>
+
+    <View style={{position: 'absolute', top: -390, left: 0, right: 0, bottom: 0, justifyContent: 'center', alignItems: 'center'}}>
+    <TextInput 
+          style = {[styles.input,{width:"90%"} ]} keyboardType = "default"
+          textAlign={'center'}
+          placeholder="Last Name" 
+          // onChangeText={
+            // playerUpdate.l_new
+          // }
+          />
+    </View>
+    <View style={{position: 'absolute', top: -310, left: 0, right: 0, bottom: 0, justifyContent: 'center', alignItems: 'center'}}>
+    <TextInput 
+          style = {[styles.input,{width:"90%"} ]} keyboardType ="default"
+          textAlign={'center'}
+          placeholder="ID" 
+          // onChangeText={
+            // playerUpdate.id_new
+         //  }
+         />
+    </View>
+        <View style={{position: 'absolute', top: -220, left: 0, right: 0, bottom:0, justifyContent: 'center', alignItems: 'center'}}>
         <TextInput 
           style = {styles.input} keyboardType='numeric'
           textAlign={'center'}
-          placeholder="Height" />
+          placeholder="Height" 
+          // onChangeText={
+            // playerUpdate.h_new
+          // }
+          />
         </View>
-    <View style={{position: 'absolute', top: 170, left: 0, right: 0, bottom: 0, justifyContent: 'center', alignItems: 'center'}}>
+     
+    <View style={{position: 'absolute', top: -130, left: 0, right: 0, bottom: 0, justifyContent: 'center', alignItems: 'center'}}>
         <TextInput 
           style = {styles.input} keyboardType='numeric'
           textAlign={'center'}
-          placeholder="Weight" />
+          placeholder="Weight" 
+          /* onChangeText={
+           //  playerUpdate.w_new
+          } */
+          />
         </View>
-    <View style={{position: 'absolute', top: 310, left: 0, right: 0, bottom: 0, justifyContent: 'center', alignItems: 'center'}}>
+
+      
+    <View style={{position: 'absolute', top: -40, left: 0, right: 0, bottom: 0, justifyContent: 'center', alignItems: 'center'}}>
         <TextInput 
-          style = {[styles.input,{width:"90%"} ]} 
+          style = {[styles.input,{width:"90%"} ]} keyboardType = "default" 
           textAlign={'center'}
-          placeholder="Experience Level" />
+          placeholder="Experience Level" 
+          /* onChangeText={
+            //playerUpdate.e_new
+          } */
+          />
         </View>
-        <View style={{position: 'absolute', top: 470, left: 0, right: 0, bottom: 0, justifyContent: 'center', alignItems: 'center'}}>
+        <View style={{position: 'absolute', top: 50, left: 0, right: 0, bottom: 0, justifyContent: 'center', alignItems: 'center'}}>
+    <TextInput 
+          style = {[styles.input,{width:"90%"} ]} keyboardType = "default"
+          textAlign={'center'}
+          placeholder="Position" 
+          /* onChangeText={
+            //playerUpdate.p_new
+          } */
+          />
+        </View>
+        <View style={{position: 'absolute', top: 140, left: 0, right: 0, bottom: 0, justifyContent: 'center', alignItems: 'center'}}>
+    <TextInput 
+          style = {[styles.input,{width:"90%"} ]} keyboardType = "default"
+          textAlign={'center'}
+          placeholder="Is Manager" 
+          /* onChangeText={
+            // playerUpdate.m_new
+          } */
+          />
+        </View>
+        <View style={{position: 'absolute', top: 200, left: 0, right: 0, bottom: 0, justifyContent: 'center', alignItems: 'center'}}>
+    <TextInput 
+          style = {[styles.input,{width:"90%"} ]} keyboardType = "default"
+          textAlign={'center'}
+          placeholder="Average Points" 
+          /* onChangeText={
+            // playerUpdate.points_new
+          } */
+          />
+        </View>
+        <View style={{position: 'absolute', top: 280, left: 0, right: 0, bottom: 0, justifyContent: 'center', alignItems: 'center'}}>
+    <TextInput 
+          style = {[styles.input,{width:"90%"} ]} keyboardType = "default"
+          textAlign={'center'}
+          placeholder="Average Blocks" 
+          /* onChangeText={
+            // playerUpdate.blocks_new
+          } */
+          />
+        </View>
+        <View style={{position: 'absolute', top: 350, left: 0, right: 0, bottom: 0, justifyContent: 'center', alignItems: 'center'}}>
+    <TextInput 
+          style = {[styles.input,{width:"90%"} ]} keyboardType = "default"
+          textAlign={'center'}
+          placeholder="Average Steals" 
+          /* onChangeText={
+            //playerUpdate.steals_new
+          } */
+          />
+        </View>
+        <View style={{position: 'absolute', top: 430, left: 0, right: 0, bottom: 0, justifyContent: 'center', alignItems: 'center'}}>
+    <TextInput 
+          style = {[styles.input,{width:"90%"} ]} keyboardType = "default"
+          textAlign={'center'}
+          placeholder="Assists" 
+          /* onChangeText={
+            //playerUpdate.a_new
+          } */
+          />
+        </View>
+        <View style={{position: 'absolute', top: 510, left: 0, right: 0, bottom: 0, justifyContent: 'center', alignItems: 'center'}}>
+    <TextInput 
+          style = {[styles.input,{width:"90%"} ]} keyboardType = "default"
+          textAlign={'center'}
+          placeholder="Free throw Percent" 
+          /* onChangeText={
+            // playerUpdate.f_throw_per
+          } */
+          />
+        </View>
+        <View style={{position: 'absolute', top: 590, left: 0, right: 0, bottom: 0, justifyContent: 'center', alignItems: 'center'}}>
     <TextInput 
           style = {[styles.input,{width:"90%"} ]} 
           textAlign={'center'}
-          placeholder="Position" />
+          placeholder="Shot Percent" 
+           /* onChangeText={
+            // playerUpdate.s_new_percent
+          } */
+          />
         </View>
+    
 
 
         <View style={{position: 'absolute', top: 0, left: 240, right: 0, bottom: 680, justifyContent: 'center', alignItems: 'center'}}>
@@ -117,14 +249,13 @@ input: {
 
         <View style={{position: 'absolute', top: 0, left: 380, right: 0, bottom: 680, justifyContent: 'center', alignItems: 'center'}}>
         <TouchableOpacity
-            //profile button, transparent
-            //onPress={() => console.log("button pressed!")} 
+            
             onPress={() =>Alert.alert("profile")}
             style={styles.button3}>
         <Text style={{color: "transparent", fontSize: 28, fontFamily: 'Bungee-Regular'}}> </Text>
         </TouchableOpacity>
         </View>
-        <View style={{position: 'absolute', top: 620, left: 0, right: 180, bottom: 0, justifyContent: 'center', alignItems: 'center'}}>
+        <View style={{position: 'absolute', top: 650, left: 0, right: 180, bottom: 0, justifyContent: 'center', alignItems: 'center'}}>
         <TouchableOpacity
             //submit changes button
             //onPress={() => console.log("button pressed!")} 
