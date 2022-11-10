@@ -56,7 +56,7 @@ const AdminPage = ({ navigation }) => {
 
         
             <Text style={{position: 'absolute', top: 100, left: 60, right: 0, bottom: 300, color: "#FFFFFF", fontSize: 40, fontFamily: 'Bungee-Regular'}}>ADMIN PAGE</Text> 
-            <View style={{position: 'absolute', top: 0, left: 10, right: 0, bottom: 110, justifyContent: 'center', alignItems: 'center'}}>
+            <View style={{position: 'absolute', top: 0, left: 10, right: 0, bottom: 200, justifyContent: 'center', alignItems: 'center'}}>
             <TouchableOpacity
               onPress={() => navigation.navigate('CreateTeam')} 
               customClick={() => navigation.navigate('CreateTeam')}
@@ -65,7 +65,7 @@ const AdminPage = ({ navigation }) => {
             </TouchableOpacity>
         </View>
 
-        <View style={{position: 'absolute', top: 100, left: 10, right: 0, bottom: 0, justifyContent: 'center', alignItems: 'center'}}>
+        <View style={{position: 'absolute', top: 0, left: 10, right: 0, bottom: 0, justifyContent: 'center', alignItems: 'center'}}>
         <TouchableOpacity
             onPress={() => navigation.navigate('TeamList')} 
         
@@ -74,19 +74,37 @@ const AdminPage = ({ navigation }) => {
         <Text style={{color: "#FFFFFF", fontSize: 28, fontFamily: 'Bungee-Regular'}}>BROWSE TEAMS</Text>
         </TouchableOpacity>
         </View>
-        <View style={{position: 'absolute', top: 300, left: 10, right: 0, bottom: 0, justifyContent: 'center', alignItems: 'center'}}>
+        <View style={{position: 'absolute', top: 200, left: 10, right: 0, bottom: 0, justifyContent: 'center', alignItems: 'center'}}>
         <TouchableOpacity
             onPress={() => navigation.navigate('UserList')} 
             customClick={() => navigation.navigate('UserList')}
             style={styles.button1}>
-        <Text style={{color: "#FFFFFF", fontSize: 28, fontFamily: 'Bungee-Regular'}}>BROWSE PLAYERS</Text>
+        <Text style={{color: "#FFFFFF", fontSize: 28, fontFamily: 'Bungee-Regular'}}>    BROWSE USERS    </Text>
+        </TouchableOpacity>
+        </View>
+
+        <View style={{position: 'absolute', top: 400, left: 10, right: 0, bottom: 0, justifyContent: 'center', alignItems: 'center'}}>
+        <TouchableOpacity
+            onPress={() => navigation.navigate('NotificationCRD')} 
+            customClick={() => navigation.navigate('NotificationCRD')}
+            style={styles.button2}>
+        <Text style={{color: "#FFFFFF", fontSize: 28, fontFamily: 'Bungee-Regular'}}>BROWSE NOTIFS</Text>
+        </TouchableOpacity>
+        </View>
+
+        <View style={{position: 'absolute', top: 600, left: 10, right: 0, bottom: 0, justifyContent: 'center', alignItems: 'center'}}>
+        <TouchableOpacity
+            onPress={() => navigation.navigate('PlayerList')} 
+            customClick={() => navigation.navigate('PlayerList')}
+            style={styles.button1}>
+        <Text style={{color: "#FFFFFF", fontSize: 28, fontFamily: 'Bungee-Regular'}}>  BROWSE PLAYERS  </Text>
         </TouchableOpacity>
         </View>
         <View style={{position: 'absolute', top: 0, left: 240, right: 0, bottom: 680, justifyContent: 'center', alignItems: 'center'}}>
         <TouchableOpacity
             //inbox button, transparent
             //onPress={() => console.log("button pressed!")} 
-            onPress={() => navigation.navigate('NotificationCRD')} 
+            onPress={() => navigation.navigate('Inbox')} 
             style={styles.button3}>
         <Text style={{color: "white", fontSize: 28, fontFamily: 'Bungee-Regular'}}> Msgs</Text>
         </TouchableOpacity>
@@ -101,6 +119,8 @@ const AdminPage = ({ navigation }) => {
             style={styles.button3}>
         <Text style={{color: "white", fontSize: 28, fontFamily: 'Bungee-Regular'}}> Profile </Text>
         </TouchableOpacity>
+
+
   
         </View>
     </View>

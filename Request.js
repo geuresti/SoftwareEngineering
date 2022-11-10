@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { Text, View, TouchableOpacity, TextInput, StyleSheet, Alert, SafeAreaView, FlatList} from "react-native";
 import Realm from "realm";
+import PlayerDao from "./model/PlayerDao.js"
 
 /*
     NOTES:
@@ -27,6 +28,9 @@ schema:[
 schemaVersion: 2
 });
 
+let playerDao = new PlayerDao()
+let curr = playerDao.getCurrentPlayer()
+let player = playerDao.readPlayer(curr.email)
 
 const TestingList = ({ navigation }) => {
   
@@ -140,25 +144,22 @@ const TestingList = ({ navigation }) => {
 
         let createJoin = () => {
 
-          if (!senderUser) {
-            alert("Please provide sender username");
-            return;
-          }
+
 
           if (!recieverUser) {
             alert('Please provide reciever username');
             return;
           }
 
-          notifContent = senderUser + " would like to join your team!";
+          notifContent = curr.email + " would like to join your team!";
           realm.write(() => {
             if (db.length > 0) {
               console.log("")
               let next_ID = db[db.length-1].id + 1
-              new_notification = realm.create("Notifications", {id: next_ID, content: notifContent, senderUsername: senderUser, recieverUsername: recieverUser});
+              new_notification = realm.create("Notifications", {id: next_ID, content: notifContent, senderUsername: curr.email, recieverUsername: recieverUser});
             } else {
               console.log("this second line ran");
-              new_notification = realm.create("Notifications", {id: 0, content: notifContent, senderUsername: senderUser, recieverUsername: recieverUser});
+              new_notification = realm.create("Notifications", {id: 0, content: notifContent, senderUsername: curr.email, recieverUsername: recieverUser});
             }
           })
 
@@ -177,25 +178,21 @@ const TestingList = ({ navigation }) => {
 
         let createRecruit = () => {
 
-            if (!senderUser) {
-              alert("Please provide sender username");
-              return;
-            }
   
             if (!recieverUser) {
               alert('Please provide reciever username');
               return;
             }
   
-            notifContent = senderUser + " would like to recruit you!";
+            notifContent = curr.email + " would like to recruit you!";
             realm.write(() => {
               if (db.length > 0) {
                 console.log("")
                 let next_ID = db[db.length-1].id + 1
-                new_notification = realm.create("Notifications", {id: next_ID, content: notifContent, senderUsername: senderUser, recieverUsername: recieverUser});
+                new_notification = realm.create("Notifications", {id: next_ID, content: notifContent, senderUsername: curr.email, recieverUsername: recieverUser});
               } else {
                 console.log("this second line ran");
-                new_notification = realm.create("Notifications", {id: 0, content: notifContent, senderUsername: senderUser, recieverUsername: recieverUser});
+                new_notification = realm.create("Notifications", {id: 0, content: notifContent, senderUsername: curr.email, recieverUsername: recieverUser});
               }
             })
   
@@ -227,16 +224,7 @@ const TestingList = ({ navigation }) => {
               
 
               
-            <Text style={{fontSize:20 , fontFamily: 'monospace', color: 'white'}}>Sender Username</Text>
-           <TextInput 
-            style = {styles.input} keyboardType="number-pad"
-           textAlign={'center'}
-           placeholderTextColor="white" 
-            placeholder="Sender Username"
-            onChangeText={
-              (senderUser) => setSenderUser(senderUser)
-            }
-            />
+
 
           <Text style={{fontSize:20 , fontFamily: 'monospace', color: 'white'}}>Reciever Username</Text>
            <TextInput 

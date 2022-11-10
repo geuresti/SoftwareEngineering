@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { RefreshControl, Text, View, TouchableOpacity, TextInput, StyleSheet, Alert, SafeAreaView, FlatList} from "react-native";
 import Realm from "realm";
-
+import PlayerDao from "./model/PlayerDao.js"
 /*
     NOTES:
     - when a new notif is created, the text box isn't cleared for the 
@@ -9,6 +9,9 @@ import Realm from "realm";
         again, the db tries to create a second notification with the same 
         ID as the first one. (refresh page upon create?)
 */
+let playerDao = new PlayerDao()
+let curr = playerDao.getCurrentPlayer()
+let player = playerDao.readPlayer(curr.email)
 
 realm = new Realm({path: 'notifications2.realm',
 schema:[
@@ -32,7 +35,7 @@ this.state = {
   FlatListItems: [],
 };
 
-const db = realm.objects("Notifications");
+const db = realm.objects("Notifications").filtered("recieverUsername = $0", curr.email);
 this.state = { 
   FlatListItems: db,
 };
@@ -43,9 +46,9 @@ const TestingList = ({ navigation }) => {
       //  window.location.reload();
     // }
 
-
+  
   let testing = () => {
-   const db = realm.objects("Notifications").filtered("recieverUsername = $0", inboxOwner);
+   const db = realm.objects("Notifications").filtered("senderUsername = $0", inboxOwner);
 
    
    this.state = {
@@ -218,12 +221,12 @@ let deleteNotif = (item) => {
               
 
               
-            <Text style={{fontSize:20 , fontFamily: 'monospace', color: 'white'}}>Reciever Username</Text>
+            <Text style={{fontSize:20 , fontFamily: 'monospace', color: 'white'}}>{curr.email} 's Inbox</Text>
            <TextInput 
             style = {styles.input}
            textAlign={'center'}
            placeholderTextColor="white" 
-            placeholder="Reciever Username"
+            placeholder="Sender Username"
             onChangeText={
               (inboxOwner) => setInboxOwner(inboxOwner)
             }

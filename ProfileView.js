@@ -6,6 +6,9 @@ import React, { useEffect, useState } from 'react';
 import { openDatabase } from 'react-native-sqlite-storage';
 import Realm from "realm";
 import dbModel from './dbModel';
+import createJoin from './Request.js';
+import Request from './Request.js';
+
 
 const ProfileView = ({ navigation }) => {
   const styles = StyleSheet.create({
@@ -128,6 +131,16 @@ const ProfileView = ({ navigation }) => {
             onPress={() => navigation.navigate('ProfileEdit')}
             style={styles.button2}>
         <Text style={{color: "#FFFFFF", fontFamily: 'monospace'}}> Update Player </Text>
+        </TouchableOpacity>
+        </View> 
+
+        <View style={{position: 'absolute', top: 650, left: 0, right: 250, bottom: 0, justifyContent: 'center', alignItems: 'center'}}>
+        <TouchableOpacity
+            //onPress={() => console.log("button pressed!")} 
+            // update user 
+            onPress={() => navigation.navigate('Request')}
+            style={[styles.button2, { backgroundColor: "#B62727"}]}>
+        <Text style={{color: "#FFFFFF", fontFamily: 'monospace'}}> Send Requests </Text>
         </TouchableOpacity>
         </View> 
         </View> 

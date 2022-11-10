@@ -1,4 +1,4 @@
-mport React, {useState} from "react";
+import React, {useState} from "react";
 import { Text, View, Image, ImageBackground, TouchableOpacity, TextInput, StyleSheet, Alert, navigation} from "react-native";
 import { block } from "react-native-reanimated";
 import PlayerDao from "./model/PlayerDao.js"

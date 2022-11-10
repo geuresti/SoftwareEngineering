@@ -14,6 +14,8 @@ import ProfileEdit from './ProfileEdit.js';
 import ProfileView from './ProfileView.js';
 import NotificationCRD from './NotificationCRD.js'
 import PlayerList from './PlayerList.js';
+import Inbox from './Inbox.js';
+import Request from './Request.js';
 
 const Stack = createStackNavigator();
 
@@ -49,6 +51,8 @@ const App = () => {
 
           }}
         />
+
+
 
         <Stack.Screen
           name="CreateTeam"
@@ -99,6 +103,24 @@ const App = () => {
           component={PlayerList}
           options={{
             title: 'PlayerList', 
+
+          }}
+        />
+
+        <Stack.Screen
+          name="Inbox"
+          component={Inbox}
+          options={{
+            title: 'Inbox', 
+
+          }}
+        />
+
+        <Stack.Screen
+          name="Request"
+          component={Request}
+          options={{
+            title: 'Request', 
 
           }}
         />
