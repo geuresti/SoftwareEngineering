@@ -9,9 +9,7 @@ import PlayerDao from "./model/PlayerDao.js"
         again, the db tries to create a second notification with the same 
         ID as the first one. (refresh page upon create?)
 */
-let playerDao = new PlayerDao()
-let curr = playerDao.getCurrentPlayer()
-let player = playerDao.readPlayer(curr.email)
+
 
 realm = new Realm({path: 'notifications2.realm',
 schema:[
@@ -31,22 +29,28 @@ schemaVersion: 2
 });
 
 //const db = realm.objects("Notifications");
+
+
+const TestingList = ({ navigation }) => {
+
+  let playerDao = new PlayerDao()
+let curr = playerDao.getCurrentPlayer()
+let player = playerDao.readPlayer(curr.email)
+
 this.state = { 
   FlatListItems: [],
 };
 
-const db = realm.objects("Notifications").filtered("recieverUsername = $0", curr.email);
+
+const db = realm.objects("Notifications").filtered("recieverUsername = $0", player.email);
 this.state = { 
   FlatListItems: db,
 };
-
-const TestingList = ({ navigation }) => {
   
     //const refreshPage = ()=>{
       //  window.location.reload();
     // }
 
-  
   let testing = () => {
    const db = realm.objects("Notifications").filtered("senderUsername = $0", inboxOwner);
 
@@ -206,6 +210,7 @@ let deleteNotif = (item) => {
         }
         */
     
+          
 
         return (
           <SafeAreaView style={{ flex: 1 }}>
@@ -221,7 +226,7 @@ let deleteNotif = (item) => {
               
 
               
-            <Text style={{fontSize:20 , fontFamily: 'monospace', color: 'white'}}>{curr.email} 's Inbox</Text>
+            <Text style={{fontSize:20 , fontFamily: 'monospace', color: 'white'}}>{player.email} 's Inbox</Text>
            <TextInput 
             style = {styles.input}
            textAlign={'center'}

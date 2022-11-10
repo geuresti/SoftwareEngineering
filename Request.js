@@ -28,11 +28,11 @@ schema:[
 schemaVersion: 2
 });
 
-let playerDao = new PlayerDao()
-let curr = playerDao.getCurrentPlayer()
-let player = playerDao.readPlayer(curr.email)
+
 
 const TestingList = ({ navigation }) => {
+
+
   
   const db = realm.objects("Notifications");
   console.log("NOTIFICATIONS:", db);
@@ -79,6 +79,10 @@ const TestingList = ({ navigation }) => {
       }
 
       }); 
+
+      let playerDao = new PlayerDao()
+      let curr = playerDao.getCurrentPlayer()
+      let player = playerDao.readPlayer(curr.email)
 
       //  this.state = {
        //   notifID: db.length,
@@ -151,15 +155,15 @@ const TestingList = ({ navigation }) => {
             return;
           }
 
-          notifContent = curr.email + " would like to join your team!";
+          notifContent = player.email + " would like to join your team!";
           realm.write(() => {
             if (db.length > 0) {
               console.log("")
               let next_ID = db[db.length-1].id + 1
-              new_notification = realm.create("Notifications", {id: next_ID, content: notifContent, senderUsername: curr.email, recieverUsername: recieverUser});
+              new_notification = realm.create("Notifications", {id: next_ID, content: notifContent, senderUsername: player.email, recieverUsername: recieverUser});
             } else {
               console.log("this second line ran");
-              new_notification = realm.create("Notifications", {id: 0, content: notifContent, senderUsername: curr.email, recieverUsername: recieverUser});
+              new_notification = realm.create("Notifications", {id: 0, content: notifContent, senderUsername: player.email, recieverUsername: recieverUser});
             }
           })
 
@@ -184,15 +188,15 @@ const TestingList = ({ navigation }) => {
               return;
             }
   
-            notifContent = curr.email + " would like to recruit you!";
+            notifContent = player.email + " would like to recruit you!";
             realm.write(() => {
               if (db.length > 0) {
                 console.log("")
                 let next_ID = db[db.length-1].id + 1
-                new_notification = realm.create("Notifications", {id: next_ID, content: notifContent, senderUsername: curr.email, recieverUsername: recieverUser});
+                new_notification = realm.create("Notifications", {id: next_ID, content: notifContent, senderUsername: player.email, recieverUsername: recieverUser});
               } else {
                 console.log("this second line ran");
-                new_notification = realm.create("Notifications", {id: 0, content: notifContent, senderUsername: curr.email, recieverUsername: recieverUser});
+                new_notification = realm.create("Notifications", {id: 0, content: notifContent, senderUsername: player.email, recieverUsername: recieverUser});
               }
             })
   
