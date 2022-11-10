@@ -22,9 +22,9 @@ const styles = StyleSheet.create({
         alignItems: "center",
         backgroundColor: "#171414",
         padding: 15
-        
     }
   });
+
   var playerDao = new PlayerDao()
   var userDao = new UserDao()
   let [userEmail, setUserEmail] = useState('');
@@ -34,7 +34,7 @@ const styles = StyleSheet.create({
     let loggedUser = userDao.authenticateUser(userEmail, userPassword)
     if(loggedUser){
       playerDao.setCurrentPlayer(userEmail)
-
+      playerDao.setProfileToView(userEmail)
       Alert.alert(
         'Success',
         'You have logged in successfully',
@@ -80,10 +80,11 @@ const styles = StyleSheet.create({
       return;
     }
     
+
     userDao.createUser(userEmail, userPassword)
-    
     playerDao.createPlayer(userEmail)
     playerDao.setCurrentPlayer(userEmail)
+    playerDao.setProfileToView(userEmail)
     Alert.alert(
       'Success',
       'You are Registered Successfully',
@@ -100,8 +101,7 @@ const styles = StyleSheet.create({
     
   };
 
-        return (
-            
+        return ( 
             <View style={{flex:1, alignItems:'center', justifyContent:'center'}}>
             <ImageBackground
             style={{
@@ -150,12 +150,9 @@ const styles = StyleSheet.create({
         <Text style={{color: "#FFFFFF", fontFamily: 'monospace'}}>Login</Text>
         </TouchableOpacity>
         </View>
-
           
         <View style={{position: 'absolute', top: 450, left: 200, right: 0, bottom: 0, justifyContent: 'center', alignItems: 'center'}}>
-        
         <TouchableOpacity
-            //onPress={() => console.log("button pressed!")} 
             onPress={register_user}
             style={styles.button}>
         <Text style={{color: "#FFFFFF", fontFamily: 'monospace'}}>Register</Text>
