@@ -1,5 +1,6 @@
-import React from "react";
+mport React, {useState} from "react";
 import { Text, View, Image, ImageBackground, TouchableOpacity, TextInput, StyleSheet, Alert, navigation} from "react-native";
+import { block } from "react-native-reanimated";
 import PlayerDao from "./model/PlayerDao.js"
 
 
@@ -59,8 +60,27 @@ input: {
   let playerDao = new PlayerDao()
   let curr = playerDao.getCurrentPlayer()
   let player = playerDao.readPlayer(curr.email)
-  let playerUpdate = playerDao.updatePlayer(curr.email, f_new="", l_new ="", id_new="", h_new=0, w_new=0, p_new="", e_new="", m_new = Boolean(), points_new =0, blocks_new=0, steals_new =0,a_new=0, f_throw_per=0,s_new_percent=0)
+  
+  let [userEmail, setUserEmail] = useState('');
+  let [f_new, setFirstName] = useState('');
+  let [l_new, setLastName] = useState('');
+  let [id_new, setId]  = useState('');
+  let [h_new, setHeight] = useState('');
+  let [w_new, setWeight] = useState('');
+  let [p_new, setPosition] = useState('');
+  let [e_new, setExperience] = useState('');
+  let [m_new, setManager] = useState('');
+  let [points_new, setPoints] = useState('');
+  let [blocks_new, setBlocks] = useState('');
+  let [steals_new, setSteaals] = useState('');
+  let [a_new, setAssists] = useState('');
+  let [f_throw_per, setFrees] = useState('');
+  let [s_new_percent, setPercent] = useState('')
+
+  // let playerUpdate = playerDao.updatePlayer(userEmail, f_new, l_new , id_new, h_new, w_new, p_new, e_new, m_new, points_new, blocks_new, steals_new,a_new, f_throw_per,s_new_percent)
   // let playerDelete = playerDao.deletePlayer(curr.deletePlayer)
+  
+  
 
 
    return (
@@ -83,9 +103,10 @@ input: {
           style = {[styles.input,{width:"90%"} ]}  keyboardType="email-address"
           textAlign={'center'}
           placeholder="User Email" 
-          //onChangeText={
-            // playerUpdate.email
-        //}
+          onChangeText={
+            (userEmail) => setUserEmail(userEmail)
+          
+        }
         />
         </View>
 
@@ -94,9 +115,9 @@ input: {
           style = {[styles.input,{width:"90%"} ]} keyboardType = "default"
           textAlign={'center'}
           placeholder="First Name" 
-          // onChangeText={
-          // playerUpdate.f_name
-          // }
+          onChangeText={
+            (f_new) => setFirstName(f_new)
+          }
           />
 
     </View>
@@ -106,9 +127,9 @@ input: {
           style = {[styles.input,{width:"90%"} ]} keyboardType = "default"
           textAlign={'center'}
           placeholder="Last Name" 
-          // onChangeText={
-            // playerUpdate.l_new
-          // }
+          onChangeText={
+            (l_new) => setLastName(l_new)
+          }
           />
     </View>
     <View style={{position: 'absolute', top: -310, left: 0, right: 0, bottom: 0, justifyContent: 'center', alignItems: 'center'}}>
@@ -116,9 +137,10 @@ input: {
           style = {[styles.input,{width:"90%"} ]} keyboardType ="default"
           textAlign={'center'}
           placeholder="ID" 
-          // onChangeText={
-            // playerUpdate.id_new
-         //  }
+          onChangeText={
+            (id_new) => setId(id_new)
+          
+          }
          />
     </View>
         <View style={{position: 'absolute', top: -230, left: 0, right: 0, bottom:0, justifyContent: 'center', alignItems: 'center'}}>
@@ -126,9 +148,9 @@ input: {
           style = {styles.input} keyboardType='numeric'
           textAlign={'center'}
           placeholder="Height" 
-          // onChangeText={
-            // playerUpdate.h_new
-          // }
+          onChangeText={
+            (height_new) => setHeight(height_new)
+           }
           />
         </View>
      
@@ -137,9 +159,10 @@ input: {
           style = {styles.input} keyboardType='numeric'
           textAlign={'center'}
           placeholder="Weight" 
-          /* onChangeText={
-           //  playerUpdate.w_new
-          } */
+          onChangeText={
+            (w_new) => setWeight(w_new)
+          }
+          
           />
         </View>
 
@@ -149,9 +172,9 @@ input: {
           style = {[styles.input,{width:"90%"} ]} keyboardType = "default" 
           textAlign={'center'}
           placeholder="Experience Level" 
-          /* onChangeText={
-            //playerUpdate.e_new
-          } */
+          onChangeText={
+            (e_new) => setExperience(e_new)
+          } 
           />
         </View>
         <View style={{position: 'absolute', top: 10, left: 0, right: 0, bottom: 0, justifyContent: 'center', alignItems: 'center'}}>
@@ -159,9 +182,9 @@ input: {
           style = {[styles.input,{width:"90%"} ]} keyboardType = "default"
           textAlign={'center'}
           placeholder="Position" 
-          /* onChangeText={
-            //playerUpdate.p_new
-          } */
+          onChangeText={
+            (p_new) => setPosition(p_new)
+          } 
           />
         </View>
         <View style={{position: 'absolute', top: 90, left: 0, right: 0, bottom: 0, justifyContent: 'center', alignItems: 'center'}}>
@@ -169,9 +192,9 @@ input: {
           style = {[styles.input,{width:"90%"} ]} keyboardType = "default"
           textAlign={'center'}
           placeholder="Is Manager" 
-          /* onChangeText={
-            // playerUpdate.m_new
-          } */
+          onChangeText={
+            (m_new) => setManager(m_new)
+          }
           />
         </View>
         <View style={{position: 'absolute', top: 170, left: 0, right: 0, bottom: 0, justifyContent: 'center', alignItems: 'center'}}>
@@ -179,9 +202,9 @@ input: {
           style = {[styles.input,{width:"90%"} ]} keyboardType = "default"
           textAlign={'center'}
           placeholder="Average Points" 
-          /* onChangeText={
-            // playerUpdate.points_new
-          } */
+          onChangeText={
+            (points_new) => setPoints(points_new)
+          }
           />
         </View>
         <View style={{position: 'absolute', top: 250, left: 0, right: 0, bottom: 0, justifyContent: 'center', alignItems: 'center'}}>
@@ -189,9 +212,9 @@ input: {
           style = {[styles.input,{width:"90%"} ]} keyboardType = "default"
           textAlign={'center'}
           placeholder="Average Blocks" 
-          /* onChangeText={
-            // playerUpdate.blocks_new
-          } */
+           onChangeText={
+            (blocks_new) => setBlocks(blocks_new)
+          }  
           />
         </View>
         <View style={{position: 'absolute', top: 330, left: 0, right: 0, bottom: 0, justifyContent: 'center', alignItems: 'center'}}>
@@ -199,9 +222,9 @@ input: {
           style = {[styles.input,{width:"90%"} ]} keyboardType = "default"
           textAlign={'center'}
           placeholder="Average Steals" 
-          /* onChangeText={
-            //playerUpdate.steals_new
-          } */
+          onChangeText={
+            (steals_new) => setSteaals(steals_new)
+          } 
           />
         </View>
         <View style={{position: 'absolute', top: 410, left: 0, right: 0, bottom: 0, justifyContent: 'center', alignItems: 'center'}}>
@@ -209,9 +232,9 @@ input: {
           style = {[styles.input,{width:"90%"} ]} keyboardType = "default"
           textAlign={'center'}
           placeholder="Assists" 
-          /* onChangeText={
-            //playerUpdate.a_new
-          } */
+          onChangeText={
+            (a_new) => setAssists(a_new)
+          }
           />
         </View>
         <View style={{position: 'absolute', top: 495, left: 0, right: 0, bottom: 0, justifyContent: 'center', alignItems: 'center'}}>
@@ -219,9 +242,9 @@ input: {
           style = {[styles.input,{width:"90%"} ]} keyboardType = "default"
           textAlign={'center'}
           placeholder="Free throw Percent" 
-          /* onChangeText={
-            // playerUpdate.f_throw_per
-          } */
+          onChangeText={
+            (f_throw_per) => setFrees(f_throw_per )
+          } 
           />
         </View>
         <View style={{position: 'absolute', top: 580, left: 0, right: 0, bottom: 0, justifyContent: 'center', alignItems: 'center'}}>
@@ -229,9 +252,9 @@ input: {
           style = {[styles.input,{width:"90%"} ]} 
           textAlign={'center'}
           placeholder="Shot Percent" 
-           /* onChangeText={
-            // playerUpdate.s_new_percent
-          } */
+           onChangeText={
+            (s_new_percent) => setPercent(s_new_percent)
+          } 
           />
         </View>
     
