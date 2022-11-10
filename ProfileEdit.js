@@ -1,7 +1,8 @@
-import React, {useState} from "react";
+mport React, {useState} from "react";
 import { Text, View, Image, ImageBackground, TouchableOpacity, TextInput, StyleSheet, Alert, navigation} from "react-native";
 import { block } from "react-native-reanimated";
 import PlayerDao from "./model/PlayerDao.js"
+// import PlayerList from "./PlayerList.js"
 
 
 const ProfileEdit = ({ navigation }) => {
@@ -59,10 +60,10 @@ input: {
 
   let playerDao = new PlayerDao()
   let curr = playerDao.getCurrentPlayer()
-  let player = playerDao.readPlayer(curr.email)
+  // let player = playerDao.readPlayer(curr.email)
   
   let [userEmail, setUserEmail] = useState('');
-  let [f_new, setFirstName] = useState('');
+  let [first_name, setFirstName] = useState('');
   let [l_new, setLastName] = useState('');
   let [id_new, setId]  = useState('');
   let [h_new, setHeight] = useState('');
@@ -80,7 +81,48 @@ input: {
   // let playerUpdate = playerDao.updatePlayer(userEmail, f_new, l_new , id_new, h_new, w_new, p_new, e_new, m_new, points_new, blocks_new, steals_new,a_new, f_throw_per,s_new_percent)
   // let playerDelete = playerDao.deletePlayer(curr.deletePlayer)
   
+  let updatePlayer = () => {
+      
+    if (!userEmail) {
+      alert('Please fill player email');
+      return;
+    }
+    let read = playerDao.readPlayer(userEmail);
+    // let read = playerDao.readPlayer(useremail)
+
+    if(!read){
+      playerDao.updatePlayer(
+        userEmail, read.first_name, read.last_name, read.team_id, read.height, read.weight, read.position, read.experience, read.isManager, read.avgPoints, read.avgBlocks, read.avgSteals, read.assists, read.freethrowPercent, read.shotPercent, 
+        read.avgBlocks, read.avgSteals, read.avgAssists, read.freethrowPercent, read.shotPercent)
+        console.log("email", playerDao.userEmail)
+        alert(
+        'Success',
+        'You have Updated Successfully',
+        [
+          {
+            text: 'Ok',
+            onPress: () => navigation.navigate('ProfileView'),
+          },
+        ],
+        { cancelable: false }
+      );
+    
+    } 
   
+    else{
+      alert(
+        'Player does not exist',
+        [
+          {
+          text: 'Ok',
+          onPress: () => navigation.navigate('ProfileView'),
+        },
+      ],
+      { cancelable: false }
+    );
+    
+  };
+}
 
 
    return (
@@ -105,10 +147,15 @@ input: {
           placeholder="User Email" 
           onChangeText={
             (userEmail) => setUserEmail(userEmail)
+            
+
           
-        }
+        } 
+      
         />
         </View>
+  
+  
 
     <View style={{position: 'absolute', top: -470, left: 0, right: 0, bottom: 0, justifyContent: 'center', alignItems: 'center'}}>
     <TextInput 
@@ -116,7 +163,7 @@ input: {
           textAlign={'center'}
           placeholder="First Name" 
           onChangeText={
-            (f_new) => setFirstName(f_new)
+            (first_name) => setFirstName(first_name)
           }
           />
 
@@ -282,7 +329,9 @@ input: {
         <TouchableOpacity
             //submit changes button
             //onPress={() => console.log("button pressed!")} 
-            onPress={() =>Alert.alert("Changes Saved!")}
+            // onPress={() =>Alert.alert("Changes Saved!")}
+            // onPress={() => navigation.navigate('ProfileList')}
+            onPress={updatePlayer}
             style={styles.button2}>
         <Text style={{color: "white", fontSize: 14, fontFamily: 'Bungee-Regular'}}> Submit Changes </Text>
         </TouchableOpacity>
