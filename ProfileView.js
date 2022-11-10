@@ -24,6 +24,15 @@ const ProfileView = ({ navigation }) => {
         bottom: 500,
         justifyContent: 'flex-start',
       },
+
+      button1: {
+        //flex: 1,
+        alignItems: "center",
+        backgroundColor: "#B62727",
+        padding: 5,
+        paddingHorizontal: 50,
+        justifyContent: 'center'    
+    },
       button2:{
          //flex: 1,
     alignItems: "center",
@@ -45,13 +54,42 @@ const ProfileView = ({ navigation }) => {
 }
 
   });
-
+  const [buttonStyle, setButtonStyle] = useState(true);
   let playerDao = new PlayerDao()
   let curr = playerDao.getProfileToView()
+  //let me = playerDao.getCurrentPlayer()
   let player = playerDao.readPlayer(curr.email)
+  let myProf = true
   // let updatedPlayer = playerDao.updatePlayer()
   // let playerDelete = playerDao.deletePlayer(curr.deletePlayer)
   
+  let changeButton = () =>
+  {
+    if (curr.email != playerDao.getCurrentPlayer().email)
+    {
+      console.log("meow")
+      myProf = false
+      console.log(myProf)
+      //buttonStyle1 = () => this.setButtonStyle(!buttonStyle)
+  
+    }
+    else if (curr.email === playerDao.getCurrentPlayer().email)
+    {
+      console.log("bark")
+      myProf = true
+      console.log(myProf)
+     // buttonStyle1 = () => this.setButtonStyle(buttonStyle)
+    }
+    return myProf;
+  };
+
+
+  useEffect(() =>{
+  changeButton();
+
+});
+
+  console.log("final form", myProf);
 
    return (
     <View style={{flex:1, alignItems:'center', justifyContent:'center'}}>
@@ -129,12 +167,13 @@ const ProfileView = ({ navigation }) => {
         </TouchableOpacity>
         </View> 
 
-        <View style={{position: 'absolute', top: 650, left: 0, right: 250, bottom: 0, justifyContent: 'center', alignItems: 'center'}}>
+        <View style={{position: 'absolute', top: 650, left: 200, right: 20, bottom: 0, justifyContent: 'center', alignItems: 'center'}}>
         <TouchableOpacity
             //onPress={() => console.log("button pressed!")} 
             // update user 
-            onPress={() => navigation.navigate('Request')}
-            style={[styles.button2, { backgroundColor: "#B62727"}]}>
+           // onPress={() => navigation.navigate('Request')}
+            style={changeButton() ? styles.button2 : styles.button1}
+            onPress = {() => navigation.navigate('Request')}>
         <Text style={{color: "#FFFFFF", fontFamily: 'monospace'}}> Send Requests </Text>
         </TouchableOpacity>
         </View> 

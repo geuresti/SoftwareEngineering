@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { Text, View, Image, ImageBackground, TouchableOpacity, TextInput, StyleSheet, Button, Alert, SafeAreaView, FlatList} from "react-native";
+import Player from './model/PlayerDao';
 
 const AdminPage = ({ navigation }) => {
   const styles = StyleSheet.create({
