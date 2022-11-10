@@ -45,34 +45,6 @@ const PlayerList = ({ navigation }) => {
           FlatListItems: allPlayers,
         };
     
-      let goToProfile = (email) => {
-        playerDao.setProfileToView(email)
-        //navigation.navigate('ProfileView')
-      }
-
-      
-      let viewAllPlayers = () => {
-        let s = ""
-        for(var i = 0; i<allPlayers.length; i++){
-            s+= `<View 
-            key={allPlayers[i].email
-            style={{ backgroundColor: '#383434', marginTop: 20, padding: 30, borderRadius: 10 }}>
-
-        <Text style={styles.textheader}>Email: {allPlayers[i].email}</Text>
-        <Text style={styles.textheader}>Name: {allPlayers[i].first_name} {allPlayers[i].last_name}</Text>
-        <Text style={styles.textheader}>Team: {allPlayers[i].team_id}</Text>
-        <View style={{position: 'absolute', left: 220, justifyContent: 'center', alignItems: 'center'}}>
-        
-        <TouchableOpacity
-            onPress={goToProfile(allPlayers[i].email)}
-            style={styles.button}>
-            <Text style={{color: "#FFFFFF", fontFamily: 'monospace'}}>View Full Profile</Text>
-        </TouchableOpacity>
-        </View>
-        </View>"`
-        }
-        return s
-      }
 
       let listViewItemSeparator = () => {
         return (
