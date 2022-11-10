@@ -1,13 +1,8 @@
 import { Text, View, Image, ImageBackground, TouchableOpacity, TextInput, StyleSheet, Alert, SafeAreaView, FlatList, navigation} from "react-native";
 import PlayerDao from "./model/PlayerDao.js"
 import React, { useEffect, useState } from 'react';
-//import Mybutton from './pages/components/Mybutton';
-//import Mytext from './pages/components/Mytext';
-import { openDatabase } from 'react-native-sqlite-storage';
 import Realm from "realm";
-import dbModel from './dbModel';
-import createJoin from './Request.js';
-import Request from './Request.js';
+
 
 
 const ProfileView = ({ navigation }) => {
@@ -52,7 +47,7 @@ const ProfileView = ({ navigation }) => {
   });
 
   let playerDao = new PlayerDao()
-  let curr = playerDao.getCurrentPlayer()
+  let curr = playerDao.getProfileToView()
   let player = playerDao.readPlayer(curr.email)
   // let updatedPlayer = playerDao.updatePlayer()
   // let playerDelete = playerDao.deletePlayer(curr.deletePlayer)
