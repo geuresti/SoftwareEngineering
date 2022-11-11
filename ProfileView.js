@@ -2,7 +2,7 @@ import { Text, View, Image, ImageBackground, TouchableOpacity, TextInput, StyleS
 import PlayerDao from "./model/PlayerDao.js"
 import React, { useEffect, useState } from 'react';
 import Realm from "realm";
-import Request from "./Request.js";
+
 
 
 const ProfileView = ({ navigation }) => {
@@ -24,7 +24,6 @@ const ProfileView = ({ navigation }) => {
         bottom: 500,
         justifyContent: 'flex-start',
       },
-
       button1: {
         //flex: 1,
         alignItems: "center",
@@ -33,7 +32,28 @@ const ProfileView = ({ navigation }) => {
         paddingHorizontal: 50,
         justifyContent: 'center'    
     },
-      button2:{
+    button2:{
+      //flex: 1,
+ alignItems: "center",
+ backgroundColor: "#CA5A37",
+ padding: 0,
+ paddingHorizontal: 30,
+ justifyContent: 'center',
+ bottom: 1000
+ 
+
+   },
+button3: {
+ //flex: 1,
+ alignItems: "center",
+ backgroundColor: "transparent",
+ padding: 0,
+ paddingHorizontal: 30,
+ justifyContent: 'center'
+
+ 
+},
+button2:{
          //flex: 1,
     alignItems: "center",
     backgroundColor: "#CA5A37",
@@ -59,12 +79,10 @@ const ProfileView = ({ navigation }) => {
   const [buttonStyle, setButtonStyle] = useState(true);
   let playerDao = new PlayerDao()
   let curr = playerDao.getProfileToView()
-  //let me = playerDao.getCurrentPlayer()
+  let fix = playerDao.setProfileToView(playerDao.getCurrentPlayer().email)
   let player = playerDao.readPlayer(curr.email)
   let myProf = true
-  // let updatedPlayer = playerDao.updatePlayer()
-  // let playerDelete = playerDao.deletePlayer(curr.deletePlayer)
-  
+
   let changeButton = () =>
   {
     if (curr.email != playerDao.getCurrentPlayer().email)
@@ -85,7 +103,9 @@ const ProfileView = ({ navigation }) => {
   changeButton();
 
 });
-
+  // let updatedPlayer = playerDao.updatePlayer()
+  // let playerDelete = playerDao.deletePlayer(curr.deletePlayer)
+  
 
    return (
     <View style={{flex:1, alignItems:'center', justifyContent:'center'}}>
@@ -102,8 +122,8 @@ const ProfileView = ({ navigation }) => {
      source={require('./headshot3.png')}></Image>
    </View>
    <View style={styles.profileTextNames}>
-    <Text style={[styles.texttype, {fontSize: 20}]}>{player.email}</Text>
-    <Text style={[styles.texttype, {fontSize: 15, bottom:30}]}>{player.team_id}</Text>
+    <Text style={[styles.texttype, {fontSize: 15}]}>Email: {player.email}</Text>
+    <Text style={[styles.texttype, {fontSize: 15}]}>Team: {player.team_id}</Text>
    </View>
    <View style={styles.profileText}>
         <Text style={styles.texttype}>{player.first_name} {player.last_name}</Text>
@@ -112,7 +132,6 @@ const ProfileView = ({ navigation }) => {
         <Text style={[styles.texttype, {fontSize: 10}]}>{player.experience}</Text>
         <Text style={[styles.texttype, {fontSize: 14}]}>Position:</Text>
         <Text style={[styles.texttype, {fontSize: 10}]}>{player.position}</Text>
-        <Text style={[styles.texttype, {fontSize: 14}]}>Is Manager:</Text>
         <Text style={[styles.texttype, {fontSize:10}]}>{player.isManager}</Text>
         <Text style={[styles.texttype, {fontSize: 14}]}>Average Points:</Text>
         <Text style = {[styles.texttype, {fontSize:10}]}>{player.avgPoints}</Text>
