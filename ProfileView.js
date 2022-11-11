@@ -1,17 +1,18 @@
-import { Text, View, Image, ImageBackground, TouchableOpacity, TextInput, StyleSheet, Alert, SafeAreaView, FlatList, navigation} from "react-native";
+import React, {useState} from "react";
+import { Text, View, Image, ImageBackground, TouchableOpacity, TextInput, StyleSheet, Alert, navigation} from "react-native";
+import { block } from "react-native-reanimated";
 import PlayerDao from "./model/PlayerDao.js"
-import React, { useEffect, useState } from 'react';
-import Realm from "realm";
 
 
+const ProfileEdit = ({ navigation }) => {
 
-const ProfileView = ({ navigation }) => {
+
   const styles = StyleSheet.create({
-    texttype: {fontSize:20 , fontFamily: 'Bungee-Regular', color: '#D9D9D9'},
+    texttype: {fontSize:25 , fontFamily: 'Bungee-Regular', color: '#D9D9D9'},
     profileText: {
       position: 'absolute',
-      top: 100,
-      left: 170, 
+      top: 30,
+      left: 20, 
       right: 0,
       bottom: 0,
       justifyContent: 'flex-start',
@@ -24,46 +25,6 @@ const ProfileView = ({ navigation }) => {
         bottom: 500,
         justifyContent: 'flex-start',
       },
-      button1: {
-        //flex: 1,
-        alignItems: "center",
-        backgroundColor: "#B62727",
-        padding: 5,
-        paddingHorizontal: 50,
-        justifyContent: 'center'    
-    },
-    button2:{
-      //flex: 1,
- alignItems: "center",
- backgroundColor: "#CA5A37",
- padding: 0,
- paddingHorizontal: 30,
- justifyContent: 'center',
- bottom: 1000
- 
-
-   },
-button3: {
- //flex: 1,
- alignItems: "center",
- backgroundColor: "transparent",
- padding: 0,
- paddingHorizontal: 30,
- justifyContent: 'center'
-
- 
-},
-button2:{
-         //flex: 1,
-    alignItems: "center",
-    backgroundColor: "#CA5A37",
-    padding: 0,
-    paddingHorizontal: 30,
-    justifyContent: 'center',
-    bottom: 1000
-    
-
-      },
   button3: {
     //flex: 1,
     alignItems: "center",
@@ -73,39 +34,70 @@ button2:{
     justifyContent: 'center'
 
     
-}
+},
+input: {
+    borderColor: "gray",
+    color: "black",
+    backgroundColor: "white",
+    width: "90%",
+    borderWidth: 2,
+    borderRadius: 7,
+    padding:3,
+  },
+  button2: {
+    //flex: 1,
+    alignItems: "center",
+    backgroundColor: "#CA5A37",
+    padding: 5,
+    paddingHorizontal: 16,
+    justifyContent: 'center'
 
+    
+},
   });
-  const [buttonStyle, setButtonStyle] = useState(true);
-  let playerDao = new PlayerDao()
-  let curr = playerDao.getProfileToView()
-  let fix = playerDao.setProfileToView(playerDao.getCurrentPlayer().email)
-  let player = playerDao.readPlayer(curr.email)
-  let myProf = true
-
-  let changeButton = () =>
-  {
-    if (curr.email != playerDao.getCurrentPlayer().email)
-    {
-      myProf = false
-
   
-    }
-    else if (curr.email === playerDao.getCurrentPlayer().email)
-    {
-      myProf = true
-    }
-    return myProf;
-  };
+
+  let playerDao = new PlayerDao()
+  let curr = playerDao.getCurrentPlayer()
+  let player = playerDao.readPlayer(curr.email)
 
 
-  useEffect(() =>{
-  changeButton();
-
-});
-  // let updatedPlayer = playerDao.updatePlayer()
+  let [f_new, setFirstName] = useState(player.first_name);
+  let [l_new, setLastName] = useState(player.last_name);
+  let [h_new, setHeight] = useState(player.height);
+  let [w_new, setWeight] = useState(player.weight);
+  let [p_new, setPosition] = useState(player.position);
+  let [e_new, setExperience] = useState(player.experience);
+  let [points_new, setPoints] = useState(player.avgPoints);
+  let [blocks_new, setBlocks] = useState(player.avgBlocks);
+  let [steals_new, setSteals] = useState(player.avgSteals);
+  let [a_new, setAssists] = useState(player.assists);
+  let [f_throw_per, setFrees] = useState(player.freethrowPercent);
+  let [s_new_percent, setPercent] = useState(player.shotPercent)
+  
+  let updateMethod = () => {
+    playerDao.updatePlayer(player.email, f_new, l_new , player.team_id, h_new, w_new, p_new, e_new, player.isManager, points_new, blocks_new, steals_new,a_new, parseInt(f_throw_per),s_new_percent)
+    Alert.alert(
+      'Success',
+      'Profile Updated',
+      [
+        {
+          text: 'Ok',
+          onPress: () => navigation.navigate('ProfileView'),
+        },
+      ],
+      { cancelable: false }
+    );
+  }
+  let placeholders = (attr, item) => {
+    if(item)
+      return item
+    else return attr
+  }
   // let playerDelete = playerDao.deletePlayer(curr.deletePlayer)
   
+  
+
 
    return (
     <View style={{flex:1, alignItems:'center', justifyContent:'center'}}>
@@ -117,38 +109,137 @@ button2:{
      }}
      source={require("./profilebg.png")}
    />
-   <View style={{ position: 'absolute', top: 200, left: 50, height: 30, width: 30, resizeMode: 'stretch', alignItems:'center'}}>
-   <Image
-     source={require('./headshot3.png')}></Image>
-   </View>
-   <View style={styles.profileTextNames}>
-    <Text style={[styles.texttype, {fontSize: 15}]}>Email: {player.email}</Text>
-    <Text style={[styles.texttype, {fontSize: 15}]}>Team: {player.team_id}</Text>
-   </View>
-   <View style={styles.profileText}>
-        <Text style={styles.texttype}>{player.first_name} {player.last_name}</Text>
-        <Text style={[styles.texttype, {fontSize: 10}]}>Height: {player.height}  Weight: {player.weight} lbs</Text>
-        <Text style={[styles.texttype, {fontSize: 14}]}>Experience Level: </Text>
-        <Text style={[styles.texttype, {fontSize: 10}]}>{player.experience}</Text>
-        <Text style={[styles.texttype, {fontSize: 14}]}>Position:</Text>
-        <Text style={[styles.texttype, {fontSize: 10}]}>{player.position}</Text>
-        <Text style={[styles.texttype, {fontSize:10}]}>{player.isManager}</Text>
-        <Text style={[styles.texttype, {fontSize: 14}]}>Average Points:</Text>
-        <Text style = {[styles.texttype, {fontSize:10}]}>{player.avgPoints}</Text>
-        <Text style={[styles.texttype, {fontSize: 14}]}>Average Blocks:</Text>
-        <Text style = {[styles.texttype, {fontSize:10}]}>{player.avgBlocks}</Text>
-        <Text style={[styles.texttype, {fontSize: 14}]}>Average Steals:</Text>
-        <Text style = {[styles.texttype, {fontSize:10}]}>{player.avgSteals}</Text>
-        <Text style={[styles.texttype, {fontSize: 14}]}>Average Assists:</Text>
-        <Text style = {[styles.texttype, {fontSize:10}]}>{player.assists}</Text>
-        <Text style={[styles.texttype, {fontSize: 14}]}>Free Throw Percent:</Text>
-        <Text style = {[styles.texttype, {fontSize:10}]}>{player.freethrowPrecent}</Text>
-        <Text style={[styles.texttype, {fontSize: 14}]}>Shot Percent:</Text>
-        <Text style = {[styles.texttype, {fontSize:10}]}>{player.shotPercent}</Text>
 
+    <View style={{position: 'absolute', top: -470, left: 0, right: 0, bottom: 0, justifyContent: 'center', alignItems: 'center'}}>
+    <TextInput 
+          style = {[styles.input,{width:"90%"} ]} keyboardType = "default"
+          textAlign={'center'}
+          placeholder={placeholders("First Name", player.first_name)}
+          onChangeText={
+            (f_new) => setFirstName(f_new)
+          }
+          />
 
-        
+    </View>
+
+    <View style={{position: 'absolute', top: -390, left: 0, right: 0, bottom: 0, justifyContent: 'center', alignItems: 'center'}}>
+    <TextInput 
+          style = {[styles.input,{width:"90%"} ]} keyboardType = "default"
+          textAlign={'center'}
+          placeholder={placeholders("Last Name", player.last_name)} 
+          onChangeText={
+            (l_new) => setLastName(l_new)
+          }
+          />
+    </View>
+        <View style={{position: 'absolute', top: -230, left: 0, right: 0, bottom:0, justifyContent: 'center', alignItems: 'center'}}>
+        <TextInput 
+          style = {styles.input} keyboardType='numeric'
+          textAlign={'center'}
+          placeholder={placeholders("Height", player.height)}
+          onChangeText={
+            (height_new) => setHeight(height_new)
+           }
+          />
         </View>
+     
+    <View style={{position: 'absolute', top: -150, left: 0, right: 0, bottom: 0, justifyContent: 'center', alignItems: 'center'}}>
+        <TextInput 
+          style = {styles.input} keyboardType='numeric'
+          textAlign={'center'}
+          placeholder={placeholders("Weight", player.weight)}
+          onChangeText={
+            (w_new) => setWeight(w_new)
+          }
+          
+          />
+        </View>
+
+      
+    <View style={{position: 'absolute', top: -70, left: 0, right: 0, bottom: 0, justifyContent: 'center', alignItems: 'center'}}>
+        <TextInput 
+          style = {[styles.input,{width:"90%"} ]} keyboardType = "default" 
+          textAlign={'center'}
+          placeholder={placeholders("Experience Level", player.experience)}
+          onChangeText={
+            (e_new) => setExperience(e_new)
+          } 
+          />
+        </View>
+        <View style={{position: 'absolute', top: 10, left: 0, right: 0, bottom: 0, justifyContent: 'center', alignItems: 'center'}}>
+    <TextInput 
+          style = {[styles.input,{width:"90%"} ]} keyboardType = "default"
+          textAlign={'center'}
+          placeholder={placeholders("Position(s)", player.position)}
+          onChangeText={
+            (p_new) => setPosition(p_new)
+          } 
+          />
+        </View>
+        <View style={{position: 'absolute', top: 170, left: 0, right: 0, bottom: 0, justifyContent: 'center', alignItems: 'center'}}>
+    <TextInput 
+          style = {[styles.input,{width:"90%"} ]} keyboardType = "default"
+          textAlign={'center'}
+          placeholder={placeholders("Average Points", player.avgPoints)}
+          onChangeText={
+            (points_new) => setPoints(points_new)
+          }
+          />
+        </View>
+        <View style={{position: 'absolute', top: 250, left: 0, right: 0, bottom: 0, justifyContent: 'center', alignItems: 'center'}}>
+    <TextInput 
+          style = {[styles.input,{width:"90%"} ]} keyboardType = "default"
+          textAlign={'center'}
+          placeholder={placeholders("Average Blocks", player.avgBlocks)}
+           onChangeText={
+            (blocks_new) => setBlocks(blocks_new)
+          }  
+          />
+        </View>
+        <View style={{position: 'absolute', top: 330, left: 0, right: 0, bottom: 0, justifyContent: 'center', alignItems: 'center'}}>
+    <TextInput 
+          style = {[styles.input,{width:"90%"} ]} keyboardType = "default"
+          textAlign={'center'}
+          placeholder={placeholders("Average Steals", player.avgSteals)} 
+          onChangeText={
+            (steals_new) => setSteals(steals_new)
+          } 
+          />
+        </View>
+        <View style={{position: 'absolute', top: 410, left: 0, right: 0, bottom: 0, justifyContent: 'center', alignItems: 'center'}}>
+    <TextInput 
+          style = {[styles.input,{width:"90%"} ]} keyboardType = "default"
+          textAlign={'center'}
+          placeholder={placeholders("Assists", player.assists)}
+          onChangeText={
+            (a_new) => setAssists(a_new)
+          }
+          />
+        </View>
+        <View style={{position: 'absolute', top: 495, left: 0, right: 0, bottom: 0, justifyContent: 'center', alignItems: 'center'}}>
+    <TextInput 
+          style = {[styles.input,{width:"90%"} ]} keyboardType = "numeric"
+          textAlign={'center'}
+          placeholder={placeholders("Free Throw %", player.freethrowPercent)}
+          value={Number}
+          onChangeText={
+            (f_throw_per) => setFrees(f_throw_per )
+          } 
+          />
+        </View>
+        <View style={{position: 'absolute', top: 580, left: 0, right: 0, bottom: 0, justifyContent: 'center', alignItems: 'center'}}>
+    <TextInput 
+          style = {[styles.input,{width:"90%"} ]} 
+          textAlign={'center'}
+          placeholder={placeholders("Shot Accuracy", player.shotPercent)}
+           onChangeText={
+            (s_new_percent) => setPercent(s_new_percent)
+          } 
+          />
+        </View>
+    
+
+
         <View style={{position: 'absolute', top: 0, left: 240, right: 0, bottom: 680, justifyContent: 'center', alignItems: 'center'}}>
         <TouchableOpacity
             //inbox button, transparent
@@ -161,42 +252,24 @@ button2:{
 
         <View style={{position: 'absolute', top: 0, left: 380, right: 0, bottom: 680, justifyContent: 'center', alignItems: 'center'}}>
         <TouchableOpacity
-            //profile button, transparent
-            //onPress={() => console.log("button pressed!")} 
+            
             onPress={() =>Alert.alert("profile")}
             style={styles.button3}>
         <Text style={{color: "transparent", fontSize: 28, fontFamily: 'Bungee-Regular'}}> </Text>
         </TouchableOpacity>
         </View>
-  
-      
-  
-
-        <View style={{position: 'absolute', top: 650, left: 200, right: 20, bottom: 0, justifyContent: 'center', alignItems: 'center'}}>
+        <View style={{position: 'absolute', top: 650, left: 0, right: 180, bottom: 0, justifyContent: 'center', alignItems: 'center'}}>
         <TouchableOpacity
+            //submit changes button
             //onPress={() => console.log("button pressed!")} 
-            // update user 
-            onPress={() => navigation.navigate('ProfileEdit')}
-            style={[styles.button2, {top:0}]}>
-        <Text style={{color: "#FFFFFF", fontFamily: 'monospace'}}> Update Player </Text>
+            onPress={updateMethod}
+            style={styles.button2}>
+        <Text style={{color: "white", fontSize: 14, fontFamily: 'Bungee-Regular'}}> Submit Changes </Text>
         </TouchableOpacity>
-        </View> 
-
-        <View style={{position: 'absolute', top: 650, left: 200, right: 20, bottom: 0, justifyContent: 'center', alignItems: 'center'}}>
-        <TouchableOpacity
-            //onPress={() => console.log("button pressed!")} 
-            // update user 
-           // onPress={() => navigation.navigate('Request')}
-            style={changeButton() ? styles.button2 : styles.button1}
-            onPress={ () => {playerDao.setProfileToView(player.email); navigation.navigate('Request')}}>
-        <Text style={{color: "#FFFFFF", fontFamily: 'monospace'}}> Send Requests </Text>
-        </TouchableOpacity>
-        </View> 
-        </View> 
         
-   )
+        </View>
+  </View>
+   );
+}
 
-
-      
-};
-export default ProfileView
+export default ProfileEdit
