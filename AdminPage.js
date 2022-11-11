@@ -86,8 +86,8 @@ const AdminPage = ({ navigation }) => {
 
         <View style={{position: 'absolute', top: 400, left: 10, right: 0, bottom: 0, justifyContent: 'center', alignItems: 'center'}}>
         <TouchableOpacity
-            onPress={() => navigation.navigate('NotificationCRD')} 
-            customClick={() => navigation.navigate('NotificationCRD')}
+            onPress={() => navigation.navigate('NotificationManager')} 
+            customClick={() => navigation.navigate('NotificationManager')}
             style={styles.button2}>
         <Text style={{color: "#FFFFFF", fontSize: 28, fontFamily: 'Bungee-Regular'}}>BROWSE NOTIFS</Text>
         </TouchableOpacity>
