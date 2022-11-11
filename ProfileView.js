@@ -39,7 +39,9 @@ const ProfileView = ({ navigation }) => {
     backgroundColor: "#CA5A37",
     padding: 0,
     paddingHorizontal: 30,
-    justifyContent: 'center'
+    justifyContent: 'center',
+    bottom: 1000
+    
 
       },
   button3: {
@@ -67,18 +69,13 @@ const ProfileView = ({ navigation }) => {
   {
     if (curr.email != playerDao.getCurrentPlayer().email)
     {
-      console.log("meow")
       myProf = false
-      console.log(myProf)
-      //buttonStyle1 = () => this.setButtonStyle(!buttonStyle)
+
   
     }
     else if (curr.email === playerDao.getCurrentPlayer().email)
     {
-      console.log("bark")
       myProf = true
-      console.log(myProf)
-     // buttonStyle1 = () => this.setButtonStyle(buttonStyle)
     }
     return myProf;
   };
@@ -89,7 +86,6 @@ const ProfileView = ({ navigation }) => {
 
 });
 
-  console.log("final form", myProf);
 
    return (
     <View style={{flex:1, alignItems:'center', justifyContent:'center'}}>
@@ -162,7 +158,7 @@ const ProfileView = ({ navigation }) => {
             //onPress={() => console.log("button pressed!")} 
             // update user 
             onPress={() => navigation.navigate('ProfileEdit')}
-            style={styles.button2}>
+            style={[styles.button2, {top:0}]}>
         <Text style={{color: "#FFFFFF", fontFamily: 'monospace'}}> Update Player </Text>
         </TouchableOpacity>
         </View> 
