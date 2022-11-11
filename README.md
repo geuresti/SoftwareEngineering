@@ -32,3 +32,6 @@ https://docs.google.com/spreadsheets/d/15RWY9ZkfjyAiRsdRSctwtcQJONTGUZrHWqrj32_O
 
 ## Architecture & Design:
 https://docs.google.com/document/d/1yZYY7rPpfFXo33XAoqJRIsgZOqpgRATw0L3Rn8OqpwI/edit?usp=sharing
+
+## Package Diagram:
+https://online.visual-paradigm.com/share.jsp?id=323235363334372d31
