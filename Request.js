@@ -1,55 +1,16 @@
 import React, { useState } from 'react';
 import { Text, View, TouchableOpacity, TextInput, StyleSheet, Alert, SafeAreaView, FlatList} from "react-native";
-import Realm from "realm";
 import PlayerDao from "./model/PlayerDao.js"
-
-/*
-    NOTES:
-    - when a new notif is created, the text box isn't cleared for the 
-        senderID / content fields and if you then press "Create Notification"
-        again, the db tries to create a second notification with the same 
-        ID as the first one. (refresh page upon create?)
-*/
-
-realm = new Realm({path: 'notifications2.realm',
-schema:[
-    {
-    name: "Notifications",
-    properties: {
-        id: "int",
-        senderUsername: "string",
-        recieverUsername: "string",
-        content: "string",
-    },
-    primaryKey: "id",
-
-    },
-],
-schemaVersion: 2
-});
-
+import NotificationDao from "./model/NotificationDao.js"
 
 
 const TestingList = ({ navigation }) => {
 
+  var notifDao = new NotificationDao()
 
-  
-  const db = realm.objects("Notifications");
-  console.log("NOTIFICATIONS:", db);
-  console.log("length:", db.length);
-    // THIS IF CHUNK
-    if (db.length > 0) {
-      console.log("last:", db[db.length-1]); 
-      console.log("last_id:", parseInt(db[db.length-1].id));
-      console.log("next_id:", db[db.length-1].id) + 1;
-    } 
+  const db = notifDao.getAllNotifications()
 
-  let notifID = db.length
-  console.log("CURRENT ID:", notifID);    // THIS ISN't updating in REAL TIME
-  let [senderID, setSenderID] = useState('');
   let [notifContent, setNotifContent] = useState('');
-  let [senderUser, setSenderUser] = useState('');
-  let [recieverUser, setRecieverUser] = useState('');
 
     const styles = StyleSheet.create({
         textheader: {
@@ -88,17 +49,6 @@ const TestingList = ({ navigation }) => {
       let curr2 = playerDao2.getProfileToView()
       let player2 = playerDao2.readPlayer(curr2.email)
 
-      //console.log(player.email, player2.email)
-
-      //  this.state = {
-       //   notifID: db.length,
-        //}
-
-        // does this line affect anything?
-     //   this.state = {
-     //     FlatListItems: [],
-     //   };
-
         this.state = {
           FlatListItems: db,
         };
@@ -115,7 +65,7 @@ const TestingList = ({ navigation }) => {
     let listItemView = (item) => {
         return (
         <View
-            key={item.notifID}
+            key={item.id}
             style={{ backgroundColor: '#383434', marginTop: 20, padding: 30, borderRadius: 10 }}>
       
         <Text style={styles.textheader}>Notifcation ID</Text>
@@ -134,40 +84,12 @@ const TestingList = ({ navigation }) => {
         </View>
           );
         };
-      
-        // UNTESTED
 
-        /*
-        id: "int",
-        senderID: {type: "int", default: 0},
-        content: "string",
-        
-
-        let createNotif = () => {
-          let user;
-          realm.write(() => {
-            user = realm.create("Notifications", {id: notifID, content: notifContent, senderUsername: senderUser, recieverUsername: recieverUser});
-          })
-        }
-
-        */
-
-        let createJoin = () => {
-
-
-
+        let requestJoin = () => {
 
           notifContent = player.email + " would like to join your team!";
-          realm.write(() => {
-            if (db.length > 0) {
-              console.log("")
-              let next_ID = db[db.length-1].id + 1
-              new_notification = realm.create("Notifications", {id: next_ID, content: notifContent, senderUsername: player.email, recieverUsername: player2.email});
-            } else {
-              console.log("this second line ran");
-              new_notification = realm.create("Notifications", {id: 0, content: notifContent, senderUsername: player.email, recieverUsername: player2.email});
-            }
-          })
+
+          notifDao.createNotification(player.email, player2.email, notifContent);
 
           Alert.alert(
             'Success',
@@ -182,21 +104,11 @@ const TestingList = ({ navigation }) => {
           );
         }
 
-        let createRecruit = () => {
+        let recruitPlayer = () => {
 
-
-  
             notifContent = player.email + " would like to recruit you!";
-            realm.write(() => {
-              if (db.length > 0) {
-                console.log("")
-                let next_ID = db[db.length-1].id + 1
-                new_notification = realm.create("Notifications", {id: next_ID, content: notifContent, senderUsername: player.email, recieverUsername: player2.email});
-              } else {
-                console.log("this second line ran");
-                new_notification = realm.create("Notifications", {id: 0, content: notifContent, senderUsername: player.email, recieverUsername: player2.email});
-              }
-            })
+
+            notifDao.createNotification(player.email, player2.email, notifContent);
   
             Alert.alert(
               'Success',
@@ -210,7 +122,6 @@ const TestingList = ({ navigation }) => {
               { cancelable: false }
             );
           }
-  
     
 
         return (
@@ -223,22 +134,16 @@ const TestingList = ({ navigation }) => {
                   keyExtractor={(item, index) => index.toString()}
                   renderItem={({ item }) => listItemView(item)}
                 />
-              
-
-              
-
-        
-        
 
         
           <TouchableOpacity
-                onPress={createJoin}
+                onPress={requestJoin}
                 style={styles.button}>
                 <Text style={{color: "#FFFFFF", fontFamily: 'monospace'}}>Request to Join</Text>
               </TouchableOpacity>
 
               <TouchableOpacity
-                onPress={createRecruit}
+                onPress={recruitPlayer}
                 style={[styles.button , {backgroundColor: "#CA5A37"}]}>
                 <Text style={{color: "#FFFFFF", fontFamily: 'monospace'}}>Recruit</Text>
               </TouchableOpacity>
