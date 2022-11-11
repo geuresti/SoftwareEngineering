@@ -2,7 +2,7 @@ import { Text, View, Image, ImageBackground, TouchableOpacity, TextInput, StyleS
 import PlayerDao from "./model/PlayerDao.js"
 import React, { useEffect, useState } from 'react';
 import Realm from "realm";
-
+import Request from "./Request.js";
 
 
 const ProfileView = ({ navigation }) => {
@@ -169,7 +169,7 @@ const ProfileView = ({ navigation }) => {
             // update user 
            // onPress={() => navigation.navigate('Request')}
             style={changeButton() ? styles.button2 : styles.button1}
-            onPress = {() => navigation.navigate('Request')}>
+            onPress={ () => {playerDao.setProfileToView(player.email); navigation.navigate('Request')}}>
         <Text style={{color: "#FFFFFF", fontFamily: 'monospace'}}> Send Requests </Text>
         </TouchableOpacity>
         </View> 

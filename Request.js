@@ -84,6 +84,12 @@ const TestingList = ({ navigation }) => {
       let curr = playerDao.getCurrentPlayer()
       let player = playerDao.readPlayer(curr.email)
 
+      let playerDao2 = new PlayerDao()
+      let curr2 = playerDao2.getProfileToView()
+      let player2 = playerDao2.readPlayer(curr2.email)
+
+      //console.log(player.email, player2.email)
+
       //  this.state = {
        //   notifID: db.length,
         //}
@@ -150,20 +156,16 @@ const TestingList = ({ navigation }) => {
 
 
 
-          if (!recieverUser) {
-            alert('Please provide reciever username');
-            return;
-          }
 
           notifContent = player.email + " would like to join your team!";
           realm.write(() => {
             if (db.length > 0) {
               console.log("")
               let next_ID = db[db.length-1].id + 1
-              new_notification = realm.create("Notifications", {id: next_ID, content: notifContent, senderUsername: player.email, recieverUsername: recieverUser});
+              new_notification = realm.create("Notifications", {id: next_ID, content: notifContent, senderUsername: player.email, recieverUsername: player2.email});
             } else {
               console.log("this second line ran");
-              new_notification = realm.create("Notifications", {id: 0, content: notifContent, senderUsername: player.email, recieverUsername: recieverUser});
+              new_notification = realm.create("Notifications", {id: 0, content: notifContent, senderUsername: player.email, recieverUsername: player2.email});
             }
           })
 
@@ -182,21 +184,17 @@ const TestingList = ({ navigation }) => {
 
         let createRecruit = () => {
 
-  
-            if (!recieverUser) {
-              alert('Please provide reciever username');
-              return;
-            }
+
   
             notifContent = player.email + " would like to recruit you!";
             realm.write(() => {
               if (db.length > 0) {
                 console.log("")
                 let next_ID = db[db.length-1].id + 1
-                new_notification = realm.create("Notifications", {id: next_ID, content: notifContent, senderUsername: player.email, recieverUsername: recieverUser});
+                new_notification = realm.create("Notifications", {id: next_ID, content: notifContent, senderUsername: player.email, recieverUsername: player2.email});
               } else {
                 console.log("this second line ran");
-                new_notification = realm.create("Notifications", {id: 0, content: notifContent, senderUsername: player.email, recieverUsername: recieverUser});
+                new_notification = realm.create("Notifications", {id: 0, content: notifContent, senderUsername: player.email, recieverUsername: player2.email});
               }
             })
   
@@ -229,17 +227,6 @@ const TestingList = ({ navigation }) => {
 
               
 
-
-          <Text style={{fontSize:20 , fontFamily: 'monospace', color: 'white'}}>Reciever Username</Text>
-           <TextInput 
-            style = {styles.input} keyboardType="number-pad"
-           textAlign={'center'}
-           placeholderTextColor="white" 
-            placeholder="Reciever Username"
-            onChangeText={
-              (recieverUser) => setRecieverUser(recieverUser)
-            }
-            />
         
         
 
