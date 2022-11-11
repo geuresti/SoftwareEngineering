@@ -1,48 +1,9 @@
 import React, { useEffect, useState } from 'react';
 import { Text, View, Image, ImageBackground, TouchableOpacity, TextInput, StyleSheet, Button, Alert, SafeAreaView, FlatList} from "react-native";
-//import Mybutton from './pages/components/Mybutton';
-//import Mytext from './pages/components/Mytext';
-import { openDatabase } from 'react-native-sqlite-storage';
-import dbModel from './dbModel';
-import Realm from "realm";
-
-
-var db = openDatabase({ name: 'UserDatabase.db' });
-realm = new Realm({path: 'logins.realm',
-schema:[
-    {
-    name: "User",
-    properties: {
-        username: "string",
-        pass: "string",
-    },
-    primaryKey: "username",
-
-
-    },
-],
-
-});
-realm2 = new Realm({path: 'team.realm',
-schema:[
-    {
-    name: "Team",
-    properties: {
-        teamName: "string",
-        //teamids: "string",
-        teamids: "string",
-    },
-    primaryKey: "teamName",
-
-
-    },
-],
-schemaVersion:4
-});
+import TeamDao from './model/TeamDao.js'
+import PlayerDao from './model/PlayerDao.js'
 
 const CreateTeam = ({ navigation }) => {
-  dao = new dbModel()
-
     const styles = StyleSheet.create({
         input: {
           borderColor: "gray",
@@ -62,6 +23,8 @@ const CreateTeam = ({ navigation }) => {
         }
       });
 
+  let teamDao = new TeamDao()
+  let playerDao = new PlayerDao()
   let [teamname, setTeamName] = useState('');
 
   let register_team = () => {
@@ -71,13 +34,10 @@ const CreateTeam = ({ navigation }) => {
       alert('Please fill team name');
       return;
     }
-    
-
-    //dao.createTeam(teamname)
-    let team;
-    realm2.write(() => {
-        team = realm2.create("Team", {teamName: teamname, teamids: "0"});
-      })
+    curr = playerDao.getCurrentPlayer()
+    teamDao.createTeam(teamname, curr)
+    playerDao.setManager(curr.email, true)
+    playerDao.updateTeam(curr.email, teamname)
     Alert.alert(
       'Success',
       'Team Registered Successfully',
