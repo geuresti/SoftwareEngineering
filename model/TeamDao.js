@@ -26,11 +26,11 @@ schemaVersion:4
 
 export default class Team{
 
-    createTeam(teamInput){
+    createTeam(teamInput, manager){
         team_realm.write(() => {
             let team = team_realm.create("Team", {
                 teamName: teamInput,
-                teamManager: "",
+                teamManager: manager.email,
                 players: [""],
                 record: "0-0-0",
                 avgPoints: 0,
