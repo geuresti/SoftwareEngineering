@@ -12,7 +12,7 @@ import UserList from './UserList.js';
 import Realm from "realm";
 import ProfileEdit from './ProfileEdit.js';
 import ProfileView from './ProfileView.js';
-import NotificationCRD from './NotificationCRD.js'
+import NotificationManager from './NotificationManager.js'
 import PlayerList from './PlayerList.js';
 import Inbox from './Inbox.js';
 import Request from './Request.js';
@@ -90,8 +90,8 @@ const App = () => {
         />
 
         <Stack.Screen
-          name="NotificationCRD"
-          component={NotificationCRD}
+          name="NotificationManager"
+          component={NotificationManager}
           options={{
             title: 'Notifications', 
 
