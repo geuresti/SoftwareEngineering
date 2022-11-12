@@ -185,6 +185,14 @@ export default class Player{
     //return this.readPlayer(playerInput)
     }
     
+    setManager(username, isManager){
+        player_realm.write(() => {
+            let updated = player_realm.objectForPrimaryKey("Player", username);
+            updated.isManager = isManager
+        })
+        return this.readPlayer(username)
+    }
+    
     // need to merge with hannah
     readAllPlayers(){
         const players = player_realm.objects("Player");
