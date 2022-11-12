@@ -17,6 +17,15 @@ schema:[
 schemaVersion: 2
 });
 
+
+/*
+        NOTES:
+    form should clear once a notification is created (prolly done in NCrd.js)
+        / maybe some sort of force refresh (so the new db objects will appear as well)
+
+    Test DAO functions with an empty database
+
+*/
 export default class Notification {
 
     /*
@@ -44,23 +53,18 @@ export default class Notification {
 
         let notif = notification_realm.objectForPrimaryKey("Notification", next_ID);
         console.log("CREATED NOTIF:", notif);
+        return notif
     }
 
-    //
-    getNotificationsOfUser(username){
-        //const db = realm.objects("Notifications").filtered("recieverUsername = $0", player.email);
-
-       // let player = user_realm.objectForPrimaryKey("User", email);
-       // return player
+    getNotificationsOfUser(email) {
+        const notifs = notification_realm.objects("Notification").filtered("recieverUsername = $0", email);
+        //console.log(email, "has the following notifs:", notifs);
+        return notifs
     }
 
-    getAllNotifications(){
+    getAllNotifications() {
         const notifications = notification_realm.objects("Notification");
         return notifications
-    }
-
-    updateNotification() {
-
     }
 
     deleteNotification(id) {
@@ -73,6 +77,21 @@ export default class Notification {
                 return true
             } else {
                 console.log("NOTIFICATION UNSUCCESSFULLY DELETED");
+                //return false
+            }
+        })
+        return false
+    }
+
+    deleteAllNotifications() {
+        notification_realm.write(() => {
+            let notifs = this.getAllNotifications()
+            if (notifs) {
+                notification_realm.delete(notifs)
+                console.log("SUCCESSFULLY DELETED DB");
+                return true
+            } else {
+                console.log("NOTIFICATION DB UNSUCCESSFULLY DELETED");
                 return false
             }
         })
