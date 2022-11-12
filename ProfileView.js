@@ -25,16 +25,18 @@ const ProfileEdit = ({ navigation }) => {
         bottom: 500,
         justifyContent: 'flex-start',
       },
-  button3: {
-    //flex: 1,
-    alignItems: "center",
-    backgroundColor: "transparent",
-    padding: 0,
-    paddingHorizontal: 30,
-    justifyContent: 'center'
-
+      button3: {
+        //flex: 1,
+        alignItems: "center",
+        backgroundColor: "transparent",
+        padding: 30,
+        paddingHorizontal: 18,
+        justifyContent: 'center',
+        top:20,
+        right:40
     
-},
+        
+    },
 input: {
     borderColor: "gray",
     color: "black",
@@ -244,19 +246,24 @@ input: {
         <TouchableOpacity
             //inbox button, transparent
             //onPress={() => console.log("button pressed!")} 
-            onPress={() =>Alert.alert("inbox")}
+            onPress={() => navigation.navigate('Inbox')} 
             style={styles.button3}>
-        <Text style={{color: "transparent", fontSize: 28, fontFamily: 'Bungee-Regular'}}> </Text>
+        <Text style={{color: "white", fontSize: 28, fontFamily: 'Bungee-Regular'}}> Msgs</Text>
         </TouchableOpacity>
         </View>
 
         <View style={{position: 'absolute', top: 0, left: 380, right: 0, bottom: 680, justifyContent: 'center', alignItems: 'center'}}>
         <TouchableOpacity
-            
-            onPress={() =>Alert.alert("profile")}
+            //profile button, transparent
+            //onPress={() => console.log("button pressed!")} 
+            onPress={() => navigation.navigate('ProfileView2')} 
+            //customClick={() => navigation.navigate('ProfileView')}
             style={styles.button3}>
-        <Text style={{color: "transparent", fontSize: 28, fontFamily: 'Bungee-Regular'}}> </Text>
+        <Text style={{color: "white", fontSize: 28, fontFamily: 'Bungee-Regular'}}> Profile </Text>
         </TouchableOpacity>
+
+
+  
         </View>
         <View style={{position: 'absolute', top: 650, left: 0, right: 180, bottom: 0, justifyContent: 'center', alignItems: 'center'}}>
         <TouchableOpacity

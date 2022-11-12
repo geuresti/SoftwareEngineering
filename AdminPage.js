@@ -35,9 +35,11 @@ const AdminPage = ({ navigation }) => {
     //flex: 1,
     alignItems: "center",
     backgroundColor: "transparent",
-    padding: 0,
-    paddingHorizontal: 30,
-    justifyContent: 'center'
+    padding: 30,
+    paddingHorizontal: 18,
+    justifyContent: 'center',
+    top:20,
+    right:40
 
     
 }
@@ -111,14 +113,14 @@ const AdminPage = ({ navigation }) => {
         </TouchableOpacity>
         </View>
 
-        <View style={{position: 'absolute', top: 0, left: 380, right: 0, bottom: 680, justifyContent: 'center', alignItems: 'center'}}>
+        <View style={{position: 'absolute', top: 0, left: 405, right: 0, bottom: 680, justifyContent: 'center', alignItems: 'center'}}>
         <TouchableOpacity
             //profile button, transparent
             //onPress={() => console.log("button pressed!")} 
-            onPress={() => navigation.navigate('ProfileView')} 
+            onPress={() => navigation.navigate('ProfileView2')} 
             //customClick={() => navigation.navigate('ProfileView')}
             style={styles.button3}>
-        <Text style={{color: "white", fontSize: 28, fontFamily: 'Bungee-Regular'}}> Profile </Text>
+        <Text style={{color: "white", fontSize: 30, fontFamily: 'Bungee-Regular'}}> Profile </Text>
         </TouchableOpacity>
 
 

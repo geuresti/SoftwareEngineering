@@ -11,6 +11,7 @@ import LoginScreen from './LoginScreen.js';
 import UserList from './UserList.js';
 import Realm from "realm";
 import ProfileEdit from './ProfileEdit.js';
+import ProfileView2 from './ProfileView2.js';
 import ProfileView from './ProfileView.js';
 import NotificationManager from './NotificationManager.js'
 import PlayerList from './PlayerList.js';
@@ -81,6 +82,15 @@ const App = () => {
         />
 
         <Stack.Screen
+          name="ProfileView2"
+          component={ProfileView2}
+          options={{
+            title: 'Player Profile', //Set Header Title
+            
+          }}
+        />
+
+          <Stack.Screen
           name="ProfileView"
           component={ProfileView}
           options={{

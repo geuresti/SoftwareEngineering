@@ -35,16 +35,18 @@ const ProfileView = ({ navigation }) => {
     justifyContent: 'center'
 
       },
-  button3: {
-    //flex: 1,
-    alignItems: "center",
-    backgroundColor: "transparent",
-    padding: 0,
-    paddingHorizontal: 30,
-    justifyContent: 'center'
-
+      button3: {
+        //flex: 1,
+        alignItems: "center",
+        backgroundColor: "transparent",
+        padding: 30,
+        paddingHorizontal: 18,
+        justifyContent: 'center',
+        top:20,
+        right:40
     
-}
+        
+    }
 
   });
 
@@ -119,20 +121,24 @@ const ProfileView = ({ navigation }) => {
         <TouchableOpacity
             //inbox button, transparent
             //onPress={() => console.log("button pressed!")} 
-            onPress={() =>Alert.alert("inbox")}
+            onPress={() => navigation.navigate('Inbox')} 
             style={styles.button3}>
-        <Text style={{color: "transparent", fontSize: 28, fontFamily: 'Bungee-Regular'}}> </Text>
+        <Text style={{color: "white", fontSize: 28, fontFamily: 'Bungee-Regular'}}> Msgs</Text>
         </TouchableOpacity>
         </View>
 
-        <View style={{position: 'absolute', top: 0, left: 380, right: 0, bottom: 680, justifyContent: 'center', alignItems: 'center'}}>
+        <View style={{position: 'absolute', top: 0, left: 405, right: 0, bottom: 680, justifyContent: 'center', alignItems: 'center'}}>
         <TouchableOpacity
             //profile button, transparent
             //onPress={() => console.log("button pressed!")} 
-            onPress={() =>Alert.alert("profile")}
+            onPress={() => navigation.navigate('ProfileView2')} 
+            //customClick={() => navigation.navigate('ProfileView')}
             style={styles.button3}>
-        <Text style={{color: "transparent", fontSize: 28, fontFamily: 'Bungee-Regular'}}> </Text>
+        <Text style={{color: "white", fontSize: 28, fontFamily: 'Bungee-Regular'}}> Profile </Text>
         </TouchableOpacity>
+
+
+  
         </View>
   
       
