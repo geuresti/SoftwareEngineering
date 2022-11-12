@@ -98,6 +98,29 @@ input: {
   }
   // let playerDelete = playerDao.deletePlayer(curr.deletePlayer)
   
+
+  let changeButton = () =>
+  {
+    if (curr.email != playerDao.getCurrentPlayer().email)
+    {
+      myProf = false
+      console.log("false")
+
+  
+    }
+    else if (curr.email === playerDao.getCurrentPlayer().email)
+    {
+      myProf = true
+      console.log("true")
+    }
+    return myProf;
+  };
+
+
+  useEffect(() =>{
+  changeButton();
+
+});
   
 
 

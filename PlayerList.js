@@ -66,7 +66,7 @@ const PlayerList = ({ navigation }) => {
         <View style={{position: 'absolute', left: 220, justifyContent: 'center', alignItems: 'center'}}>
         
         <TouchableOpacity
-            onPress={ () => {playerDao.setProfileToView(item.email); navigation.navigate('ProfileView')}
+            onPress={ () => {playerDao.setProfileToView(item.email); navigation.navigate('ProfileView2')}
             }
             
             style={styles.button}>

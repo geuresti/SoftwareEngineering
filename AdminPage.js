@@ -122,9 +122,6 @@ const AdminPage = ({ navigation }) => {
             style={styles.button3}>
         <Text style={{color: "white", fontSize: 30, fontFamily: 'Bungee-Regular'}}> Profile </Text>
         </TouchableOpacity>
-
-
-  
         </View>
     </View>
     //<Login />

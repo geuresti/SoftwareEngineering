@@ -1,6 +1,7 @@
 import { Text, View, Image, ImageBackground, TouchableOpacity, TextInput, StyleSheet, Alert, SafeAreaView, FlatList, navigation} from "react-native";
 import PlayerDao from "./model/PlayerDao.js"
 import React, { useEffect, useState } from 'react';
+import NotificationDao from "./model/NotificationDao.js"
 //import Mybutton from './pages/components/Mybutton';
 //import Mytext from './pages/components/Mytext';
 import { openDatabase } from 'react-native-sqlite-storage';
@@ -35,6 +36,18 @@ const ProfileView = ({ navigation }) => {
     justifyContent: 'center'
 
       },
+
+      button2Inv:{
+        //flex: 1,
+   alignItems: "center",
+   backgroundColor: "transparent",
+   padding: 0,
+   paddingHorizontal: 30,
+   justifyContent: 'center',
+   top:500
+   
+
+     },
       button3: {
         //flex: 1,
         alignItems: "center",
@@ -51,7 +64,8 @@ const ProfileView = ({ navigation }) => {
   });
 
   let playerDao = new PlayerDao()
-  let curr = playerDao.getCurrentPlayer()
+  let curr = playerDao.getProfileToView()
+  playerDao.setProfileToView(playerDao.getCurrentPlayer().email)
   let player = playerDao.readPlayer(curr.email)
   console.log("curr is:", curr)
   console.log("player is:", player )
@@ -73,7 +87,52 @@ const ProfileView = ({ navigation }) => {
   let [f_throw_per, setFrees] = useState('');
   let [s_new_percent, setPercent] = useState('')
   
+  console.log(player.isManager + "is status");
 
+  var notifDao = new NotificationDao()
+
+  let changeButton = () =>
+  {
+    if (curr.email != playerDao.getCurrentPlayer().email)
+    {
+      myProf = false
+      console.log("false")
+      console.log(curr.email, playerDao.getCurrentPlayer().email)
+
+  
+    }
+    else if (curr.email === playerDao.getCurrentPlayer().email)
+    {
+      myProf = true
+      console.log("true")
+    }
+    return myProf;
+  };
+
+
+  useEffect(() =>{
+  changeButton();
+
+})
+
+let recruitPlayerToTeam = () => {
+
+            notifContent = playerDao.getCurrentPlayer().email + " would like to recruit you!";
+            console.log(playerDao.getCurrentPlayer().email, curr.email)
+            notifDao.createNotification(playerDao.getCurrentPlayer().email, curr.email, notifContent);
+  
+            Alert.alert(
+              'Success',
+              'Notification Successfully Created',
+              [
+                {
+                  text: 'Ok',
+                  onPress: () => navigation.navigate('Request'),
+                },
+              ],
+              { cancelable: false }
+            );
+          };
    return (
     <View style={{flex:1, alignItems:'center', justifyContent:'center'}}>
     <ImageBackground
@@ -149,8 +208,18 @@ const ProfileView = ({ navigation }) => {
             //onPress={() => console.log("button pressed!")} 
             // update user 
             onPress={() => navigation.navigate('ProfileEdit')}
-            style={styles.button2}>
+            style={changeButton() ? styles.button2 : styles.button2Inv}>
         <Text style={{color: "#FFFFFF", fontFamily: 'monospace'}}> Update Player </Text>
+        </TouchableOpacity>
+        </View> 
+
+        <View style={{position: 'absolute', top: 650, left: 200, right: 20, bottom: 0, justifyContent: 'center', alignItems: 'center'}}>
+        <TouchableOpacity
+            //onPress={() => console.log("button pressed!")} 
+            // update user 
+            onPress={() => recruitPlayerToTeam()}
+            style={changeButton() ? styles.button2Inv : styles.button2}>
+        <Text style={{color: "#FFFFFF", fontFamily: 'monospace'}}> Send Requests </Text>
         </TouchableOpacity>
         </View> 
         </View> 

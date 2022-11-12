@@ -107,7 +107,7 @@ const TestingList = ({ navigation }) => {
         let recruitPlayer = () => {
 
             notifContent = player.email + " would like to recruit you!";
-
+            console.log(player.email, player2.email)
             notifDao.createNotification(player.email, player2.email, notifContent);
   
             Alert.alert(
@@ -136,17 +136,7 @@ const TestingList = ({ navigation }) => {
                 />
 
         
-          <TouchableOpacity
-                onPress={requestJoin}
-                style={styles.button}>
-                <Text style={{color: "#FFFFFF", fontFamily: 'monospace'}}>Request to Join</Text>
-              </TouchableOpacity>
 
-              <TouchableOpacity
-                onPress={recruitPlayer}
-                style={[styles.button , {backgroundColor: "#CA5A37"}]}>
-                <Text style={{color: "#FFFFFF", fontFamily: 'monospace'}}>Recruit</Text>
-              </TouchableOpacity>
               </View>
             </View>
           </SafeAreaView>
