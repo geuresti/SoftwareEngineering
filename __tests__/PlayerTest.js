@@ -5,14 +5,13 @@ let playerDao = null
 
 beforeEach(function(){
     playerDao = new PlayerDao()
-    //const testPlayer = realm.objectForPrimaryKey("Player", "test@gmail.com");
-    //realm.delete(testPlayer)
+    playerDao.deletePlayer("test@gmail.com")
 });
 
 
 test('create player', () => {
 
-    let email = "test5@gmail.com"
+    let email = "test@gmail.com"
     let player = playerDao.createPlayer(email)
     expect(player.email).toBe(email)
 
@@ -32,23 +31,26 @@ test('read player with nonexistant email', () => {
 
 test('read player by email', () => {
 
-    let email = "jest@email.com"
-    let created = playerDao.createPlayer(email)
+    let email = "test@gmail.com"
+    let player = playerDao.createPlayer(email)
     let read = playerDao.readPlayer(email)
-    expect(created).toEqual(read)
+    expect(player).toEqual(read)
     
     
-  });
-  
-   test('update player by email', () => {
-    let email = "update@email.com"
-    let update = playerDao.playerUpdate(email)
-    let read = playerDao.readPlayer(email)
-    expect(update).toEqual(read)
   });
 
-  test('delete player by email', () => {
-    let email = "jest_delete@email.com"
-    let deleted = playerDao.playerDelete(email)
-    expect(deleted).toEqual(null)
-  });
+test('update player', () => {
+  let email = "test@gmail.com"
+  let player = playerDao.createPlayer(email)
+  let updated = playerDao.updatePlayer(email, "Peter", "Griffin", "Losers", 6, 150, "PG", "Pro", false, 10, 12, 20, 50, 25)
+  let read = playerDao.readPlayer(email)
+  expect(read).toEqual(updated)
+})
+
+test('delete player', () => {
+  let email = "test@gmail.com"
+  let player = playerDao.createPlayer(email)
+  let deleted = playerDao.deletePlayer(email)
+  let read = playerDao.readPlayer(email)
+  expect(read).toBe(null)
+})
