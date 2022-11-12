@@ -3,6 +3,7 @@ import TeamDao from "./model/TeamDao"
 import PlayerDao from "./model/PlayerDao"
 import React, { useEffect, useState } from 'react';
 import Realm from "realm";
+import NotificationDao from './model/NotificationDao'
 
 
 
@@ -11,18 +12,18 @@ const TeamView = ({ navigation }) => {
     texttype: {fontSize:20 , fontFamily: 'Bungee-Regular', color: '#D9D9D9'},
     profileText: {
       position: 'absolute',
-      top: 100,
-      left: 170, 
+      top: 180,
+      left: 190, 
       right: 0,
       bottom: 0,
       justifyContent: 'flex-start',
       },
     profileTextNames: {
         position: 'absolute',
-        top: 103,
+        top: 300,
         left: 10, 
         right: 0,
-        bottom: 500,
+        bottom: 0,
         justifyContent: 'flex-start',
       },
       button1: {
@@ -37,44 +38,37 @@ const TeamView = ({ navigation }) => {
       //flex: 1,
  alignItems: "center",
  backgroundColor: "#CA5A37",
- padding: 0,
- paddingHorizontal: 30,
+ padding: 5,
+ paddingHorizontal: 50,
  justifyContent: 'center',
  bottom: 1000
  
 
    },
-button3: {
- //flex: 1,
- alignItems: "center",
- backgroundColor: "transparent",
- padding: 0,
- paddingHorizontal: 30,
- justifyContent: 'center'
+   button3: {
+    //flex: 1,
+    alignItems: "center",
+    backgroundColor: "transparent",
+    padding: 30,
+    paddingHorizontal: 18,
+    justifyContent: 'center',
+    top:20,
+    right:40
 
- 
+    
 },
 button2:{
          //flex: 1,
     alignItems: "center",
     backgroundColor: "#CA5A37",
-    padding: 0,
+    padding: 15,
     paddingHorizontal: 30,
     justifyContent: 'center',
     bottom: 1000
     
 
       },
-  button3: {
-    //flex: 1,
-    alignItems: "center",
-    backgroundColor: "transparent",
-    padding: 0,
-    paddingHorizontal: 30,
-    justifyContent: 'center'
 
-    
-}
 
   });
   const [buttonStyle, setButtonStyle] = useState(true);
@@ -87,14 +81,16 @@ button2:{
 
   let changeButton = () =>
   {
-    if (curr.teamName != playerDao.getCurrentPlayer().team_id)
+    if (curr.teamManager != playerDao.getCurrentPlayer().email)
     {
+      console.log(curr.teamManager,playerDao.getCurrentPlayer().email, "false" )
       myProf = false
 
   
     }
-    else if (curr.teamName === playerDao.getCurrentPlayer().team_id)
+    else if (curr.teamManager === playerDao.getCurrentPlayer().team_id)
     {
+      console.log(curr.teamManager,playerDao.getCurrentPlayer().email, "true" )
       myProf = true
     }
     return myProf;
@@ -105,6 +101,25 @@ button2:{
   changeButton();
 
 });
+
+let requestJoin = () => {
+
+  notifContent = playerDao.getCurrentPlayer().email + " would like to join your team!";
+  var notifDao = new NotificationDao()
+  notifDao.createNotification(playerDao.getCurrentPlayer().email, curr.teamManager, notifContent);
+
+  Alert.alert(
+    'Success',
+    'Notification Successfully Created',
+    [
+      {
+        text: 'Ok',
+        onPress: () => navigation.navigate('Request'),
+      },
+    ],
+    { cancelable: false }
+  );
+}
   // let updatedPlayer = playerDao.updatePlayer()
   // let playerDelete = playerDao.deletePlayer(curr.deletePlayer)
   
@@ -124,7 +139,7 @@ button2:{
      source={require('./headshot3.png')}></Image>
    </View>
    <View style={styles.profileTextNames}>
-    <Text style={[styles.texttype, {fontSize: 15}]}>Team: {team.teamName}</Text>
+    <Text style={[styles.texttype, {fontSize: 30, bottom: 200}]}>Team: {team.teamName}</Text>
     <Text style={[styles.texttype, {fontSize: 15}]}>Manager: {team.managerName}</Text>
     <Text style={[styles.texttype, {fontSize: 15}]}>Record: {team.record}</Text>
    </View>
@@ -149,19 +164,20 @@ button2:{
         <TouchableOpacity
             //inbox button, transparent
             //onPress={() => console.log("button pressed!")} 
-            onPress={() =>Alert.alert("inbox")}
+            onPress={() => navigation.navigate('Inbox')} 
             style={styles.button3}>
-        <Text style={{color: "transparent", fontSize: 28, fontFamily: 'Bungee-Regular'}}> </Text>
+        <Text style={{color: "white", fontSize: 28, fontFamily: 'Bungee-Regular'}}> Msgs</Text>
         </TouchableOpacity>
         </View>
 
-        <View style={{position: 'absolute', top: 0, left: 380, right: 0, bottom: 680, justifyContent: 'center', alignItems: 'center'}}>
+        <View style={{position: 'absolute', top: 0, left: 405, right: 0, bottom: 680, justifyContent: 'center', alignItems: 'center'}}>
         <TouchableOpacity
             //profile button, transparent
             //onPress={() => console.log("button pressed!")} 
-            onPress={() =>Alert.alert("profile")}
+            onPress={() => navigation.navigate('ProfileView2')} 
+            //customClick={() => navigation.navigate('ProfileView')}
             style={styles.button3}>
-        <Text style={{color: "transparent", fontSize: 28, fontFamily: 'Bungee-Regular'}}> </Text>
+        <Text style={{color: "white", fontSize: 30, fontFamily: 'Bungee-Regular'}}> Profile </Text>
         </TouchableOpacity>
         </View>
   
@@ -184,8 +200,8 @@ button2:{
             // update user 
            // onPress={() => navigation.navigate('Request')}
             style={changeButton() ? styles.button2 : styles.button1}
-            onPress={ () => {navigation.navigate('Request')}}>
-        <Text style={{color: "#FFFFFF", fontFamily: 'monospace'}}> Send Requests </Text>
+            onPress={ () => requestJoin()}>
+        <Text style={{color: "#FFFFFF", fontFamily: 'monospace'}}> Request to Join </Text>
         </TouchableOpacity>
         </View> 
         </View> 
