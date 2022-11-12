@@ -79,4 +79,12 @@ export default class Team{
         })
         return this.readTeam(teamInput);
     }
+    
+        updateManager(teamname, teamManager){
+        team_realm.write(() => {
+            let updated = team_realm.objectForPrimaryKey("Team", teamname);
+            updated.teamManager = teamManager
+        })
+        return this.readTeam(teamname)
+    }
 }
