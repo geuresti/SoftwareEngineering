@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { Profiler, useEffect, useState } from 'react';
 import { Text, View, Image, ImageBackground, TouchableOpacity, TextInput, StyleSheet, Button, Alert, SafeAreaView, FlatList} from "react-native";
 import TeamDao from './model/TeamDao.js'
 
@@ -42,6 +42,7 @@ const TeamList = ({ navigation }) => {
       this.state = {
         FlatListItems: allTeams,
       };
+
     
       let listViewItemSeparator = () => {
         return (
@@ -60,8 +61,15 @@ const TeamList = ({ navigation }) => {
         <Text style={styles.textbottom}>{item.teamName}</Text>
         <Text style={styles.textheader}>Manager</Text>
         <Text style={styles.textbottom}>{item.teamManager}</Text>
-        
-          
+        <View style={{position: 'absolute', left: 220, justifyContent: 'center', alignItems: 'center'}}>
+        <TouchableOpacity
+            onPress={ () => {teamDao.setTeamToView(item.teamName); navigation.navigate('TeamView')}
+            }
+            
+            style={styles.button}>
+            <Text style={{color: "#FFFFFF", fontFamily: 'monospace'}}>View Full Profile</Text>
+        </TouchableOpacity>
+        </View> 
         </View>
           );
         };
@@ -69,7 +77,7 @@ const TeamList = ({ navigation }) => {
         let deleteTeam = () => {
 
           if(teamDao.readTeam(teamName)){
-            teamDao.deleteUser(teamName)
+            teamDao.deleteTeam(teamName)
             alert(
               'Success',
               'You have Deleted Successfully',
