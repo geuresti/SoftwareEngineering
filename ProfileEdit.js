@@ -57,13 +57,13 @@ input: {
 },
   });
   
-
+  //let player = playerDao.readPlayer(curr.email)
   let playerDao = new PlayerDao()
   let curr = playerDao.getCurrentPlayer()
   // let player = playerDao.readPlayer(curr.email)
   
   let [userEmail, setUserEmail] = useState('');
-  let [first_name, setFirstName] = useState('');
+  let [f_new, setFirstName] = useState('');
   let [l_new, setLastName] = useState('');
   let [id_new, setId]  = useState('');
   let [h_new, setHeight] = useState('');
@@ -83,18 +83,17 @@ input: {
   
   let updatePlayer = () => {
       
-    if (!userEmail) {
-      alert('Please fill player email');
-      return;
-    }
-    let read = playerDao.readPlayer(userEmail);
-    // let read = playerDao.readPlayer(useremail)
+    let player = playerDao.readPlayer(curr.email)
+    console.log("READ:", player);
 
-    if(!read){
-      playerDao.updatePlayer(
-        userEmail, read.first_name, read.last_name, read.team_id, read.height, read.weight, read.position, read.experience, read.isManager, read.avgPoints, read.avgBlocks, read.avgSteals, read.assists, read.freethrowPercent, read.shotPercent, 
-        read.avgBlocks, read.avgSteals, read.avgAssists, read.freethrowPercent, read.shotPercent)
-        console.log("email", playerDao.userEmail)
+    if(player){
+      // console.log("NEW FIRST NAME:", f_new);
+      // console.log("NEW HEIGHT:", h_new);
+      playerDao.updatePlayer( userEmail,
+        f_new, l_new, id_new, parseInt(h_new), parseInt(w_new), p_new, e_new, Boolean(m_new), parseInt(points_new), parseInt(blocks_new), parseInt(steals_new), parseInt(a_new), parseInt(f_throw_per), parseInt(s_new_percent))
+      //  console.log("NEW FIRST NAME:", f_new);
+      //  console.log("NEW HEIGHT:", h_new);
+       //  console.log("email", playerDao.userEmail)
         alert(
         'Success',
         'You have Updated Successfully',
@@ -106,8 +105,10 @@ input: {
         ],
         { cancelable: false }
       );
+
     
     } 
+  
   
     else{
       alert(
@@ -122,6 +123,24 @@ input: {
     );
     
   };
+
+  
+}
+
+let deletePlayer = () => {
+  playerDao.deletePlayer(userEmail);
+  alert(
+    'Success',
+    'You have Updated Successfully',
+    [
+      {
+        text: 'Ok',
+        onPress: () => navigation.navigate('Login'),
+      },
+    ],
+    { cancelable: false }
+  );
+  
 }
 
 
@@ -163,7 +182,7 @@ input: {
           textAlign={'center'}
           placeholder="First Name" 
           onChangeText={
-            (first_name) => setFirstName(first_name)
+            (f_new) => setFirstName(f_new)
           }
           />
 
@@ -323,6 +342,17 @@ input: {
             onPress={() =>Alert.alert("profile")}
             style={styles.button3}>
         <Text style={{color: "transparent", fontSize: 28, fontFamily: 'Bungee-Regular'}}> </Text>
+        </TouchableOpacity>
+        </View>
+        <View style={{position: 'absolute', top: 650, left: 280, right: 0, bottom: 0, justifyContent: 'center', alignItems: 'center'}}>
+        <TouchableOpacity
+            //submit changes button
+            //onPress={() => console.log("button pressed!")} 
+            // onPress={() =>Alert.alert("Changes Saved!")}
+            // onPress={() => navigation.navigate('ProfileList')}
+            onPress={deletePlayer}
+            style={styles.button2}>
+        <Text style={{color: "white", fontSize: 14, fontFamily: 'Bungee-Regular'}}> Delete Player </Text>
         </TouchableOpacity>
         </View>
         <View style={{position: 'absolute', top: 650, left: 0, right: 180, bottom: 0, justifyContent: 'center', alignItems: 'center'}}>
