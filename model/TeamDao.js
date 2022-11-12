@@ -41,7 +41,7 @@ export default class Team{
         team_realm.write(() => {
             let team = team_realm.create("Team", {
                 teamName: teamInput,
-                teamManager: manager.email,
+                teamManager: manager,
                 players: [""],
                 record: "0-0-0",
                 avgPoints: 0,
