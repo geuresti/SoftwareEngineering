@@ -24,7 +24,18 @@ schema:[
 schemaVersion:4
 });
 
+var teamProfile = ""
+
 export default class Team{
+
+
+    setTeamToView(teamname){
+        teamProfile = teamname
+    }
+
+    getTeamToView(){
+        return team_realm.objectForPrimaryKey("Team", teamProfile)
+    }
 
     createTeam(teamInput, manager){
         team_realm.write(() => {
@@ -56,18 +67,37 @@ export default class Team{
         return teams
     }
 
-    updateTeam(teamInput, teamManager="", players=[""], record="0-0-0", avgPoints=0, avgBlocks=0, avgSteals=0, avgAssists=0, freethrowPercent=0, shotPercent=0){
+    updateTeam(teamInput, teamManager, players, record, avgPoints, avgBlocks, avgSteals, avgAssists, freethrowPercent, shotPercent){
         team_realm.write(() => {
             let updated = team_realm.objectForPrimaryKey("Team", teamInput);
-            updated.teamManager = teamManager;
-            updated.players = players;
-            updated.record = record;
-            updated.avgPoints = avgPoints;
-            updated.avgBlocks = avgBlocks;
-            updated.avgSteals = avgSteals;
-            updated.avgAssists = avgAssists;
-            updated.freethrowPercent = freethrowPercent;
-            updated.shotPercent = shotPercent;
+                updated.teamName = teamInput
+            if(teamManager){
+                updated.teamManager = teamManager;
+            }
+            if(players){
+                updated.players = players;
+            }
+            if(record){
+                updated.record = record;
+            }
+            if(avgPoints){
+                updated.avgPoints = avgPoints;
+            }
+            if(avgBlocks){
+                updated.avgBlocks = avgBlocks;
+            }
+            if(avgSteals){
+                updated.avgSteals = avgSteals;
+            }
+            if(avgAssists){
+                updated.avgAssists = avgAssists;
+            }
+            if(freethrowPercent){
+                updated.freethrowPercent = freethrowPercent;
+            }
+            if(shotPercent){
+                updated.shotPercent = shotPercent;
+            }
         })
         return this.readTeam(teamInput)
     }
@@ -79,8 +109,8 @@ export default class Team{
         })
         return this.readTeam(teamInput);
     }
-    
-        updateManager(teamname, teamManager){
+
+    updateManager(teamname, teamManager){
         team_realm.write(() => {
             let updated = team_realm.objectForPrimaryKey("Team", teamname);
             updated.teamManager = teamManager
