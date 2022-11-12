@@ -1,104 +1,51 @@
 import React, { useState } from 'react';
-import { RefreshControl, Text, View, TouchableOpacity, TextInput, StyleSheet, Alert, SafeAreaView, FlatList} from "react-native";
-import Realm from "realm";
+import { Text, View, TouchableOpacity, TextInput, StyleSheet, Alert, SafeAreaView, FlatList} from "react-native";
 import PlayerDao from "./model/PlayerDao.js"
-/*
-    NOTES:
-    - when a new notif is created, the text box isn't cleared for the 
-        senderID / content fields and if you then press "Create Notification"
-        again, the db tries to create a second notification with the same 
-        ID as the first one. (refresh page upon create?)
-*/
+import NotificationDao from "./model/NotificationDao.js"
 
-
-realm = new Realm({path: 'notifications2.realm',
-schema:[
-    {
-    name: "Notifications",
-    properties: {
-        id: "int",
-        senderUsername: "string",
-        recieverUsername: "string",
-        content: "string",
-    },
-    primaryKey: "id",
-
-    },
-],
-schemaVersion: 2
-});
-
-//const db = realm.objects("Notifications");
-
+// Need to add remove filter button
 
 const TestingList = ({ navigation }) => {
 
   let playerDao = new PlayerDao()
-let curr = playerDao.getCurrentPlayer()
-let player = playerDao.readPlayer(curr.email)
+  let curr = playerDao.getCurrentPlayer()
+  let player = playerDao.readPlayer(curr.email)
 
-this.state = { 
-  FlatListItems: [],
-};
+  var notifDao = new NotificationDao()
 
+  const db = notifDao.getNotificationsOfUser(curr.email)
 
-const db = realm.objects("Notifications").filtered("recieverUsername = $0", player.email);
-this.state = { 
-  FlatListItems: db,
-};
-  
-    //const refreshPage = ()=>{
-      //  window.location.reload();
-    // }
+  this.state = { 
+    FlatListItems: [],
+  };
 
-  let testing = () => {
-   const db = realm.objects("Notifications").filtered("senderUsername = $0", inboxOwner);
-
-   
-   this.state = {
+  this.state = { 
     FlatListItems: db,
   };
-  //const db = db.db1.find( { recieverUsername: inboxOwner } )
-  //const db = db1.filtered(`recieverUsername = ${inboxOwner}`);
-  console.log("NOTIFICATIONS:", db);
-  console.log("length:", db.length);
-  
-    // THIS IF CHUNK
-    if (db.length > 0) {
-      console.log("last:", db[db.length-1]); 
-      console.log("last_id:", parseInt(db[db.length-1].id));
-      console.log("next_id:", db[db.length-1].id) + 1;
-    } 
 
+  let filterInbox = () => {
+    const db = notifDao.getNotificationsOfUser(inboxFilter)
 
-  let notifID = db.length
-  console.log("CURRENT ID:", notifID);    // THIS ISN't updating in REAL TIME
-  //let [senderID, setSenderID] = useState('');
-  //let [notifContent, setNotifContent] = useState('');
+    this.state = {
+      FlatListItems: db,
+    }
 
-  Alert.alert(
-    'Success',
-    'Filtered',
-    [
-      {
-        text: 'Ok',
-        onPress: () => navigation.navigate('AdminPage'),
-        customClick: () => navigation.navigate('AdminPage'),
-        onPress: () => navigation.navigate('Inbox'),
-        customClick: () => navigation.navigate('Inbox'),
-      },
-    ],
-    { cancelable: false }
-  );
-};
+    Alert.alert(
+      'Success',
+      'Filtered',
+      [
+        {
+          text: 'Ok',
+          onPress: () => navigation.navigate('Inbox'),
+          customClick: () => navigation.navigate('Inbox'),
+        },
+      ],
+      { cancelable: false }
+    );
+  };
 
 let deleteNotif = (item) => {
-  console.log("testing", item.id);
-  realm.write(() => {
-  const testDel = realm.objectForPrimaryKey("Notifications", item.id);
-  console.log(testDel);
-  realm.delete(testDel)
-});
+  notifDao.deleteNotification(item.id)
 
   Alert.alert(
     'Success',
@@ -114,9 +61,7 @@ let deleteNotif = (item) => {
   
 };
 
-  //console.log(testing());
-  let [inboxOwner, setInboxOwner] = useState('');
-  //let [recieverUser, setRecieverUser] = useState('');
+  let [inboxFilter, setInboxFilter] = useState('');
 
     const styles = StyleSheet.create({
         textheader: {
@@ -147,17 +92,6 @@ let deleteNotif = (item) => {
 
       }); 
 
-      //  this.state = {
-       //   notifID: db.length,
-        //}
-
-        // does this line affect anything?
-     //   this.state = {
-     //     FlatListItems: [],
-     //   };
-
-
-
         
       let listViewItemSeparator = () => {
         return (
@@ -170,7 +104,7 @@ let deleteNotif = (item) => {
     let listItemView = (item) => {
         return (
         <View
-            key={item.notifID}
+            key={item.id}
             style={{ backgroundColor: '#383434', marginTop: 20, padding: 30, borderRadius: 10 }}>
       
         <Text style={styles.textheader}>Notifcation ID</Text>
@@ -195,23 +129,6 @@ let deleteNotif = (item) => {
           );
         };
       
-        // UNTESTED
-
-        /*
-        id: "int",
-        senderID: {type: "int", default: 0},
-        content: "string",
-        
-        let createNotif = () => {
-          let user;
-          realm.write(() => {
-            user = realm.create("Notifications", {id: notifID, content: notifContent, senderUsername: senderUser, recieverUsername: recieverUser});
-          })
-        }
-        */
-    
-          
-
         return (
           <SafeAreaView style={{ flex: 1 }}>
             <View style={{ flex: 1, backgroundColor: '#171414' }}>
@@ -233,13 +150,13 @@ let deleteNotif = (item) => {
            placeholderTextColor="white" 
             placeholder="Sender Username"
             onChangeText={
-              (inboxOwner) => setInboxOwner(inboxOwner)
+              (inboxFilter) => setInboxFilter(inboxFilter)
             }
             />
 
 
               <TouchableOpacity
-                onPress={testing}
+                onPress={filterInbox}
                 style={[styles.button , {backgroundColor: "#CA5A37"}]}>
                 <Text style={{color: "#FFFFFF", fontFamily: 'monospace'}}>Filter</Text>
               </TouchableOpacity>
