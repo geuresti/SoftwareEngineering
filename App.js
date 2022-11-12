@@ -11,12 +11,13 @@ import LoginScreen from './LoginScreen.js';
 import UserList from './UserList.js';
 import Realm from "realm";
 import ProfileEdit from './ProfileEdit.js';
-import ProfileView2 from './ProfileView2.js';
 import ProfileView from './ProfileView.js';
 import NotificationManager from './NotificationManager.js'
 import PlayerList from './PlayerList.js';
 import Inbox from './Inbox.js';
 import Request from './Request.js';
+import TeamView from './TeamView.js';
+import TeamEdit from './TeamEdit.js';
 
 const Stack = createStackNavigator();
 
@@ -64,13 +65,6 @@ const App = () => {
           }}
         />  
 
-        <Stack.Screen
-          name="TeamList"
-          component={TeamList}
-          options={{
-            title: 'Team List', 
-          }}
-        />  
 
         <Stack.Screen
           name="ProfileEdit"
@@ -82,19 +76,37 @@ const App = () => {
         />
 
         <Stack.Screen
-          name="ProfileView2"
-          component={ProfileView2}
+          name="ProfileView"
+          component={ProfileView}
           options={{
             title: 'Player Profile', //Set Header Title
             
           }}
         />
 
-          <Stack.Screen
-          name="ProfileView"
-          component={ProfileView}
+        <Stack.Screen
+          name="TeamEdit"
+          component={TeamEdit}
           options={{
-            title: 'Player Profile', //Set Header Title
+            title: 'Edit Team', //Set Header Title
+            
+          }}
+        />
+
+        <Stack.Screen
+          name="TeamList"
+          component={TeamList}
+          options={{
+            title: 'Teams List', //Set Header Title
+            
+          }}
+        />
+
+        <Stack.Screen
+          name="TeamView"
+          component={TeamView}
+          options={{
+            title: 'Team Profile', //Set Header Title
             
           }}
         />
