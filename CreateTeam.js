@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react';
 import { Text, View, Image, ImageBackground, TouchableOpacity, TextInput, StyleSheet, Button, Alert, SafeAreaView, FlatList} from "react-native";
 import TeamDao from './model/TeamDao.js'
 import PlayerDao from './model/PlayerDao.js'
+import TeamList from './TeamList.js';
 
 const CreateTeam = ({ navigation }) => {
     const styles = StyleSheet.create({
@@ -20,19 +21,7 @@ const CreateTeam = ({ navigation }) => {
             backgroundColor: "#171414",
             padding: 15
             
-        },
-        button3: {
-          //flex: 1,
-          alignItems: "center",
-          backgroundColor: "transparent",
-          padding: 30,
-          paddingHorizontal: 18,
-          justifyContent: 'center',
-          top:20,
-          right:40
-      
-          
-      }
+        }
       });
 
   let teamDao = new TeamDao()
@@ -47,9 +36,9 @@ const CreateTeam = ({ navigation }) => {
       return;
     }
     curr = playerDao.getCurrentPlayer()
-    teamDao.createTeam(teamname, curr)
+    teamDao.createTeam(teamname, curr.email)
     playerDao.setManager(curr.email, true)
-    teamDao.updateManager(teamname, curr.email )
+    teamDao.updateManager(teamname, curr.email)
     Alert.alert(
       'Success',
       'Team Registered Successfully',
@@ -101,26 +90,6 @@ const CreateTeam = ({ navigation }) => {
         <Text style={{color: "#FFFFFF", fontFamily: 'monospace'}}>Create</Text>
         </TouchableOpacity>
   
-        </View>
-        <View style={{position: 'absolute', top: 0, left: 240, right: 0, bottom: 680, justifyContent: 'center', alignItems: 'center'}}>
-        <TouchableOpacity
-            //inbox button, transparent
-            //onPress={() => console.log("button pressed!")} 
-            onPress={() => navigation.navigate('Inbox')} 
-            style={styles.button3}>
-        <Text style={{color: "white", fontSize: 28, fontFamily: 'Bungee-Regular'}}> Msgs</Text>
-        </TouchableOpacity>
-        </View>
-
-        <View style={{position: 'absolute', top: 0, left: 405, right: 0, bottom: 680, justifyContent: 'center', alignItems: 'center'}}>
-        <TouchableOpacity
-            //profile button, transparent
-            //onPress={() => console.log("button pressed!")} 
-            onPress={() => navigation.navigate('ProfileView2')} 
-            //customClick={() => navigation.navigate('ProfileView')}
-            style={styles.button3}>
-        <Text style={{color: "white", fontSize: 30, fontFamily: 'Bungee-Regular'}}> Profile </Text>
-        </TouchableOpacity>
         </View>
       </View>
     
