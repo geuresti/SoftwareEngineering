@@ -54,3 +54,21 @@ test('delete player', () => {
   let read = playerDao.readPlayer(email)
   expect(read).toBe(null)
 })
+
+test('set current player', () => {
+  let email = "test@gmail.com"
+  let player = playerDao.createPlayer(email)
+  playerDao.setCurrentPlayer(email)
+  let player2 = playerDao.getCurrentPlayer()
+  expect(player).toEqual(player2)
+})
+
+test('get all players', () =>{
+  let email = "test@gmail.com"
+  let players = playerDao.readAllPlayers()
+  let len = players.length
+  let player = playerDao.createPlayer(email)
+  let players_after = playerDao.readAllPlayers()
+  expect(len+1).toBe(players_after.length)
+
+})
