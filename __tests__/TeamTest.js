@@ -66,3 +66,24 @@ test('read team by name', () => {
     expect(read).toBe(null)
     
   });
+
+  test('get all teams', () =>{
+    let email = "test_team"
+    let manager = "jo"
+    let team = teamDao.readAllTeams()
+    let len = team.length
+    let t = teamDao.createTeam(email, manager)
+    let teams_after = teamDao.readAllTeams()
+    expect(len+1).toBe(teams_after.length)
+  
+  })
+
+  test('change team manager', () => {
+    let teamName = "test_team"
+    let manager = "joe"
+    let created = teamDao.createTeam(teamName, manager)
+    let updated = teamDao.updateManager(teamName, "bob")
+    expect(created).not.toBe(updated)
+    expect(updated.teamManager).toBe("bob")
+  })
+
