@@ -20,6 +20,15 @@ const ProfileView = ({ navigation }) => {
       justifyContent: 'flex-start',
       },
 
+      button1: {
+        //flex: 1,
+        alignItems: "center",
+        backgroundColor: "#B62727",
+        padding: 5,
+        paddingHorizontal: 50,
+        justifyContent: 'center'    
+    },
+
     profileTextNames: {
         position: 'absolute',
         top: 103,
@@ -206,6 +215,16 @@ let recruitPlayerToTeam = () => {
             onPress={() => navigation.navigate('ProfileEdit')}
             style={changeButton() ? styles.button2 : styles.button2Inv}>
         <Text style={{color: "#FFFFFF", fontFamily: 'monospace'}}> Update Player </Text>
+        </TouchableOpacity>
+        </View> 
+
+        <View style={{position: 'absolute', top: 650, left: 0, right: 150, bottom: 0, justifyContent: 'center', alignItems: 'center'}}>
+        <TouchableOpacity
+            onPress={() => console.log("button pressed!")} 
+            // update user 
+            //onPress={() => navigation.navigate('ProfileEdit')}
+            style={styles.button1}>
+        <Text style={{color: "#FFFFFF", fontFamily: 'monospace'}}> Log Out </Text>
         </TouchableOpacity>
         </View> 
 
