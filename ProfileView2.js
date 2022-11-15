@@ -175,7 +175,7 @@ let recruitPlayerToTeam = () => {
     <Text style={[styles.texttype, {fontSize: 15, bottom:30}]}>Team: {player.team_id}</Text>
    </View>
    <View style={styles.profileText}>
-        <Text style={styles.texttype}>First name: {player.firstname} </Text>
+        <Text style={styles.texttype}>First name: {player.first_name} </Text>
         <Text style={styles.texttype}>Last Name: {player.last_name}</Text>
         <Text style={[styles.texttype, {fontSize: 10}]}>Height: {player.height}  Weight: {player.weight} lbs</Text>
         <Text style={[styles.texttype, {fontSize: 14}]}>Experience Level: </Text>
