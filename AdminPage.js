@@ -107,7 +107,7 @@ const AdminPage = ({ navigation }) => {
         <TouchableOpacity
             //inbox button, transparent
             //onPress={() => console.log("button pressed!")} 
-            onPress={() => navigation.navigate('Inbox')} 
+            onPress={() => navigation.navigate('Inbox', {data:[]})} 
             style={styles.button3}>
         <Text style={{color: "white", fontSize: 28, fontFamily: 'Bungee-Regular'}}> Msgs</Text>
         </TouchableOpacity>
@@ -129,3 +129,4 @@ const AdminPage = ({ navigation }) => {
    );
 }
 export default AdminPage
+
