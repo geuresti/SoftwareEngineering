@@ -85,11 +85,11 @@ export default class Player{
 
         player_realm.write(() => {  
             let playerUpdated = player_realm.objectForPrimaryKey("Player", username);
-            /*
+            
             if (email) {
                 console.log("EMAIL UPDATED");
                 playerUpdated.email = email;
-            } */ // EMAIL IS PRIMARY KEY AND DOESNT ACCEPT BEING UPDATED
+            } 
             if (f_new) {
                 // console.log("F NAME UPDATED");
                 playerUpdated.first_name = f_new;
