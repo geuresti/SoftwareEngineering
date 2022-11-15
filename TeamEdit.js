@@ -75,7 +75,7 @@ input: {
   let [s_new_percent, setPercent] = useState('')
   
   let updateMethod = () => {
-    teamDao.updateTeam(team.teamName, team.teamManager, team.players, record, points_new, blocks_new, steals_new, a_new, f_throw_per, s_new_percent)
+    teamDao.updateTeam(team.teamName, team.teamManager, team.players, record, parseFloat(points_new), parseFloat(blocks_new), parseFloat(steals_new), parseFloat(a_new), parseFloat(f_throw_per), parseFloat(s_new_percent))
     Alert.alert(
       'Success',
       'Profile Updated',

@@ -90,7 +90,7 @@ input: {
       // console.log("NEW FIRST NAME:", f_new);
       // console.log("NEW HEIGHT:", h_new);
       playerDao.updatePlayer( curr.email,
-        f_new, l_new, id_new, parseInt(h_new), parseInt(w_new), p_new, e_new, Boolean(m_new), parseInt(points_new), parseInt(blocks_new), parseInt(steals_new), parseInt(a_new), parseInt(f_throw_per), parseInt(s_new_percent))
+        f_new, l_new, id_new, parseFloat(h_new), parseFloat(w_new), p_new, e_new, Boolean(m_new), parseFloat(points_new), parseFloat(blocks_new), parseFloat(steals_new), parseFloat(a_new), parseFloat(f_throw_per), parseFloat(s_new_percent))
       //  console.log("NEW FIRST NAME:", f_new);
       //  console.log("NEW HEIGHT:", h_new);
        //  console.log("email", playerDao.userEmail)
