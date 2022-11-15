@@ -62,6 +62,12 @@ export default class Notification {
         return notifs
     }
 
+    filterNotificationsByUser(sender, receiver) {
+        const notifs = notification_realm.objects("Notification").filtered("senderUsername = $0 && recieverUsername = $1", sender, receiver);
+       // console.log("Your filtered notifs:", notifs);
+        return notifs
+    }
+
     getAllNotifications() {
         const notifications = notification_realm.objects("Notification");
         return notifications
@@ -97,3 +103,4 @@ export default class Notification {
         })
     }
 }
+
