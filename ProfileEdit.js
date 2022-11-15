@@ -26,18 +26,16 @@ const ProfileEdit = ({ navigation }) => {
         bottom: 500,
         justifyContent: 'flex-start',
       },
-      button3: {
-        //flex: 1,
-        alignItems: "center",
-        backgroundColor: "transparent",
-        padding: 30,
-        paddingHorizontal: 18,
-        justifyContent: 'center',
-        top:20,
-        right:40
+  button3: {
+    //flex: 1,
+    alignItems: "center",
+    backgroundColor: "transparent",
+    padding: 0,
+    paddingHorizontal: 30,
+    justifyContent: 'center'
+
     
-        
-    },
+},
 input: {
     borderColor: "gray",
     color: "black",
@@ -62,7 +60,7 @@ input: {
   //let player = playerDao.readPlayer(curr.email)
   let playerDao = new PlayerDao()
   let curr = playerDao.getCurrentPlayer()
-  // let player = playerDao.readPlayer(curr.email)
+  let playerUpdated = playerDao.readPlayer(curr.email)
   
   let [userEmail, setUserEmail] = useState('');
   let [f_new, setFirstName] = useState('');
@@ -91,7 +89,7 @@ input: {
     if(player){
       // console.log("NEW FIRST NAME:", f_new);
       // console.log("NEW HEIGHT:", h_new);
-      playerDao.updatePlayer( userEmail,
+      playerDao.updatePlayer( curr.email,
         f_new, l_new, id_new, parseInt(h_new), parseInt(w_new), p_new, e_new, Boolean(m_new), parseInt(points_new), parseInt(blocks_new), parseInt(steals_new), parseInt(a_new), parseInt(f_throw_per), parseInt(s_new_percent))
       //  console.log("NEW FIRST NAME:", f_new);
       //  console.log("NEW HEIGHT:", h_new);
@@ -137,7 +135,7 @@ let deletePlayer = () => {
     [
       {
         text: 'Ok',
-        onPress: () => navigation.navigate('Login'),
+        onPress: () => navigation.navigate('LoginScreen'),
       },
     ],
     { cancelable: false }
@@ -332,24 +330,19 @@ let deletePlayer = () => {
         <TouchableOpacity
             //inbox button, transparent
             //onPress={() => console.log("button pressed!")} 
-            onPress={() => navigation.navigate('Inbox')} 
+            onPress={() =>Alert.alert("inbox")}
             style={styles.button3}>
-        <Text style={{color: "white", fontSize: 28, fontFamily: 'Bungee-Regular'}}> Msgs</Text>
+        <Text style={{color: "transparent", fontSize: 28, fontFamily: 'Bungee-Regular'}}> </Text>
         </TouchableOpacity>
         </View>
 
         <View style={{position: 'absolute', top: 0, left: 380, right: 0, bottom: 680, justifyContent: 'center', alignItems: 'center'}}>
         <TouchableOpacity
-            //profile button, transparent
-            //onPress={() => console.log("button pressed!")} 
-            onPress={() => navigation.navigate('ProfileView2')} 
-            //customClick={() => navigation.navigate('ProfileView')}
+            
+            onPress={() =>Alert.alert("profile")}
             style={styles.button3}>
-        <Text style={{color: "white", fontSize: 28, fontFamily: 'Bungee-Regular'}}> Profile </Text>
+        <Text style={{color: "transparent", fontSize: 28, fontFamily: 'Bungee-Regular'}}> </Text>
         </TouchableOpacity>
-
-
-  
         </View>
         <View style={{position: 'absolute', top: 650, left: 280, right: 0, bottom: 0, justifyContent: 'center', alignItems: 'center'}}>
         <TouchableOpacity
