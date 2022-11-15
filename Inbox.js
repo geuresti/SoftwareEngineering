@@ -3,9 +3,7 @@ import { Text, View, TouchableOpacity, TextInput, StyleSheet, Alert, SafeAreaVie
 import PlayerDao from "./model/PlayerDao.js"
 import NotificationDao from "./model/NotificationDao.js"
 
-// Need to add remove filter button
-
-const TestingList = ({ navigation }) => {
+const TestingList = ({ route, navigation }) => {
 
   let playerDao = new PlayerDao()
   let curr = playerDao.getCurrentPlayer()
@@ -13,22 +11,22 @@ const TestingList = ({ navigation }) => {
 
   var notifDao = new NotificationDao()
 
-  const db = notifDao.getNotificationsOfUser(curr.email)
+  let db;
 
-  this.state = { 
-    FlatListItems: [],
-  };
+  if ("data" in route.params && route.params["data"].length !== 0) {
+    db = route.params["data"]
+    //console.log("FILTERED INBOX:", db);
+  } else {
+    db = notifDao.getNotificationsOfUser(curr.email)
+    //console.log("DEFAULT INBOX", db);
+  }
 
   this.state = { 
     FlatListItems: db,
   };
 
   let filterInbox = () => {
-    const db = notifDao.getNotificationsOfUser(inboxFilter)
-
-    this.state = {
-      FlatListItems: db,
-    }
+    let filtered_notifs = notifDao.filterNotificationsByUser(inboxFilter, curr.email)
 
     Alert.alert(
       'Success',
@@ -36,7 +34,9 @@ const TestingList = ({ navigation }) => {
       [
         {
           text: 'Ok',
-          onPress: () => navigation.navigate('Inbox'),
+          onPress: () => navigation.navigate('Inbox', {
+            data: filtered_notifs,
+          }),
           customClick: () => navigation.navigate('Inbox'),
         },
       ],
@@ -53,7 +53,9 @@ let deleteNotif = (item) => {
     [
       {
         text: 'Ok',
-        onPress: () => navigation.navigate('Inbox'),
+        onPress: () => navigation.navigate('Inbox', {
+          data: [],
+        }),
       },
     ],
     { cancelable: false }
