@@ -187,7 +187,7 @@ let recruitPlayerToTeam = () => {
         <Text style={[styles.texttype, {fontSize: 14}]}>Average Blocks: {player.avgBlocks}</Text>
         <Text style={[styles.texttype, {fontSize: 14}]}>Average Steals: {player.avgSteals}</Text>
         <Text style={[styles.texttype, {fontSize: 14}]}>Average Assists: {player.assists}</Text>
-        <Text style={[styles.texttype, {fontSize: 14}]}>Free Throw Percent: {player.freethrowPrecent}</Text>
+        <Text style={[styles.texttype, {fontSize: 14}]}>Free Throw Percent: {player.freethrowPercent}</Text>
         <Text style={[styles.texttype, {fontSize: 14}]}>Shot Percent: {player.shotPercent}</Text>
         
 
