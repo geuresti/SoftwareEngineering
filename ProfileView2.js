@@ -4,9 +4,7 @@ import React, { useEffect, useState } from 'react';
 import NotificationDao from "./model/NotificationDao.js"
 //import Mybutton from './pages/components/Mybutton';
 //import Mytext from './pages/components/Mytext';
-import { openDatabase } from 'react-native-sqlite-storage';
-import Realm from "realm";
-import dbModel from './dbModel';
+
 
 const ProfileView = ({ navigation }) => {
   const styles = StyleSheet.create({
@@ -125,6 +123,21 @@ const ProfileView = ({ navigation }) => {
 
 })
 
+let logOut = () => {
+  playerDao.setCurrentPlayer("")
+  Alert.alert(
+    'Logging Out',
+    '...going back to log in screen',
+    [
+      {
+        text: 'Ok',
+        onPress: () => navigation.navigate('LoginScreen'),
+      },
+    ],
+    { cancelable: false }
+  );
+}
+
 let recruitPlayerToTeam = () => {
 
             notifContent = playerDao.getCurrentPlayer().email + " would like to recruit you!";
@@ -220,7 +233,7 @@ let recruitPlayerToTeam = () => {
 
         <View style={{position: 'absolute', top: 650, left: 0, right: 150, bottom: 0, justifyContent: 'center', alignItems: 'center'}}>
         <TouchableOpacity
-            onPress={() => console.log("button pressed!")} 
+            onPress={logOut} 
             // update user 
             //onPress={() => navigation.navigate('ProfileEdit')}
             style={styles.button1}>
