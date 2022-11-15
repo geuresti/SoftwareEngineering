@@ -236,7 +236,7 @@ let recruitPlayerToTeam = () => {
             onPress={logOut} 
             // update user 
             //onPress={() => navigation.navigate('ProfileEdit')}
-            style={styles.button1}>
+            style={changeButton() ? styles.button1 : styles.button2Inv}>
         <Text style={{color: "#FFFFFF", fontFamily: 'monospace'}}> Log Out </Text>
         </TouchableOpacity>
         </View> 
