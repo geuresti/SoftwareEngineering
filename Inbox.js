@@ -1,13 +1,17 @@
 import React, { useState } from 'react';
 import { Text, View, TouchableOpacity, TextInput, StyleSheet, Alert, SafeAreaView, FlatList} from "react-native";
 import PlayerDao from "./model/PlayerDao.js"
+import TeamDao from "./model/TeamDao.js"
 import NotificationDao from "./model/NotificationDao.js"
 
 const TestingList = ({ route, navigation }) => {
 
   let playerDao = new PlayerDao()
+  let teamDao = new TeamDao()
   let curr = playerDao.getCurrentPlayer()
+  let currTeam = teamDao.getTeamToView()
   let player = playerDao.readPlayer(curr.email)
+  let team = teamDao.readTeam(curr.team_id)
 
   var notifDao = new NotificationDao()
 
@@ -24,6 +28,33 @@ const TestingList = ({ route, navigation }) => {
   this.state = { 
     FlatListItems: db,
   };
+  
+  //perhaps add ability to fetch team by manager?
+  let addToTeam = (item) => {
+  if (item.content.includes("join"))
+  {
+    team.players.push(item.senderUsername);
+    for(let i = 0; i < team.players.length; i++)
+  {
+      console.log(team.players[i]);
+  }
+  
+  }
+
+  Alert.alert(
+    'Success',
+    'You have accepted the invite',
+    [
+      {
+        text: 'Ok',
+        onPress: () => navigation.navigate('Inbox', {
+          data: [],
+        }),
+      },
+    ],
+    { cancelable: false }
+  );
+};
 
   let filterInbox = () => {
     let filtered_notifs = notifDao.filterNotificationsByUser(inboxFilter, curr.email)
@@ -121,11 +152,22 @@ let deleteNotif = (item) => {
         <Text style={styles.textheader}>Notification Content</Text>
         <Text style={styles.textbottom}>{item.content}</Text>
 
+
+
         <TouchableOpacity 
         onPress={() => deleteNotif(item)} >
         <Text style={{color: "#FFFFFF", fontFamily: 'monospace'}}>Dismiss</Text>
         </TouchableOpacity>
+        <TouchableOpacity 
+        onPress={() => addToTeam(item)} >
+        <Text style={{color: "#FFFFFF", fontFamily: 'monospace'}}>Accept</Text>
+        </TouchableOpacity>
+
+        
         </View>
+
+
+        
         
 
           );
