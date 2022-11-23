@@ -39,6 +39,7 @@ const CreateTeam = ({ navigation }) => {
     teamDao.createTeam(teamname, curr.email)
     playerDao.setManager(curr.email, true)
     teamDao.updateManager(teamname, curr.email)
+    teamDao.addPlayer(teamname, curr.email)
     Alert.alert(
       'Success',
       'Team Registered Successfully',

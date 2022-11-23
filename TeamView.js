@@ -26,6 +26,13 @@ const TeamView = ({ navigation }) => {
         bottom: 0,
         justifyContent: 'flex-start',
       },
+      players: {
+        position: 'absolute',
+        left: 10, 
+        right: 0,
+        bottom: 0,
+        justifyContent: 'flex-start',
+      },
       button1: {
         //flex: 1,
         alignItems: "center",
@@ -120,6 +127,24 @@ let requestJoin = () => {
     { cancelable: false }
   );
 }
+
+let getPlayers = () => {
+  let s = ''
+  for(ele in team.players){
+    s+= `<View
+    style={{ backgroundColor: '#383434', marginTop: 20, padding: 30, borderRadius: 10 }}>
+<Text style={styles.textheader}>Player Name:</Text>
+<Text style={styles.textbottom}>{playerDao.readPlayer(ele).first_name} {playerDao.readPlayer(ele).last_name}</Text>
+<Text style={styles.textheader}>Username:</Text>
+<Text style={styles.textbottom}>{playerDao.readPlayer(ele).email}</Text>
+</View>`
+  }
+  return s
+
+    
+      
+    
+  }
   // let updatedPlayer = playerDao.updatePlayer()
   // let playerDelete = playerDao.deletePlayer(curr.deletePlayer)
   
@@ -140,7 +165,7 @@ let requestJoin = () => {
    </View>
    <View style={styles.profileTextNames}>
     <Text style={[styles.texttype, {fontSize: 30, bottom: 200}]}>Team: {team.teamName}</Text>
-    <Text style={[styles.texttype, {fontSize: 15}]}>Manager: {team.managerName}</Text>
+    <Text style={[styles.texttype, {fontSize: 15}]}>Manager: {team.teamManager}</Text>
     <Text style={[styles.texttype, {fontSize: 15}]}>Record: {team.record}</Text>
    </View>
    <View style={styles.profileText}>
@@ -204,6 +229,13 @@ let requestJoin = () => {
         <Text style={{color: "#FFFFFF", fontFamily: 'monospace'}}> Request to Join </Text>
         </TouchableOpacity>
         </View> 
+          <View style={styles.players}>
+          <FlatList
+            data={team.players.filter(function(e) { return e !== "" })} 
+            renderItem={({item}) => <Text style={styles.texttype}>player: {item}</Text>}
+          />
+          </View>
+
         </View> 
         
    )
