@@ -117,4 +117,19 @@ export default class Team{
         })
         return this.readTeam(teamname)
     }
+    addPlayer(teamname, playerUsername){
+        team_realm.write(() => {
+            let updated = team_realm.objectForPrimaryKey("Team", teamname)
+            let playerList = updated.players
+            playerList.push(playerUsername)
+            updated.players = playerList
+        })
+        return this.readTeam(teamname)
+    }
+
+    getTeamByManager(manager){
+        const team = team_realm.objects("Team").filtered("teamManager = $0", manager)
+        return team[0]
+    }
+
 }

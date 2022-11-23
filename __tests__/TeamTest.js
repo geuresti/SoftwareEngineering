@@ -87,3 +87,11 @@ test('read team by name', () => {
     expect(updated.teamManager).toBe("bob")
   })
 
+  test('find team by manager', () => {
+    let teamName = "test_team"
+    let manager = "joe"
+    let created = teamDao.createTeam(teamName, manager)
+    let test = teamDao.getTeamByManager(manager)
+    expect(created).toEqual(test)
+  })
+

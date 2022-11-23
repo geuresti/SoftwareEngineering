@@ -42,6 +42,15 @@ export default class Player{
         viewProfile = useremail
     }
 
+    setManager(email, bool){
+        player_realm.write(() => {  
+                let playerUpdated = player_realm.objectForPrimaryKey("Player", email);
+                playerUpdated.isManager = bool
+            })
+
+        return player_realm.objectForPrimaryKey("Player", email);
+    }
+
     getCurrentPlayer(){
         return player_realm.objectForPrimaryKey("Player", loggedInPlayer); 
     }
@@ -151,28 +160,6 @@ export default class Player{
         });
         
         return this.readPlayer(loggedInPlayer)
-        /*
-        player_realm.write(() => {  
-            let playerUpdated = player_realm.objectForPrimaryKey("Player", loggedInPlayer);
-            playerUpdated.email = args;
-            playerUpdated.first_name = f_new;
-            playerUpdated.last_name = l_new;
-            playerUpdated.team_id = id_new;
-            playerUpdated.height = h_new;
-            playerUpdated.weight = w_new;
-            playerUpdated.position = p_new;
-            playerUpdated.experience = e_new ;
-            playerUpdated.isManager = m_new;
-            playerUpdated.avgPoints = points_new;
-            playerUpdated.avgBlocks = blocks_new;
-            playerUpdated.avgSteals = steals_new;
-            playerUpdated.assists = a_new;
-            playerUpdated.freethrowPercent = f_throw_per;
-            playerUpdated.shotPercent = s_new_percent;
-    
-        });
-        return this.readPlayer(loggedInPlayer)
-        */
     }
   
     deletePlayer(useremail){

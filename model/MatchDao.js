@@ -81,7 +81,7 @@ export default class Matches{
     }
 
     readAllMatches(){
-        const matches = matches_realm.objects("Match");
+        const matches = match_realm.objects("Match");
         return matches
     }
 
