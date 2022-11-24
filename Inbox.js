@@ -44,6 +44,19 @@ const TestingList = ({ route, navigation }) => {
     
   
   }
+  else if (item.content.includes("recruit"))
+  {
+    console.log(item.senderUsername)
+    let currTeam = teamDao.getTeamByManager(item.senderUsername)
+    let value = currTeam.teamName
+    console.log(value,  "testty2")
+    teamDao.addPlayer(value, item.recieverUsername)
+    for(let i = 0; i < currTeam.players.length; i++){
+      console.log(currTeam.players[i]);
+    }
+    
+  
+  }
 
   Alert.alert(
     'Success',
