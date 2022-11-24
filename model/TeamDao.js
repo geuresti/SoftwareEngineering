@@ -128,8 +128,9 @@ export default class Team{
     }
 
     getTeamByManager(manager){
-        const team = team_realm.objects("Team").filtered("teamManager = $0", manager)
-        return team[0]
+        console.log(manager + "testing")
+        let teamWManager = team_realm.objects("Team").filtered("teamManager = $0", manager);
+        return teamWManager[0]
     }
 
 }

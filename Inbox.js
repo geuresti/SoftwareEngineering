@@ -9,10 +9,10 @@ const TestingList = ({ route, navigation }) => {
   let playerDao = new PlayerDao()
   let teamDao = new TeamDao()
   let curr = playerDao.getCurrentPlayer()
-  let currTeam = teamDao.getTeamToView()
   let player = playerDao.readPlayer(curr.email)
-  let team = teamDao.readTeam(curr.team_id)
-
+  
+  //let team = teamDao.readTeam(curr.team_id)
+  
   var notifDao = new NotificationDao()
 
   let db;
@@ -33,11 +33,15 @@ const TestingList = ({ route, navigation }) => {
   let addToTeam = (item) => {
   if (item.content.includes("join"))
   {
-    team.players.push(item.senderUsername);
-    for(let i = 0; i < team.players.length; i++)
-  {
-      console.log(team.players[i]);
-  }
+    console.log(item.recieverUsername)
+    let currTeam = teamDao.getTeamByManager(item.recieverUsername)
+    let value = currTeam.teamName
+    console.log(value,  "testty2")
+    teamDao.addPlayer(value, item.senderUsername)
+    for(let i = 0; i < currTeam.players.length; i++){
+      console.log(currTeam.players[i]);
+    }
+    
   
   }
 

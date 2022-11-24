@@ -206,7 +206,12 @@ let getPlayers = () => {
         </TouchableOpacity>
         </View>
   
-      
+        <View style={styles.players}>
+          <FlatList
+            data={team.players.filter(function(e) { return e !== "" })} 
+            renderItem={({item}) => <Text style={[styles.texttype, {fontSize: 15}]}>player: {item}</Text>}
+          />
+          </View>
   
 
         <View style={{position: 'absolute', top: 650, left: 200, right: 20, bottom: 0, justifyContent: 'center', alignItems: 'center'}}>
@@ -229,12 +234,7 @@ let getPlayers = () => {
         <Text style={{color: "#FFFFFF", fontFamily: 'monospace'}}> Request to Join </Text>
         </TouchableOpacity>
         </View> 
-          <View style={styles.players}>
-          <FlatList
-            data={team.players.filter(function(e) { return e !== "" })} 
-            renderItem={({item}) => <Text style={styles.texttype}>player: {item}</Text>}
-          />
-          </View>
+
 
         </View> 
         
