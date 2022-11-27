@@ -10,7 +10,7 @@ const TestingList = ({ navigation }) => {
 
   let [notifContent, setNotifContent] = useState('');
   let [senderUser, setSenderUser] = useState('');
-  let [recieverUser, setRecieverUser] = useState('');
+  let [receiverUser, setReceiverUser] = useState('');
 
     const styles = StyleSheet.create({
         textheader: {
@@ -65,8 +65,8 @@ const TestingList = ({ navigation }) => {
         <Text style={styles.textheader}>Sender Username</Text>
         <Text style={styles.textbottom}>{item.senderUsername}</Text>
 
-        <Text style={styles.textheader}>Reciever Username</Text>
-        <Text style={styles.textbottom}>{item.recieverUsername}</Text>
+        <Text style={styles.textheader}>Receiver Username</Text>
+        <Text style={styles.textbottom}>{item.receiverUsername}</Text>
       
         <Text style={styles.textheader}>Notification Content</Text>
         <Text style={styles.textbottom}>{item.content}</Text>
@@ -108,12 +108,12 @@ const TestingList = ({ navigation }) => {
             alert('Please provide content for the notification');
             return;
           }
-          if (!recieverUser) {
-            alert('Please provide reciever username');
+          if (!receiverUser) {
+            alert('Please provide receiver username');
             return;
           }
 
-          notifDao.createNotification(senderUser, recieverUser, notifContent);
+          notifDao.createNotification(senderUser, receiverUser, notifContent);
 
           Alert.alert(
             'Success',
@@ -150,14 +150,14 @@ const TestingList = ({ navigation }) => {
                   }
                 />
 
-                <Text style={{fontSize:20 , fontFamily: 'monospace', color: 'white'}}>Reciever Username</Text>
+                <Text style={{fontSize:20 , fontFamily: 'monospace', color: 'white'}}>Receiver Username</Text>
                 <TextInput 
                   style = {styles.input} keyboardType="number-pad"
                   textAlign={'center'}
                   placeholderTextColor="white" 
-                  placeholder="Reciever Username"
+                  placeholder="Receiver Username"
                   onChangeText={
-                    (recieverUser) => setRecieverUser(recieverUser)
+                    (receiverUser) => setReceiverUser(receiverUser)
                   }
                 />
         
