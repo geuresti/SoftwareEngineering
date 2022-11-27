@@ -103,6 +103,16 @@ const AdminPage = ({ navigation }) => {
         <Text style={{color: "#FFFFFF", fontSize: 28, fontFamily: 'Bungee-Regular'}}>  BROWSE PLAYERS  </Text>
         </TouchableOpacity>
         </View>
+
+        <View style={{position: 'absolute', top: 500, left: 10, right: 0, bottom: 0, justifyContent: 'center', alignItems: 'center'}}>
+        <TouchableOpacity
+            onPress={() => navigation.navigate('SeasonManager')} 
+            customClick={() => navigation.navigate('SeasonManager')}
+            style={styles.button1}>
+        <Text style={{color: "#FFFFFF", fontSize: 28, fontFamily: 'Bungee-Regular'}}>  BROWSE SEASONS  </Text>
+        </TouchableOpacity>
+        </View>
+        
         <View style={{position: 'absolute', top: 0, left: 240, right: 0, bottom: 680, justifyContent: 'center', alignItems: 'center'}}>
         <TouchableOpacity
             //inbox button, transparent

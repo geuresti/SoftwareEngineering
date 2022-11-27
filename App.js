@@ -18,6 +18,7 @@ import Inbox from './Inbox.js';
 import Request from './Request.js';
 import TeamView from './TeamView.js';
 import TeamEdit from './TeamEdit.js';
+import SeasonManager from './SeasonManager.js';
 
 const Stack = createStackNavigator();
 
@@ -144,6 +145,14 @@ const App = () => {
           options={{
             title: 'Request', 
 
+          }}
+        />
+
+        <Stack.Screen
+          name="SeasonManager"
+          component={SeasonManager}
+          options={{
+            title: 'SeasonManager', 
           }}
         />
 
