@@ -48,7 +48,7 @@ export default class Matches{
     createMatch(matchInput) {
         match_realm.write(() => {
             let match = match_realm.create("Match", {
-                match_id: "",
+                match_id: matchInput,
                 allteams: [""],
                 away_team: "", 
                 home_team: "", 
