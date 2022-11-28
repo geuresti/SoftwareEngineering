@@ -46,5 +46,22 @@ export default class Season {
         let season = season_realm.objectForPrimaryKey("Season", season_id);
         return season
     }
+
+    deleteSeason(season_id)
+    {
+        season_realm.write(() => {
+            let seasonToDelete = season_realm.objectForPrimaryKey("Season", season_id);
+            if (seasonToDelete) {
+                console.log("ATTEMPTING TO DELETE:", seasonToDelete);
+                season_realm.delete(seasonToDelete)
+                console.log("SUCCESSFULLY DELETED");
+                return true
+            } else {
+                console.log("NOTIFICATION UNSUCCESSFULLY DELETED");
+                //return false
+            }
+        })
+        return false
+    }
 }
 
