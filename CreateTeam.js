@@ -1,8 +1,7 @@
-import React, { useEffect, useState } from 'react';
-import { Text, View, Image, ImageBackground, TouchableOpacity, TextInput, StyleSheet, Button, Alert, SafeAreaView, FlatList} from "react-native";
+import React, { useState } from 'react';
+import { Text, View, ImageBackground, TouchableOpacity, TextInput, StyleSheet, Alert} from "react-native";
 import TeamDao from './model/TeamDao.js'
 import PlayerDao from './model/PlayerDao.js'
-import TeamList from './TeamList.js';
 
 const CreateTeam = ({ navigation }) => {
     const styles = StyleSheet.create({
@@ -16,7 +15,6 @@ const CreateTeam = ({ navigation }) => {
           padding: 10,
         },
         button: {
-            //flex: 1,
             alignItems: "center",
             backgroundColor: "#171414",
             padding: 15
@@ -33,7 +31,7 @@ const CreateTeam = ({ navigation }) => {
 
     if (!teamname) {
       alert('Please fill team name');
-      return;
+      return
     }
     curr = playerDao.getCurrentPlayer()
     teamDao.createTeam(teamname, curr.email)
@@ -84,7 +82,6 @@ const CreateTeam = ({ navigation }) => {
         </View>
         <View style={{position: 'absolute', top: 450, left: 200, right: 0, bottom: 0, justifyContent: 'center', alignItems: 'center'}}>
         <TouchableOpacity
-            //onPress={() => console.log("button pressed!")} 
             onPress={register_team}
             style={styles.button}>
     

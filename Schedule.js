@@ -91,7 +91,7 @@ const Schedule = ({ navigation }) => {
               </View>
               <TouchableOpacity
             //onPress={() => console.log("button pressed!")} 
-                onPress={() => {navigation.navigate('CreateMatch')}}
+                onPress={() => {navigation.navigate('MatchCreate')}}
                 style={styles.button}>
                 <Text style={{color: "#FFFFFF", fontFamily: 'monospace'}}>Create Game</Text>
               </TouchableOpacity>

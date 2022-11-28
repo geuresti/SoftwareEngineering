@@ -1,4 +1,5 @@
 import Realm from "realm";
+import PlayerDao from "./PlayerDao.js"
 
 const team_realm = new Realm({path: 'teams.realm',
 schema:[
@@ -117,11 +118,23 @@ export default class Team{
         })
         return this.readTeam(teamname)
     }
-    addPlayer(teamname, playerUsername){
+
+    // playerUsername -> playerEmail
+    addPlayer(teamname, playerEmail){
+
+        let playerDao = PlayerDao()
+        let player = playerDao.readPlayer(playerEmail)
+
+        if (player) {
+            console.log("PLAYER EXISTS:", player);
+        } else {
+            console.log("PLAYER DON't EXIST");
+        }
+
         team_realm.write(() => {
             let updated = team_realm.objectForPrimaryKey("Team", teamname)
             let playerList = updated.players
-            playerList.push(playerUsername)
+            playerList.push(playerEmail)
             updated.players = playerList
         })
         return this.readTeam(teamname)
