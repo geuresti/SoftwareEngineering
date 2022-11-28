@@ -5,7 +5,7 @@ schema:[
     {
     name: "Match",
     properties: {
-        match_id: "string",
+        match_id: "int",
         allteams: "string[]",
         away_team: "string", 
         home_team: "string", 
@@ -29,10 +29,10 @@ schema:[
 
     },
 ], 
-schemaVersion:4
+schemaVersion:6
 }); 
 
-var matchView = ""
+var matchView = 0
 
 export default class Matches{
     
@@ -46,9 +46,10 @@ export default class Matches{
 
     
     createMatch(matchInput) {
+        var ID = match_realm.objects("Match").length;
         match_realm.write(() => {
             let match = match_realm.create("Match", {
-                match_id: "",
+                match_id: ID,
                 allteams: [""],
                 away_team: "", 
                 home_team: "", 
@@ -71,6 +72,37 @@ export default class Matches{
     })
     let match =  match_realm.objectForPrimaryKey("Match", matchInput);
     return match 
+
+    }
+
+    createMatch(away, home, time) {
+        const ID = match_realm.objects("Match").length;
+        match_realm.write(() => {
+            let match = match_realm.create("Match", {
+                match_id: ID,
+                allteams: [away, home],
+                away_team: away, 
+                home_team: home, 
+                away_team_score: 0,
+                home_team_score: 0,
+                game_time: time,
+                h_team_blocks: 0,
+                h_team_steals: 0,
+                h_team_assists: 0,
+                h_team_frees: 0,
+                h_team_shot_percent: 0,
+                a_team_blocks: 0,
+                a_team_steals: 0,
+                a_team_assists: 0,
+                a_team_frees:0,
+                a_team_shot_percent: 0,
+
+            });
+            
+    })
+    console.log(ID )
+    //let match =  match_realm.objectForPrimaryKey("Match", ID);
+    return this.readMatch(ID)
 
     }
 
