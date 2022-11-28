@@ -75,18 +75,25 @@ const TestingList = ({ navigation }) => {
         };
       
         let deleteSeason = (item) => {
-          seasonDao.deleteSeason(item.id)
           Alert.alert(
-            'Success',
-            'New Season Successfully Deleted',
+            'Delete Season?',
+            'Press Confirm or Cancel',
             [
               {
-                text: 'Ok',
+                text: 'Confirm',
+                //onPress: () => console.log("confirm"),
+                onPress: () => seasonDao.deleteSeason(item.id),
+              },
+              {
+                text: 'Cancel',
+                //onPress: () => console.log("cancel"),
                 onPress: () => navigation.navigate('SeasonManager'),
               },
+              
             ],
             { cancelable: false }
           );
+          
           
         };
 
