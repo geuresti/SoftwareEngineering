@@ -15,8 +15,13 @@ const season_realm = new Realm({path: 'seasons.realm',
     ], 
 }); 
 
-
+var seasonViews = 0;
 export default class Season {
+
+    
+    setSeasonToView(season_id){
+        seasonViews = season_id
+    }
     
     createSeason() {
         const db = season_realm.objects("Season");
@@ -45,6 +50,36 @@ export default class Season {
     getSeasonByID(season_id){
         let season = season_realm.objectForPrimaryKey("Season", season_id);
         return season
+    }
+
+    
+    getSeasonToView(){
+        return season_realm.objectForPrimaryKey("Season", seasonViews)
+    }
+
+
+
+    addGame(season_id, game){
+        let gameInt = parseInt(game);
+        season_realm.write(() => {
+            let updated = season_realm.objectForPrimaryKey("Season", season_id)
+            let matchList = updated.matches
+            matchList.push(gameInt)
+            updated.matches = matchList
+        })
+        return this.getSeasonByID(season_id)
+    }
+    removeGame(season_id, game){
+        let gameInt = parseInt(game);
+        season_realm.write(() => {
+            let updated = season_realm.objectForPrimaryKey("Season", season_id)
+            let matchList = updated.matches
+            let index = matchList.indexOf(gameInt)
+            console.log(index)
+            matchList.splice(index,1)
+            updated.matches = matchList
+        })
+        return this.getSeasonByID(season_id)
     }
 
     deleteSeason(season_id)

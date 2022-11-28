@@ -58,12 +58,17 @@ const TestingList = ({ navigation }) => {
         <View
             key={item.id}
             style={{ backgroundColor: '#383434', marginTop: 20, padding: 30, borderRadius: 10 }}>
+              
       
         <Text style={styles.textheader}>Season ID</Text>
         <Text style={styles.textbottom}>{item.id}</Text>
-        <Text style={styles.textheader}>Matches:</Text>
-        <Text style={styles.textbottom}>{item.matches}</Text>
+
         
+        <TouchableOpacity 
+         onPress={ () => {seasonDao.setSeasonToView(item.id); navigation.navigate('SeasonView')}} >
+        <Text style={{color: "#FFFFFF", fontFamily: 'monospace'}}>View Season</Text>
+        </TouchableOpacity>
+
         <TouchableOpacity 
         onPress={() => deleteSeason(item)} >
         <Text style={{color: "#FFFFFF", fontFamily: 'monospace'}}>Delete</Text>

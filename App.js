@@ -22,6 +22,8 @@ import SeasonManager from './SeasonManager.js';
 import MatchView from './MatchView.js'
 import Schedule from './Schedule.js'
 import CreateMatch from './CreateMatch.js'
+import SeasonView from './SeasonView.js'
+import SeasonEdit from './SeasonEdit.js'
 
 const Stack = createStackNavigator();
 
@@ -183,6 +185,22 @@ const App = () => {
           component={SeasonManager}
           options={{
             title: 'SeasonManager', 
+          }}
+        />
+
+        <Stack.Screen
+          name="SeasonView"
+          component={SeasonView}
+          options={{
+            title: 'SeasonView', 
+          }}
+        />
+
+        <Stack.Screen
+          name="SeasonEdit"
+          component={SeasonEdit}
+          options={{
+            title: 'SeasonEdit', 
           }}
         />
 
