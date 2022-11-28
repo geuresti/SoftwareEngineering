@@ -19,6 +19,9 @@ import Request from './Request.js';
 import TeamView from './TeamView.js';
 import TeamEdit from './TeamEdit.js';
 import SeasonManager from './SeasonManager.js';
+import MatchView from './MatchView.js'
+import Schedule from './Schedule.js'
+import CreateMatch from './CreateMatch.js'
 
 const Stack = createStackNavigator();
 
@@ -55,6 +58,15 @@ const App = () => {
           }}
         />
 
+        <Stack.Screen
+          name="Schedule"
+          component={Schedule}
+          options={{
+            title: 'Schedule',
+
+          }}
+        />
+
 
 
         <Stack.Screen
@@ -82,6 +94,15 @@ const App = () => {
           options={{
             title: 'Player Profile', //Set Header Title
             
+          }}
+        />
+
+        <Stack.Screen
+          name="CreateMatch"
+          component={CreateMatch}
+          options={{
+            title: 'Create Match', 
+
           }}
         />
 
@@ -126,6 +147,15 @@ const App = () => {
           component={PlayerList}
           options={{
             title: 'PlayerList', 
+
+          }}
+        />
+
+        <Stack.Screen
+          name="MatchView"
+          component={MatchView}
+          options={{
+            title: 'MatchView', 
 
           }}
         />

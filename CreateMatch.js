@@ -25,30 +25,17 @@ const styles = StyleSheet.create({
 });
 
   let matchDao = new MatchDao()
-  let teamDao = new TeamDao()
-  const allTeams = teamDao.readAllTeams();
-  const allMatchs = matchDao.readAllMatches();
 
-  let [match_id, setMatchId] = useState(''); 
-  let [teamName, setTeamName] = useState('');
+  let [awayTeam, setAwayTeam] = useState(''); 
+  let [homeTeam, setHomeTeam] = useState('');
+  let [time, setTime] = useState('');
 
-  this.state = {
-    FlatList: allTeams,
-    FlatList: allMatchs
-  }; 
-
-  let listViewItemSeparator = () => {
-    return (
-      <View
-        style={{ height: 0.2, width: '100%', backgroundColor: '#171414' }}
-      />
-    );
-  };
 
   let create_match = () => {
-    console.log(match_id);
     // teamDao.createTeam(teamname, curr.email)
-    matchDao.createMatch(match_id)
+    matchDao.createMatch(awayTeam, homeTeam, time)
+
+
     
     Alert.alert(
       'Success',
@@ -83,9 +70,29 @@ const styles = StyleSheet.create({
       <TextInput 
         style = {styles.input}
         textAlign={'center'}
-        placeholder="Match Id" 
+        placeholder="Away Team" 
         onChangeText={
-          (match_id) => setMatchId(match_id)
+          (awayTeam) => setAwayTeam(awayTeam)
+        }/>
+      </View>
+
+      <View style={{position: 'absolute', top: 100, left: 0, right: 0, bottom: 90, justifyContent: 'center', alignItems: 'center'}}>
+      <TextInput 
+        style = {styles.input}
+        textAlign={'center'}
+        placeholder="Home Team" 
+        onChangeText={
+          (homeTeam) => setHomeTeam(homeTeam)
+        }/>
+      </View>
+
+      <View style={{position: 'absolute', top: 200, left: 0, right: 0, bottom: 90, justifyContent: 'center', alignItems: 'center'}}>
+      <TextInput 
+        style = {styles.input}
+        textAlign={'center'}
+        placeholder="Game Time" 
+        onChangeText={
+          (time) => setTime(time)
         }/>
       </View>
       <View style={{position: 'absolute', top: 50, left: 0, right: 270, bottom: 0, justifyContent: 'center', alignItems: 'center'}}>

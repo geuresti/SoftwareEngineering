@@ -64,7 +64,7 @@ const AdminPage = ({ navigation }) => {
               onPress={() => navigation.navigate('CreateTeam')} 
               customClick={() => navigation.navigate('CreateTeam')}
             style={[styles.button1,{paddingHorizontal: 70}]}>
-            <Text style={{color: "#FFFFFF", fontSize: 30, fontFamily: 'Bungee-Regular'}}>LIVE SCORING</Text>
+            <Text style={{color: "#FFFFFF", fontSize: 30, fontFamily: 'Bungee-Regular'}}>CREATE TEAM</Text>
             </TouchableOpacity>
         </View>
 
@@ -110,6 +110,15 @@ const AdminPage = ({ navigation }) => {
             customClick={() => navigation.navigate('SeasonManager')}
             style={styles.button1}>
         <Text style={{color: "#FFFFFF", fontSize: 28, fontFamily: 'Bungee-Regular'}}>  BROWSE SEASONS  </Text>
+        </TouchableOpacity>
+        </View>
+
+        <View style={{position: 'absolute', top: 300, left: 10, right: 0, bottom: 0, justifyContent: 'center', alignItems: 'center'}}>
+        <TouchableOpacity
+            onPress={() => navigation.navigate('Schedule')} 
+            customClick={() => navigation.navigate('Schedule')}
+            style={styles.button1}>
+        <Text style={{color: "#FFFFFF", fontSize: 28, fontFamily: 'Bungee-Regular'}}>  SCHEDULE  </Text>
         </TouchableOpacity>
         </View>
         

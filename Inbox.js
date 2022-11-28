@@ -58,6 +58,7 @@ const TestingList = ({ route, navigation }) => {
   
   }
 
+
   Alert.alert(
     'Success',
     'You have accepted the invite',

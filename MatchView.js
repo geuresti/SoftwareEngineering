@@ -84,7 +84,7 @@ const MatchView = ({ navigation }) => {
   // let team = teamDao.readTeam(curr.teamName)
   let matchDao = new MatchDao()
   let curr = matchDao.getMatchToView()
-  let match =  matchDao.readMatch(curr.match_id)
+  //let match =  matchDao.readMatch(curr.match_id)
 
    return (
     <View style={{flex:1, alignItems:'center', justifyContent:'center'}}>
@@ -99,20 +99,20 @@ const MatchView = ({ navigation }) => {
    
   
    <View style={styles.profileText}>
-        <Text style={[styles.texttype, {fontSize: 14}]}>Match id:{match.match_id}</Text>
-        <Text style={[styles.texttype, {fontSize: 14}]}>Time:{match.game_time}</Text>
-        <Text style = {[styles.texttype, {fontSize:10}]}>Home Team Score:{match.home_team_score}</Text>
-        <Text style={[styles.texttype, {fontSize: 14}]}>Away Team Score {match.away_team_score}</Text>
-        <Text style = {[styles.texttype, {fontSize:10}]}>Home Team Blocks {match.h_team_blocks}</Text>
-        <Text style={[styles.texttype, {fontSize: 14}]}>Home Team Steals: {match.h_team_steals}</Text>
-        <Text style={[styles.texttype, {fontSize: 14}]}>Home Team Assists: {match.h_team_assists}</Text>
-        <Text style={[styles.texttype, {fontSize: 14}]}>Home Team Frees: {match.h_team_frees}</Text>
-        <Text style={[styles.texttype, {fontSize: 14}]}>Home Team Shot: {match.h_team_shot_percent}</Text>
-        <Text style = {[styles.texttype, {fontSize:10}]}>Away Team Blocks {match.a_team_blocks}</Text>
-        <Text style={[styles.texttype, {fontSize: 14}]}>Away Team Steals: {match.a_team_steals}</Text>
-        <Text style={[styles.texttype, {fontSize: 14}]}>Away Team Assists: {match.a_team_assists}</Text>
-        <Text style={[styles.texttype, {fontSize: 14}]}>Away Team Frees: {match.a_team_frees}</Text>
-        <Text style={[styles.texttype, {fontSize: 14}]}>Away Team Shot %: {match.a_team_shot_percent}</Text>
+        <Text style={[styles.texttype, {fontSize: 14}]}>Match id:{curr.match_id}</Text>
+        <Text style={[styles.texttype, {fontSize: 14}]}>Time:{curr.game_time}</Text>
+        <Text style = {[styles.texttype, {fontSize:10}]}>Home Team Score:{curr.home_team_score}</Text>
+        <Text style={[styles.texttype, {fontSize: 14}]}>Away Team Score {curr.away_team_score}</Text>
+        <Text style = {[styles.texttype, {fontSize:10}]}>Home Team Blocks {curr.h_team_blocks}</Text>
+        <Text style={[styles.texttype, {fontSize: 14}]}>Home Team Steals: {curr.h_team_steals}</Text>
+        <Text style={[styles.texttype, {fontSize: 14}]}>Home Team Assists: {curr.h_team_assists}</Text>
+        <Text style={[styles.texttype, {fontSize: 14}]}>Home Team Frees: {curr.h_team_frees}</Text>
+        <Text style={[styles.texttype, {fontSize: 14}]}>Home Team Shot: {curr.h_team_shot_percent}</Text>
+        <Text style = {[styles.texttype, {fontSize:10}]}>Away Team Blocks {curr.a_team_blocks}</Text>
+        <Text style={[styles.texttype, {fontSize: 14}]}>Away Team Steals: {curr.a_team_steals}</Text>
+        <Text style={[styles.texttype, {fontSize: 14}]}>Away Team Assists: {curr.a_team_assists}</Text>
+        <Text style={[styles.texttype, {fontSize: 14}]}>Away Team Frees: {curr.a_team_frees}</Text>
+        <Text style={[styles.texttype, {fontSize: 14}]}>Away Team Shot %: {curr.a_team_shot_percent}</Text>
         
         </View>
         <View style={{position: 'absolute', top: 0, left: 240, right: 0, bottom: 680, justifyContent: 'center', alignItems: 'center'}}>
