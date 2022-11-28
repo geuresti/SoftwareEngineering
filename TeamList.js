@@ -77,18 +77,28 @@ const TeamList = ({ navigation }) => {
         let deleteTeam = () => {
 
           if(teamDao.readTeam(teamName)){
-            teamDao.deleteTeam(teamName)
-            alert(
-              'Success',
-              'You have Deleted Successfully',
+
+            Alert.alert(
+              'Delete Team?',
+              'Press Confirm or Cancel',
               [
                 {
-                  text: 'Ok',
+                  text: 'Confirm',
+                  //onPress: () => console.log("confirm"),
+                  onPress: () => teamDao.deleteTeam(teamName),
+                
+                },
+                {
+                  text: 'Cancel',
+                  //onPress: () => console.log("cancel"),
                   onPress: () => navigation.navigate('TeamList'),
                 },
+                navigation.navigate('TeamList')
               ],
               { cancelable: false }
             );
+            
+
             
           }
           

@@ -108,18 +108,27 @@ const UserList = ({ navigation }) => {
         let delUser = () => {
 
           if(userDao.readUser(userEmail)){
-            userDao.deleteUser(userEmail)
-            alert(
-              'Success',
-              'You have Deleted Successfully',
+
+            Alert.alert(
+              'Delete User?',
+              'Press Confirm or Cancel',
               [
                 {
-                  text: 'Ok',
+                  text: 'Confirm',
+                  //onPress: () => console.log("confirm"),
+                  onPress: () => userDao.deleteUser(userEmail),
+                
+                },
+                {
+                  text: 'Cancel',
+                  //onPress: () => console.log("cancel"),
                   onPress: () => navigation.navigate('UserList'),
                 },
+                navigation.navigate('UserList')
               ],
               { cancelable: false }
             );
+
             
           }
           

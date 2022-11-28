@@ -83,13 +83,14 @@ const TestingList = ({ navigation }) => {
                 text: 'Confirm',
                 //onPress: () => console.log("confirm"),
                 onPress: () => seasonDao.deleteSeason(item.id),
+              
               },
               {
                 text: 'Cancel',
                 //onPress: () => console.log("cancel"),
                 onPress: () => navigation.navigate('SeasonManager'),
               },
-              
+              navigation.navigate('SeasonManager')
             ],
             { cancelable: false }
           );
@@ -100,7 +101,7 @@ const TestingList = ({ navigation }) => {
         let newSeason = () => {
 
           seasonDao.createSeason();
-
+          navigation.navigate('SeasonManager')
           Alert.alert(
             'Success',
             'New Season Successfully Created',
@@ -109,6 +110,7 @@ const TestingList = ({ navigation }) => {
                 text: 'Ok',
                 onPress: () => navigation.navigate('SeasonManager'),
               },
+              
             ],
             { cancelable: false }
           );

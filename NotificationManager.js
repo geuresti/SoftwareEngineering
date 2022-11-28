@@ -82,20 +82,28 @@ const TestingList = ({ navigation }) => {
         };
       
         let deleteNotif = (item) => {
-          notifDao.deleteNotification(item.id)
 
           Alert.alert(
-            'Success',
-            'You have Deleted Successfully',
+            'Delete Notification?',
+            'Press Confirm or Cancel',
             [
               {
-                text: 'Ok',
+                text: 'Confirm',
+                //onPress: () => console.log("confirm"),
+                onPress: () => notifDao.deleteNotification(item.id),
+              
+              },
+              {
+                text: 'Cancel',
+                //onPress: () => console.log("cancel"),
                 onPress: () => navigation.navigate('NotificationManager'),
               },
+              
             ],
             { cancelable: false }
           );
-          
+          navigation.navigate('NotificationManager')
+
         };
 
         let createNotif = () => {
@@ -114,7 +122,7 @@ const TestingList = ({ navigation }) => {
           }
 
           notifDao.createNotification(senderUser, receiverUser, notifContent);
-
+          navigation.navigate('NotificationManager')
           Alert.alert(
             'Success',
             'Notification Successfully Created',

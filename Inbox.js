@@ -94,21 +94,34 @@ const TestingList = ({ route, navigation }) => {
   };
 
 let deleteNotif = (item) => {
-  notifDao.deleteNotification(item.id)
 
   Alert.alert(
-    'Success',
-    'You have Deleted Successfully',
+    'Delete Notification?',
+    'Press Confirm or Cancel',
     [
       {
-        text: 'Ok',
+        text: 'Confirm',
+        //onPress: () => console.log("confirm"),
+        onPress: () => notifDao.deleteNotification(item.id)
+        
+      
+      },
+      {
+        text: 'Cancel',
+        //onPress: () => console.log("cancel"),
         onPress: () => navigation.navigate('Inbox', {
           data: [],
         }),
       },
+      navigation.navigate('Inbox', {
+        data: [],
+      })
     ],
     { cancelable: false }
   );
+  
+
+
   
 };
 
