@@ -12,8 +12,8 @@ const MatchView = ({ navigation }) => {
       texttype: {fontSize:17 , fontFamily: 'Bungee-Regular', color: '#D9D9D9'},
       profileText: {
         position: 'absolute',
-        top: 170,
-        left: 100, 
+        top: 130,
+        left: 30, 
         right: 0,
         bottom: 0,
         justifyContent: 'flex-start',
@@ -40,7 +40,7 @@ const MatchView = ({ navigation }) => {
            //flex: 1,
       alignItems: "center",
       backgroundColor: "#CA5A37",
-      padding: 0,
+      padding: 5,
       paddingHorizontal: 30,
       justifyContent: 'center'
   
@@ -99,20 +99,25 @@ const MatchView = ({ navigation }) => {
    
   
    <View style={styles.profileText}>
-        <Text style={[styles.texttype, {fontSize: 14}]}>Match id:{curr.match_id}</Text>
-        <Text style={[styles.texttype, {fontSize: 14}]}>Time:{curr.game_time}</Text>
-        <Text style = {[styles.texttype, {fontSize:10}]}>Home Team Score:{curr.home_team_score}</Text>
-        <Text style={[styles.texttype, {fontSize: 14}]}>Away Team Score {curr.away_team_score}</Text>
-        <Text style = {[styles.texttype, {fontSize:10}]}>Home Team Blocks {curr.h_team_blocks}</Text>
-        <Text style={[styles.texttype, {fontSize: 14}]}>Home Team Steals: {curr.h_team_steals}</Text>
-        <Text style={[styles.texttype, {fontSize: 14}]}>Home Team Assists: {curr.h_team_assists}</Text>
-        <Text style={[styles.texttype, {fontSize: 14}]}>Home Team Frees: {curr.h_team_frees}</Text>
-        <Text style={[styles.texttype, {fontSize: 14}]}>Home Team Shot: {curr.h_team_shot_percent}</Text>
-        <Text style = {[styles.texttype, {fontSize:10}]}>Away Team Blocks {curr.a_team_blocks}</Text>
-        <Text style={[styles.texttype, {fontSize: 14}]}>Away Team Steals: {curr.a_team_steals}</Text>
-        <Text style={[styles.texttype, {fontSize: 14}]}>Away Team Assists: {curr.a_team_assists}</Text>
-        <Text style={[styles.texttype, {fontSize: 14}]}>Away Team Frees: {curr.a_team_frees}</Text>
-        <Text style={[styles.texttype, {fontSize: 14}]}>Away Team Shot %: {curr.a_team_shot_percent}</Text>
+        <Text style = {[styles.texttype, {fontSize:30, left: 60,justifyContent:'center'}]}>{curr.home_team} vs {curr.away_team}</Text>
+        <Text style={{color: "#CA5A37", fontSize: 25, bottom: 30, alignContent:'center'}}>   ____________________________</Text>
+        <Text style={[styles.texttype, {fontSize: 14,bottom: 25, left: 90}]}>Id:{curr.match_id}             Time:{curr.game_time}</Text>
+        <Text style={[styles.texttype, {fontSize: 17}]}></Text>
+        <Text style = {[styles.texttype, {fontSize:21, left: 40}]}> Home</Text>
+        <Text style = {[styles.texttype, {fontSize:21, bottom: 55,left: 240}]}>Away</Text>
+        <Text style={{color: "#B62727", fontSize: 17, bottom: 80, alignContent:'center'}}>_____________________________________________</Text>
+        <Text style = {[styles.texttype, {fontSize:15, bottom: 45, left: 10}]}>Home Score:{curr.home_team_score}</Text>
+        <Text style={[styles.texttype, {fontSize:15, bottom: 85, left: 210}]}>Away Score {curr.away_team_score}</Text>
+        <Text style = {[styles.texttype, {fontSize:15, bottom: 85, left: 10}]}>Home Blocks {curr.h_team_blocks}</Text>
+        <Text style = {[styles.texttype, {fontSize:15, bottom: 125, left: 210}]}>Away Blocks {curr.a_team_blocks}</Text>
+        <Text style={[styles.texttype, {fontSize:15, bottom: 125, left: 10}]}>Home Steals: {curr.h_team_steals}</Text>
+        <Text style={[styles.texttype, {fontSize:15, bottom: 165, left: 210}]}>Away Steals: {curr.a_team_steals}</Text>
+        <Text style={[styles.texttype, {fontSize:15, bottom: 165, left: 10}]}>Home Assists: {curr.h_team_assists}</Text>
+        <Text style={[styles.texttype, {fontSize:15, bottom: 205, left: 210}]}>Away Assists: {curr.a_team_assists}</Text>
+        <Text style={[styles.texttype, {fontSize:15, bottom: 205, left: 10}]}>Home Frees: {curr.h_team_frees}</Text>
+        <Text style={[styles.texttype, {fontSize:15, bottom: 245, left: 210}]}>Away Frees: {curr.a_team_frees}</Text>
+        <Text style={[styles.texttype, {fontSize:15, bottom: 245, left: 10}]}>Home Shot: {curr.h_team_shot_percent} %</Text>
+        <Text style={[styles.texttype, {fontSize:15, bottom: 285, left: 210}]}>Away Shot: {curr.a_team_shot_percent} %</Text>
         
         </View>
         <View style={{position: 'absolute', top: 0, left: 240, right: 0, bottom: 680, justifyContent: 'center', alignItems: 'center'}}>

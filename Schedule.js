@@ -60,8 +60,10 @@ const Schedule = ({ navigation }) => {
             key={item.email}
             style={{ backgroundColor: '#383434', marginTop: 20, padding: 30, borderRadius: 10 }}>
 
-        <Text style={styles.textheader}>Home Team: {item.home_team} Score: {item.home_team_score}</Text>
-        <Text style={styles.textheader}>Away Team: {item.away_team} Score: {item.away_team_score}</Text>
+        <Text style={styles.textheader}>Home Team: {item.home_team} </Text>
+        <Text style={styles.textheader}>Score: {item.home_team_score} </Text>
+        <Text style={styles.textheader}>Away Team: {item.away_team}</Text>
+        <Text style={styles.textheader}>Score: {item.away_team_score} </Text>
         <View style={{position: 'absolute', left: 220, justifyContent: 'center', alignItems: 'center'}}>
         
         <TouchableOpacity
