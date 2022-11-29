@@ -122,7 +122,7 @@ export default class Team{
     // playerUsername -> playerEmail
     addPlayer(teamname, playerEmail){
 
-        let playerDao = PlayerDao()
+        let playerDao = new PlayerDao()
         let player = playerDao.readPlayer(playerEmail)
 
         if (player) {
