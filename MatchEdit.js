@@ -1,6 +1,6 @@
 import React, {useState} from "react";
 import { Text, View, Image, ImageBackground, TouchableOpacity, TextInput, StyleSheet, Alert, navigation} from "react-native";
-import { block } from "react-native-reanimated";
+// import { block } from "react-native-reanimated";
 import MatchDao from './model/MatchDao.js'
 
 const MatchEdit = ({navigation}) => {
