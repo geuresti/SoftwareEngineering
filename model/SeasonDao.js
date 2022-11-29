@@ -38,7 +38,7 @@ export default class Season {
         })
 
         let new_season = season_realm.objectForPrimaryKey("Season", next_ID);
-        console.log("CREATED NEW SEASON:", new_season);
+        //console.log("CREATED NEW SEASON:", new_season);
         return new_season
     }
 
@@ -57,8 +57,6 @@ export default class Season {
         return season_realm.objectForPrimaryKey("Season", seasonViews)
     }
 
-
-
     addGame(season_id, game){
         let gameInt = parseInt(game);
         season_realm.write(() => {
@@ -69,6 +67,7 @@ export default class Season {
         })
         return this.getSeasonByID(season_id)
     }
+
     removeGame(season_id, game){
         let gameInt = parseInt(game);
         season_realm.write(() => {
@@ -87,9 +86,9 @@ export default class Season {
         season_realm.write(() => {
             let seasonToDelete = season_realm.objectForPrimaryKey("Season", season_id);
             if (seasonToDelete) {
-                console.log("ATTEMPTING TO DELETE:", seasonToDelete);
+              //  console.log("ATTEMPTING TO DELETE:", seasonToDelete);
                 season_realm.delete(seasonToDelete)
-                console.log("SUCCESSFULLY DELETED");
+              //  console.log("SUCCESSFULLY DELETED");
                 return true
             } else {
                 console.log("NOTIFICATION UNSUCCESSFULLY DELETED");
@@ -98,5 +97,12 @@ export default class Season {
         })
         return false
     }
-}
 
+    deleteAllSeasons() {
+        let seasons = this.getAllSeasons()
+        for (let i = 0; i < seasons.length; i++) {
+            this.deleteSeason(seasons[i].id);
+        }
+        //console.log("delete all season loop ENDED")
+    }
+}
