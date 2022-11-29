@@ -1,5 +1,4 @@
 import Realm from "realm";
-import TeamDao from './TeamDao.js'
 
 const match_realm = new Realm({path: 'matches.realm',
 schema:[
@@ -23,6 +22,8 @@ schema:[
         a_team_assists: "float",
         a_team_frees: "float",
         a_team_shot_percent: "float",
+         
+
     },
     primaryKey: "match_id" 
 
@@ -33,7 +34,7 @@ schemaVersion:6
 
 var matchView = 0
 
-export default class Matches {
+export default class Matches{
     
     setMatchToView(match_id){
         matchView = match_id
@@ -43,51 +44,66 @@ export default class Matches {
         return match_realm.objectForPrimaryKey("Match", matchView)
     }
 
-    createMatch(away, home, time) {
-        let teamDao = new TeamDao();
+    
+    createMatch(matchInput) {
+        var ID = match_realm.objects("Match").length;
+        match_realm.write(() => {
+            let match = match_realm.create("Match", {
+                match_id: ID,
+                allteams: [""],
+                away_team: "", 
+                home_team: "", 
+                away_team_score: 0,
+                home_team_score: 0,
+                game_time: "",
+                h_team_blocks: 0,
+                h_team_steals: 0,
+                h_team_assists: 0,
+                h_team_frees: 0,
+                h_team_shot_percent: 0,
+                a_team_blocks: 0,
+                a_team_steals: 0,
+                a_team_assists: 0,
+                a_team_frees:0,
+                a_team_shot_percent: 0,
 
-        let away_team = teamDao.readTeam(away);
-        let home_team = teamDao.readTeam(home);
-
-        // if either team does not exist, return null
-        if (!(away_team) || !(home_team)) { 
-            return null
-        } else {
-            const db = match_realm.objects("Match");
-            let next_ID;
-
-            if (db.length > 0) {
-                next_ID = db[db.length-1].match_id + 1
-            } else {
-                next_ID = 0
-            }
-
-            match_realm.write(() => {
-                match_realm.create("Match", {
-                    match_id: next_ID,
-                    allteams: [away, home],
-                    away_team: away, 
-                    home_team: home, 
-                    away_team_score: 0,
-                    home_team_score: 0,
-                    game_time: time,
-                    h_team_blocks: 0,
-                    h_team_steals: 0,
-                    h_team_assists: 0,
-                    h_team_frees: 0,
-                    h_team_shot_percent: 0,
-                    a_team_blocks: 0,
-                    a_team_steals: 0,
-                    a_team_assists: 0,
-                    a_team_frees:0,
-                    a_team_shot_percent: 0,
-
-                });
+            });
             
-            })
+    })
+    let match =  match_realm.objectForPrimaryKey("Match", matchInput);
+    return match 
 
-            return this.readMatch(next_ID)
-        }
+    }
+
+    createMatch(away, home, time) {
+        const ID = match_realm.objects("Match").length;
+        match_realm.write(() => {
+            let match = match_realm.create("Match", {
+                match_id: ID,
+                allteams: [away, home],
+                away_team: away, 
+                home_team: home, 
+                away_team_score: 0,
+                home_team_score: 0,
+                game_time: time,
+                h_team_blocks: 0,
+                h_team_steals: 0,
+                h_team_assists: 0,
+                h_team_frees: 0,
+                h_team_shot_percent: 0,
+                a_team_blocks: 0,
+                a_team_steals: 0,
+                a_team_assists: 0,
+                a_team_frees:0,
+                a_team_shot_percent: 0,
+
+            });
+            
+    })
+    console.log(ID )
+    //let match =  match_realm.objectForPrimaryKey("Match", ID);
+    return this.readMatch(ID)
+
     }
 
     readMatch(matchInput){
