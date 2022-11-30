@@ -51,6 +51,15 @@ export default class Player{
         return player_realm.objectForPrimaryKey("Player", email);
     }
 
+    updatePlayerTeam(email, teamname){
+        player_realm.write(() => {  
+            let playerUpdated = player_realm.objectForPrimaryKey("Player", email);
+            playerUpdated.teamname = teamname
+        })
+
+    return player_realm.objectForPrimaryKey("Player", email);
+    }
+
     getCurrentPlayer(){
         return player_realm.objectForPrimaryKey("Player", loggedInPlayer); 
     }

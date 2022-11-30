@@ -108,7 +108,13 @@ button2:{
       )
     }
     else
-      return null;
+      return (
+        <TouchableOpacity
+          style={styles.button1}
+          onPress={() => {leaveTeam(); navigation.navigate('TeamList')}}>
+          <Text style={{color: "#FFFFFF", fontFamily: 'monospace'}}> Leave Team </Text>
+        </TouchableOpacity>
+      )
   };
 
   let changePromotionButton = () =>
@@ -170,6 +176,10 @@ let requestJoin = () => {
     );
   }        
   
+  let leaveTeam = () => {
+    playerDao.updatePlayerTeam(playerDao.getCurrentPlayer().email, "")
+    teamDao.removePlayer(curr.teamName, playerDao.getCurrentPlayer().email)
+  }
   // let updatedPlayer = playerDao.updatePlayer()
   // let playerDelete = playerDao.deletePlayer(curr.deletePlayer)
   

@@ -119,6 +119,21 @@ export default class Team{
         return this.readTeam(teamname)
     }
 
+    removePlayer(teamname, playername){
+
+        team_realm.write(() => {
+            let updated = team_realm.objectForPrimaryKey("Team", teamname);
+            let playerlist = updated.players
+            if(playerlist.indexOf(playername) >= 0){
+                playerlist[playerlist.indexOf(playername)] = ""
+                console.log("deleted")
+            }
+            updated.players = playerlist
+
+        })
+        return this.readTeam(teamname)
+    }
+
     // playerUsername -> playerEmail
     addPlayer(teamname, playerEmail){
 
