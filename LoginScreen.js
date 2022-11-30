@@ -32,7 +32,23 @@ const styles = StyleSheet.create({
 
   let login_user = () => {
     let loggedUser = userDao.authenticateUser(userEmail, userPassword)
-    if(loggedUser){
+    if(loggedUser && !(userEmail.localeCompare("admin") === 0)){
+      console.log(userEmail, "admin")
+      playerDao.setCurrentPlayer(userEmail)
+      playerDao.setProfileToView(userEmail)
+      Alert.alert(
+        'Success',
+        'You have logged in successfully',
+        [
+          {
+            text: 'Ok',
+            onPress: () => navigation.navigate('Home'),
+          },
+        ],
+        { cancelable: false }
+      );
+    }
+    else if(loggedUser && userEmail.localeCompare("admin") === 0){
       playerDao.setCurrentPlayer(userEmail)
       playerDao.setProfileToView(userEmail)
       Alert.alert(
@@ -83,12 +99,34 @@ const styles = StyleSheet.create({
 
     userDao.createUser(userEmail, userPassword)
     playerDao.createPlayer(userEmail)
+    if (!(userEmail.localeCompare("admin") === 0))
+    {
     playerDao.setCurrentPlayer(userEmail)
     playerDao.setProfileToView(userEmail)
     Alert.alert(
       'Success',
       'You are Registered Successfully',
       [
+
+        {
+          text: 'Ok',
+          onPress: () => navigation.navigate('Home')
+            },
+            
+        
+      ],
+      { cancelable: false }
+    );
+    }
+    else if (userEmail.localeCompare("admin") === 0)
+    {
+    playerDao.setCurrentPlayer(userEmail)
+    playerDao.setProfileToView(userEmail)
+    Alert.alert(
+      'Success',
+      'You are Registered Successfully',
+      [
+
         {
           text: 'Ok',
           onPress: () => navigation.navigate('AdminPage')
@@ -98,6 +136,7 @@ const styles = StyleSheet.create({
       ],
       { cancelable: false }
     );
+    }
     
   };
 

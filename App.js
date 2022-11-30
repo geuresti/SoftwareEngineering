@@ -24,6 +24,7 @@ import Schedule from './Schedule.js'
 import MatchCreate from './MatchCreate.js'
 import SeasonView from './SeasonView.js'
 import SeasonEdit from './SeasonEdit.js'
+import Home from './Home.js'
 
 const Stack = createStackNavigator();
 
@@ -56,6 +57,15 @@ const App = () => {
           component={AdminPage}
           options={{
             title: 'Admin Page',
+
+          }}
+        />
+
+        <Stack.Screen
+          name="Home"
+          component={Home}
+          options={{
+            title: 'Home',
 
           }}
         />
