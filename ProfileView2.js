@@ -175,20 +175,22 @@ let recruitPlayerToTeam = () => {
     <Text style={[styles.texttype, {fontSize: 15, bottom:30}]}>Team: {player.team_id}</Text>
    </View>
    <View style={styles.profileText}>
-        <Text style={styles.texttype}>First name: {player.first_name} </Text>
-        <Text style={styles.texttype}>Last Name: {player.last_name}</Text>
-        <Text style={[styles.texttype, {fontSize: 10}]}>Height: {player.height}  Weight: {player.weight} lbs</Text>
-        <Text style={[styles.texttype, {fontSize: 14}]}>Experience Level: </Text>
-        <Text style={[styles.texttype, {fontSize: 10}]}>{player.experience}</Text>
-        <Text style={[styles.texttype, {fontSize: 14}]}>Position:</Text>
-        <Text style={[styles.texttype, {fontSize: 10}]}>{player.position}</Text>
-        <Text style={[styles.texttype, {fontSize: 14}]}>Is Manager:{player.isManager}</Text>
-        <Text style={[styles.texttype, {fontSize: 14}]}>Average Points: {player.avgPoints}</Text>
-        <Text style={[styles.texttype, {fontSize: 14}]}>Average Blocks: {player.avgBlocks}</Text>
-        <Text style={[styles.texttype, {fontSize: 14}]}>Average Steals: {player.avgSteals}</Text>
-        <Text style={[styles.texttype, {fontSize: 14}]}>Average Assists: {player.assists}</Text>
-        <Text style={[styles.texttype, {fontSize: 14}]}>Free Throw Percent: {player.freethrowPercent}</Text>
-        <Text style={[styles.texttype, {fontSize: 14}]}>Shot Percent: {player.shotPercent}</Text>
+        <Text style={[styles.texttype, {left:75,fontSize: 15}]}> </Text>
+        <Text style={[styles.texttype, {left:35,bottom: 14,fontSize: 20}]}>{player.first_name} {player.last_name}</Text>
+        <Text style={{color: 'white', left:30,bottom: 40,fontSize: 20}}>_________________</Text>
+        <Text style={[styles.texttype, {left: 10,bottom:30, fontSize: 13}]}>Height: {player.height}  Weight: {player.weight} lbs</Text>
+        <Text style={[styles.texttype, {left: 30,bottom:30, fontSize: 15}]}>Experience Level: </Text>
+        <Text style={[styles.texttype, {justifyContent: 'center',textAlign: 'center', left: 0,bottom:30, fontSize: 13}]}>{player.experience}</Text>
+        <Text style={[styles.texttype, {left: 65,bottom:30, fontSize: 15}]}>Position:</Text>
+        <Text style={[styles.texttype, {justifyContent: 'center',textAlign: 'center', left: 0,bottom:30, fontSize: 13}]}>{player.position}</Text>
+        <Text style={[styles.texttype, {right: 125, bottom: 90, fontSize: 16}]}>Stats</Text>
+        <Text style={{color: 'white',right: 160, bottom: 110, fontSize: 14}}>___________________</Text>
+        <Text style={[styles.texttype, {right: 160, bottom: 100,fontSize: 13}]}>Average Points: {player.avgPoints}</Text>
+        <Text style={[styles.texttype, {right: 160, bottom: 100,fontSize: 13}]}>Average Blocks: {player.avgBlocks}</Text>
+        <Text style={[styles.texttype, {right: 160, bottom: 100,fontSize: 13}]}>Average Steals: {player.avgSteals}</Text>
+        <Text style={[styles.texttype, {right: 160, bottom: 100,fontSize: 13}]}>Average Assists: {player.assists}</Text>
+        <Text style={[styles.texttype, {right: 160, bottom: 100,fontSize: 13}]}>Free Throw Percent: {player.freethrowPercent}</Text>
+        <Text style={[styles.texttype, {right: 160, bottom: 100,fontSize: 13}]}>Shot Percent: {player.shotPercent}</Text>
         
 
 
