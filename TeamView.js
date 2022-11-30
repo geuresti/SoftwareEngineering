@@ -28,10 +28,14 @@ const TeamView = ({ navigation }) => {
       },
       players: {
         position: 'absolute',
-        left: 10, 
+        left: 200, 
         right: 0,
         bottom: 0,
-        justifyContent: 'flex-start',
+        top: 180,
+        //flex: 1,
+        marginTop: 20,
+        marginBottom: 100,
+        justifyContent: 'flex-end',
       },
       button1: {
         //flex: 1,
@@ -84,6 +88,38 @@ button2:{
   let curr = teamDao.getTeamToView()
   //let fix = playerDao.setProfileToView(playerDao.getCurrentPlayer().email)
   let team = teamDao.readTeam(curr.teamName)
+  let db;
+  db = team.players.name;
+
+  this.state = { 
+    FlatListItems: db,
+  };
+
+  let listViewItemSeparator = () => {
+    return (
+      <View
+        style={{ height: 0, width: '100%', backgroundColor: '#171414' }}
+      />
+    );
+  };
+  
+  let listItemView = (item) => {
+    console.log(item, "hi")
+    return (
+    <View
+        key={item.name}
+        style={{ backgroundColor: '#383434',marginTop: 0, marginBottom: 12, bottom: 1,padding: 0, borderRadius: 1 }}>
+  
+    <Text style={[styles.texttype, {fontSize: 14, left: 10}]}>Player:  {item}</Text>
+    
+
+    
+    </View>
+    
+      );
+      
+    };
+
 
   let changeButton = () =>
   {
@@ -194,32 +230,39 @@ let requestJoin = () => {
      }}
      source={require("./profilebg.png")}
    />
+   
    <View style={{ position: 'absolute', top: 200, left: 50, height: 30, width: 30, resizeMode: 'stretch', alignItems:'center'}}>
    <Image
      source={require('./headshot3.png')}></Image>
    </View>
    <View style={styles.profileTextNames}>
     <Text style={[styles.texttype, {fontSize: 30, bottom: 200}]}>Team: {team.teamName}</Text>
-    <Text style={[styles.texttype, {fontSize: 15}]}>Manager: {team.teamManager}</Text>
-    <Text style={[styles.texttype, {fontSize: 15}]}>Record: {team.record}</Text>
+    <Text style={[styles.texttype, {fontSize: 19, bottom: 230, left: 250}]}>ROSTER</Text>
+    <Text style={[styles.texttype, {fontSize: 15, bottom: 270, left: 5}]}>Record: {team.record}</Text>
    </View>
    <View style={styles.profileText}>
-        <Text style={[styles.texttype, {fontSize: 14}]}>Average Points:</Text>
-        <Text style = {[styles.texttype, {fontSize:10}]}>{team.avgPoints}</Text>
-        <Text style={[styles.texttype, {fontSize: 14}]}>Average Blocks:</Text>
-        <Text style = {[styles.texttype, {fontSize:10}]}>{team.avgBlocks}</Text>
-        <Text style={[styles.texttype, {fontSize: 14}]}>Average Steals:</Text>
-        <Text style = {[styles.texttype, {fontSize:10}]}>{team.avgSteals}</Text>
-        <Text style={[styles.texttype, {fontSize: 14}]}>Average Assists:</Text>
-        <Text style = {[styles.texttype, {fontSize:10}]}>{team.assists}</Text>
-        <Text style={[styles.texttype, {fontSize: 14}]}>Free Throw Percent:</Text>
-        <Text style = {[styles.texttype, {fontSize:10}]}>{team.freethrowPrecent}</Text>
-        <Text style={[styles.texttype, {fontSize: 14}]}>Shot Percent:</Text>
-        <Text style = {[styles.texttype, {fontSize:10}]}>{team.shotPercent}</Text>
+        <Text style={[styles.texttype, {right: 180, top: 180, fontSize: 15}]}>Manager: {team.teamManager}</Text>
+        <Text style={{color: 'white', right: 180, top: 160, fontSize: 15}}>___________________</Text>
+        <Text style={[styles.texttype, {right: 180, top: 170, fontSize: 13}]}>Average Points: {team.avgPoints}</Text>
+        <Text style={[styles.texttype, {right: 180, top: 170,fontSize: 13}]}>Average Blocks: {team.avgBlocks}</Text>
+        <Text style={[styles.texttype, {right: 180, top: 170,fontSize: 13}]}>Average Steals: {team.avgSteals}</Text>
+        <Text style={[styles.texttype, {right: 180, top: 170,fontSize: 13}]}>Average Assists: {team.assists}</Text>
+        <Text style={[styles.texttype, {right: 180, top: 170,fontSize: 13}]}>Free Throw Percent: {team.freethrowPrecent}</Text>
+        <Text style={[styles.texttype, {right: 180, top: 170,fontSize: 13}]}>Shot Percent: {team.shotPercent}</Text>
+
 
 
         
         </View>
+
+        <SafeAreaView style={styles.players}>
+          <FlatList
+            data={team.players.filter(function(e) { return e !== "" })} 
+            ItemSeparatorComponent={listViewItemSeparator}
+            keyExtractor={(item, index) => index.toString()}
+            renderItem={({item}) => listItemView(item)}
+          />
+          </SafeAreaView>
         <View style={{position: 'absolute', top: 0, left: 240, right: 0, bottom: 680, justifyContent: 'center', alignItems: 'center'}}>
         <TouchableOpacity
             //inbox button, transparent
@@ -240,13 +283,10 @@ let requestJoin = () => {
         <Text style={{color: "white", fontSize: 30, fontFamily: 'Bungee-Regular'}}> Profile </Text>
         </TouchableOpacity>
         </View>
+
+
   
-        <View style={styles.players}>
-          <FlatList
-            data={team.players.filter(function(e) { return e !== "" })} 
-            renderItem={({item}) => <Text style={[styles.texttype, {fontSize: 15}]}>player: {item}</Text>}
-          />
-          </View>
+
   
 
         <View style={{position: 'absolute', top: 650, left: 200, right: 20, bottom: 0, justifyContent: 'center', alignItems: 'center'}}>
