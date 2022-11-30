@@ -84,31 +84,48 @@ button2:{
   let curr = teamDao.getTeamToView()
   //let fix = playerDao.setProfileToView(playerDao.getCurrentPlayer().email)
   let team = teamDao.readTeam(curr.teamName)
-  let myProf = true
 
   let changeButton = () =>
   {
-    if (curr.teamManager != playerDao.getCurrentPlayer().email)
+    if (!(curr.players.indexOf(playerDao.getCurrentPlayer().email) >= 0))
     {
-      console.log(curr.teamManager,playerDao.getCurrentPlayer().email, "false" )
-      myProf = false
-
-  
+      return(
+        <TouchableOpacity
+          style={styles.button1}
+          onPress={ () => requestJoin()}>
+          <Text style={{color: "#FFFFFF", fontFamily: 'monospace'}}> Request to Join </Text>
+        </TouchableOpacity>
+      )
     }
-    else if (curr.teamManager === playerDao.getCurrentPlayer().team_id)
+    else if (curr.teamManager === playerDao.getCurrentPlayer().email)
     {
-      console.log(curr.teamManager,playerDao.getCurrentPlayer().email, "true" )
-      myProf = true
+      return (
+        <TouchableOpacity
+            onPress={() => navigation.navigate('TeamEdit')}
+            style={[styles.button2, {top:0}]}>
+          <Text style={{color: "#FFFFFF", fontFamily: 'monospace'}}> Update Team </Text>
+        </TouchableOpacity>
+      )
     }
-    return myProf;
+    else
+      return null;
   };
 
   let changePromotionButton = () =>
   {
-    if(curr.teamManager != playerDao.getCurrentPlayer().email && curr.players.includes(playerDao.getCurrentPlayer().email)){
-      return true
+    if(curr.teamManager != playerDao.getCurrentPlayer().email){
+      let temp = curr.players
+      if(temp.indexOf(playerDao.getCurrentPlayer().email) >= 0){
+        return (
+          <TouchableOpacity
+            style={styles.button1}
+            onPress={ () => requestPromotion()}>
+            <Text style={{color: "#FFFFFF", fontFamily: 'monospace'}}> Request Promotion </Text>
+          </TouchableOpacity>
+        )
     }
-    return false
+  }
+    return null
   };
 
 
@@ -223,38 +240,12 @@ let requestJoin = () => {
   
 
         <View style={{position: 'absolute', top: 650, left: 200, right: 20, bottom: 0, justifyContent: 'center', alignItems: 'center'}}>
-        <TouchableOpacity
-            //onPress={() => console.log("button pressed!")} 
-            // update user 
-            onPress={() => navigation.navigate('TeamEdit')}
-            style={[styles.button2, {top:0}]}>
-        <Text style={{color: "#FFFFFF", fontFamily: 'monospace'}}> Update Team </Text>
-        </TouchableOpacity>
+          {changeButton()}
         </View> 
 
         <View style={{position: 'absolute', top: 650, left: 20, right: 200, bottom: 0, justifyContent: 'center', alignItems: 'center'}}>
-        <TouchableOpacity
-            //onPress={() => console.log("button pressed!")} 
-            // update user 
-           // onPress={() => navigation.navigate('Request')}
-            style={changePromotionButton() ? styles.button2 : styles.button1}
-            onPress={ () => requestPromotion()}>
-        <Text style={{color: "#FFFFFF", fontFamily: 'monospace'}}> Request Promotion </Text>
-        </TouchableOpacity>
+          {changePromotionButton()}
         </View> 
-
-        <View style={{position: 'absolute', top: 650, left: 200, right: 20, bottom: 0, justifyContent: 'center', alignItems: 'center'}}>
-        <TouchableOpacity
-            //onPress={() => console.log("button pressed!")} 
-            // update user 
-           // onPress={() => navigation.navigate('Request')}
-            style={changeButton() ? styles.button2 : styles.button1}
-            onPress={ () => requestJoin()}>
-        <Text style={{color: "#FFFFFF", fontFamily: 'monospace'}}> Request to Join </Text>
-        </TouchableOpacity>
-        </View> 
-
-
         </View> 
         
    )
