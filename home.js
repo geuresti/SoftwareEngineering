@@ -1,5 +1,8 @@
 import React, { useEffect, useState } from 'react';
 import { Text, View, Image, ImageBackground, TouchableOpacity, TextInput, StyleSheet, Button, Alert, SafeAreaView, FlatList} from "react-native";
+import TeamDao from "./model/TeamDao"
+import PlayerDao from "./model/PlayerDao"
+
 
 const Home = ({ navigation }) => {
   const styles = StyleSheet.create({
@@ -42,7 +45,34 @@ const Home = ({ navigation }) => {
 
     
 }
-  });
+  }
+  );
+  let teamDao = new TeamDao()
+  let playerDao = new PlayerDao()
+  let curr = teamDao.getTeamToView()
+  let currPlayer = playerDao.getProfileToView()
+  playerDao.setProfileToView(playerDao.getCurrentPlayer().email)
+  let player = playerDao.readPlayer(currPlayer.email)
+  let currTeam = teamDao.getTeamByManager(currPlayer.email)
+  console.log(currPlayer.email)
+  //console.log(currTeam.teamName)
+  let changeButton = () =>
+  {
+    try{
+    let isTeamNull = currTeam.teamName
+  }
+  catch{
+    console.log("No Team")
+    return(
+      <TouchableOpacity
+          onPress={() => navigation.navigate('CreateTeam')} 
+          customClick={() => navigation.navigate('CreateTeam')}
+          style={[styles.button1, {padding: 1}]}>
+      <Text style={{color: "#FFFFFF", fontSize: 23, fontFamily: 'Bungee-Regular'}}>           CREATE TEAM            </Text>
+      </TouchableOpacity>
+    )
+  }
+  }
    return (
     
     <View style={{flex:1, alignItems:'center', justifyContent:'center'}}>
@@ -63,10 +93,10 @@ const Home = ({ navigation }) => {
 
             <View style={{position: 'absolute', top: 0, left: 0, right: 200, bottom: 0, justifyContent: 'center', alignItems: 'center'}}>
             <TouchableOpacity
-              onPress={() => navigation.navigate('CreateTeam')} 
-              customClick={() => navigation.navigate('CreateTeam')}
+              onPress={() => navigation.navigate('Schedule')} 
+              customClick={() => navigation.navigate('Schedule')}
             style={[styles.button1]}>
-            <Text style={{color: "#FFFFFF", fontSize: 20, fontFamily: 'Bungee-Regular'}}>    CREATE TEAM    </Text>
+            <Text style={{color: "#FFFFFF", fontSize: 20, fontFamily: 'Bungee-Regular'}}>        SCHEDULE        </Text>
             </TouchableOpacity>
         </View>
 
@@ -82,12 +112,7 @@ const Home = ({ navigation }) => {
 
 
         <View style={{position: 'absolute', top: 400, left: 0, right: 0, bottom: 0, justifyContent: 'center', alignItems: 'center'}}>
-        <TouchableOpacity
-            onPress={() => navigation.navigate('Schedule')} 
-            customClick={() => navigation.navigate('Schedule')}
-            style={[styles.button1, {padding: 1}]}>
-        <Text style={{color: "#FFFFFF", fontSize: 25, fontFamily: 'Bungee-Regular'}}>            SCHEDULE             </Text>
-        </TouchableOpacity>
+          {changeButton()}
         </View>
 
         <View style={{position: 'absolute', top: 0, left: 200, right: 0, bottom: 0, justifyContent: 'center', alignItems: 'center'}}>
