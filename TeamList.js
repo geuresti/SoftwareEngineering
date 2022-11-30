@@ -1,6 +1,7 @@
 import React, { Profiler, useEffect, useState } from 'react';
 import { Text, View, Image, ImageBackground, TouchableOpacity, TextInput, StyleSheet, Button, Alert, SafeAreaView, FlatList} from "react-native";
 import TeamDao from './model/TeamDao.js'
+import PlayerDao from "./model/PlayerDao"
 
 const TeamList = ({ navigation }) => {
     let [teamName, setTeamName] = useState('');
@@ -162,6 +163,51 @@ const TeamList = ({ navigation }) => {
           
         };
         }
+        let playerDao = new PlayerDao()
+        let currPlayer = playerDao.getProfileToView()
+        playerDao.setProfileToView(playerDao.getCurrentPlayer().email)
+        let player = playerDao.readPlayer(currPlayer.email)
+        console.log(currPlayer.email)
+        let changeButton = () =>
+        {
+          if(currPlayer.email.localeCompare("admin") === 0)
+          {
+          console.log("Admin")
+          return(
+            [<Text style={{fontSize:20 , fontFamily: 'monospace', color: 'white'}}>Team Name</Text>,
+            <TextInput 
+          style = {styles.input} keyboardType="number-pad"
+          textAlign={'center'}
+          placeholder="Team Name"
+          placeholderTextColor="white" 
+          onChangeText={
+            (teamname) => setTeamName(teamname)
+          }
+          />,
+          <TouchableOpacity
+          onPress={deleteTeam}
+          style={styles.button}>
+          <Text style={{color: "#FFFFFF", fontFamily: 'monospace'}}>Delete Team</Text>
+        </TouchableOpacity>,
+
+        <TouchableOpacity
+          onPress={updateTeam}
+          style={[styles.button , {backgroundColor: "#CA5A37"}]}>
+          <Text style={{color: "#FFFFFF", fontFamily: 'monospace'}}>Update Team</Text>
+        </TouchableOpacity>
+          
+          
+          
+          
+          ]
+            
+      
+
+          )
+        }
+      
+        }
+        
 
         return (
           <SafeAreaView style={{ flex: 1 }}>
@@ -174,29 +220,7 @@ const TeamList = ({ navigation }) => {
                   renderItem={({ item }) => listItemView(item)}
                 />
         
-        <Text style={{fontSize:20 , fontFamily: 'monospace', color: 'white'}}>Team Name</Text>
-        <TextInput 
-          style = {styles.input} keyboardType="number-pad"
-          textAlign={'center'}
-          placeholder="Team Name"
-          placeholderTextColor="white" 
-          onChangeText={
-            (teamname) => setTeamName(teamname)
-          }
-          />
-        
-      
-          <TouchableOpacity
-                onPress={deleteTeam}
-                style={styles.button}>
-                <Text style={{color: "#FFFFFF", fontFamily: 'monospace'}}>Delete Team</Text>
-              </TouchableOpacity>
-
-              <TouchableOpacity
-                onPress={updateTeam}
-                style={[styles.button , {backgroundColor: "#CA5A37"}]}>
-                <Text style={{color: "#FFFFFF", fontFamily: 'monospace'}}>Update Team</Text>
-              </TouchableOpacity>
+                {changeButton()}
               </View>
             </View>
           </SafeAreaView>
