@@ -57,6 +57,13 @@ const TestingList = ({ route, navigation }) => {
     
   
   }
+  else if(item.content.includes("promoted")){
+    let currTeam = teamDao.getTeamByManager(item.recieverUsername)
+    teamDao.updateManager(currTeam, item.senderUsername)
+    playerDao.setManager(item.recieverUsername, false)
+    playerDao.setManager(item.recieverUsername, true)
+
+  }
 
 
   Alert.alert(

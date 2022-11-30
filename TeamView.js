@@ -103,16 +103,24 @@ button2:{
     return myProf;
   };
 
+  let changePromotionButton = () =>
+  {
+    if(curr.teamManager != playerDao.getCurrentPlayer().email && curr.players.includes(playerDao.getCurrentPlayer().email)){
+      return true
+    }
+    return false
+  };
+
 
   useEffect(() =>{
   changeButton();
 
 });
 
+var notifDao = new NotificationDao()
 let requestJoin = () => {
 
   notifContent = playerDao.getCurrentPlayer().email + " would like to join your team!";
-  var notifDao = new NotificationDao()
   notifDao.createNotification(playerDao.getCurrentPlayer().email, curr.teamManager, notifContent);
 
   Alert.alert(
@@ -127,24 +135,24 @@ let requestJoin = () => {
     { cancelable: false }
   );
 }
-
-let getPlayers = () => {
-  let s = ''
-  for(ele in team.players){
-    s+= `<View
-    style={{ backgroundColor: '#383434', marginTop: 20, padding: 30, borderRadius: 10 }}>
-<Text style={styles.textheader}>Player Name:</Text>
-<Text style={styles.textbottom}>{playerDao.readPlayer(ele).first_name} {playerDao.readPlayer(ele).last_name}</Text>
-<Text style={styles.textheader}>Username:</Text>
-<Text style={styles.textbottom}>{playerDao.readPlayer(ele).email}</Text>
-</View>`
-  }
-  return s
-
     
-      
-    
-  }
+  let requestPromotion = () => {
+    notifContent = playerDao.getCurrentPlayer().email + " would like to be promoted to manager";
+    notifDao.createNotification(playerDao.getCurrentPlayer().email, curr.teamManager, notifContent)
+
+    Alert.alert(
+      'Success',
+      'Notification Successfully Created',
+      [
+        {
+          text: 'Ok',
+          onPress: () => navigation.navigate('Request'),
+        },
+      ],
+      { cancelable: false }
+    );
+  }        
+  
   // let updatedPlayer = playerDao.updatePlayer()
   // let playerDelete = playerDao.deletePlayer(curr.deletePlayer)
   
@@ -221,6 +229,17 @@ let getPlayers = () => {
             onPress={() => navigation.navigate('TeamEdit')}
             style={[styles.button2, {top:0}]}>
         <Text style={{color: "#FFFFFF", fontFamily: 'monospace'}}> Update Team </Text>
+        </TouchableOpacity>
+        </View> 
+
+        <View style={{position: 'absolute', top: 650, left: 20, right: 200, bottom: 0, justifyContent: 'center', alignItems: 'center'}}>
+        <TouchableOpacity
+            //onPress={() => console.log("button pressed!")} 
+            // update user 
+           // onPress={() => navigation.navigate('Request')}
+            style={changePromotionButton() ? styles.button2 : styles.button1}
+            onPress={ () => requestPromotion()}>
+        <Text style={{color: "#FFFFFF", fontFamily: 'monospace'}}> Request Promotion </Text>
         </TouchableOpacity>
         </View> 
 
