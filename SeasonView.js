@@ -5,7 +5,7 @@ import React, { useEffect, useState } from 'react';
 import Realm from "realm";
 import MatchDao from './model/MatchDao'
 import SeasonDao from './model/SeasonDao'
-//import PlayerDao from "./model/PlayerDao"
+import StandingsDao from "./model/StandingsDao"
 
 
 const MatchView = ({ navigation }) => {
@@ -91,11 +91,15 @@ const MatchView = ({ navigation }) => {
   // let curr = teamDao.getTeamToView()
   // let team = teamDao.readTeam(curr.teamName)
   let seasonDao = new SeasonDao()
+  let standingsDao = new StandingsDao()
   let curr = seasonDao.getSeasonToView()
+
   let db
   if(curr){
     db = curr.matches
+    let standings_list = standingsDao.getStandingsDisplay(curr.id)
   }
+  
   let matchDao = new MatchDao()
 
   let playerDao = new PlayerDao()
@@ -107,7 +111,8 @@ const MatchView = ({ navigation }) => {
   //let match =  matchDao.readMatch(curr.match_id)
 
   this.state = {
-    FlatListItems: db,
+    FlatListItems: db, 
+    FlatListItems2: standings_list
   };
   
 let listViewItemSeparator = () => {
@@ -182,7 +187,12 @@ let listItemView = (item) => {
             renderItem={({item}) => <Text style={[styles.texttype, {fontSize: 15, }]}>Match {item}: {item ? matchDao.readMatch(item).home_team:""} vs. {matchDao.readMatch(item).away_team}</Text>}
           />
           </View>
- 
+        <View style={{justifyContent:'center'}}>
+        <FlatList
+            data={standings_list ? standings_list: ""} 
+            renderItem={({item}) => <Text style={[styles.texttype, {fontSize: 15, }]}>Team Name: {item[0]} Wins: {item[1]} Ties: {item[2]} Loses: {item[3]} Points {item[4]}</Text>}
+          />
+        </View>
         <View style={{position: 'absolute', top: 0, left: 240, right: 0, bottom: 680, justifyContent: 'center', alignItems: 'center'}}>
         <TouchableOpacity
             //inbox button, transparent

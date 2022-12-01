@@ -1,5 +1,5 @@
 import Realm from "realm";
-
+import StandingsDao from "./StandingsDao"
 // matches will represent a list of match ids
 const season_realm = new Realm({path: 'seasons.realm',
     schema: 
@@ -24,6 +24,8 @@ export default class Season {
     }
     
     createSeason() {
+        let standingsDao = new StandingsDao()
+        standingsDao.create()
         const db = season_realm.objects("Season");
         let next_ID;
 

@@ -1,5 +1,6 @@
 import Realm from "realm";
 import PlayerDao from "./PlayerDao.js"
+import StandingsDao from "./StandingsDao.js";
 
 const team_realm = new Realm({path: 'teams.realm',
 schema:[
@@ -93,6 +94,8 @@ export default class Team {
             }
             if(record) {
                 updated.record = record;
+                let standingsDao = new StandingsDao()
+                standingsDao.updateStandings(standingsDao.getStandingToView().standing_id, teamInput, record)
             }
             if(avgPoints) {
                 updated.avgPoints = avgPoints;
@@ -177,6 +180,11 @@ export default class Team {
         console.log(manager + "testing")
         let teamWManager = team_realm.objects("Team").filtered("teamManager = $0", manager);
         return teamWManager[0]
+    }
+
+    getRecord(teamname){
+        let team = team_realm.objectForPrimaryKey("Team", teamInput);
+        return team.record
     }
 
 }

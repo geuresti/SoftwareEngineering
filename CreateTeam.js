@@ -2,6 +2,8 @@ import React, { useState } from 'react';
 import { Text, View, ImageBackground, TouchableOpacity, TextInput, StyleSheet, Alert} from "react-native";
 import TeamDao from './model/TeamDao.js'
 import PlayerDao from './model/PlayerDao.js'
+import StandingsDao from './model/StandingsDao'
+import SeasonsDao from './model/SeasonDao'
 
 const CreateTeam = ({ navigation }) => {
     const styles = StyleSheet.create({
@@ -24,6 +26,8 @@ const CreateTeam = ({ navigation }) => {
 
   let teamDao = new TeamDao()
   let playerDao = new PlayerDao()
+  let standingsDao = new StandingsDao()
+  let seasonDao = new SeasonsDao()
   let [teamname, setTeamName] = useState('');
 
   let register_team = () => {
@@ -34,7 +38,8 @@ const CreateTeam = ({ navigation }) => {
       return
     }
     curr = playerDao.getCurrentPlayer()
-    teamDao.createTeam(teamname, curr.email)
+    team = teamDao.createTeam(teamname, curr.email)
+    standingsDao.updateStandings(seasonDao.getSeasonToView().id, teamname, "0-0-0")
     playerDao.setManager(curr.email, true)
     teamDao.updateManager(teamname, curr.email)
     teamDao.addPlayer(teamname, curr.email)
