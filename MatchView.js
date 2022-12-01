@@ -86,6 +86,26 @@ const MatchView = ({ navigation }) => {
   let curr = matchDao.getMatchToView()
   //let match =  matchDao.readMatch(curr.match_id)
 
+  let playerDao = new PlayerDao()
+  let currPlayer = playerDao.getProfileToView()
+  playerDao.setProfileToView(playerDao.getCurrentPlayer().email)
+  let player = playerDao.readPlayer(currPlayer.email)
+
+  let changeButton = () =>
+{
+  if(currPlayer.email.localeCompare("admin") === 0){
+  return(
+    <TouchableOpacity
+    //onPress={() => console.log("button pressed!")} 
+    // update user 
+    onPress={() => navigation.navigate('MatchEdit')}
+    style={[styles.button2, {top:0}]}>
+<Text style={{color: "#FFFFFF", fontFamily: 'monospace'}}> Update Match </Text>
+</TouchableOpacity>
+  )
+}
+}
+
    return (
     <View style={{flex:1, alignItems:'center', justifyContent:'center'}}>
     <ImageBackground
@@ -145,13 +165,7 @@ const MatchView = ({ navigation }) => {
   
 
         <View style={{position: 'absolute', top: 650, left: 200, right: 20, bottom: 0, justifyContent: 'center', alignItems: 'center'}}>
-        <TouchableOpacity
-            //onPress={() => console.log("button pressed!")} 
-            // update user 
-            onPress={() => navigation.navigate('MatchEdit')}
-            style={[styles.button2, {top:0}]}>
-        <Text style={{color: "#FFFFFF", fontFamily: 'monospace'}}> Update Match </Text>
-        </TouchableOpacity>
+          {changeButton()}
         </View> 
         </View> 
         

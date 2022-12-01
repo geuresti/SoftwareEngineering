@@ -20,6 +20,7 @@ import TeamView from './TeamView.js';
 import TeamEdit from './TeamEdit.js';
 import SeasonManager from './SeasonManager.js';
 import MatchView from './MatchView.js'
+import MatchEdit from './MatchEdit.js'
 import Schedule from './Schedule.js'
 import MatchCreate from './MatchCreate.js'
 import SeasonView from './SeasonView.js'
@@ -114,6 +115,14 @@ const App = () => {
           component={MatchCreate}
           options={{
             title: 'Match Create', 
+
+          }}
+        />
+        <Stack.Screen
+          name="MatchEdit"
+          component={MatchEdit}
+          options={{
+            title: 'MatchEdit', 
 
           }}
         />
