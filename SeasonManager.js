@@ -59,16 +59,16 @@ const TestingList = ({ navigation }) => {
       };
 
       let changeButton = (item) =>
-  {
-    if(currPlayer.email.localeCompare("admin") === 0){
-    return(
-      <TouchableOpacity 
-      onPress={() => deleteSeason(item)} >
-      <Text style={{color: "#FFFFFF", fontFamily: 'monospace'}}>Delete</Text>
-      </TouchableOpacity>
-    )
-  }
-  }
+      {
+        if(currPlayer.email.localeCompare("admin") === 0) {
+          return (
+            <TouchableOpacity 
+            onPress={() => deleteSeason(item)} >
+            <Text style={{color: "#FFFFFF", fontFamily: 'monospace'}}>Delete</Text>
+            </TouchableOpacity>
+          )
+        }
+      }
 
   let changeButton2 = () =>
   {

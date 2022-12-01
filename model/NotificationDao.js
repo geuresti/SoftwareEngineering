@@ -58,13 +58,11 @@ export default class Notification {
 
     getNotificationsOfUser(email) {
         const notifs = notification_realm.objects("Notification").filtered("recieverUsername = $0", email);
-        //console.log(email, "has the following notifs:", notifs);
         return notifs
     }
 
     filterNotificationsByUser(sender, receiver) {
         const notifs = notification_realm.objects("Notification").filtered("senderUsername = $0 && recieverUsername = $1", sender, receiver);
-       // console.log("Your filtered notifs:", notifs);
         return notifs
     }
 
@@ -83,7 +81,6 @@ export default class Notification {
                 return true
             } else {
                 console.log("NOTIFICATION UNSUCCESSFULLY DELETED");
-                //return false
             }
         })
         return false
