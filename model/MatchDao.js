@@ -149,7 +149,7 @@ export default class Matches {
             }
         })
        
-        return this.readMatch(match_id)
+        return this.readMatch(matchInput)
     }
 
     deleteMatch(matchInput) {
