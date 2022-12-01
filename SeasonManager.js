@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { Text, View, TouchableOpacity, StyleSheet, Alert, SafeAreaView, FlatList} from "react-native";
 import SeasonDao from "./model/SeasonDao.js"
+import PlayerDao from "./model/PlayerDao.js"
 
 // ------------------------------------------------------------------------
 // "reciverUser" has typo. fix on Notif manager .js
@@ -44,6 +45,10 @@ const TestingList = ({ navigation }) => {
         this.state = {
           FlatListItems: db,
         };
+        let playerDao = new PlayerDao()
+        let currPlayer = playerDao.getProfileToView()
+        playerDao.setProfileToView(playerDao.getCurrentPlayer().email)
+        let player = playerDao.readPlayer(currPlayer.email)
         
       let listViewItemSeparator = () => {
         return (
@@ -52,6 +57,18 @@ const TestingList = ({ navigation }) => {
           />
         );
       };
+
+      let changeButton = (item) =>
+  {
+    if(currPlayer.email.localeCompare("admin") === 0){
+    return(
+      <TouchableOpacity 
+      onPress={() => deleteSeason(item)} >
+      <Text style={{color: "#FFFFFF", fontFamily: 'monospace'}}>Delete</Text>
+      </TouchableOpacity>
+    )
+  }
+  }
       
     let listItemView = (item) => {
         return (
@@ -69,10 +86,9 @@ const TestingList = ({ navigation }) => {
         <Text style={{color: "#FFFFFF", fontFamily: 'monospace'}}>View Season</Text>
         </TouchableOpacity>
 
-        <TouchableOpacity 
-        onPress={() => deleteSeason(item)} >
-        <Text style={{color: "#FFFFFF", fontFamily: 'monospace'}}>Delete</Text>
-        </TouchableOpacity>
+        {changeButton(item)}
+
+
         </View>
         
           );
