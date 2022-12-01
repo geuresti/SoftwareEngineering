@@ -4,7 +4,7 @@ import { Text, View, Image, ImageBackground, TouchableOpacity, TextInput, StyleS
 import Realm from "realm";
 import MatchDao from "./model/MatchDao"
 import ProfileView from './ProfileView';
-
+import PlayerDao from "./model/PlayerDao"
 let matchDao = new MatchDao()
 
 const Schedule = ({ navigation }) => {
@@ -38,6 +38,23 @@ const Schedule = ({ navigation }) => {
       }
 
       });
+      let playerDao = new PlayerDao()
+      let currPlayer = playerDao.getProfileToView()
+      playerDao.setProfileToView(playerDao.getCurrentPlayer().email)
+      let player = playerDao.readPlayer(currPlayer.email)
+      let changeButton = () =>
+      {
+        if(currPlayer.email.localeCompare("admin") === 0){
+        return(
+          <TouchableOpacity
+          //onPress={() => console.log("button pressed!")} 
+              onPress={() => {navigation.navigate('MatchCreate')}}
+              style={styles.button}>
+              <Text style={{color: "#FFFFFF", fontFamily: 'monospace'}}>Create Game</Text>
+            </TouchableOpacity>
+        )
+      }
+      }
 
         const allMatches = matchDao.readAllMatches()
 
@@ -89,12 +106,7 @@ const Schedule = ({ navigation }) => {
                 />}
                 
               </View>
-              <TouchableOpacity
-            //onPress={() => console.log("button pressed!")} 
-                onPress={() => {navigation.navigate('MatchCreate')}}
-                style={styles.button}>
-                <Text style={{color: "#FFFFFF", fontFamily: 'monospace'}}>Create Game</Text>
-              </TouchableOpacity>
+                  {changeButton()}
             </View>
           </SafeAreaView>
         );
