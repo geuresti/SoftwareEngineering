@@ -1,9 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { Text, View, Image, ImageBackground, TouchableOpacity, TextInput, StyleSheet, Button, Alert, SafeAreaView, FlatList} from "react-native";
-
-import Realm from "realm";
 import PlayerDao from "./model/PlayerDao"
-import ProfileView from './ProfileView';
 
 let playerDao = new PlayerDao()
 

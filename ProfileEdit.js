@@ -1,8 +1,7 @@
 import React, {useState} from "react";
 import { Text, View, Image, ImageBackground, TouchableOpacity, TextInput, StyleSheet, Alert, navigation} from "react-native";
-import { block } from "react-native-reanimated";
 import PlayerDao from "./model/PlayerDao.js"
-// import PlayerList from "./PlayerList.js"
+
 
 
 const ProfileEdit = ({ navigation }) => {
@@ -60,8 +59,9 @@ input: {
   //let player = playerDao.readPlayer(curr.email)
   let playerDao = new PlayerDao()
   let curr = playerDao.getCurrentPlayer()
-  let playerUpdated = playerDao.readPlayer(curr.email)
-  
+  if(curr){
+    let playerUpdated = playerDao.readPlayer(curr.email)
+  }
   let [userEmail, setUserEmail] = useState('');
   let [f_new, setFirstName] = useState('');
   let [l_new, setLastName] = useState('');

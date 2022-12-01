@@ -2,8 +2,7 @@ import { Text, View, Image, ImageBackground, TouchableOpacity, TextInput, StyleS
 import PlayerDao from "./model/PlayerDao.js"
 import React, { useEffect, useState } from 'react';
 import NotificationDao from "./model/NotificationDao.js"
-//import Mybutton from './pages/components/Mybutton';
-//import Mytext from './pages/components/Mytext';
+
 
 
 const ProfileView = ({ navigation }) => {
@@ -73,10 +72,14 @@ const ProfileView = ({ navigation }) => {
 
   let playerDao = new PlayerDao()
   let curr = playerDao.getProfileToView()
-  playerDao.setProfileToView(playerDao.getCurrentPlayer().email)
-  let player = playerDao.readPlayer(curr.email)
-  console.log("curr is:", curr)
-  console.log("player is:", player )
+  let player
+  if(playerDao.getCurrentPlayer()){
+    playerDao.setProfileToView(playerDao.getCurrentPlayer().email)
+  }
+  if(curr){
+    player = playerDao.readPlayer(curr.email)
+  }
+
   // let updatedPlayer = playerDao.updatePlayer()
   // let playerDelete = playerDao.deletePlayer(curr.deletePlayer)
   let [userEmail, setUserEmail] = useState('');
@@ -94,14 +97,13 @@ const ProfileView = ({ navigation }) => {
   let [a_new, setAssists] = useState('');
   let [f_throw_per, setFrees] = useState('');
   let [s_new_percent, setPercent] = useState('')
-  
-  console.log(player.isManager + "is status");
 
   var notifDao = new NotificationDao()
 
   let changeButton = () =>
   {
-    if (curr.email != playerDao.getCurrentPlayer().email)
+    let myProf
+    if ((curr) && curr.email != playerDao.getCurrentPlayer().email)
     {
       myProf = false
       console.log("false")
@@ -109,7 +111,7 @@ const ProfileView = ({ navigation }) => {
 
   
     }
-    else if (curr.email === playerDao.getCurrentPlayer().email)
+    else if ((curr) && curr.email === playerDao.getCurrentPlayer().email)
     {
       myProf = true
       console.log("true")
@@ -171,26 +173,26 @@ let recruitPlayerToTeam = () => {
      source={require('./headshot3.png')}></Image>
    </View>
    <View style={styles.profileTextNames}>
-    <Text style={[styles.texttype, {fontSize: 25}]}>{player.email}</Text>
-    <Text style={[styles.texttype, {fontSize: 15, bottom:30}]}>Team: {player.team_id}</Text>
+    <Text style={[styles.texttype, {fontSize: 25}]}>{player ? player.email:""}</Text>
+    <Text style={[styles.texttype, {fontSize: 15, bottom:30}]}>Team: {player ? player.team_id:""}</Text>
    </View>
    <View style={styles.profileText}>
         <Text style={[styles.texttype, {left:75,fontSize: 15}]}> </Text>
-        <Text style={[styles.texttype, {left:35,bottom: 14,fontSize: 20}]}>{player.first_name} {player.last_name}</Text>
+        <Text style={[styles.texttype, {left:35,bottom: 14,fontSize: 20}]}>{player ? player.first_name:""} {player ? player.last_name:""}</Text>
         <Text style={{color: 'white', left:30,bottom: 40,fontSize: 20}}>_________________</Text>
-        <Text style={[styles.texttype, {left: 10,bottom:30, fontSize: 13}]}>Height: {player.height}  Weight: {player.weight} lbs</Text>
+        <Text style={[styles.texttype, {left: 10,bottom:30, fontSize: 13}]}>Height: {player ? player.height:""}  Weight: {player ? player.weight:""} lbs</Text>
         <Text style={[styles.texttype, {left: 30,bottom:30, fontSize: 15}]}>Experience Level: </Text>
-        <Text style={[styles.texttype, {justifyContent: 'center',textAlign: 'center', left: 0,bottom:30, fontSize: 13}]}>{player.experience}</Text>
+        <Text style={[styles.texttype, {justifyContent: 'center',textAlign: 'center', left: 0,bottom:30, fontSize: 13}]}>{player ? player.experience:""}</Text>
         <Text style={[styles.texttype, {left: 65,bottom:30, fontSize: 15}]}>Position:</Text>
-        <Text style={[styles.texttype, {justifyContent: 'center',textAlign: 'center', left: 0,bottom:30, fontSize: 13}]}>{player.position}</Text>
+        <Text style={[styles.texttype, {justifyContent: 'center',textAlign: 'center', left: 0,bottom:30, fontSize: 13}]}>{player ? player.position:""}</Text>
         <Text style={[styles.texttype, {right: 125, bottom: 90, fontSize: 16}]}>Stats</Text>
         <Text style={{color: 'white',right: 160, bottom: 110, fontSize: 14}}>___________________</Text>
-        <Text style={[styles.texttype, {right: 160, bottom: 100,fontSize: 13}]}>Average Points: {player.avgPoints}</Text>
-        <Text style={[styles.texttype, {right: 160, bottom: 100,fontSize: 13}]}>Average Blocks: {player.avgBlocks}</Text>
-        <Text style={[styles.texttype, {right: 160, bottom: 100,fontSize: 13}]}>Average Steals: {player.avgSteals}</Text>
-        <Text style={[styles.texttype, {right: 160, bottom: 100,fontSize: 13}]}>Average Assists: {player.assists}</Text>
-        <Text style={[styles.texttype, {right: 160, bottom: 100,fontSize: 13}]}>Free Throw Percent: {player.freethrowPercent}</Text>
-        <Text style={[styles.texttype, {right: 160, bottom: 100,fontSize: 13}]}>Shot Percent: {player.shotPercent}</Text>
+        <Text style={[styles.texttype, {right: 160, bottom: 100,fontSize: 13}]}>Average Points: {player ? player.avgPoints:""}</Text>
+        <Text style={[styles.texttype, {right: 160, bottom: 100,fontSize: 13}]}>Average Blocks: {player ? player.avgBlocks:""}</Text>
+        <Text style={[styles.texttype, {right: 160, bottom: 100,fontSize: 13}]}>Average Steals: {player ? player.avgSteals:""}</Text>
+        <Text style={[styles.texttype, {right: 160, bottom: 100,fontSize: 13}]}>Average Assists: {player ? player.assists:""}</Text>
+        <Text style={[styles.texttype, {right: 160, bottom: 100,fontSize: 13}]}>Free Throw Percent: {player ? player.freethrowPercent:""}</Text>
+        <Text style={[styles.texttype, {right: 160, bottom: 100,fontSize: 13}]}>Shot Percent: {player ? player.shotPercent:""}</Text>
         
 
 

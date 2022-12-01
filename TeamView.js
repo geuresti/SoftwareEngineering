@@ -86,11 +86,14 @@ button2:{
   let teamDao = new TeamDao()
   let playerDao = new PlayerDao()
   let curr = teamDao.getTeamToView()
-  //let fix = playerDao.setProfileToView(playerDao.getCurrentPlayer().email)
-  let team = teamDao.readTeam(curr.teamName)
+  let team
+  if(curr){
+    team = teamDao.readTeam(curr.teamName)
+  }
   let db;
-  db = team.players.name;
-
+  if(team){
+    db = team.players.name;
+  }
   this.state = { 
     FlatListItems: db,
   };
@@ -123,7 +126,7 @@ button2:{
 
   let changeButton = () =>
   {
-    if (!(curr.players.indexOf(playerDao.getCurrentPlayer().email) >= 0))
+    if ((curr) && !(curr.players.indexOf(playerDao.getCurrentPlayer().email) >= 0))
     {
       return(
         <TouchableOpacity
@@ -133,7 +136,7 @@ button2:{
         </TouchableOpacity>
       )
     }
-    else if (curr.teamManager === playerDao.getCurrentPlayer().email)
+    else if ((curr) && curr.teamManager === playerDao.getCurrentPlayer().email)
     {
       return (
         <TouchableOpacity
@@ -155,7 +158,7 @@ button2:{
 
   let changePromotionButton = () =>
   {
-    if(curr.teamManager != playerDao.getCurrentPlayer().email){
+    if((curr) && curr.teamManager != playerDao.getCurrentPlayer().email){
       let temp = curr.players
       if(temp.indexOf(playerDao.getCurrentPlayer().email) >= 0){
         return (
@@ -236,19 +239,19 @@ let requestJoin = () => {
      source={require('./headshot3.png')}></Image>
    </View>
    <View style={styles.profileTextNames}>
-    <Text style={[styles.texttype, {fontSize: 30, bottom: 200}]}>Team: {team.teamName}</Text>
+    <Text style={[styles.texttype, {fontSize: 30, bottom: 200}]}>Team: {team ? team.teamName:""}</Text>
     <Text style={[styles.texttype, {fontSize: 19, bottom: 230, left: 250}]}>ROSTER</Text>
-    <Text style={[styles.texttype, {fontSize: 15, bottom: 270, left: 5}]}>Record: {team.record}</Text>
+    <Text style={[styles.texttype, {fontSize: 15, bottom: 270, left: 5}]}>Record: {team ? team.record:""}</Text>
    </View>
    <View style={styles.profileText}>
-        <Text style={[styles.texttype, {right: 180, top: 180, fontSize: 15}]}>Manager: {team.teamManager}</Text>
+        <Text style={[styles.texttype, {right: 180, top: 180, fontSize: 15}]}>Manager: {team ? team.teamManager:""}</Text>
         <Text style={{color: 'white', right: 180, top: 160, fontSize: 15}}>___________________</Text>
-        <Text style={[styles.texttype, {right: 180, top: 170, fontSize: 13}]}>Average Points: {team.avgPoints}</Text>
-        <Text style={[styles.texttype, {right: 180, top: 170,fontSize: 13}]}>Average Blocks: {team.avgBlocks}</Text>
-        <Text style={[styles.texttype, {right: 180, top: 170,fontSize: 13}]}>Average Steals: {team.avgSteals}</Text>
-        <Text style={[styles.texttype, {right: 180, top: 170,fontSize: 13}]}>Average Assists: {team.assists}</Text>
-        <Text style={[styles.texttype, {right: 180, top: 170,fontSize: 13}]}>Free Throw Percent: {team.freethrowPrecent}</Text>
-        <Text style={[styles.texttype, {right: 180, top: 170,fontSize: 13}]}>Shot Percent: {team.shotPercent}</Text>
+        <Text style={[styles.texttype, {right: 180, top: 170, fontSize: 13}]}>Average Points: {team ? team.avgPoints:""}</Text>
+        <Text style={[styles.texttype, {right: 180, top: 170,fontSize: 13}]}>Average Blocks: {team ? team.avgBlocks:""}</Text>
+        <Text style={[styles.texttype, {right: 180, top: 170,fontSize: 13}]}>Average Steals: {team ? team.avgSteals:""}</Text>
+        <Text style={[styles.texttype, {right: 180, top: 170,fontSize: 13}]}>Average Assists: {team ? team.assists:""}</Text>
+        <Text style={[styles.texttype, {right: 180, top: 170,fontSize: 13}]}>Free Throw Percent: {team ? team.freethrowPrecent:""}</Text>
+        <Text style={[styles.texttype, {right: 180, top: 170,fontSize: 13}]}>Shot Percent: {team ? team.shotPercent:""}</Text>
 
 
 
@@ -257,7 +260,7 @@ let requestJoin = () => {
 
         <SafeAreaView style={styles.players}>
           <FlatList
-            data={team.players.filter(function(e) { return e !== "" })} 
+            data={team ? team.players.filter(function(e) { return e !== "" }):""} 
             ItemSeparatorComponent={listViewItemSeparator}
             keyExtractor={(item, index) => index.toString()}
             renderItem={({item}) => listItemView(item)}

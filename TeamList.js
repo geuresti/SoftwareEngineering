@@ -165,12 +165,14 @@ const TeamList = ({ navigation }) => {
         }
         let playerDao = new PlayerDao()
         let currPlayer = playerDao.getProfileToView()
-        playerDao.setProfileToView(playerDao.getCurrentPlayer().email)
-        let player = playerDao.readPlayer(currPlayer.email)
-        console.log(currPlayer.email)
+        if(currPlayer){
+          playerDao.setProfileToView(playerDao.getCurrentPlayer().email)
+          //let player = playerDao.readPlayer(currPlayer.email)
+        }
+
         let changeButton = () =>
         {
-          if(currPlayer.email.localeCompare("admin") === 0)
+          if((currPlayer) && currPlayer.email.localeCompare("admin") === 0)
           {
           console.log("Admin")
           return(

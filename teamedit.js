@@ -60,8 +60,10 @@ input: {
 
   let teamDao = new TeamDao()
   let curr = teamDao.getTeamToView()
-  let team = teamDao.readTeam(curr.teamName)
-
+  let team
+  if(curr){
+    team = teamDao.readTeam(curr.teamName)
+  }
 
 
 
@@ -113,7 +115,7 @@ input: {
     <TextInput 
           style = {[styles.input,{width:"90%"} ]} keyboardType = "default"
           textAlign={'center'}
-          placeholder={placeholders("Team Name", team.teamName)}
+          placeholder={placeholders("Team Name", team ? team.teamName:"")}
           onChangeText={
             (teamName) => setTeamName(teamName)
           }
@@ -125,7 +127,7 @@ input: {
     <TextInput 
           style = {[styles.input,{width:"90%"} ]} keyboardType = "default"
           textAlign={'center'}
-          placeholder={placeholders("Record", team.record)} 
+          placeholder={placeholders("Record", team ? team.record:"")} 
           onChangeText={
             (record) => setRecord(record)
           }
@@ -136,7 +138,7 @@ input: {
     <TextInput 
           style = {[styles.input,{width:"90%"} ]} keyboardType = "default"
           textAlign={'center'}
-          placeholder={placeholders("Average Points", team.avgPoints)}
+          placeholder={placeholders("Average Points", team ? team.avgPoints:"")}
           onChangeText={
             (points_new) => setPoints(points_new)
           }
@@ -146,7 +148,7 @@ input: {
     <TextInput 
           style = {[styles.input,{width:"90%"} ]} keyboardType = "default"
           textAlign={'center'}
-          placeholder={placeholders("Average Blocks", team.avgBlocks)}
+          placeholder={placeholders("Average Blocks", team ? team.avgBlocks:"")}
            onChangeText={
             (blocks_new) => setBlocks(blocks_new)
           }  
@@ -156,7 +158,7 @@ input: {
     <TextInput 
           style = {[styles.input,{width:"90%"} ]} keyboardType = "default"
           textAlign={'center'}
-          placeholder={placeholders("Average Steals", team.avgSteals)} 
+          placeholder={placeholders("Average Steals", team ? team.avgSteals:"")} 
           onChangeText={
             (steals_new) => setSteals(steals_new)
           } 
@@ -166,7 +168,7 @@ input: {
     <TextInput 
           style = {[styles.input,{width:"90%"} ]} keyboardType = "default"
           textAlign={'center'}
-          placeholder={placeholders("Assists", team.assists)}
+          placeholder={placeholders("Assists", team ? team.assists:"")}
           onChangeText={
             (a_new) => setAssists(a_new)
           }
@@ -176,7 +178,7 @@ input: {
     <TextInput 
           style = {[styles.input,{width:"90%"} ]} keyboardType = "numeric"
           textAlign={'center'}
-          placeholder={placeholders("Free Throw %", team.freethrowPercent)}
+          placeholder={placeholders("Free Throw %", team ? team.freethrowPercent:"")}
           value={Number}
           onChangeText={
             (f_throw_per) => setFrees(f_throw_per )
@@ -187,7 +189,7 @@ input: {
     <TextInput 
           style = {[styles.input,{width:"90%"} ]} 
           textAlign={'center'}
-          placeholder={placeholders("Shot Accuracy", team.shotPercent)}
+          placeholder={placeholders("Shot Accuracy", team ? team.shotPercent:"")}
            onChangeText={
             (s_new_percent) => setPercent(s_new_percent)
           } 
