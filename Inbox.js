@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Text, View, TouchableOpacity, TextInput, StyleSheet, Alert, SafeAreaView, FlatList} from "react-native";
+import { Text, View, TouchableOpacity, TextInput, StyleSheet, Alert, SafeAreaView, FlatList, ImageEditor} from "react-native";
 import PlayerDao from "./model/PlayerDao.js"
 import TeamDao from "./model/TeamDao.js"
 import NotificationDao from "./model/NotificationDao.js"
@@ -10,76 +10,71 @@ const TestingList = ({ route, navigation }) => {
   let teamDao = new TeamDao()
   let curr = playerDao.getCurrentPlayer()
   let player = playerDao.readPlayer(curr.email)
-  
-  //let team = teamDao.readTeam(curr.team_id)
-  
+    
   var notifDao = new NotificationDao()
 
   let db;
 
   if ("data" in route.params && route.params["data"].length !== 0) {
     db = route.params["data"]
-    //console.log("FILTERED INBOX:", db);
   } else {
     db = notifDao.getNotificationsOfUser(curr.email)
-    //console.log("DEFAULT INBOX", db);
   }
 
   this.state = { 
     FlatListItems: db,
   };
   
-  //perhaps add ability to fetch team by manager?
-  let addToTeam = (item) => {
-  if (item.content.includes("join"))
-  {
-    console.log(item.recieverUsername)
-    let currTeam = teamDao.getTeamByManager(item.recieverUsername)
-    let value = currTeam.teamName
-    console.log(value,  "testty2")
-    teamDao.addPlayer(value, item.senderUsername)
-    for(let i = 0; i < currTeam.players.length; i++){
-      console.log(currTeam.players[i]);
+  let pressedAccept = (item) => {
+    if (item.content.includes("join"))
+    {
+      console.log(item.recieverUsername)
+      let currTeam = teamDao.getTeamByManager(item.recieverUsername)
+      let value = currTeam.teamName
+      console.log(value,  "testty2")
+      teamDao.addPlayer(value, item.senderUsername)
+      for(let i = 0; i < currTeam.players.length; i++){
+        console.log(currTeam.players[i]);
+      }
+      
     }
+    else if (item.content.includes("recruit"))
+    {
+      console.log(item.senderUsername)
+      let currTeam = teamDao.getTeamByManager(item.senderUsername)
+      let value = currTeam.teamName
+      console.log(value,  "testty2")
+      teamDao.addPlayer(value, item.recieverUsername)
+      for(let i = 0; i < currTeam.players.length; i++){
+        console.log(currTeam.players[i]);
+      }
+      
     
-  
-  }
-  else if (item.content.includes("recruit"))
-  {
-    console.log(item.senderUsername)
-    let currTeam = teamDao.getTeamByManager(item.senderUsername)
-    let value = currTeam.teamName
-    console.log(value,  "testty2")
-    teamDao.addPlayer(value, item.recieverUsername)
-    for(let i = 0; i < currTeam.players.length; i++){
-      console.log(currTeam.players[i]);
     }
-    
-  
-  }
-  else if(item.content.includes("promoted")){
-    let currTeam = teamDao.getTeamByManager(item.recieverUsername)
-    teamDao.updateManager(currTeam.teamName, item.senderUsername)
-    playerDao.setManager(item.recieverUsername, false)
-    playerDao.setManager(item.recieverUsername, true)
+    else if(item.content.includes("promoted")){
+      let currTeam = teamDao.getTeamByManager(item.recieverUsername)
+      teamDao.updateManager(currTeam.teamName, item.senderUsername)
+      playerDao.setManager(item.recieverUsername, false)
+      playerDao.setManager(item.recieverUsername, true)
 
-  }
+    }
 
+    notifDao.deleteNotification(item.id);
 
-  Alert.alert(
-    'Success',
-    'You have accepted the invite',
-    [
-      {
-        text: 'Ok',
-        onPress: () => navigation.navigate('Inbox', {
-          data: [],
-        }),
-      },
-    ],
-    { cancelable: false }
-  );
-};
+    Alert.alert(
+      'Success',
+      'You have accepted the invite',
+      [
+        {
+          text: 'Ok',
+          onPress: () => navigation.navigate('Inbox', {
+            data: [],
+          }),
+        },
+      ],
+      { cancelable: false }
+    );
+  };
 
   let filterInbox = () => {
     let filtered_notifs = notifDao.filterNotificationsByUser(inboxFilter, curr.email)
@@ -100,37 +95,63 @@ const TestingList = ({ route, navigation }) => {
     );
   };
 
-let deleteNotif = (item) => {
+  let deleteNotif = (item) => {
 
-  Alert.alert(
-    'Delete Notification?',
-    'Press Confirm or Cancel',
-    [
-      {
-        text: 'Confirm',
-        //onPress: () => console.log("confirm"),
-        onPress: () => notifDao.deleteNotification(item.id)
-        
-      
-      },
-      {
-        text: 'Cancel',
-        //onPress: () => console.log("cancel"),
-        onPress: () => navigation.navigate('Inbox', {
-          data: [],
-        }),
-      },
-      navigation.navigate('Inbox', {
-        data: [],
-      })
-    ],
-    { cancelable: false }
-  );
-  
+    if (item.content.includes("upcoming"))
+    {
+      notifDao.deleteNotification(item.id)
 
+      Alert.alert(
+        'Success',
+        'Message Dismissed',
+        [
+          {
+            text: 'Ok',
+            onPress: () => navigation.navigate('Inbox', {
+              data: [],
+            }),
+          },
+        ],
+        { cancelable: false }
+      );
+    }
+    else
+    {
+      Alert.alert(
+        'Delete Notification?',
+        'Press Confirm or Cancel',
+        [
+          {
+            text: 'Confirm',
+            onPress: () => notifDao.deleteNotification(item.id)
+          },
+          {
+            text: 'Cancel',
+            onPress: () => navigation.navigate('Inbox', {
+              data: [],
+            }),
+          },
+          navigation.navigate('Inbox', {
+            data: [],
+          })
+        ],
+        { cancelable: false }
+      );
+    }
+    
+  };
 
-  
-};
+  let renderAccept = (item) =>
+  {
+    if (!item.content.includes("upcoming")) {
+      return (
+        <TouchableOpacity 
+        onPress={() => pressedAccept(item)} >
+        <Text style={{color: "#FFFFFF", fontFamily: 'monospace'}}>Accept</Text>
+        </TouchableOpacity>
+      )
+    }
+  }
 
   let [inboxFilter, setInboxFilter] = useState('');
 
@@ -178,38 +199,29 @@ let deleteNotif = (item) => {
             key={item.id}
             style={{ backgroundColor: '#383434', marginTop: 20, padding: 30, borderRadius: 10 }}>
       
-        <Text style={styles.textheader}>Notifcation ID</Text>
-        <Text style={styles.textbottom}>{item.id}</Text>
+          <Text style={styles.textheader}>Notifcation ID</Text>
+          <Text style={styles.textbottom}>{item.id}</Text>
 
-        <Text style={styles.textheader}>Sender Username</Text>
-        <Text style={styles.textbottom}>{item.senderUsername}</Text>
+          <Text style={styles.textheader}>Sender Username</Text>
+          <Text style={styles.textbottom}>{item.senderUsername}</Text>
 
-        <Text style={styles.textheader}>Reciever Username</Text>
-        <Text style={styles.textbottom}>{item.recieverUsername}</Text>
-      
-        <Text style={styles.textheader}>Notification Content</Text>
-        <Text style={styles.textbottom}>{item.content}</Text>
-
-
-
-        <TouchableOpacity 
-        onPress={() => deleteNotif(item)} >
-        <Text style={{color: "#FFFFFF", fontFamily: 'monospace'}}>Dismiss</Text>
-        </TouchableOpacity>
-        <TouchableOpacity 
-        onPress={() => addToTeam(item)} >
-        <Text style={{color: "#FFFFFF", fontFamily: 'monospace'}}>Accept</Text>
-        </TouchableOpacity>
-
+          <Text style={styles.textheader}>Reciever Username</Text>
+          <Text style={styles.textbottom}>{item.recieverUsername}</Text>
         
+          <Text style={styles.textheader}>Notification Content</Text>
+          <Text style={styles.textbottom}>{item.content}</Text>
+
+
+          {renderAccept(item)}
+
+          <TouchableOpacity
+            onPress={() => deleteNotif(item)} >
+            <Text style={{color: "#FFFFFF", fontFamily: 'monospace'}}>Dismiss</Text>
+          </TouchableOpacity>
+
         </View>
-
-
-        
-        
-
-          );
-        };
+      );
+    };
       
         return (
           <SafeAreaView style={{ flex: 1 }}>
