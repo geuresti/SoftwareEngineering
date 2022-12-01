@@ -5,7 +5,7 @@ import TeamDao from "./model/TeamDao.js"
 import NotificationDao from "./model/NotificationDao.js"
 
 const TestingList = ({ route, navigation }) => {
-
+  
   let playerDao = new PlayerDao()
   let teamDao = new TeamDao()
   let curr = playerDao.getCurrentPlayer()

@@ -27,91 +27,110 @@ schemaVersion:4
 
 var teamProfile = ""
 
-export default class Team{
+export default class Team {
 
-
-    setTeamToView(teamname){
+    setTeamToView(teamname) {
         teamProfile = teamname
     }
 
-    getTeamToView(){
+    getTeamToView() {
         return team_realm.objectForPrimaryKey("Team", teamProfile)
     }
 
-    createTeam(teamInput, manager){
-        team_realm.write(() => {
-            let team = team_realm.create("Team", {
-                teamName: teamInput,
-                teamManager: manager,
-                players: [""],
-                record: "0-0-0",
-                avgPoints: 0,
-                avgBlocks: 0,
-                avgSteals: 0,
-                avgAssists: 0,
-                freethrowPercent: 0,
-                shotPercent: 0
-        
-            });
-          })
-        let team = team_realm.objectForPrimaryKey("Team", teamInput);
-        return team 
+    createTeam(teamInput, manager) {
+        let playerDao = new PlayerDao()
+        let player = playerDao.readPlayer(manager)
+
+        // check if the player already manages a team
+        if (player.team_id) {
+            return null
+        } else {
+        // create a new team and set the player as the manager
+        // changed players: [""] -> players: []
+            team_realm.write(() => {
+                let team = team_realm.create("Team", {
+                    teamName: teamInput,
+                    teamManager: manager,
+                    players: [],
+                    record: "0-0-0",
+                    avgPoints: 0,
+                    avgBlocks: 0,
+                    avgSteals: 0,
+                    avgAssists: 0,
+                    freethrowPercent: 0,
+                    shotPercent: 0
+            
+                });
+              })
+  
+            let team = team_realm.objectForPrimaryKey("Team", teamInput);
+
+            playerDao.updatePlayerTeam(player.email, team.teamName);
+
+            return team 
+        }
     }
 
-    readTeam(teamInput){
+    readTeam(teamInput) {
         let team = team_realm.objectForPrimaryKey("Team", teamInput);
         return team
     }
 
-    readAllTeams(){
+    readAllTeams() {
         const teams = team_realm.objects("Team");
         return teams
     }
 
-    updateTeam(teamInput, teamManager, players, record, avgPoints, avgBlocks, avgSteals, avgAssists, freethrowPercent, shotPercent){
+    updateTeam(teamInput, teamManager, players, record, avgPoints, avgBlocks, avgSteals, avgAssists, freethrowPercent, shotPercent) {
         team_realm.write(() => {
             let updated = team_realm.objectForPrimaryKey("Team", teamInput);
                 updated.teamName = teamInput
-            if(teamManager){
+            if(teamManager) {
                 updated.teamManager = teamManager;
             }
-            if(players){
+            if(players) {
                 updated.players = players;
             }
-            if(record){
+            if(record) {
                 updated.record = record;
             }
-            if(avgPoints){
+            if(avgPoints) {
                 updated.avgPoints = avgPoints;
             }
-            if(avgBlocks){
+            if(avgBlocks) {
                 updated.avgBlocks = avgBlocks;
             }
-            if(avgSteals){
+            if(avgSteals) {
                 updated.avgSteals = avgSteals;
             }
-            if(avgAssists){
+            if(avgAssists) {
                 updated.avgAssists = avgAssists;
             }
-            if(freethrowPercent){
+            if(freethrowPercent) {
                 updated.freethrowPercent = freethrowPercent;
             }
-            if(shotPercent){
+            if(shotPercent) {
                 updated.shotPercent = shotPercent;
             }
         })
         return this.readTeam(teamInput)
     }
 
-    deleteTeam(teamInput){
+    deleteTeam(teamInput) {
+        let playerDao = new PlayerDao()
+
         team_realm.write(() => {
             let deletedTeam = team_realm.objectForPrimaryKey("Team", teamInput);
             if(deletedTeam) {team_realm.delete(deletedTeam)}
         })
+
+        let player = playerDao.getCurrentPlayer()
+        playerDao.updatePlayerTeam(player.email, "");
+
         return this.readTeam(teamInput);
     }
 
-    updateManager(teamname, teamManager){
+    updateManager(teamname, teamManager) {
         team_realm.write(() => {
             let updated = team_realm.objectForPrimaryKey("Team", teamname);
             updated.teamManager = teamManager
@@ -119,12 +138,12 @@ export default class Team{
         return this.readTeam(teamname)
     }
 
-    removePlayer(teamname, playername){
+    removePlayer(teamname, playername) {
 
         team_realm.write(() => {
             let updated = team_realm.objectForPrimaryKey("Team", teamname);
             let playerlist = updated.players
-            if(playerlist.indexOf(playername) >= 0){
+            if(playerlist.indexOf(playername) >= 0) {
                 playerlist[playerlist.indexOf(playername)] = ""
                 console.log("deleted")
             }
@@ -134,11 +153,10 @@ export default class Team{
         return this.readTeam(teamname)
     }
 
-    // playerUsername -> playerEmail
-    addPlayer(teamname, playerEmail){
+    addPlayer(teamname, playerEmail) {
 
-        let playerDao = new PlayerDao()
-        let player = playerDao.readPlayer(playerEmail)
+        let playerDao = new PlayerDao();
+        let player = playerDao.readPlayer(playerEmail);
 
         if (player) {
             console.log("PLAYER EXISTS:", player);
@@ -155,7 +173,7 @@ export default class Team{
         return this.readTeam(teamname)
     }
 
-    getTeamByManager(manager){
+    getTeamByManager(manager) {
         console.log(manager + "testing")
         let teamWManager = team_realm.objects("Team").filtered("teamManager = $0", manager);
         return teamWManager[0]

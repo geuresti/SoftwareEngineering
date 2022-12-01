@@ -40,7 +40,17 @@ const styles = StyleSheet.create({
       let away_players = teamDao.readTeam(awayTeam).players;
       let home_players = teamDao.readTeam(homeTeam).players;
 
-      console.log("AWAY PLAYERS:", away_players);
+      let away_len = away_players.length;
+      let away_message = "You have an upcoming game at " + time + " against: " + homeTeam;
+      for (let i = 0; i < away_len; i++) {
+        notifDao.createNotification("HCBL", away_players[i], away_message);
+      }
+
+      let home_len = home_players.length;
+      let home_message = "You have an upcoming game at: " + time + "against team: " + awayTeam;
+      for (let i = 0; i < home_len; i++) {
+        notifDao.createNotification("HCBL", home_players[i], home_message);
+      }
 
       Alert.alert(
         'Success',
@@ -57,7 +67,7 @@ const styles = StyleSheet.create({
     } else {
       Alert.alert(
         'Error',
-        'Match Registered Unsuccessfully',
+        'Team Not Found',
         [
           {
             text: 'Ok',
