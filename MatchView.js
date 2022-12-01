@@ -88,12 +88,12 @@ const MatchView = ({ navigation }) => {
 
   let playerDao = new PlayerDao()
   let currPlayer = playerDao.getProfileToView()
-  playerDao.setProfileToView(playerDao.getCurrentPlayer().email)
-  let player = playerDao.readPlayer(currPlayer.email)
-
+  if(playerDao.getCurrentPlayer()){
+    playerDao.setProfileToView(playerDao.getCurrentPlayer().email)
+  }
   let changeButton = () =>
 {
-  if(currPlayer.email.localeCompare("admin") === 0){
+  if((curr) && currPlayer.email.localeCompare("admin") === 0){
   return(
     <TouchableOpacity
     //onPress={() => console.log("button pressed!")} 
@@ -119,25 +119,25 @@ const MatchView = ({ navigation }) => {
    
   
    <View style={styles.profileText}>
-        <Text style = {[styles.texttype, {fontSize:30, left: 60,justifyContent:'center'}]}>{curr.home_team} vs {curr.away_team}</Text>
+        <Text style = {[styles.texttype, {fontSize:30, left: 60,justifyContent:'center'}]}>{curr ? curr.home_team:""} vs {curr ? curr.away_team:""}</Text>
         <Text style={{color: "#CA5A37", fontSize: 25, bottom: 30, alignContent:'center'}}>   ____________________________</Text>
-        <Text style={[styles.texttype, {fontSize: 14,bottom: 25, left: 90}]}>Id:{curr.match_id}             Time:{curr.game_time}</Text>
+        <Text style={[styles.texttype, {fontSize: 14,bottom: 25, left: 90}]}>Id:{curr ? curr.match_id:""}             Time:{curr ? curr.game_time:""}</Text>
         <Text style={[styles.texttype, {fontSize: 17}]}></Text>
         <Text style = {[styles.texttype, {fontSize:21, left: 40}]}> Home</Text>
         <Text style = {[styles.texttype, {fontSize:21, bottom: 55,left: 240}]}>Away</Text>
         <Text style={{color: "#B62727", fontSize: 17, bottom: 80, alignContent:'center'}}>_____________________________________________</Text>
-        <Text style = {[styles.texttype, {fontSize:15, bottom: 45, left: 10}]}>Home Score:{curr.home_team_score}</Text>
-        <Text style={[styles.texttype, {fontSize:15, bottom: 85, left: 210}]}>Away Score {curr.away_team_score}</Text>
-        <Text style = {[styles.texttype, {fontSize:15, bottom: 85, left: 10}]}>Home Blocks {curr.h_team_blocks}</Text>
-        <Text style = {[styles.texttype, {fontSize:15, bottom: 125, left: 210}]}>Away Blocks {curr.a_team_blocks}</Text>
-        <Text style={[styles.texttype, {fontSize:15, bottom: 125, left: 10}]}>Home Steals: {curr.h_team_steals}</Text>
-        <Text style={[styles.texttype, {fontSize:15, bottom: 165, left: 210}]}>Away Steals: {curr.a_team_steals}</Text>
-        <Text style={[styles.texttype, {fontSize:15, bottom: 165, left: 10}]}>Home Assists: {curr.h_team_assists}</Text>
-        <Text style={[styles.texttype, {fontSize:15, bottom: 205, left: 210}]}>Away Assists: {curr.a_team_assists}</Text>
-        <Text style={[styles.texttype, {fontSize:15, bottom: 205, left: 10}]}>Home Frees: {curr.h_team_frees}</Text>
-        <Text style={[styles.texttype, {fontSize:15, bottom: 245, left: 210}]}>Away Frees: {curr.a_team_frees}</Text>
-        <Text style={[styles.texttype, {fontSize:15, bottom: 245, left: 10}]}>Home Shot: {curr.h_team_shot_percent} %</Text>
-        <Text style={[styles.texttype, {fontSize:15, bottom: 285, left: 210}]}>Away Shot: {curr.a_team_shot_percent} %</Text>
+        <Text style = {[styles.texttype, {fontSize:15, bottom: 45, left: 10}]}>Home Score:{curr ? curr.home_team_score:""}</Text>
+        <Text style={[styles.texttype, {fontSize:15, bottom: 85, left: 210}]}>Away Score {curr ? curr.away_team_score:""}</Text>
+        <Text style = {[styles.texttype, {fontSize:15, bottom: 85, left: 10}]}>Home Blocks {curr ? curr.h_team_blocks:""}</Text>
+        <Text style = {[styles.texttype, {fontSize:15, bottom: 125, left: 210}]}>Away Blocks {curr ? curr.a_team_blocks:""}</Text>
+        <Text style={[styles.texttype, {fontSize:15, bottom: 125, left: 10}]}>Home Steals: {curr ? curr.h_team_steals:""}</Text>
+        <Text style={[styles.texttype, {fontSize:15, bottom: 165, left: 210}]}>Away Steals: {curr ? curr.a_team_steals:""}</Text>
+        <Text style={[styles.texttype, {fontSize:15, bottom: 165, left: 10}]}>Home Assists: {curr ? curr.h_team_assists:""}</Text>
+        <Text style={[styles.texttype, {fontSize:15, bottom: 205, left: 210}]}>Away Assists: {curr ? curr.a_team_assists:""}</Text>
+        <Text style={[styles.texttype, {fontSize:15, bottom: 205, left: 10}]}>Home Frees: {curr ? curr.h_team_frees:""}</Text>
+        <Text style={[styles.texttype, {fontSize:15, bottom: 245, left: 210}]}>Away Frees: {curr ? curr.a_team_frees:""}</Text>
+        <Text style={[styles.texttype, {fontSize:15, bottom: 245, left: 10}]}>Home Shot: {curr ? curr.h_team_shot_percent:""} %</Text>
+        <Text style={[styles.texttype, {fontSize:15, bottom: 285, left: 210}]}>Away Shot: {curr ? curr.a_team_shot_percent:""} %</Text>
         
         </View>
         <View style={{position: 'absolute', top: 0, left: 240, right: 0, bottom: 680, justifyContent: 'center', alignItems: 'center'}}>

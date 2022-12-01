@@ -1,6 +1,5 @@
 import React, {useState} from "react";
 import { Text, View, Image, ImageBackground, TouchableOpacity, TextInput, StyleSheet, Alert, navigation} from "react-native";
-import { block } from "react-native-reanimated";
 import MatchDao from './model/MatchDao.js'
 import SeasonDao from './model/SeasonDao.js'
 
@@ -68,7 +67,7 @@ const SeasonEdit = ({navigation}) => {
         //console.log(matchDao.readMatch(matches).away_team)
         try{
         
-        if (matchDao.readMatch(matches).away_team != null)
+          if (matchDao.readMatch(matches).away_team != null)
         {
         seasonDao.addGame(curr.id, matches)
         Alert.alert(
@@ -145,7 +144,7 @@ return (
       </View>
 
       <View style={{position: 'absolute', top: 0, left: 0, right: 0, bottom: 300, justifyContent: 'center', alignItems: 'center'}}>
-      <Text style={{fontSize:35 , fontFamily: 'Bungee-Regular', color: '#D9D9D9'}}>Current: {curr.matches}</Text>
+      <Text style={{fontSize:35 , fontFamily: 'Bungee-Regular', color: '#D9D9D9'}}>Current: {curr ? curr.matches:""}</Text>
       </View>
    <View style={{position: 'absolute', top: 0, left: 0, right: 0, bottom: 0, justifyContent: 'center', alignItems: 'center'}}>
     <TextInput 
@@ -154,9 +153,6 @@ return (
           placeholder="Matches" 
           onChangeText={
             (matches) => setMatches(matches)
-            
-
-          
         } 
       
 />

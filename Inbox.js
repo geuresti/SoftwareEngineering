@@ -9,16 +9,20 @@ const TestingList = ({ route, navigation }) => {
   let playerDao = new PlayerDao()
   let teamDao = new TeamDao()
   let curr = playerDao.getCurrentPlayer()
-  let player = playerDao.readPlayer(curr.email)
-    
+  let player
+  if(curr){
+    player = playerDao.readPlayer(curr.email)
+  }
   var notifDao = new NotificationDao()
 
   let db;
 
-  if ("data" in route.params && route.params["data"].length !== 0) {
+  if ((route) && "data" in route.params && route.params["data"].length !== 0) {
     db = route.params["data"]
   } else {
-    db = notifDao.getNotificationsOfUser(curr.email)
+    if(curr){
+      db = notifDao.getNotificationsOfUser(curr.email)
+    }
   }
 
   this.state = { 
@@ -237,7 +241,7 @@ const TestingList = ({ route, navigation }) => {
               
 
               
-            <Text style={{fontSize:20 , fontFamily: 'monospace', color: 'white'}}>{player.email} 's Inbox</Text>
+            <Text style={{fontSize:20 , fontFamily: 'monospace', color: 'white'}}>{player ? player.email:""} 's Inbox</Text>
            <TextInput 
             style = {styles.input}
            textAlign={'center'}

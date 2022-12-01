@@ -47,9 +47,9 @@ const TestingList = ({ navigation }) => {
         };
         let playerDao = new PlayerDao()
         let currPlayer = playerDao.getProfileToView()
-        playerDao.setProfileToView(playerDao.getCurrentPlayer().email)
-        let player = playerDao.readPlayer(currPlayer.email)
-        
+        if(playerDao.getCurrentPlayer()){
+          playerDao.setProfileToView(playerDao.getCurrentPlayer().email)
+        }
       let listViewItemSeparator = () => {
         return (
           <View
@@ -72,7 +72,7 @@ const TestingList = ({ navigation }) => {
 
   let changeButton2 = () =>
   {
-    if(currPlayer.email.localeCompare("admin") === 0){
+    if((currPlayer) && currPlayer.email.localeCompare("admin") === 0){
     return(
       <TouchableOpacity
       onPress={newSeason}

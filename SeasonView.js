@@ -92,13 +92,17 @@ const MatchView = ({ navigation }) => {
   // let team = teamDao.readTeam(curr.teamName)
   let seasonDao = new SeasonDao()
   let curr = seasonDao.getSeasonToView()
-  db = curr.matches
+  let db
+  if(curr){
+    db = curr.matches
+  }
   let matchDao = new MatchDao()
 
   let playerDao = new PlayerDao()
   let currPlayer = playerDao.getProfileToView()
-  playerDao.setProfileToView(playerDao.getCurrentPlayer().email)
-  let player = playerDao.readPlayer(currPlayer.email)
+  if(playerDao.getCurrentPlayer()){
+    playerDao.setProfileToView(playerDao.getCurrentPlayer().email)
+  }
   
   //let match =  matchDao.readMatch(curr.match_id)
 
@@ -116,7 +120,7 @@ let listViewItemSeparator = () => {
 
 let changeButton = () =>
 {
-  if(currPlayer.email.localeCompare("admin") === 0){
+  if((currPlayer) && currPlayer.email.localeCompare("admin") === 0){
   return(
 <TouchableOpacity
 //onPress={() => console.log("button pressed!")} 
@@ -166,7 +170,7 @@ let listItemView = (item) => {
    
   
    <View style={styles.profileText}>
-        <Text style = {[styles.texttype, {fontSize:30, left: 60,justifyContent:'center'}]}>    Season: {curr.id}</Text>
+        <Text style = {[styles.texttype, {fontSize:30, left: 60,justifyContent:'center'}]}>    Season: {curr ? curr.id:""}</Text>
         <Text style={{color: "#CA5A37", fontSize: 25, bottom: 30, alignContent:'center'}}>   ____________________________</Text>
         <Text style={[styles.texttype, {fontSize: 17}]}></Text>
         
@@ -174,8 +178,8 @@ let listItemView = (item) => {
 
         <View style={styles.players}>
           <FlatList
-            data={curr.matches.filter(function(e) { return e !== "" })} 
-            renderItem={({item}) => <Text style={[styles.texttype, {fontSize: 15, }]}>Match {item}: {matchDao.readMatch(item).home_team} vs. {matchDao.readMatch(item).away_team}</Text>}
+            data={curr ? curr.matches.filter(function(e) { return e !== "" }): ""} 
+            renderItem={({item}) => <Text style={[styles.texttype, {fontSize: 15, }]}>Match {item}: {item ? matchDao.readMatch(item).home_team:""} vs. {matchDao.readMatch(item).away_team}</Text>}
           />
           </View>
  

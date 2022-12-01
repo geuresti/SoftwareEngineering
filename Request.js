@@ -43,12 +43,16 @@ const TestingList = ({ navigation }) => {
 
       let playerDao = new PlayerDao()
       let curr = playerDao.getCurrentPlayer()
-      let player = playerDao.readPlayer(curr.email)
-
+      let player
+      let player2
+      if(curr){
+        player = playerDao.readPlayer(curr.email)
+      }
       let playerDao2 = new PlayerDao()
       let curr2 = playerDao2.getProfileToView()
-      let player2 = playerDao2.readPlayer(curr2.email)
-
+      if(curr2){
+        player2 = playerDao2.readPlayer(curr2.email)
+      }
         this.state = {
           FlatListItems: db,
         };
