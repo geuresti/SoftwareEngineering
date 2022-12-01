@@ -69,6 +69,19 @@ const TestingList = ({ navigation }) => {
     )
   }
   }
+
+  let changeButton2 = () =>
+  {
+    if(currPlayer.email.localeCompare("admin") === 0){
+    return(
+      <TouchableOpacity
+      onPress={newSeason}
+      style={styles.button}>
+      <Text style={{color: "#FFFFFF", fontFamily: 'monospace'}}>Create Season</Text>
+    </TouchableOpacity>
+    )
+  }
+  }
       
     let listItemView = (item) => {
         return (
@@ -148,11 +161,7 @@ const TestingList = ({ navigation }) => {
                   renderItem={({ item }) => listItemView(item)}
                 />
         
-                <TouchableOpacity
-                  onPress={newSeason}
-                  style={styles.button}>
-                  <Text style={{color: "#FFFFFF", fontFamily: 'monospace'}}>Create Season</Text>
-                </TouchableOpacity>
+              {changeButton2()}
 
               </View>
             </View>
