@@ -174,23 +174,28 @@ let listItemView = (item) => {
    />
    
   
-   <View style={styles.profileText}>
+   <View style={[styles.profileText, {position: 'absolute'}]}>
         <Text style = {[styles.texttype, {fontSize:30, left: 60,justifyContent:'center'}]}>    Season: {curr ? curr.id:""}</Text>
         <Text style={{color: "#CA5A37", fontSize: 25, bottom: 30, alignContent:'center'}}>   ____________________________</Text>
         <Text style={[styles.texttype, {fontSize: 17}]}></Text>
         
         </View>
 
-        <View style={styles.players}>
+        <View style={[styles.players, {position: 'absolute'}]}>
           <FlatList
             data={curr ? curr.matches.filter(function(e) { return e !== "" }): ""} 
             renderItem={({item}) => <Text style={[styles.texttype, {fontSize: 15, }]}>Match {item}: {item ? matchDao.readMatch(item).home_team:""} vs. {matchDao.readMatch(item).away_team}</Text>}
           />
           </View>
-        <View style={{justifyContent:'center'}}>
+        <View style={{justifyContent:'center', position: 'absolute'}}>
         <FlatList
             data={standings_list ? standings_list: ""} 
-            renderItem={({item}) => <Text style={[styles.texttype, {fontSize: 15, }]}>Team Name: {item[0]} Wins: {item[1]} Ties: {item[2]} Loses: {item[3]} Points {item[4]}</Text>}
+            renderItem={({item}) => (
+            <View>
+            <Text style={[styles.texttype, {fontSize: 22, textAlign: 'center'}]}>Team Name: {item[0]}</Text>
+            <Text style={[styles.texttype, {fontSize: 13, textAlign: 'center'}]}>Wins: {item[1]} Ties: {item[2]} Loses: {item[3]} Points {item[4]}</Text>
+            </View>
+            )}
           />
         </View>
         <View style={{position: 'absolute', top: 0, left: 240, right: 0, bottom: 680, justifyContent: 'center', alignItems: 'center'}}>
