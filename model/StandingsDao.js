@@ -1,6 +1,4 @@
-import { withSpring } from "react-native-reanimated";
 import Realm from "realm";
-import TeamDao from "./TeamDao"
 const standings_realm = new Realm({path: 'standings.realm',
 schema:[
     {
@@ -62,8 +60,6 @@ export default class Standings {
                 recs[teamname] = record
                 console.log(recs)
             }
-            
-            
         })
         return this.readStandings(_id)
     }

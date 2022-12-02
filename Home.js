@@ -51,10 +51,14 @@ const Home = ({ navigation }) => {
   let playerDao = new PlayerDao()
   let curr = teamDao.getTeamToView()
   let currPlayer = playerDao.getProfileToView()
-  playerDao.setProfileToView(playerDao.getCurrentPlayer().email)
-  let player = playerDao.readPlayer(currPlayer.email)
-  let currTeam = teamDao.getTeamByManager(currPlayer.email)
-  console.log(currPlayer.email)
+  let player
+  let currTeam
+  if(playerDao.getCurrentPlayer()){
+    playerDao.setProfileToView(playerDao.getCurrentPlayer().email)
+    player = playerDao.readPlayer(currPlayer.email)
+    currTeam = teamDao.getTeamByManager(currPlayer.email)
+  }
+
   //console.log(currTeam.teamName)
   let changeButton = () =>
   {

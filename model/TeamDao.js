@@ -128,8 +128,9 @@ export default class Team {
         })
 
         let player = playerDao.getCurrentPlayer()
-        playerDao.updatePlayerTeam(player.email, "");
-
+        if(player){
+            playerDao.updatePlayerTeam(player.email, "");
+        }
         return this.readTeam(teamInput);
     }
 

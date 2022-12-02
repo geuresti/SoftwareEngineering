@@ -1,13 +1,19 @@
 import TeamDao from "../model/TeamDao"
+import PlayerDao from "../model/PlayerDao"
 import {expect, jest, test} from '@jest/globals'
-import { TouchableOpacityComponent } from "react-native";
+
 
 
 let teamDao = null
+let playerDao = null
 
 beforeEach(function(){
+
     teamDao = new TeamDao()
+    playerDao = new PlayerDao()
     teamDao.deleteTeam("test_team")
+    playerDao.deletePlayer("joe")
+    playerDao.deletePlayer("jo")
     teamDao.deleteTeam("test_team2")
 
 });
@@ -17,6 +23,8 @@ test('create team', () => {
 
     let teamName = "test_team"
     let manager = "joe"
+    playerDao.createPlayer(manager)
+    playerDao.setCurrentPlayer(manager)
     let team = teamDao.createTeam(teamName, manager)
 
     let team2 = teamDao.readTeam(teamName)
@@ -35,6 +43,8 @@ test('read team with nonexistant name', () => {
 test('read team by name', () => {
     let teamName = "test_team"
     let manager = "joe"
+    playerDao.createPlayer(manager)
+    playerDao.setCurrentPlayer(manager)
     let created = teamDao.createTeam(teamName, manager)
     let read = teamDao.readTeam(teamName)
     expect(created).toEqual(read)
@@ -44,6 +54,8 @@ test('read team by name', () => {
   test('update team by name', () => {
     let teamName = "test_team"
     let manager = "joe"
+    playerDao.createPlayer(manager)
+    playerDao.setCurrentPlayer(manager)
     let created = teamDao.createTeam(teamName, manager)
     let read = teamDao.readTeam(teamName)
     let updated = teamDao.updateTeam(teamName, "bob", [""], record="1-1-0", 10, 0, 0, 0, 0, 0)
@@ -59,6 +71,8 @@ test('read team by name', () => {
   test('delete team by name', () => {
     let teamName = "test_team"
     let manager = "joe"
+    playerDao.createPlayer(manager)
+    playerDao.setCurrentPlayer(manager)
     let created = teamDao.createTeam(teamName, manager)
     
     let deleted = teamDao.deleteTeam(teamName)
@@ -69,7 +83,9 @@ test('read team by name', () => {
 
   test('get all teams', () =>{
     let email = "test_team"
-    let manager = "jo"
+    let manager = "joe"
+    playerDao.createPlayer(manager)
+    playerDao.setCurrentPlayer(manager)
     let team = teamDao.readAllTeams()
     let len = team.length
     let t = teamDao.createTeam(email, manager)
@@ -81,6 +97,8 @@ test('read team by name', () => {
   test('change team manager', () => {
     let teamName = "test_team"
     let manager = "joe"
+    playerDao.createPlayer(manager)
+    playerDao.setCurrentPlayer(manager)
     let created = teamDao.createTeam(teamName, manager)
     let updated = teamDao.updateManager(teamName, "bob")
     expect(created).not.toBe(updated)
@@ -90,6 +108,8 @@ test('read team by name', () => {
   test('find team by manager', () => {
     let teamName = "test_team"
     let manager = "joe"
+    playerDao.createPlayer(manager)
+    playerDao.setCurrentPlayer(manager)
     let created = teamDao.createTeam(teamName, manager)
     let test = teamDao.getTeamByManager(manager)
     expect(created).toEqual(test)

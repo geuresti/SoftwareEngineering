@@ -76,7 +76,6 @@ export default class Season {
             let updated = season_realm.objectForPrimaryKey("Season", season_id)
             let matchList = updated.matches
             let index = matchList.indexOf(gameInt)
-            console.log(index)
             matchList.splice(index,1)
             updated.matches = matchList
         })

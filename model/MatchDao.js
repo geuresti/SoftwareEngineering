@@ -104,7 +104,6 @@ export default class Matches {
     updateMatch(matchInput, away_team_score, home_team_score, game_time, h_team_blocks, h_team_steals, h_team_assists, h_team_frees, h_team_shot_percent, a_team_blocks, a_team_steals, a_team_assists, a_team_frees, a_team_shot_percent){
         match_realm.write(() => {
             let updated = match_realm.objectForPrimaryKey("Match", matchInput)
-                updated.match_id = matchInput
             
             if (away_team_score){
                 updated.away_team_score = away_team_score;

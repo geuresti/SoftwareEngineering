@@ -26,11 +26,6 @@ import Home from '../Home.js';
 // Note: test renderer must be required after react-native.
 import renderer from 'react-test-renderer';
 
-/*
-it('renders app correctly', () => {
-    renderer.create(<App />);
-  });
-*/
 it('renders createteam correctly', () => {
   renderer.create(<CreateTeam />);
 });

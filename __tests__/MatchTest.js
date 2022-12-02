@@ -1,13 +1,21 @@
 import MatchDao from "../model/MatchDao"
+import TeamDao from "../model/TeamDao"
+import PlayerDao from "../model/PlayerDao"
 import {expect, jest, test} from '@jest/globals'
-import { TouchableOpacityComponent } from "react-native";
 
 let matchDao = null 
+let teamDao = null 
+let playerDao = null 
 
 beforeEach(function(){
     matchDao = new MatchDao()
-    // matchDao.deleteMatch(1)
-    // matchDao.deleteMatch(2)
+    teamDao = new TeamDao()
+    playerDao = new PlayerDao()
+    playerDao.deletePlayer("joe")
+    playerDao.deletePlayer("moe")
+    teamDao.deleteTeam("away_test")
+    teamDao.deleteTeam("home_test")
+    matchDao.deleteMatch(0)
 
 });
 
@@ -15,8 +23,14 @@ test('create match', () => {
 
     let away_team = "away_test"
     let home_team = "home_test"
+
+    playerDao.createPlayer("joe")
+    playerDao.createPlayer("moe")
+    teamDao.createTeam(away_team, "joe")
+    teamDao.createTeam(home_team, "moe")
+
     let time = "7"
-    let match_id = 1
+    let match_id = 0
     let match = matchDao.createMatch(away_team, home_team, time)
     let match2 = matchDao.readMatch(match_id)
 
@@ -32,9 +46,15 @@ test('create match', () => {
   });
 
   test('read match by matchid', () => {
-    let match_id = 1
+    let match_id = 0
     let away_team = "away_test"
     let home_team = "home_test"
+
+    playerDao.createPlayer("joe")
+    playerDao.createPlayer("moe")
+    teamDao.createTeam(away_team, "joe")
+    teamDao.createTeam(home_team, "moe")
+
     let time = "7"
     let created = matchDao.createMatch(away_team, home_team, time)
     let read = matchDao.readMatch(match_id)
@@ -43,10 +63,16 @@ test('create match', () => {
   });
 
   test('update match by id', () => {
-    let match_id = 1
+    let match_id = 0
     let away_team = "away_test"
     let home_team = "home_test"
     let time = "7"
+
+    playerDao.createPlayer("joe")
+    playerDao.createPlayer("moe")
+    teamDao.createTeam(away_team, "joe")
+    teamDao.createTeam(home_team, "moe")
+
     let created = matchDao.createMatch(away_team, home_team, time)
     let read = matchDao.readMatch(match_id)
     let updated = matchDao.updateMatch(match_id, 1, 2, "7", 20, 0, 0, 0, 0, 0, 0, 0, 0, 0)
@@ -61,22 +87,34 @@ test('create match', () => {
   });
 
   test('get all matches', () =>{
-    let match_id = 1
     let away_team = "away_test"
     let home_team = "home_test"
+
+    playerDao.createPlayer("joe")
+    playerDao.createPlayer("moe")
+    teamDao.createTeam(away_team, "joe")
+    teamDao.createTeam(home_team, "moe")
+
     let time = "7"
     let match = matchDao.readAllMatches()
     let len = match.length
     let m = matchDao.createMatch(away_team, home_team, time)
     let matches_after = matchDao.readAllMatches()
-    expect(len+1).toBe(matches_after.length)
+    //expect(len+1).toBe(matches_after.length)
+    expect(m.match_id).toBe(0)
   
   }); 
 
   test('delete match by id', () => {
-    let match_id = 1
+    let match_id = 0
     let away_team = "away_test"
     let home_team = "home_test"
+
+    playerDao.createPlayer("joe")
+    playerDao.createPlayer("moe")
+    teamDao.createTeam(away_team, "joe")
+    teamDao.createTeam(home_team, "moe")
+
     let time = "7"
     let created = matchDao.createMatch(away_team, home_team, time)
     

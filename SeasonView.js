@@ -95,9 +95,10 @@ const MatchView = ({ navigation }) => {
   let curr = seasonDao.getSeasonToView()
 
   let db
+  let standings_list
   if(curr){
     db = curr.matches
-    let standings_list = standingsDao.getStandingsDisplay(curr.id)
+    standings_list = standingsDao.getStandingsDisplay(curr.id)
   }
   
   let matchDao = new MatchDao()

@@ -174,11 +174,13 @@ export default class Player{
     deletePlayer(useremail){
         player_realm.write(() => {
             let deletedPlayer = player_realm.objectForPrimaryKey("Player", useremail);
-            player_realm.delete(deletedPlayer)
+            if(deletedPlayer){
+                player_realm.delete(deletedPlayer)
+            }
             // return player 
         
     })
-    //return this.readPlayer(playerInput)
+      return this.readPlayer(useremail)
     }
     
     // need to merge with hannah
