@@ -67,10 +67,6 @@ export default class Standings {
     
     getStandingsDisplay(_id){
         let standings = this.readStandings(_id)
-        if(standings === null){
-            this.create()
-            standings = this.readStandings(_id)
-        }
         standings_list = []
         let records = standings.teamRecords
         let wins, ties, loses, points = 0

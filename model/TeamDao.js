@@ -43,7 +43,7 @@ export default class Team {
         let player = playerDao.readPlayer(manager)
 
         // check if the player already manages a team
-        if (player.team_id) {
+        if (player.team_id && player.team_id != "") {
             return null
         } else {
         // create a new team and set the player as the manager
@@ -65,8 +65,7 @@ export default class Team {
               })
   
             let team = team_realm.objectForPrimaryKey("Team", teamInput);
-
-            playerDao.updatePlayerTeam(player.email, team.teamName);
+            playerDao.updatePlayerTeam(player.email, teamInput);
 
             return team 
         }
@@ -128,11 +127,6 @@ export default class Team {
             let deletedTeam = team_realm.objectForPrimaryKey("Team", teamInput);
             if(deletedTeam) {team_realm.delete(deletedTeam)}
         })
-
-        let player = playerDao.getCurrentPlayer()
-        if(player){
-            playerDao.updatePlayerTeam(player.email, "");
-        }
         return this.readTeam(teamInput);
     }
 
@@ -153,7 +147,7 @@ export default class Team {
                 playerlist[playerlist.indexOf(playername)] = ""
                 console.log("deleted")
             }
-            updated.players = playerlist
+            //updated.players = playerlist
 
         })
         return this.readTeam(teamname)
@@ -165,7 +159,7 @@ export default class Team {
         let player = playerDao.readPlayer(playerEmail);
 
         if (player) {
-            console.log("PLAYER EXISTS:", player);
+            console.log("PLAYER EXISTS:", player.email);
         } else {
             console.log("PLAYER DON't EXIST");
         }
@@ -174,19 +168,19 @@ export default class Team {
             let updated = team_realm.objectForPrimaryKey("Team", teamname)
             let playerList = updated.players
             playerList.push(playerEmail)
+            console.log(playerList);
             updated.players = playerList
         })
         return this.readTeam(teamname)
     }
 
     getTeamByManager(manager) {
-        console.log(manager + "testing")
         let teamWManager = team_realm.objects("Team").filtered("teamManager = $0", manager);
         return teamWManager[0]
     }
 
     getRecord(teamname){
-        let team = team_realm.objectForPrimaryKey("Team", teamInput);
+        let team = team_realm.objectForPrimaryKey("Team", teamname);
         return team.record
     }
 

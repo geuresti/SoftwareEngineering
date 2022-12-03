@@ -75,7 +75,7 @@ test('create match', () => {
 
     let created = matchDao.createMatch(away_team, home_team, time)
     let read = matchDao.readMatch(match_id)
-    let updated = matchDao.updateMatch(match_id, 1, 2, "7", 20, 0, 0, 0, 0, 0, 0, 0, 0, 0)
+    let updated = matchDao.updateMatch(match_id, 1, 2, "7", 20, 1, 1, 1, 1, 1, 1, 1, 1, 1)
     let read2 = matchDao.readMatch(match_id)
 
     expect(read).not.toBe(updated)

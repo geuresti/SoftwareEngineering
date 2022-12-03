@@ -14,7 +14,6 @@ beforeEach(function(){
     teamDao.deleteTeam("test_team")
     playerDao.deletePlayer("joe")
     playerDao.deletePlayer("bob")
-    teamDao.deleteTeam("test_team2")
 
 });
 
@@ -58,7 +57,7 @@ test('read team by name', () => {
     playerDao.setCurrentPlayer(manager)
     let created = teamDao.createTeam(teamName, manager)
     let read = teamDao.readTeam(teamName)
-    let updated = teamDao.updateTeam(teamName, "bob", [""], record="1-1-0", 10, 0, 0, 0, 0, 0)
+    let updated = teamDao.updateTeam(teamName, "bob", [""], record="1-1-0", 10, 1, 1, 1, 1, 1)
     let read2 = teamDao.readTeam(teamName)
 
     expect(read).not.toBe(read2)
@@ -68,11 +67,10 @@ test('read team by name', () => {
     
   });
 
-  test('delete team by name', () => {
+  test('delete team by name', () =>{
     let teamName = "test_team"
     let manager = "joe"
     playerDao.createPlayer(manager)
-    playerDao.setCurrentPlayer(manager)
     let created = teamDao.createTeam(teamName, manager)
     
     let deleted = teamDao.deleteTeam(teamName)
@@ -113,5 +111,31 @@ test('read team by name', () => {
     let created = teamDao.createTeam(teamName, manager)
     let test = teamDao.getTeamByManager(manager)
     expect(created).toEqual(test)
+  })
+
+  test('add player and remove player from team', () => {
+    let teamName = "test_team"
+    let manager = "joe"
+    playerDao.createPlayer(manager)
+    playerDao.setCurrentPlayer(manager)
+    let created = teamDao.createTeam(teamName, manager)
+    let addedPlayer = playerDao.createPlayer("bob")
+    teamDao.addPlayer(teamName, "bob")
+    expect(teamDao.readTeam(teamName).players[0]).toBe("bob")
+
+    teamDao.removePlayer(teamName, "bob")
+    expect(teamDao.readTeam(teamName).players[0]).toBe("")
+
+  })
+
+  test('set and get team to view', () => {
+    let teamName = "test_team"
+    let manager = "joe"
+    playerDao.createPlayer(manager)
+    let created = teamDao.createTeam(teamName, manager)
+    teamDao.setTeamToView(teamName)
+    expect(teamDao.getTeamToView().teamName).toBe("test_team")
+    let record = teamDao.getRecord(teamName)
+    expect(record).toBe("0-0-0")
   })
 

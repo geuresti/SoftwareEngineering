@@ -6,6 +6,7 @@ let playerDao = null
 beforeEach(function(){
     playerDao = new PlayerDao()
     playerDao.deletePlayer("test@gmail.com")
+    playerDao.deletePlayer("joe")
 });
 
 
@@ -71,4 +72,18 @@ test('get all players', () =>{
   let players_after = playerDao.readAllPlayers()
   expect(len+1).toBe(players_after.length)
 
+})
+
+test('set and get player to view', () => {
+  let email = "test@gmail.com" 
+  let player = playerDao.createPlayer(email)
+  playerDao.setProfileToView(email)
+  expect(playerDao.getProfileToView().email).toBe(email)
+})
+
+test('set manager toggle', () => {
+  let email = "test@gmail.com" 
+  let player = playerDao.createPlayer(email)
+  playerDao.setManager(email, true)
+  expect(playerDao.readPlayer(email).isManager).toBeTruthy()
 })

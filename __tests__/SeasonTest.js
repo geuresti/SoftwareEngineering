@@ -99,3 +99,25 @@ test('delete season', () => {
     expect(seasonDao.getAllSeasons().length).toEqual(0);
     expect(seasons).toEqual(null)
 })
+
+test('update standings', () =>{
+    let standings = standingsDao.create()
+    let away_team = "away_test"
+
+    playerDao.createPlayer("joe")
+    teamDao.createTeam(away_team, "joe")
+    let updated = standingsDao.updateStandings(0, away_team, "1-1-1")
+    expect(updated.teamRecords[away_team]).toBe("1-1-1")
+
+})
+
+test('standings display', () => {
+    let standings = standingsDao.create()
+    let away_team = "away_test"
+
+    playerDao.createPlayer("joe")
+    teamDao.createTeam(away_team, "joe")
+    let updated = standingsDao.updateStandings(0, away_team, "1-1-1")
+    let display = standingsDao.getStandingsDisplay(0)
+    expect(display[0]).toStrictEqual([away_team, "1","1","1",4])
+})
