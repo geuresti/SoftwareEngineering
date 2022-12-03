@@ -1,0 +1,6713 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`renders adminpage correctly 1`] = `
+<View
+  style={
+    Object {
+      "alignItems": "center",
+      "flex": 1,
+      "justifyContent": "center",
+    }
+  }
+>
+  <View
+    accessibilityIgnoresInvertColors={true}
+    style={
+      Object {
+        "height": "100%",
+        "width": "100%",
+      }
+    }
+  >
+    <Image
+      source={
+        Object {
+          "testUri": "../../../profilebg.png",
+        }
+      }
+      style={
+        Array [
+          Object {
+            "bottom": 0,
+            "left": 0,
+            "position": "absolute",
+            "right": 0,
+            "top": 0,
+          },
+          Object {
+            "height": "100%",
+            "width": "100%",
+          },
+          undefined,
+        ]
+      }
+    />
+  </View>
+  <Text
+    style={
+      Object {
+        "bottom": 300,
+        "color": "#FFFFFF",
+        "fontFamily": "Bungee-Regular",
+        "fontSize": 40,
+        "left": 60,
+        "position": "absolute",
+        "right": 0,
+        "top": 100,
+      }
+    }
+  >
+    ADMIN PAGE
+  </Text>
+  <View
+    style={
+      Object {
+        "alignItems": "center",
+        "bottom": 200,
+        "justifyContent": "center",
+        "left": 0,
+        "position": "absolute",
+        "right": 200,
+        "top": 0,
+      }
+    }
+  >
+    <View
+      accessible={true}
+      collapsable={false}
+      focusable={true}
+      onClick={[Function]}
+      onResponderGrant={[Function]}
+      onResponderMove={[Function]}
+      onResponderRelease={[Function]}
+      onResponderTerminate={[Function]}
+      onResponderTerminationRequest={[Function]}
+      onStartShouldSetResponder={[Function]}
+      style={
+        Object {
+          "alignItems": "center",
+          "backgroundColor": "#B62727",
+          "justifyContent": "center",
+          "opacity": 1,
+          "padding": 5,
+          "paddingHorizontal": 1,
+        }
+      }
+    >
+      <Text
+        style={
+          Object {
+            "color": "#FFFFFF",
+            "fontFamily": "Bungee-Regular",
+            "fontSize": 20,
+          }
+        }
+      >
+            CREATE TEAM    
+      </Text>
+    </View>
+  </View>
+  <View
+    style={
+      Object {
+        "alignItems": "center",
+        "bottom": 0,
+        "justifyContent": "center",
+        "left": 0,
+        "position": "absolute",
+        "right": 200,
+        "top": 0,
+      }
+    }
+  >
+    <View
+      accessible={true}
+      collapsable={false}
+      focusable={true}
+      onClick={[Function]}
+      onResponderGrant={[Function]}
+      onResponderMove={[Function]}
+      onResponderRelease={[Function]}
+      onResponderTerminate={[Function]}
+      onResponderTerminationRequest={[Function]}
+      onStartShouldSetResponder={[Function]}
+      style={
+        Object {
+          "alignItems": "center",
+          "backgroundColor": "#CA5A37",
+          "justifyContent": "center",
+          "opacity": 1,
+          "padding": 5,
+          "paddingHorizontal": 1,
+        }
+      }
+    >
+      <Text
+        style={
+          Object {
+            "color": "#FFFFFF",
+            "fontFamily": "Bungee-Regular",
+            "fontSize": 20,
+          }
+        }
+      >
+           BROWSE TEAMS    
+      </Text>
+    </View>
+  </View>
+  <View
+    style={
+      Object {
+        "alignItems": "center",
+        "bottom": 0,
+        "justifyContent": "center",
+        "left": 0,
+        "position": "absolute",
+        "right": 200,
+        "top": 200,
+      }
+    }
+  >
+    <View
+      accessible={true}
+      collapsable={false}
+      focusable={true}
+      onClick={[Function]}
+      onResponderGrant={[Function]}
+      onResponderMove={[Function]}
+      onResponderRelease={[Function]}
+      onResponderTerminate={[Function]}
+      onResponderTerminationRequest={[Function]}
+      onStartShouldSetResponder={[Function]}
+      style={
+        Object {
+          "alignItems": "center",
+          "backgroundColor": "#B62727",
+          "justifyContent": "center",
+          "opacity": 1,
+          "padding": 5,
+          "paddingHorizontal": 1,
+        }
+      }
+    >
+      <Text
+        style={
+          Object {
+            "color": "#FFFFFF",
+            "fontFamily": "Bungee-Regular",
+            "fontSize": 20,
+          }
+        }
+      >
+            BROWSE USERS    
+      </Text>
+    </View>
+  </View>
+  <View
+    style={
+      Object {
+        "alignItems": "center",
+        "bottom": 200,
+        "justifyContent": "center",
+        "left": 200,
+        "position": "absolute",
+        "right": 0,
+        "top": 0,
+      }
+    }
+  >
+    <View
+      accessible={true}
+      collapsable={false}
+      focusable={true}
+      onClick={[Function]}
+      onResponderGrant={[Function]}
+      onResponderMove={[Function]}
+      onResponderRelease={[Function]}
+      onResponderTerminate={[Function]}
+      onResponderTerminationRequest={[Function]}
+      onStartShouldSetResponder={[Function]}
+      style={
+        Object {
+          "alignItems": "center",
+          "backgroundColor": "#CA5A37",
+          "justifyContent": "center",
+          "opacity": 1,
+          "padding": 5,
+          "paddingHorizontal": 1,
+        }
+      }
+    >
+      <Text
+        style={
+          Object {
+            "color": "#FFFFFF",
+            "fontFamily": "Bungee-Regular",
+            "fontSize": 20,
+          }
+        }
+      >
+          BROWSE NOTIFS  
+      </Text>
+    </View>
+  </View>
+  <View
+    style={
+      Object {
+        "alignItems": "center",
+        "bottom": 0,
+        "justifyContent": "center",
+        "left": 200,
+        "position": "absolute",
+        "right": 0,
+        "top": 0,
+      }
+    }
+  >
+    <View
+      accessible={true}
+      collapsable={false}
+      focusable={true}
+      onClick={[Function]}
+      onResponderGrant={[Function]}
+      onResponderMove={[Function]}
+      onResponderRelease={[Function]}
+      onResponderTerminate={[Function]}
+      onResponderTerminationRequest={[Function]}
+      onStartShouldSetResponder={[Function]}
+      style={
+        Object {
+          "alignItems": "center",
+          "backgroundColor": "#B62727",
+          "justifyContent": "center",
+          "opacity": 1,
+          "padding": 10,
+          "paddingHorizontal": 1,
+        }
+      }
+    >
+      <Text
+        style={
+          Object {
+            "color": "#FFFFFF",
+            "fontFamily": "Bungee-Regular",
+            "fontSize": 17,
+          }
+        }
+      >
+          BROWSE PLAYERS  
+      </Text>
+    </View>
+  </View>
+  <View
+    style={
+      Object {
+        "alignItems": "center",
+        "bottom": 0,
+        "justifyContent": "center",
+        "left": 200,
+        "position": "absolute",
+        "right": 0,
+        "top": 200,
+      }
+    }
+  >
+    <View
+      accessible={true}
+      collapsable={false}
+      focusable={true}
+      onClick={[Function]}
+      onResponderGrant={[Function]}
+      onResponderMove={[Function]}
+      onResponderRelease={[Function]}
+      onResponderTerminate={[Function]}
+      onResponderTerminationRequest={[Function]}
+      onStartShouldSetResponder={[Function]}
+      style={
+        Object {
+          "alignItems": "center",
+          "backgroundColor": "#CA5A37",
+          "justifyContent": "center",
+          "opacity": 1,
+          "padding": 10,
+          "paddingHorizontal": 1,
+        }
+      }
+    >
+      <Text
+        style={
+          Object {
+            "color": "#FFFFFF",
+            "fontFamily": "Bungee-Regular",
+            "fontSize": 17,
+          }
+        }
+      >
+          BROWSE SEASONS  
+      </Text>
+    </View>
+  </View>
+  <View
+    style={
+      Object {
+        "alignItems": "center",
+        "bottom": 0,
+        "justifyContent": "center",
+        "left": 10,
+        "position": "absolute",
+        "right": 0,
+        "top": 400,
+      }
+    }
+  >
+    <View
+      accessible={true}
+      collapsable={false}
+      focusable={true}
+      onClick={[Function]}
+      onResponderGrant={[Function]}
+      onResponderMove={[Function]}
+      onResponderRelease={[Function]}
+      onResponderTerminate={[Function]}
+      onResponderTerminationRequest={[Function]}
+      onStartShouldSetResponder={[Function]}
+      style={
+        Object {
+          "alignItems": "center",
+          "backgroundColor": "#B62727",
+          "justifyContent": "center",
+          "opacity": 1,
+          "padding": 5,
+          "paddingHorizontal": 1,
+        }
+      }
+    >
+      <Text
+        style={
+          Object {
+            "color": "#FFFFFF",
+            "fontFamily": "Bungee-Regular",
+            "fontSize": 20,
+          }
+        }
+      >
+                     SCHEDULE                
+      </Text>
+    </View>
+  </View>
+  <View
+    style={
+      Object {
+        "alignItems": "center",
+        "bottom": 680,
+        "justifyContent": "center",
+        "left": 240,
+        "position": "absolute",
+        "right": 0,
+        "top": 0,
+      }
+    }
+  >
+    <View
+      accessible={true}
+      collapsable={false}
+      focusable={true}
+      onClick={[Function]}
+      onResponderGrant={[Function]}
+      onResponderMove={[Function]}
+      onResponderRelease={[Function]}
+      onResponderTerminate={[Function]}
+      onResponderTerminationRequest={[Function]}
+      onStartShouldSetResponder={[Function]}
+      style={
+        Object {
+          "alignItems": "center",
+          "backgroundColor": "transparent",
+          "justifyContent": "center",
+          "opacity": 1,
+          "padding": 30,
+          "paddingHorizontal": 18,
+          "right": 40,
+          "top": 20,
+        }
+      }
+    >
+      <Text
+        style={
+          Object {
+            "color": "white",
+            "fontFamily": "Bungee-Regular",
+            "fontSize": 14,
+          }
+        }
+      >
+         Msgs
+      </Text>
+    </View>
+  </View>
+  <View
+    style={
+      Object {
+        "alignItems": "center",
+        "bottom": 680,
+        "justifyContent": "center",
+        "left": 405,
+        "position": "absolute",
+        "right": 0,
+        "top": 0,
+      }
+    }
+  >
+    <View
+      accessible={true}
+      collapsable={false}
+      focusable={true}
+      onClick={[Function]}
+      onResponderGrant={[Function]}
+      onResponderMove={[Function]}
+      onResponderRelease={[Function]}
+      onResponderTerminate={[Function]}
+      onResponderTerminationRequest={[Function]}
+      onStartShouldSetResponder={[Function]}
+      style={
+        Object {
+          "alignItems": "center",
+          "backgroundColor": "transparent",
+          "justifyContent": "center",
+          "opacity": 1,
+          "padding": 30,
+          "paddingHorizontal": 18,
+          "right": 40,
+          "top": 20,
+        }
+      }
+    >
+      <Text
+        style={
+          Object {
+            "color": "white",
+            "fontFamily": "Bungee-Regular",
+            "fontSize": 30,
+          }
+        }
+      >
+         Profile 
+      </Text>
+    </View>
+  </View>
+</View>
+`;
+
+exports[`renders createteam correctly 1`] = `
+<View
+  style={
+    Object {
+      "alignItems": "center",
+      "flex": 1,
+      "justifyContent": "center",
+    }
+  }
+>
+  <View
+    accessibilityIgnoresInvertColors={true}
+    style={
+      Object {
+        "height": "100%",
+        "width": "100%",
+      }
+    }
+  >
+    <Image
+      source={
+        Object {
+          "testUri": "../../../profilebg.png",
+        }
+      }
+      style={
+        Array [
+          Object {
+            "bottom": 0,
+            "left": 0,
+            "position": "absolute",
+            "right": 0,
+            "top": 0,
+          },
+          Object {
+            "height": "100%",
+            "width": "100%",
+          },
+          undefined,
+        ]
+      }
+    />
+  </View>
+  <View
+    style={
+      Object {
+        "alignItems": "center",
+        "bottom": 500,
+        "justifyContent": "center",
+        "left": 0,
+        "position": "absolute",
+        "right": 0,
+        "top": 0,
+      }
+    }
+  >
+    <Text
+      style={
+        Object {
+          "color": "#D9D9D9",
+          "fontFamily": "Bungee-Regular",
+          "fontSize": 35,
+        }
+      }
+    >
+      Create Team
+    </Text>
+  </View>
+  <View
+    style={
+      Object {
+        "alignItems": "center",
+        "bottom": 250,
+        "justifyContent": "center",
+        "left": 0,
+        "position": "absolute",
+        "right": 270,
+        "top": 0,
+      }
+    }
+  >
+    <Text
+      style={
+        Object {
+          "color": "#D9D9D9",
+          "fontFamily": "monospace",
+          "fontSize": 20,
+        }
+      }
+    >
+      Team Name
+    </Text>
+  </View>
+  <View
+    style={
+      Object {
+        "alignItems": "center",
+        "bottom": 90,
+        "justifyContent": "center",
+        "left": 0,
+        "position": "absolute",
+        "right": 0,
+        "top": 0,
+      }
+    }
+  >
+    <TextInput
+      onChangeText={[Function]}
+      placeholder="Team Name"
+      style={
+        Object {
+          "backgroundColor": "white",
+          "borderColor": "gray",
+          "borderRadius": 10,
+          "borderWidth": 2,
+          "color": "black",
+          "padding": 10,
+          "width": "100%",
+        }
+      }
+      textAlign="center"
+    />
+  </View>
+  <View
+    style={
+      Object {
+        "alignItems": "center",
+        "bottom": 0,
+        "justifyContent": "center",
+        "left": 0,
+        "position": "absolute",
+        "right": 270,
+        "top": 50,
+      }
+    }
+  />
+  <View
+    style={
+      Object {
+        "alignItems": "center",
+        "bottom": 0,
+        "justifyContent": "center",
+        "left": 200,
+        "position": "absolute",
+        "right": 0,
+        "top": 450,
+      }
+    }
+  >
+    <View
+      accessible={true}
+      collapsable={false}
+      focusable={true}
+      onClick={[Function]}
+      onResponderGrant={[Function]}
+      onResponderMove={[Function]}
+      onResponderRelease={[Function]}
+      onResponderTerminate={[Function]}
+      onResponderTerminationRequest={[Function]}
+      onStartShouldSetResponder={[Function]}
+      style={
+        Object {
+          "alignItems": "center",
+          "backgroundColor": "#171414",
+          "opacity": 1,
+          "padding": 15,
+        }
+      }
+    >
+      <Text
+        style={
+          Object {
+            "color": "#FFFFFF",
+            "fontFamily": "monospace",
+          }
+        }
+      >
+        Create
+      </Text>
+    </View>
+  </View>
+</View>
+`;
+
+exports[`renders home correctly 1`] = `
+<View
+  style={
+    Object {
+      "alignItems": "center",
+      "flex": 1,
+      "justifyContent": "center",
+    }
+  }
+>
+  <View
+    accessibilityIgnoresInvertColors={true}
+    style={
+      Object {
+        "height": "100%",
+        "width": "100%",
+      }
+    }
+  >
+    <Image
+      source={
+        Object {
+          "testUri": "../../../profilebg.png",
+        }
+      }
+      style={
+        Array [
+          Object {
+            "bottom": 0,
+            "left": 0,
+            "position": "absolute",
+            "right": 0,
+            "top": 0,
+          },
+          Object {
+            "height": "100%",
+            "width": "100%",
+          },
+          undefined,
+        ]
+      }
+    />
+  </View>
+  <View
+    style={
+      Object {
+        "alignItems": "center",
+        "flex": 1,
+        "height": 170,
+        "marginBottom": 20,
+        "position": "absolute",
+        "resizeMode": "stretch",
+        "top": 120,
+        "width": 50,
+      }
+    }
+  >
+    <Image
+      resizeMode="stretch"
+      source={
+        Object {
+          "testUri": "../../../basketball.jpg",
+        }
+      }
+      style={
+        Object {
+          "flex": 1,
+        }
+      }
+    />
+  </View>
+  <View
+    style={
+      Object {
+        "alignItems": "center",
+        "bottom": 0,
+        "justifyContent": "center",
+        "left": 0,
+        "position": "absolute",
+        "right": 200,
+        "top": 0,
+      }
+    }
+  >
+    <View
+      accessible={true}
+      collapsable={false}
+      focusable={true}
+      onClick={[Function]}
+      onResponderGrant={[Function]}
+      onResponderMove={[Function]}
+      onResponderRelease={[Function]}
+      onResponderTerminate={[Function]}
+      onResponderTerminationRequest={[Function]}
+      onStartShouldSetResponder={[Function]}
+      style={
+        Object {
+          "alignItems": "center",
+          "backgroundColor": "#B62727",
+          "justifyContent": "center",
+          "opacity": 1,
+          "padding": 5,
+          "paddingHorizontal": 1,
+        }
+      }
+    >
+      <Text
+        style={
+          Object {
+            "color": "#FFFFFF",
+            "fontFamily": "Bungee-Regular",
+            "fontSize": 20,
+          }
+        }
+      >
+                SCHEDULE        
+      </Text>
+    </View>
+  </View>
+  <View
+    style={
+      Object {
+        "alignItems": "center",
+        "bottom": 0,
+        "justifyContent": "center",
+        "left": 0,
+        "position": "absolute",
+        "right": 200,
+        "top": 200,
+      }
+    }
+  >
+    <View
+      accessible={true}
+      collapsable={false}
+      focusable={true}
+      onClick={[Function]}
+      onResponderGrant={[Function]}
+      onResponderMove={[Function]}
+      onResponderRelease={[Function]}
+      onResponderTerminate={[Function]}
+      onResponderTerminationRequest={[Function]}
+      onStartShouldSetResponder={[Function]}
+      style={
+        Object {
+          "alignItems": "center",
+          "backgroundColor": "#CA5A37",
+          "justifyContent": "center",
+          "opacity": 1,
+          "padding": 5,
+          "paddingHorizontal": 1,
+        }
+      }
+    >
+      <Text
+        style={
+          Object {
+            "color": "#FFFFFF",
+            "fontFamily": "Bungee-Regular",
+            "fontSize": 20,
+          }
+        }
+      >
+           BROWSE TEAMS    
+      </Text>
+    </View>
+  </View>
+  <View
+    style={
+      Object {
+        "alignItems": "center",
+        "bottom": 0,
+        "justifyContent": "center",
+        "left": 0,
+        "position": "absolute",
+        "right": 0,
+        "top": 400,
+      }
+    }
+  >
+    <View
+      accessible={true}
+      collapsable={false}
+      focusable={true}
+      onClick={[Function]}
+      onResponderGrant={[Function]}
+      onResponderMove={[Function]}
+      onResponderRelease={[Function]}
+      onResponderTerminate={[Function]}
+      onResponderTerminationRequest={[Function]}
+      onStartShouldSetResponder={[Function]}
+      style={
+        Object {
+          "alignItems": "center",
+          "backgroundColor": "#B62727",
+          "justifyContent": "center",
+          "opacity": 1,
+          "padding": 1,
+          "paddingHorizontal": 1,
+        }
+      }
+    >
+      <Text
+        style={
+          Object {
+            "color": "#FFFFFF",
+            "fontFamily": "Bungee-Regular",
+            "fontSize": 23,
+          }
+        }
+      >
+                   CREATE TEAM            
+      </Text>
+    </View>
+  </View>
+  <View
+    style={
+      Object {
+        "alignItems": "center",
+        "bottom": 0,
+        "justifyContent": "center",
+        "left": 200,
+        "position": "absolute",
+        "right": 0,
+        "top": 0,
+      }
+    }
+  >
+    <View
+      accessible={true}
+      collapsable={false}
+      focusable={true}
+      onClick={[Function]}
+      onResponderGrant={[Function]}
+      onResponderMove={[Function]}
+      onResponderRelease={[Function]}
+      onResponderTerminate={[Function]}
+      onResponderTerminationRequest={[Function]}
+      onStartShouldSetResponder={[Function]}
+      style={
+        Object {
+          "alignItems": "center",
+          "backgroundColor": "#B62727",
+          "justifyContent": "center",
+          "opacity": 1,
+          "padding": 10,
+          "paddingHorizontal": 1,
+        }
+      }
+    >
+      <Text
+        style={
+          Object {
+            "color": "#FFFFFF",
+            "fontFamily": "Bungee-Regular",
+            "fontSize": 17,
+          }
+        }
+      >
+          BROWSE PLAYERS  
+      </Text>
+    </View>
+  </View>
+  <View
+    style={
+      Object {
+        "alignItems": "center",
+        "bottom": 0,
+        "justifyContent": "center",
+        "left": 200,
+        "position": "absolute",
+        "right": 0,
+        "top": 200,
+      }
+    }
+  >
+    <View
+      accessible={true}
+      collapsable={false}
+      focusable={true}
+      onClick={[Function]}
+      onResponderGrant={[Function]}
+      onResponderMove={[Function]}
+      onResponderRelease={[Function]}
+      onResponderTerminate={[Function]}
+      onResponderTerminationRequest={[Function]}
+      onStartShouldSetResponder={[Function]}
+      style={
+        Object {
+          "alignItems": "center",
+          "backgroundColor": "#CA5A37",
+          "justifyContent": "center",
+          "opacity": 1,
+          "padding": 10,
+          "paddingHorizontal": 1,
+        }
+      }
+    >
+      <Text
+        style={
+          Object {
+            "color": "#FFFFFF",
+            "fontFamily": "Bungee-Regular",
+            "fontSize": 17,
+          }
+        }
+      >
+          BROWSE SEASONS  
+      </Text>
+    </View>
+  </View>
+  <View
+    style={
+      Object {
+        "alignItems": "center",
+        "bottom": 680,
+        "justifyContent": "center",
+        "left": 240,
+        "position": "absolute",
+        "right": 0,
+        "top": 0,
+      }
+    }
+  >
+    <View
+      accessible={true}
+      collapsable={false}
+      focusable={true}
+      onClick={[Function]}
+      onResponderGrant={[Function]}
+      onResponderMove={[Function]}
+      onResponderRelease={[Function]}
+      onResponderTerminate={[Function]}
+      onResponderTerminationRequest={[Function]}
+      onStartShouldSetResponder={[Function]}
+      style={
+        Object {
+          "alignItems": "center",
+          "backgroundColor": "transparent",
+          "justifyContent": "center",
+          "opacity": 1,
+          "padding": 30,
+          "paddingHorizontal": 18,
+          "right": 40,
+          "top": 20,
+        }
+      }
+    >
+      <Text
+        style={
+          Object {
+            "color": "white",
+            "fontFamily": "Bungee-Regular",
+            "fontSize": 14,
+          }
+        }
+      >
+         Msgs
+      </Text>
+    </View>
+  </View>
+  <View
+    style={
+      Object {
+        "alignItems": "center",
+        "bottom": 680,
+        "justifyContent": "center",
+        "left": 405,
+        "position": "absolute",
+        "right": 0,
+        "top": 0,
+      }
+    }
+  >
+    <View
+      accessible={true}
+      collapsable={false}
+      focusable={true}
+      onClick={[Function]}
+      onResponderGrant={[Function]}
+      onResponderMove={[Function]}
+      onResponderRelease={[Function]}
+      onResponderTerminate={[Function]}
+      onResponderTerminationRequest={[Function]}
+      onStartShouldSetResponder={[Function]}
+      style={
+        Object {
+          "alignItems": "center",
+          "backgroundColor": "transparent",
+          "justifyContent": "center",
+          "opacity": 1,
+          "padding": 30,
+          "paddingHorizontal": 18,
+          "right": 40,
+          "top": 20,
+        }
+      }
+    >
+      <Text
+        style={
+          Object {
+            "color": "white",
+            "fontFamily": "Bungee-Regular",
+            "fontSize": 30,
+          }
+        }
+      >
+         Profile 
+      </Text>
+    </View>
+  </View>
+</View>
+`;
+
+exports[`renders inbox correctly 1`] = `
+<RCTSafeAreaView
+  style={
+    Object {
+      "flex": 1,
+    }
+  }
+>
+  <View
+    style={
+      Object {
+        "backgroundColor": "#171414",
+        "flex": 1,
+      }
+    }
+  >
+    <View
+      style={
+        Object {
+          "flex": 1,
+        }
+      }
+    >
+      <RCTScrollView
+        ItemSeparatorComponent={[Function]}
+        extraData={
+          Object {
+            "FlatListItems": undefined,
+          }
+        }
+        getItem={[Function]}
+        getItemCount={[Function]}
+        keyExtractor={[Function]}
+        onContentSizeChange={[Function]}
+        onLayout={[Function]}
+        onMomentumScrollBegin={[Function]}
+        onMomentumScrollEnd={[Function]}
+        onScroll={[Function]}
+        onScrollBeginDrag={[Function]}
+        onScrollEndDrag={[Function]}
+        removeClippedSubviews={false}
+        renderItem={[Function]}
+        scrollEventThrottle={50}
+        stickyHeaderIndices={Array []}
+        viewabilityConfigCallbackPairs={Array []}
+      >
+        <View />
+      </RCTScrollView>
+      <Text
+        style={
+          Object {
+            "color": "white",
+            "fontFamily": "monospace",
+            "fontSize": 20,
+          }
+        }
+      >
+         's Inbox
+      </Text>
+      <TextInput
+        onChangeText={[Function]}
+        placeholder="Sender Username"
+        placeholderTextColor="white"
+        style={
+          Object {
+            "backgroundColor": "#383434",
+            "borderRadius": 3,
+            "borderWidth": 2,
+            "color": "white",
+            "padding": 10,
+            "width": "100%",
+          }
+        }
+        textAlign="center"
+      />
+      <View
+        accessible={true}
+        collapsable={false}
+        focusable={true}
+        onClick={[Function]}
+        onResponderGrant={[Function]}
+        onResponderMove={[Function]}
+        onResponderRelease={[Function]}
+        onResponderTerminate={[Function]}
+        onResponderTerminationRequest={[Function]}
+        onStartShouldSetResponder={[Function]}
+        style={
+          Object {
+            "alignItems": "center",
+            "backgroundColor": "#CA5A37",
+            "opacity": 1,
+            "padding": 15,
+          }
+        }
+      >
+        <Text
+          style={
+            Object {
+              "color": "#FFFFFF",
+              "fontFamily": "monospace",
+            }
+          }
+        >
+          Filter
+        </Text>
+      </View>
+    </View>
+  </View>
+</RCTSafeAreaView>
+`;
+
+exports[`renders loginscreen correctly 1`] = `
+<View
+  style={
+    Object {
+      "alignItems": "center",
+      "flex": 1,
+      "justifyContent": "center",
+    }
+  }
+>
+  <View
+    accessibilityIgnoresInvertColors={true}
+    style={
+      Object {
+        "height": "100%",
+        "width": "100%",
+      }
+    }
+  >
+    <Image
+      source={
+        Object {
+          "testUri": "../../../bg.png",
+        }
+      }
+      style={
+        Array [
+          Object {
+            "bottom": 0,
+            "left": 0,
+            "position": "absolute",
+            "right": 0,
+            "top": 0,
+          },
+          Object {
+            "height": "100%",
+            "width": "100%",
+          },
+          undefined,
+        ]
+      }
+    />
+  </View>
+  <View
+    style={
+      Object {
+        "alignItems": "center",
+        "bottom": 500,
+        "justifyContent": "center",
+        "left": 0,
+        "position": "absolute",
+        "right": 0,
+        "top": 0,
+      }
+    }
+  >
+    <Text
+      style={
+        Object {
+          "color": "#D9D9D9",
+          "fontFamily": "Bungee-Regular",
+          "fontSize": 35,
+        }
+      }
+    >
+      LOGIN
+    </Text>
+  </View>
+  <View
+    style={
+      Object {
+        "alignItems": "center",
+        "bottom": 250,
+        "justifyContent": "center",
+        "left": 0,
+        "position": "absolute",
+        "right": 270,
+        "top": 0,
+      }
+    }
+  >
+    <Text
+      style={
+        Object {
+          "color": "#D9D9D9",
+          "fontFamily": "monospace",
+          "fontSize": 20,
+        }
+      }
+    >
+      Username
+    </Text>
+  </View>
+  <View
+    style={
+      Object {
+        "alignItems": "center",
+        "bottom": 90,
+        "justifyContent": "center",
+        "left": 0,
+        "position": "absolute",
+        "right": 0,
+        "top": 0,
+      }
+    }
+  >
+    <TextInput
+      keyboardType="email-address"
+      onChangeText={[Function]}
+      placeholder="Email"
+      style={
+        Object {
+          "backgroundColor": "white",
+          "borderColor": "gray",
+          "borderRadius": 10,
+          "borderWidth": 2,
+          "color": "black",
+          "padding": 10,
+          "width": "100%",
+        }
+      }
+      textAlign="center"
+    />
+  </View>
+  <View
+    style={
+      Object {
+        "alignItems": "center",
+        "bottom": 0,
+        "justifyContent": "center",
+        "left": 0,
+        "position": "absolute",
+        "right": 270,
+        "top": 50,
+      }
+    }
+  >
+    <Text
+      style={
+        Object {
+          "color": "#D9D9D9",
+          "fontFamily": "monospace",
+          "fontSize": 20,
+        }
+      }
+    >
+      Password
+    </Text>
+  </View>
+  <View
+    style={
+      Object {
+        "alignItems": "center",
+        "bottom": 0,
+        "justifyContent": "center",
+        "left": 0,
+        "position": "absolute",
+        "right": 0,
+        "top": 200,
+      }
+    }
+  >
+    <TextInput
+      keyboardType="default"
+      onChangeText={[Function]}
+      placeholder="Password"
+      secureTextEntry={true}
+      style={
+        Object {
+          "backgroundColor": "white",
+          "borderColor": "gray",
+          "borderRadius": 10,
+          "borderWidth": 2,
+          "color": "black",
+          "padding": 10,
+          "width": "100%",
+        }
+      }
+      textAlign="center"
+    />
+  </View>
+  <View
+    style={
+      Object {
+        "alignItems": "center",
+        "bottom": 0,
+        "justifyContent": "center",
+        "left": 0,
+        "position": "absolute",
+        "right": 200,
+        "top": 450,
+      }
+    }
+  >
+    <View
+      accessible={true}
+      collapsable={false}
+      focusable={true}
+      onClick={[Function]}
+      onResponderGrant={[Function]}
+      onResponderMove={[Function]}
+      onResponderRelease={[Function]}
+      onResponderTerminate={[Function]}
+      onResponderTerminationRequest={[Function]}
+      onStartShouldSetResponder={[Function]}
+      style={
+        Object {
+          "alignItems": "center",
+          "backgroundColor": "#171414",
+          "opacity": 1,
+          "padding": 15,
+        }
+      }
+    >
+      <Text
+        style={
+          Object {
+            "color": "#FFFFFF",
+            "fontFamily": "monospace",
+          }
+        }
+      >
+        Login
+      </Text>
+    </View>
+  </View>
+  <View
+    style={
+      Object {
+        "alignItems": "center",
+        "bottom": 0,
+        "justifyContent": "center",
+        "left": 200,
+        "position": "absolute",
+        "right": 0,
+        "top": 450,
+      }
+    }
+  >
+    <View
+      accessible={true}
+      collapsable={false}
+      focusable={true}
+      onClick={[Function]}
+      onResponderGrant={[Function]}
+      onResponderMove={[Function]}
+      onResponderRelease={[Function]}
+      onResponderTerminate={[Function]}
+      onResponderTerminationRequest={[Function]}
+      onStartShouldSetResponder={[Function]}
+      style={
+        Object {
+          "alignItems": "center",
+          "backgroundColor": "#171414",
+          "opacity": 1,
+          "padding": 15,
+        }
+      }
+    >
+      <Text
+        style={
+          Object {
+            "color": "#FFFFFF",
+            "fontFamily": "monospace",
+          }
+        }
+      >
+        Register
+      </Text>
+    </View>
+  </View>
+</View>
+`;
+
+exports[`renders matchcreate correctly 1`] = `
+<View
+  style={
+    Object {
+      "alignItems": "center",
+      "flex": 1,
+      "justifyContent": "center",
+    }
+  }
+>
+  <View
+    accessibilityIgnoresInvertColors={true}
+    style={
+      Object {
+        "height": "100%",
+        "width": "100%",
+      }
+    }
+  >
+    <Image
+      source={
+        Object {
+          "testUri": "../../../profilebg.png",
+        }
+      }
+      style={
+        Array [
+          Object {
+            "bottom": 0,
+            "left": 0,
+            "position": "absolute",
+            "right": 0,
+            "top": 0,
+          },
+          Object {
+            "height": "100%",
+            "width": "100%",
+          },
+          undefined,
+        ]
+      }
+    />
+  </View>
+  <View
+    style={
+      Object {
+        "alignItems": "center",
+        "bottom": 500,
+        "justifyContent": "center",
+        "left": 0,
+        "position": "absolute",
+        "right": 0,
+        "top": 0,
+      }
+    }
+  >
+    <Text
+      style={
+        Object {
+          "color": "#D9D9D9",
+          "fontFamily": "Bungee-Regular",
+          "fontSize": 35,
+        }
+      }
+    >
+      Create Match
+    </Text>
+  </View>
+  <View
+    style={
+      Object {
+        "alignItems": "center",
+        "bottom": 250,
+        "justifyContent": "center",
+        "left": 0,
+        "position": "absolute",
+        "right": 270,
+        "top": 0,
+      }
+    }
+  >
+    <Text
+      style={
+        Object {
+          "color": "#D9D9D9",
+          "fontFamily": "monospace",
+          "fontSize": 20,
+        }
+      }
+    >
+      Match Number
+    </Text>
+  </View>
+  <View
+    style={
+      Object {
+        "alignItems": "center",
+        "bottom": 90,
+        "justifyContent": "center",
+        "left": 0,
+        "position": "absolute",
+        "right": 0,
+        "top": 0,
+      }
+    }
+  >
+    <TextInput
+      onChangeText={[Function]}
+      placeholder="Away Team"
+      style={
+        Object {
+          "backgroundColor": "white",
+          "borderColor": "gray",
+          "borderRadius": 10,
+          "borderWidth": 2,
+          "color": "black",
+          "padding": 10,
+          "width": "100%",
+        }
+      }
+      textAlign="center"
+    />
+  </View>
+  <View
+    style={
+      Object {
+        "alignItems": "center",
+        "bottom": 90,
+        "justifyContent": "center",
+        "left": 0,
+        "position": "absolute",
+        "right": 0,
+        "top": 100,
+      }
+    }
+  >
+    <TextInput
+      onChangeText={[Function]}
+      placeholder="Home Team"
+      style={
+        Object {
+          "backgroundColor": "white",
+          "borderColor": "gray",
+          "borderRadius": 10,
+          "borderWidth": 2,
+          "color": "black",
+          "padding": 10,
+          "width": "100%",
+        }
+      }
+      textAlign="center"
+    />
+  </View>
+  <View
+    style={
+      Object {
+        "alignItems": "center",
+        "bottom": 90,
+        "justifyContent": "center",
+        "left": 0,
+        "position": "absolute",
+        "right": 0,
+        "top": 200,
+      }
+    }
+  >
+    <TextInput
+      onChangeText={[Function]}
+      placeholder="Game Time"
+      style={
+        Object {
+          "backgroundColor": "white",
+          "borderColor": "gray",
+          "borderRadius": 10,
+          "borderWidth": 2,
+          "color": "black",
+          "padding": 10,
+          "width": "100%",
+        }
+      }
+      textAlign="center"
+    />
+  </View>
+  <View
+    style={
+      Object {
+        "alignItems": "center",
+        "bottom": 0,
+        "justifyContent": "center",
+        "left": 0,
+        "position": "absolute",
+        "right": 270,
+        "top": 50,
+      }
+    }
+  />
+  <View
+    style={
+      Object {
+        "alignItems": "center",
+        "bottom": 0,
+        "justifyContent": "center",
+        "left": 200,
+        "position": "absolute",
+        "right": 0,
+        "top": 450,
+      }
+    }
+  >
+    <View
+      accessible={true}
+      collapsable={false}
+      focusable={true}
+      onClick={[Function]}
+      onResponderGrant={[Function]}
+      onResponderMove={[Function]}
+      onResponderRelease={[Function]}
+      onResponderTerminate={[Function]}
+      onResponderTerminationRequest={[Function]}
+      onStartShouldSetResponder={[Function]}
+      style={
+        Object {
+          "alignItems": "center",
+          "backgroundColor": "#171414",
+          "opacity": 1,
+          "padding": 15,
+        }
+      }
+    >
+      <Text
+        style={
+          Object {
+            "color": "#FFFFFF",
+            "fontFamily": "monospace",
+          }
+        }
+      >
+        Create
+      </Text>
+    </View>
+  </View>
+</View>
+`;
+
+exports[`renders matchview correctly 1`] = `
+<View
+  style={
+    Object {
+      "alignItems": "center",
+      "flex": 1,
+      "justifyContent": "center",
+    }
+  }
+>
+  <View
+    accessibilityIgnoresInvertColors={true}
+    style={
+      Object {
+        "height": "100%",
+        "width": "100%",
+      }
+    }
+  >
+    <Image
+      source={
+        Object {
+          "testUri": "../../../profilebg.png",
+        }
+      }
+      style={
+        Array [
+          Object {
+            "bottom": 0,
+            "left": 0,
+            "position": "absolute",
+            "right": 0,
+            "top": 0,
+          },
+          Object {
+            "height": "100%",
+            "width": "100%",
+          },
+          undefined,
+        ]
+      }
+    />
+  </View>
+  <View
+    style={
+      Object {
+        "bottom": 0,
+        "justifyContent": "flex-start",
+        "left": 30,
+        "position": "absolute",
+        "right": 0,
+        "top": 130,
+      }
+    }
+  >
+    <Text
+      style={
+        Array [
+          Object {
+            "color": "#D9D9D9",
+            "fontFamily": "Bungee-Regular",
+            "fontSize": 17,
+          },
+          Object {
+            "fontSize": 30,
+            "justifyContent": "center",
+            "left": 60,
+          },
+        ]
+      }
+    >
+       vs 
+    </Text>
+    <Text
+      style={
+        Object {
+          "alignContent": "center",
+          "bottom": 30,
+          "color": "#CA5A37",
+          "fontSize": 25,
+        }
+      }
+    >
+         ____________________________
+    </Text>
+    <Text
+      style={
+        Array [
+          Object {
+            "color": "#D9D9D9",
+            "fontFamily": "Bungee-Regular",
+            "fontSize": 17,
+          },
+          Object {
+            "bottom": 25,
+            "fontSize": 14,
+            "left": 90,
+          },
+        ]
+      }
+    >
+      Id:
+                   Time:
+    </Text>
+    <Text
+      style={
+        Array [
+          Object {
+            "color": "#D9D9D9",
+            "fontFamily": "Bungee-Regular",
+            "fontSize": 17,
+          },
+          Object {
+            "fontSize": 17,
+          },
+        ]
+      }
+    />
+    <Text
+      style={
+        Array [
+          Object {
+            "color": "#D9D9D9",
+            "fontFamily": "Bungee-Regular",
+            "fontSize": 17,
+          },
+          Object {
+            "fontSize": 21,
+            "left": 40,
+          },
+        ]
+      }
+    >
+       Home
+    </Text>
+    <Text
+      style={
+        Array [
+          Object {
+            "color": "#D9D9D9",
+            "fontFamily": "Bungee-Regular",
+            "fontSize": 17,
+          },
+          Object {
+            "bottom": 55,
+            "fontSize": 21,
+            "left": 240,
+          },
+        ]
+      }
+    >
+      Away
+    </Text>
+    <Text
+      style={
+        Object {
+          "alignContent": "center",
+          "bottom": 80,
+          "color": "#B62727",
+          "fontSize": 17,
+        }
+      }
+    >
+      _____________________________________________
+    </Text>
+    <Text
+      style={
+        Array [
+          Object {
+            "color": "#D9D9D9",
+            "fontFamily": "Bungee-Regular",
+            "fontSize": 17,
+          },
+          Object {
+            "bottom": 45,
+            "fontSize": 15,
+            "left": 10,
+          },
+        ]
+      }
+    >
+      Home Score:
+    </Text>
+    <Text
+      style={
+        Array [
+          Object {
+            "color": "#D9D9D9",
+            "fontFamily": "Bungee-Regular",
+            "fontSize": 17,
+          },
+          Object {
+            "bottom": 85,
+            "fontSize": 15,
+            "left": 210,
+          },
+        ]
+      }
+    >
+      Away Score 
+    </Text>
+    <Text
+      style={
+        Array [
+          Object {
+            "color": "#D9D9D9",
+            "fontFamily": "Bungee-Regular",
+            "fontSize": 17,
+          },
+          Object {
+            "bottom": 85,
+            "fontSize": 15,
+            "left": 10,
+          },
+        ]
+      }
+    >
+      Home Blocks 
+    </Text>
+    <Text
+      style={
+        Array [
+          Object {
+            "color": "#D9D9D9",
+            "fontFamily": "Bungee-Regular",
+            "fontSize": 17,
+          },
+          Object {
+            "bottom": 125,
+            "fontSize": 15,
+            "left": 210,
+          },
+        ]
+      }
+    >
+      Away Blocks 
+    </Text>
+    <Text
+      style={
+        Array [
+          Object {
+            "color": "#D9D9D9",
+            "fontFamily": "Bungee-Regular",
+            "fontSize": 17,
+          },
+          Object {
+            "bottom": 125,
+            "fontSize": 15,
+            "left": 10,
+          },
+        ]
+      }
+    >
+      Home Steals: 
+    </Text>
+    <Text
+      style={
+        Array [
+          Object {
+            "color": "#D9D9D9",
+            "fontFamily": "Bungee-Regular",
+            "fontSize": 17,
+          },
+          Object {
+            "bottom": 165,
+            "fontSize": 15,
+            "left": 210,
+          },
+        ]
+      }
+    >
+      Away Steals: 
+    </Text>
+    <Text
+      style={
+        Array [
+          Object {
+            "color": "#D9D9D9",
+            "fontFamily": "Bungee-Regular",
+            "fontSize": 17,
+          },
+          Object {
+            "bottom": 165,
+            "fontSize": 15,
+            "left": 10,
+          },
+        ]
+      }
+    >
+      Home Assists: 
+    </Text>
+    <Text
+      style={
+        Array [
+          Object {
+            "color": "#D9D9D9",
+            "fontFamily": "Bungee-Regular",
+            "fontSize": 17,
+          },
+          Object {
+            "bottom": 205,
+            "fontSize": 15,
+            "left": 210,
+          },
+        ]
+      }
+    >
+      Away Assists: 
+    </Text>
+    <Text
+      style={
+        Array [
+          Object {
+            "color": "#D9D9D9",
+            "fontFamily": "Bungee-Regular",
+            "fontSize": 17,
+          },
+          Object {
+            "bottom": 205,
+            "fontSize": 15,
+            "left": 10,
+          },
+        ]
+      }
+    >
+      Home Frees: 
+    </Text>
+    <Text
+      style={
+        Array [
+          Object {
+            "color": "#D9D9D9",
+            "fontFamily": "Bungee-Regular",
+            "fontSize": 17,
+          },
+          Object {
+            "bottom": 245,
+            "fontSize": 15,
+            "left": 210,
+          },
+        ]
+      }
+    >
+      Away Frees: 
+    </Text>
+    <Text
+      style={
+        Array [
+          Object {
+            "color": "#D9D9D9",
+            "fontFamily": "Bungee-Regular",
+            "fontSize": 17,
+          },
+          Object {
+            "bottom": 245,
+            "fontSize": 15,
+            "left": 10,
+          },
+        ]
+      }
+    >
+      Home Shot: 
+       %
+    </Text>
+    <Text
+      style={
+        Array [
+          Object {
+            "color": "#D9D9D9",
+            "fontFamily": "Bungee-Regular",
+            "fontSize": 17,
+          },
+          Object {
+            "bottom": 285,
+            "fontSize": 15,
+            "left": 210,
+          },
+        ]
+      }
+    >
+      Away Shot: 
+       %
+    </Text>
+  </View>
+  <View
+    style={
+      Object {
+        "alignItems": "center",
+        "bottom": 680,
+        "justifyContent": "center",
+        "left": 240,
+        "position": "absolute",
+        "right": 0,
+        "top": 0,
+      }
+    }
+  >
+    <View
+      accessible={true}
+      collapsable={false}
+      focusable={true}
+      onClick={[Function]}
+      onResponderGrant={[Function]}
+      onResponderMove={[Function]}
+      onResponderRelease={[Function]}
+      onResponderTerminate={[Function]}
+      onResponderTerminationRequest={[Function]}
+      onStartShouldSetResponder={[Function]}
+      style={
+        Object {
+          "alignItems": "center",
+          "backgroundColor": "transparent",
+          "justifyContent": "center",
+          "opacity": 1,
+          "padding": 30,
+          "paddingHorizontal": 18,
+          "right": 40,
+          "top": 20,
+        }
+      }
+    >
+      <Text
+        style={
+          Object {
+            "color": "white",
+            "fontFamily": "Bungee-Regular",
+            "fontSize": 28,
+          }
+        }
+      >
+         Msgs
+      </Text>
+    </View>
+  </View>
+  <View
+    style={
+      Object {
+        "alignItems": "center",
+        "bottom": 680,
+        "justifyContent": "center",
+        "left": 405,
+        "position": "absolute",
+        "right": 0,
+        "top": 0,
+      }
+    }
+  >
+    <View
+      accessible={true}
+      collapsable={false}
+      focusable={true}
+      onClick={[Function]}
+      onResponderGrant={[Function]}
+      onResponderMove={[Function]}
+      onResponderRelease={[Function]}
+      onResponderTerminate={[Function]}
+      onResponderTerminationRequest={[Function]}
+      onStartShouldSetResponder={[Function]}
+      style={
+        Object {
+          "alignItems": "center",
+          "backgroundColor": "transparent",
+          "justifyContent": "center",
+          "opacity": 1,
+          "padding": 30,
+          "paddingHorizontal": 18,
+          "right": 40,
+          "top": 20,
+        }
+      }
+    >
+      <Text
+        style={
+          Object {
+            "color": "white",
+            "fontFamily": "Bungee-Regular",
+            "fontSize": 30,
+          }
+        }
+      >
+         Profile 
+      </Text>
+    </View>
+  </View>
+  <View
+    style={
+      Object {
+        "alignItems": "center",
+        "bottom": 0,
+        "justifyContent": "center",
+        "left": 200,
+        "position": "absolute",
+        "right": 20,
+        "top": 650,
+      }
+    }
+  />
+</View>
+`;
+
+exports[`renders notification manager correctly 1`] = `
+<RCTSafeAreaView
+  style={
+    Object {
+      "flex": 1,
+    }
+  }
+>
+  <View
+    style={
+      Object {
+        "backgroundColor": "#171414",
+        "flex": 1,
+      }
+    }
+  >
+    <View
+      style={
+        Object {
+          "flex": 1,
+        }
+      }
+    >
+      <RCTScrollView
+        ItemSeparatorComponent={[Function]}
+        data={
+          Array [
+            Object {
+              "content": "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
+              "id": 0,
+              "recieverUsername": "jane_doe",
+              "senderUsername": "john_doe",
+            },
+          ]
+        }
+        getItem={[Function]}
+        getItemCount={[Function]}
+        keyExtractor={[Function]}
+        onContentSizeChange={[Function]}
+        onLayout={[Function]}
+        onMomentumScrollBegin={[Function]}
+        onMomentumScrollEnd={[Function]}
+        onScroll={[Function]}
+        onScrollBeginDrag={[Function]}
+        onScrollEndDrag={[Function]}
+        removeClippedSubviews={false}
+        renderItem={[Function]}
+        scrollEventThrottle={50}
+        stickyHeaderIndices={Array []}
+        viewabilityConfigCallbackPairs={Array []}
+      >
+        <View>
+          <View
+            onLayout={[Function]}
+            style={null}
+          >
+            <View
+              style={
+                Object {
+                  "backgroundColor": "#383434",
+                  "borderRadius": 10,
+                  "marginTop": 20,
+                  "padding": 30,
+                }
+              }
+            >
+              <Text
+                style={
+                  Object {
+                    "color": "white",
+                    "fontSize": 12,
+                    "fontWeight": "700",
+                  }
+                }
+              >
+                Notifcation ID
+              </Text>
+              <Text
+                style={
+                  Object {
+                    "color": "white",
+                    "fontSize": 18,
+                  }
+                }
+              >
+                0
+              </Text>
+              <Text
+                style={
+                  Object {
+                    "color": "white",
+                    "fontSize": 12,
+                    "fontWeight": "700",
+                  }
+                }
+              >
+                Sender Username
+              </Text>
+              <Text
+                style={
+                  Object {
+                    "color": "white",
+                    "fontSize": 18,
+                  }
+                }
+              >
+                john_doe
+              </Text>
+              <Text
+                style={
+                  Object {
+                    "color": "white",
+                    "fontSize": 12,
+                    "fontWeight": "700",
+                  }
+                }
+              >
+                Receiver Username
+              </Text>
+              <Text
+                style={
+                  Object {
+                    "color": "white",
+                    "fontSize": 18,
+                  }
+                }
+              />
+              <Text
+                style={
+                  Object {
+                    "color": "white",
+                    "fontSize": 12,
+                    "fontWeight": "700",
+                  }
+                }
+              >
+                Notification Content
+              </Text>
+              <Text
+                style={
+                  Object {
+                    "color": "white",
+                    "fontSize": 18,
+                  }
+                }
+              >
+                Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+              </Text>
+              <View
+                accessible={true}
+                collapsable={false}
+                focusable={true}
+                onClick={[Function]}
+                onResponderGrant={[Function]}
+                onResponderMove={[Function]}
+                onResponderRelease={[Function]}
+                onResponderTerminate={[Function]}
+                onResponderTerminationRequest={[Function]}
+                onStartShouldSetResponder={[Function]}
+                style={
+                  Object {
+                    "opacity": 1,
+                  }
+                }
+              >
+                <Text
+                  style={
+                    Object {
+                      "color": "#FFFFFF",
+                      "fontFamily": "monospace",
+                    }
+                  }
+                >
+                  Delete
+                </Text>
+              </View>
+            </View>
+          </View>
+        </View>
+      </RCTScrollView>
+      <Text
+        style={
+          Object {
+            "color": "white",
+            "fontFamily": "monospace",
+            "fontSize": 20,
+          }
+        }
+      >
+        Sender Username
+      </Text>
+      <TextInput
+        keyboardType="number-pad"
+        onChangeText={[Function]}
+        placeholder="Sender Username"
+        placeholderTextColor="white"
+        style={
+          Object {
+            "backgroundColor": "#383434",
+            "borderRadius": 3,
+            "borderWidth": 2,
+            "color": "white",
+            "padding": 10,
+            "width": "100%",
+          }
+        }
+        textAlign="center"
+      />
+      <Text
+        style={
+          Object {
+            "color": "white",
+            "fontFamily": "monospace",
+            "fontSize": 20,
+          }
+        }
+      >
+        Receiver Username
+      </Text>
+      <TextInput
+        keyboardType="number-pad"
+        onChangeText={[Function]}
+        placeholder="Receiver Username"
+        placeholderTextColor="white"
+        style={
+          Object {
+            "backgroundColor": "#383434",
+            "borderRadius": 3,
+            "borderWidth": 2,
+            "color": "white",
+            "padding": 10,
+            "width": "100%",
+          }
+        }
+        textAlign="center"
+      />
+      <Text
+        style={
+          Object {
+            "color": "white",
+            "fontFamily": "monospace",
+            "fontSize": 20,
+          }
+        }
+      >
+        Content
+      </Text>
+      <TextInput
+        keyboardType="default"
+        onChangeText={[Function]}
+        placeholder="Notification Content"
+        placeholderTextColor="white"
+        style={
+          Object {
+            "backgroundColor": "#383434",
+            "borderRadius": 3,
+            "borderWidth": 2,
+            "color": "white",
+            "padding": 10,
+            "width": "100%",
+          }
+        }
+        textAlign="center"
+      />
+      <View
+        accessible={true}
+        collapsable={false}
+        focusable={true}
+        onClick={[Function]}
+        onResponderGrant={[Function]}
+        onResponderMove={[Function]}
+        onResponderRelease={[Function]}
+        onResponderTerminate={[Function]}
+        onResponderTerminationRequest={[Function]}
+        onStartShouldSetResponder={[Function]}
+        style={
+          Object {
+            "alignItems": "center",
+            "backgroundColor": "#B62727",
+            "opacity": 1,
+            "padding": 15,
+          }
+        }
+      >
+        <Text
+          style={
+            Object {
+              "color": "#FFFFFF",
+              "fontFamily": "monospace",
+            }
+          }
+        >
+          Create Notification
+        </Text>
+      </View>
+    </View>
+  </View>
+</RCTSafeAreaView>
+`;
+
+exports[`renders playerlist correctly 1`] = `
+<RCTSafeAreaView
+  style={
+    Object {
+      "flex": 1,
+    }
+  }
+>
+  <View
+    style={
+      Object {
+        "backgroundColor": "#171414",
+        "flex": 1,
+      }
+    }
+  >
+    <View
+      style={
+        Object {
+          "flex": 1,
+        }
+      }
+    >
+      <RCTScrollView
+        ItemSeparatorComponent={[Function]}
+        data={
+          Array [
+            Object {
+              "assists": 0,
+              "avgBlocks": 0,
+              "avgPoints": 0,
+              "avgSteals": 0,
+              "email": "test5@gmail.com",
+              "experience": "",
+              "first_name": "",
+              "freethrowPercent": 0,
+              "height": 0,
+              "isManager": false,
+              "last_name": "",
+              "position": "",
+              "shotPercent": 0,
+              "team_id": "",
+              "weight": 0,
+            },
+            Object {
+              "assists": 0,
+              "avgBlocks": 0,
+              "avgPoints": 0,
+              "avgSteals": 0,
+              "email": "jest@email.com",
+              "experience": "",
+              "first_name": "",
+              "freethrowPercent": 0,
+              "height": 0,
+              "isManager": false,
+              "last_name": "",
+              "position": "",
+              "shotPercent": 0,
+              "team_id": "",
+              "weight": 0,
+            },
+            Object {
+              "assists": 0,
+              "avgBlocks": 0,
+              "avgPoints": 0,
+              "avgSteals": 0,
+              "email": "test@gmail.com",
+              "experience": "",
+              "first_name": "",
+              "freethrowPercent": 0,
+              "height": 0,
+              "isManager": true,
+              "last_name": "",
+              "position": "",
+              "shotPercent": 0,
+              "team_id": "",
+              "weight": 0,
+            },
+            Object {
+              "assists": 0,
+              "avgBlocks": 0,
+              "avgPoints": 0,
+              "avgSteals": 0,
+              "email": "joe",
+              "experience": "",
+              "first_name": "",
+              "freethrowPercent": 0,
+              "height": 0,
+              "isManager": false,
+              "last_name": "",
+              "position": "",
+              "shotPercent": 0,
+              "team_id": "test_team",
+              "weight": 0,
+            },
+          ]
+        }
+        getItem={[Function]}
+        getItemCount={[Function]}
+        keyExtractor={[Function]}
+        onContentSizeChange={[Function]}
+        onLayout={[Function]}
+        onMomentumScrollBegin={[Function]}
+        onMomentumScrollEnd={[Function]}
+        onScroll={[Function]}
+        onScrollBeginDrag={[Function]}
+        onScrollEndDrag={[Function]}
+        removeClippedSubviews={false}
+        renderItem={[Function]}
+        scrollEventThrottle={50}
+        stickyHeaderIndices={Array []}
+        viewabilityConfigCallbackPairs={Array []}
+      >
+        <View>
+          <View
+            onLayout={[Function]}
+            style={null}
+          >
+            <View
+              style={
+                Object {
+                  "backgroundColor": "#383434",
+                  "borderRadius": 10,
+                  "marginTop": 20,
+                  "padding": 30,
+                }
+              }
+            >
+              <Text
+                style={
+                  Object {
+                    "color": "white",
+                    "fontSize": 12,
+                    "fontWeight": "700",
+                  }
+                }
+              >
+                Email: 
+                test5@gmail.com
+              </Text>
+              <Text
+                style={
+                  Object {
+                    "color": "white",
+                    "fontSize": 12,
+                    "fontWeight": "700",
+                  }
+                }
+              >
+                Name: 
+                 
+              </Text>
+              <Text
+                style={
+                  Object {
+                    "color": "white",
+                    "fontSize": 12,
+                    "fontWeight": "700",
+                  }
+                }
+              >
+                Team: 
+              </Text>
+              <View
+                style={
+                  Object {
+                    "alignItems": "center",
+                    "justifyContent": "center",
+                    "left": 220,
+                    "position": "absolute",
+                  }
+                }
+              >
+                <View
+                  accessible={true}
+                  collapsable={false}
+                  focusable={true}
+                  onClick={[Function]}
+                  onResponderGrant={[Function]}
+                  onResponderMove={[Function]}
+                  onResponderRelease={[Function]}
+                  onResponderTerminate={[Function]}
+                  onResponderTerminationRequest={[Function]}
+                  onStartShouldSetResponder={[Function]}
+                  style={
+                    Object {
+                      "alignItems": "center",
+                      "backgroundColor": "#B62727",
+                      "opacity": 1,
+                      "padding": 15,
+                    }
+                  }
+                >
+                  <Text
+                    style={
+                      Object {
+                        "color": "#FFFFFF",
+                        "fontFamily": "monospace",
+                      }
+                    }
+                  >
+                    View Full Profile
+                  </Text>
+                </View>
+              </View>
+            </View>
+            <View
+              style={
+                Object {
+                  "backgroundColor": "#171414",
+                  "height": 0.2,
+                  "width": "100%",
+                }
+              }
+            />
+          </View>
+          <View
+            onLayout={[Function]}
+            style={null}
+          >
+            <View
+              style={
+                Object {
+                  "backgroundColor": "#383434",
+                  "borderRadius": 10,
+                  "marginTop": 20,
+                  "padding": 30,
+                }
+              }
+            >
+              <Text
+                style={
+                  Object {
+                    "color": "white",
+                    "fontSize": 12,
+                    "fontWeight": "700",
+                  }
+                }
+              >
+                Email: 
+                jest@email.com
+              </Text>
+              <Text
+                style={
+                  Object {
+                    "color": "white",
+                    "fontSize": 12,
+                    "fontWeight": "700",
+                  }
+                }
+              >
+                Name: 
+                 
+              </Text>
+              <Text
+                style={
+                  Object {
+                    "color": "white",
+                    "fontSize": 12,
+                    "fontWeight": "700",
+                  }
+                }
+              >
+                Team: 
+              </Text>
+              <View
+                style={
+                  Object {
+                    "alignItems": "center",
+                    "justifyContent": "center",
+                    "left": 220,
+                    "position": "absolute",
+                  }
+                }
+              >
+                <View
+                  accessible={true}
+                  collapsable={false}
+                  focusable={true}
+                  onClick={[Function]}
+                  onResponderGrant={[Function]}
+                  onResponderMove={[Function]}
+                  onResponderRelease={[Function]}
+                  onResponderTerminate={[Function]}
+                  onResponderTerminationRequest={[Function]}
+                  onStartShouldSetResponder={[Function]}
+                  style={
+                    Object {
+                      "alignItems": "center",
+                      "backgroundColor": "#B62727",
+                      "opacity": 1,
+                      "padding": 15,
+                    }
+                  }
+                >
+                  <Text
+                    style={
+                      Object {
+                        "color": "#FFFFFF",
+                        "fontFamily": "monospace",
+                      }
+                    }
+                  >
+                    View Full Profile
+                  </Text>
+                </View>
+              </View>
+            </View>
+            <View
+              style={
+                Object {
+                  "backgroundColor": "#171414",
+                  "height": 0.2,
+                  "width": "100%",
+                }
+              }
+            />
+          </View>
+          <View
+            onLayout={[Function]}
+            style={null}
+          >
+            <View
+              style={
+                Object {
+                  "backgroundColor": "#383434",
+                  "borderRadius": 10,
+                  "marginTop": 20,
+                  "padding": 30,
+                }
+              }
+            >
+              <Text
+                style={
+                  Object {
+                    "color": "white",
+                    "fontSize": 12,
+                    "fontWeight": "700",
+                  }
+                }
+              >
+                Email: 
+                test@gmail.com
+              </Text>
+              <Text
+                style={
+                  Object {
+                    "color": "white",
+                    "fontSize": 12,
+                    "fontWeight": "700",
+                  }
+                }
+              >
+                Name: 
+                 
+              </Text>
+              <Text
+                style={
+                  Object {
+                    "color": "white",
+                    "fontSize": 12,
+                    "fontWeight": "700",
+                  }
+                }
+              >
+                Team: 
+              </Text>
+              <View
+                style={
+                  Object {
+                    "alignItems": "center",
+                    "justifyContent": "center",
+                    "left": 220,
+                    "position": "absolute",
+                  }
+                }
+              >
+                <View
+                  accessible={true}
+                  collapsable={false}
+                  focusable={true}
+                  onClick={[Function]}
+                  onResponderGrant={[Function]}
+                  onResponderMove={[Function]}
+                  onResponderRelease={[Function]}
+                  onResponderTerminate={[Function]}
+                  onResponderTerminationRequest={[Function]}
+                  onStartShouldSetResponder={[Function]}
+                  style={
+                    Object {
+                      "alignItems": "center",
+                      "backgroundColor": "#B62727",
+                      "opacity": 1,
+                      "padding": 15,
+                    }
+                  }
+                >
+                  <Text
+                    style={
+                      Object {
+                        "color": "#FFFFFF",
+                        "fontFamily": "monospace",
+                      }
+                    }
+                  >
+                    View Full Profile
+                  </Text>
+                </View>
+              </View>
+            </View>
+            <View
+              style={
+                Object {
+                  "backgroundColor": "#171414",
+                  "height": 0.2,
+                  "width": "100%",
+                }
+              }
+            />
+          </View>
+          <View
+            onLayout={[Function]}
+            style={null}
+          >
+            <View
+              style={
+                Object {
+                  "backgroundColor": "#383434",
+                  "borderRadius": 10,
+                  "marginTop": 20,
+                  "padding": 30,
+                }
+              }
+            >
+              <Text
+                style={
+                  Object {
+                    "color": "white",
+                    "fontSize": 12,
+                    "fontWeight": "700",
+                  }
+                }
+              >
+                Email: 
+                joe
+              </Text>
+              <Text
+                style={
+                  Object {
+                    "color": "white",
+                    "fontSize": 12,
+                    "fontWeight": "700",
+                  }
+                }
+              >
+                Name: 
+                 
+              </Text>
+              <Text
+                style={
+                  Object {
+                    "color": "white",
+                    "fontSize": 12,
+                    "fontWeight": "700",
+                  }
+                }
+              >
+                Team: 
+                test_team
+              </Text>
+              <View
+                style={
+                  Object {
+                    "alignItems": "center",
+                    "justifyContent": "center",
+                    "left": 220,
+                    "position": "absolute",
+                  }
+                }
+              >
+                <View
+                  accessible={true}
+                  collapsable={false}
+                  focusable={true}
+                  onClick={[Function]}
+                  onResponderGrant={[Function]}
+                  onResponderMove={[Function]}
+                  onResponderRelease={[Function]}
+                  onResponderTerminate={[Function]}
+                  onResponderTerminationRequest={[Function]}
+                  onStartShouldSetResponder={[Function]}
+                  style={
+                    Object {
+                      "alignItems": "center",
+                      "backgroundColor": "#B62727",
+                      "opacity": 1,
+                      "padding": 15,
+                    }
+                  }
+                >
+                  <Text
+                    style={
+                      Object {
+                        "color": "#FFFFFF",
+                        "fontFamily": "monospace",
+                      }
+                    }
+                  >
+                    View Full Profile
+                  </Text>
+                </View>
+              </View>
+            </View>
+          </View>
+        </View>
+      </RCTScrollView>
+    </View>
+  </View>
+</RCTSafeAreaView>
+`;
+
+exports[`renders profileedit correctly 1`] = `
+<View
+  style={
+    Object {
+      "alignItems": "center",
+      "flex": 1,
+      "justifyContent": "center",
+    }
+  }
+>
+  <View
+    accessibilityIgnoresInvertColors={true}
+    style={
+      Object {
+        "height": "100%",
+        "width": "100%",
+      }
+    }
+  >
+    <Image
+      source={
+        Object {
+          "testUri": "../../../profilebg.png",
+        }
+      }
+      style={
+        Array [
+          Object {
+            "bottom": 0,
+            "left": 0,
+            "position": "absolute",
+            "right": 0,
+            "top": 0,
+          },
+          Object {
+            "height": "100%",
+            "width": "100%",
+          },
+          undefined,
+        ]
+      }
+    />
+  </View>
+  <View
+    style={
+      Object {
+        "alignItems": "center",
+        "bottom": 0,
+        "justifyContent": "center",
+        "left": 0,
+        "position": "absolute",
+        "right": 0,
+        "top": -550,
+      }
+    }
+  >
+    <TextInput
+      keyboardType="email-address"
+      onChangeText={[Function]}
+      placeholder="User Email"
+      style={
+        Array [
+          Object {
+            "backgroundColor": "white",
+            "borderColor": "gray",
+            "borderRadius": 7,
+            "borderWidth": 2,
+            "color": "black",
+            "padding": 3,
+            "width": "90%",
+          },
+          Object {
+            "width": "90%",
+          },
+        ]
+      }
+      textAlign="center"
+    />
+  </View>
+  <View
+    style={
+      Object {
+        "alignItems": "center",
+        "bottom": 0,
+        "justifyContent": "center",
+        "left": 0,
+        "position": "absolute",
+        "right": 0,
+        "top": -470,
+      }
+    }
+  >
+    <TextInput
+      keyboardType="default"
+      onChangeText={[Function]}
+      placeholder="First Name"
+      style={
+        Array [
+          Object {
+            "backgroundColor": "white",
+            "borderColor": "gray",
+            "borderRadius": 7,
+            "borderWidth": 2,
+            "color": "black",
+            "padding": 3,
+            "width": "90%",
+          },
+          Object {
+            "width": "90%",
+          },
+        ]
+      }
+      textAlign="center"
+    />
+  </View>
+  <View
+    style={
+      Object {
+        "alignItems": "center",
+        "bottom": 0,
+        "justifyContent": "center",
+        "left": 0,
+        "position": "absolute",
+        "right": 0,
+        "top": -390,
+      }
+    }
+  >
+    <TextInput
+      keyboardType="default"
+      onChangeText={[Function]}
+      placeholder="Last Name"
+      style={
+        Array [
+          Object {
+            "backgroundColor": "white",
+            "borderColor": "gray",
+            "borderRadius": 7,
+            "borderWidth": 2,
+            "color": "black",
+            "padding": 3,
+            "width": "90%",
+          },
+          Object {
+            "width": "90%",
+          },
+        ]
+      }
+      textAlign="center"
+    />
+  </View>
+  <View
+    style={
+      Object {
+        "alignItems": "center",
+        "bottom": 0,
+        "justifyContent": "center",
+        "left": 0,
+        "position": "absolute",
+        "right": 0,
+        "top": -310,
+      }
+    }
+  >
+    <TextInput
+      keyboardType="default"
+      onChangeText={[Function]}
+      placeholder="ID"
+      style={
+        Array [
+          Object {
+            "backgroundColor": "white",
+            "borderColor": "gray",
+            "borderRadius": 7,
+            "borderWidth": 2,
+            "color": "black",
+            "padding": 3,
+            "width": "90%",
+          },
+          Object {
+            "width": "90%",
+          },
+        ]
+      }
+      textAlign="center"
+    />
+  </View>
+  <View
+    style={
+      Object {
+        "alignItems": "center",
+        "bottom": 0,
+        "justifyContent": "center",
+        "left": 0,
+        "position": "absolute",
+        "right": 0,
+        "top": -230,
+      }
+    }
+  >
+    <TextInput
+      keyboardType="numeric"
+      onChangeText={[Function]}
+      placeholder="Height"
+      style={
+        Object {
+          "backgroundColor": "white",
+          "borderColor": "gray",
+          "borderRadius": 7,
+          "borderWidth": 2,
+          "color": "black",
+          "padding": 3,
+          "width": "90%",
+        }
+      }
+      textAlign="center"
+    />
+  </View>
+  <View
+    style={
+      Object {
+        "alignItems": "center",
+        "bottom": 0,
+        "justifyContent": "center",
+        "left": 0,
+        "position": "absolute",
+        "right": 0,
+        "top": -150,
+      }
+    }
+  >
+    <TextInput
+      keyboardType="numeric"
+      onChangeText={[Function]}
+      placeholder="Weight"
+      style={
+        Object {
+          "backgroundColor": "white",
+          "borderColor": "gray",
+          "borderRadius": 7,
+          "borderWidth": 2,
+          "color": "black",
+          "padding": 3,
+          "width": "90%",
+        }
+      }
+      textAlign="center"
+    />
+  </View>
+  <View
+    style={
+      Object {
+        "alignItems": "center",
+        "bottom": 0,
+        "justifyContent": "center",
+        "left": 0,
+        "position": "absolute",
+        "right": 0,
+        "top": -70,
+      }
+    }
+  >
+    <TextInput
+      keyboardType="default"
+      onChangeText={[Function]}
+      placeholder="Experience Level"
+      style={
+        Array [
+          Object {
+            "backgroundColor": "white",
+            "borderColor": "gray",
+            "borderRadius": 7,
+            "borderWidth": 2,
+            "color": "black",
+            "padding": 3,
+            "width": "90%",
+          },
+          Object {
+            "width": "90%",
+          },
+        ]
+      }
+      textAlign="center"
+    />
+  </View>
+  <View
+    style={
+      Object {
+        "alignItems": "center",
+        "bottom": 0,
+        "justifyContent": "center",
+        "left": 0,
+        "position": "absolute",
+        "right": 0,
+        "top": 10,
+      }
+    }
+  >
+    <TextInput
+      keyboardType="default"
+      onChangeText={[Function]}
+      placeholder="Position"
+      style={
+        Array [
+          Object {
+            "backgroundColor": "white",
+            "borderColor": "gray",
+            "borderRadius": 7,
+            "borderWidth": 2,
+            "color": "black",
+            "padding": 3,
+            "width": "90%",
+          },
+          Object {
+            "width": "90%",
+          },
+        ]
+      }
+      textAlign="center"
+    />
+  </View>
+  <View
+    style={
+      Object {
+        "alignItems": "center",
+        "bottom": 0,
+        "justifyContent": "center",
+        "left": 0,
+        "position": "absolute",
+        "right": 0,
+        "top": 90,
+      }
+    }
+  >
+    <TextInput
+      keyboardType="default"
+      onChangeText={[Function]}
+      placeholder="Is Manager"
+      style={
+        Array [
+          Object {
+            "backgroundColor": "white",
+            "borderColor": "gray",
+            "borderRadius": 7,
+            "borderWidth": 2,
+            "color": "black",
+            "padding": 3,
+            "width": "90%",
+          },
+          Object {
+            "width": "90%",
+          },
+        ]
+      }
+      textAlign="center"
+    />
+  </View>
+  <View
+    style={
+      Object {
+        "alignItems": "center",
+        "bottom": 0,
+        "justifyContent": "center",
+        "left": 0,
+        "position": "absolute",
+        "right": 0,
+        "top": 170,
+      }
+    }
+  >
+    <TextInput
+      keyboardType="default"
+      onChangeText={[Function]}
+      placeholder="Average Points"
+      style={
+        Array [
+          Object {
+            "backgroundColor": "white",
+            "borderColor": "gray",
+            "borderRadius": 7,
+            "borderWidth": 2,
+            "color": "black",
+            "padding": 3,
+            "width": "90%",
+          },
+          Object {
+            "width": "90%",
+          },
+        ]
+      }
+      textAlign="center"
+    />
+  </View>
+  <View
+    style={
+      Object {
+        "alignItems": "center",
+        "bottom": 0,
+        "justifyContent": "center",
+        "left": 0,
+        "position": "absolute",
+        "right": 0,
+        "top": 250,
+      }
+    }
+  >
+    <TextInput
+      keyboardType="default"
+      onChangeText={[Function]}
+      placeholder="Average Blocks"
+      style={
+        Array [
+          Object {
+            "backgroundColor": "white",
+            "borderColor": "gray",
+            "borderRadius": 7,
+            "borderWidth": 2,
+            "color": "black",
+            "padding": 3,
+            "width": "90%",
+          },
+          Object {
+            "width": "90%",
+          },
+        ]
+      }
+      textAlign="center"
+    />
+  </View>
+  <View
+    style={
+      Object {
+        "alignItems": "center",
+        "bottom": 0,
+        "justifyContent": "center",
+        "left": 0,
+        "position": "absolute",
+        "right": 0,
+        "top": 330,
+      }
+    }
+  >
+    <TextInput
+      keyboardType="default"
+      onChangeText={[Function]}
+      placeholder="Average Steals"
+      style={
+        Array [
+          Object {
+            "backgroundColor": "white",
+            "borderColor": "gray",
+            "borderRadius": 7,
+            "borderWidth": 2,
+            "color": "black",
+            "padding": 3,
+            "width": "90%",
+          },
+          Object {
+            "width": "90%",
+          },
+        ]
+      }
+      textAlign="center"
+    />
+  </View>
+  <View
+    style={
+      Object {
+        "alignItems": "center",
+        "bottom": 0,
+        "justifyContent": "center",
+        "left": 0,
+        "position": "absolute",
+        "right": 0,
+        "top": 410,
+      }
+    }
+  >
+    <TextInput
+      keyboardType="default"
+      onChangeText={[Function]}
+      placeholder="Assists"
+      style={
+        Array [
+          Object {
+            "backgroundColor": "white",
+            "borderColor": "gray",
+            "borderRadius": 7,
+            "borderWidth": 2,
+            "color": "black",
+            "padding": 3,
+            "width": "90%",
+          },
+          Object {
+            "width": "90%",
+          },
+        ]
+      }
+      textAlign="center"
+    />
+  </View>
+  <View
+    style={
+      Object {
+        "alignItems": "center",
+        "bottom": 0,
+        "justifyContent": "center",
+        "left": 0,
+        "position": "absolute",
+        "right": 0,
+        "top": 495,
+      }
+    }
+  >
+    <TextInput
+      keyboardType="default"
+      onChangeText={[Function]}
+      placeholder="Free throw Percent"
+      style={
+        Array [
+          Object {
+            "backgroundColor": "white",
+            "borderColor": "gray",
+            "borderRadius": 7,
+            "borderWidth": 2,
+            "color": "black",
+            "padding": 3,
+            "width": "90%",
+          },
+          Object {
+            "width": "90%",
+          },
+        ]
+      }
+      textAlign="center"
+    />
+  </View>
+  <View
+    style={
+      Object {
+        "alignItems": "center",
+        "bottom": 0,
+        "justifyContent": "center",
+        "left": 0,
+        "position": "absolute",
+        "right": 0,
+        "top": 580,
+      }
+    }
+  >
+    <TextInput
+      onChangeText={[Function]}
+      placeholder="Shot Percent"
+      style={
+        Array [
+          Object {
+            "backgroundColor": "white",
+            "borderColor": "gray",
+            "borderRadius": 7,
+            "borderWidth": 2,
+            "color": "black",
+            "padding": 3,
+            "width": "90%",
+          },
+          Object {
+            "width": "90%",
+          },
+        ]
+      }
+      textAlign="center"
+    />
+  </View>
+  <View
+    style={
+      Object {
+        "alignItems": "center",
+        "bottom": 680,
+        "justifyContent": "center",
+        "left": 240,
+        "position": "absolute",
+        "right": 0,
+        "top": 0,
+      }
+    }
+  >
+    <View
+      accessible={true}
+      collapsable={false}
+      focusable={true}
+      onClick={[Function]}
+      onResponderGrant={[Function]}
+      onResponderMove={[Function]}
+      onResponderRelease={[Function]}
+      onResponderTerminate={[Function]}
+      onResponderTerminationRequest={[Function]}
+      onStartShouldSetResponder={[Function]}
+      style={
+        Object {
+          "alignItems": "center",
+          "backgroundColor": "transparent",
+          "justifyContent": "center",
+          "opacity": 1,
+          "padding": 0,
+          "paddingHorizontal": 30,
+        }
+      }
+    >
+      <Text
+        style={
+          Object {
+            "color": "transparent",
+            "fontFamily": "Bungee-Regular",
+            "fontSize": 28,
+          }
+        }
+      >
+         
+      </Text>
+    </View>
+  </View>
+  <View
+    style={
+      Object {
+        "alignItems": "center",
+        "bottom": 680,
+        "justifyContent": "center",
+        "left": 380,
+        "position": "absolute",
+        "right": 0,
+        "top": 0,
+      }
+    }
+  >
+    <View
+      accessible={true}
+      collapsable={false}
+      focusable={true}
+      onClick={[Function]}
+      onResponderGrant={[Function]}
+      onResponderMove={[Function]}
+      onResponderRelease={[Function]}
+      onResponderTerminate={[Function]}
+      onResponderTerminationRequest={[Function]}
+      onStartShouldSetResponder={[Function]}
+      style={
+        Object {
+          "alignItems": "center",
+          "backgroundColor": "transparent",
+          "justifyContent": "center",
+          "opacity": 1,
+          "padding": 0,
+          "paddingHorizontal": 30,
+        }
+      }
+    >
+      <Text
+        style={
+          Object {
+            "color": "transparent",
+            "fontFamily": "Bungee-Regular",
+            "fontSize": 28,
+          }
+        }
+      >
+         
+      </Text>
+    </View>
+  </View>
+  <View
+    style={
+      Object {
+        "alignItems": "center",
+        "bottom": 0,
+        "justifyContent": "center",
+        "left": 280,
+        "position": "absolute",
+        "right": 0,
+        "top": 650,
+      }
+    }
+  >
+    <View
+      accessible={true}
+      collapsable={false}
+      focusable={true}
+      onClick={[Function]}
+      onResponderGrant={[Function]}
+      onResponderMove={[Function]}
+      onResponderRelease={[Function]}
+      onResponderTerminate={[Function]}
+      onResponderTerminationRequest={[Function]}
+      onStartShouldSetResponder={[Function]}
+      style={
+        Object {
+          "alignItems": "center",
+          "backgroundColor": "#CA5A37",
+          "justifyContent": "center",
+          "opacity": 1,
+          "padding": 5,
+          "paddingHorizontal": 16,
+        }
+      }
+    >
+      <Text
+        style={
+          Object {
+            "color": "white",
+            "fontFamily": "Bungee-Regular",
+            "fontSize": 14,
+          }
+        }
+      >
+         Delete Player 
+      </Text>
+    </View>
+  </View>
+  <View
+    style={
+      Object {
+        "alignItems": "center",
+        "bottom": 0,
+        "justifyContent": "center",
+        "left": 0,
+        "position": "absolute",
+        "right": 180,
+        "top": 650,
+      }
+    }
+  >
+    <View
+      accessible={true}
+      collapsable={false}
+      focusable={true}
+      onClick={[Function]}
+      onResponderGrant={[Function]}
+      onResponderMove={[Function]}
+      onResponderRelease={[Function]}
+      onResponderTerminate={[Function]}
+      onResponderTerminationRequest={[Function]}
+      onStartShouldSetResponder={[Function]}
+      style={
+        Object {
+          "alignItems": "center",
+          "backgroundColor": "#CA5A37",
+          "justifyContent": "center",
+          "opacity": 1,
+          "padding": 5,
+          "paddingHorizontal": 16,
+        }
+      }
+    >
+      <Text
+        style={
+          Object {
+            "color": "white",
+            "fontFamily": "Bungee-Regular",
+            "fontSize": 14,
+          }
+        }
+      >
+         Submit Changes 
+      </Text>
+    </View>
+  </View>
+</View>
+`;
+
+exports[`renders profileview correctly 1`] = `
+<View
+  style={
+    Object {
+      "alignItems": "center",
+      "flex": 1,
+      "justifyContent": "center",
+    }
+  }
+>
+  <View
+    accessibilityIgnoresInvertColors={true}
+    style={
+      Object {
+        "height": "100%",
+        "width": "100%",
+      }
+    }
+  >
+    <Image
+      source={
+        Object {
+          "testUri": "../../../profilebg.png",
+        }
+      }
+      style={
+        Array [
+          Object {
+            "bottom": 0,
+            "left": 0,
+            "position": "absolute",
+            "right": 0,
+            "top": 0,
+          },
+          Object {
+            "height": "100%",
+            "width": "100%",
+          },
+          undefined,
+        ]
+      }
+    />
+  </View>
+  <View
+    style={
+      Object {
+        "alignItems": "center",
+        "height": 30,
+        "left": 50,
+        "position": "absolute",
+        "resizeMode": "stretch",
+        "top": 200,
+        "width": 30,
+      }
+    }
+  >
+    <Image
+      source={
+        Object {
+          "testUri": "../../../headshot3.png",
+        }
+      }
+    />
+  </View>
+  <View
+    style={
+      Object {
+        "bottom": 500,
+        "justifyContent": "flex-start",
+        "left": 10,
+        "position": "absolute",
+        "right": 0,
+        "top": 103,
+      }
+    }
+  >
+    <Text
+      style={
+        Array [
+          Object {
+            "color": "#D9D9D9",
+            "fontFamily": "Bungee-Regular",
+            "fontSize": 17,
+          },
+          Object {
+            "fontSize": 25,
+          },
+        ]
+      }
+    />
+    <Text
+      style={
+        Array [
+          Object {
+            "color": "#D9D9D9",
+            "fontFamily": "Bungee-Regular",
+            "fontSize": 17,
+          },
+          Object {
+            "bottom": 30,
+            "fontSize": 15,
+          },
+        ]
+      }
+    >
+      Team: 
+    </Text>
+  </View>
+  <View
+    style={
+      Object {
+        "bottom": 0,
+        "justifyContent": "flex-start",
+        "left": 170,
+        "position": "absolute",
+        "right": 0,
+        "top": 170,
+      }
+    }
+  >
+    <Text
+      style={
+        Array [
+          Object {
+            "color": "#D9D9D9",
+            "fontFamily": "Bungee-Regular",
+            "fontSize": 17,
+          },
+          Object {
+            "fontSize": 15,
+            "left": 75,
+          },
+        ]
+      }
+    >
+       
+    </Text>
+    <Text
+      style={
+        Array [
+          Object {
+            "color": "#D9D9D9",
+            "fontFamily": "Bungee-Regular",
+            "fontSize": 17,
+          },
+          Object {
+            "bottom": 14,
+            "fontSize": 20,
+            "left": 35,
+          },
+        ]
+      }
+    >
+       
+    </Text>
+    <Text
+      style={
+        Object {
+          "bottom": 40,
+          "color": "white",
+          "fontSize": 20,
+          "left": 30,
+        }
+      }
+    >
+      _________________
+    </Text>
+    <Text
+      style={
+        Array [
+          Object {
+            "color": "#D9D9D9",
+            "fontFamily": "Bungee-Regular",
+            "fontSize": 17,
+          },
+          Object {
+            "bottom": 30,
+            "fontSize": 13,
+            "left": 10,
+          },
+        ]
+      }
+    >
+      Height: 
+        Weight: 
+       lbs
+    </Text>
+    <Text
+      style={
+        Array [
+          Object {
+            "color": "#D9D9D9",
+            "fontFamily": "Bungee-Regular",
+            "fontSize": 17,
+          },
+          Object {
+            "bottom": 30,
+            "fontSize": 15,
+            "left": 30,
+          },
+        ]
+      }
+    >
+      Experience Level: 
+    </Text>
+    <Text
+      style={
+        Array [
+          Object {
+            "color": "#D9D9D9",
+            "fontFamily": "Bungee-Regular",
+            "fontSize": 17,
+          },
+          Object {
+            "bottom": 30,
+            "fontSize": 13,
+            "justifyContent": "center",
+            "left": 0,
+            "textAlign": "center",
+          },
+        ]
+      }
+    />
+    <Text
+      style={
+        Array [
+          Object {
+            "color": "#D9D9D9",
+            "fontFamily": "Bungee-Regular",
+            "fontSize": 17,
+          },
+          Object {
+            "bottom": 30,
+            "fontSize": 15,
+            "left": 65,
+          },
+        ]
+      }
+    >
+      Position:
+    </Text>
+    <Text
+      style={
+        Array [
+          Object {
+            "color": "#D9D9D9",
+            "fontFamily": "Bungee-Regular",
+            "fontSize": 17,
+          },
+          Object {
+            "bottom": 30,
+            "fontSize": 13,
+            "justifyContent": "center",
+            "left": 0,
+            "textAlign": "center",
+          },
+        ]
+      }
+    />
+    <Text
+      style={
+        Array [
+          Object {
+            "color": "#D9D9D9",
+            "fontFamily": "Bungee-Regular",
+            "fontSize": 17,
+          },
+          Object {
+            "bottom": 90,
+            "fontSize": 16,
+            "right": 125,
+          },
+        ]
+      }
+    >
+      Stats
+    </Text>
+    <Text
+      style={
+        Object {
+          "bottom": 110,
+          "color": "white",
+          "fontSize": 14,
+          "right": 160,
+        }
+      }
+    >
+      ___________________
+    </Text>
+    <Text
+      style={
+        Array [
+          Object {
+            "color": "#D9D9D9",
+            "fontFamily": "Bungee-Regular",
+            "fontSize": 17,
+          },
+          Object {
+            "bottom": 100,
+            "fontSize": 13,
+            "right": 160,
+          },
+        ]
+      }
+    >
+      Average Points: 
+    </Text>
+    <Text
+      style={
+        Array [
+          Object {
+            "color": "#D9D9D9",
+            "fontFamily": "Bungee-Regular",
+            "fontSize": 17,
+          },
+          Object {
+            "bottom": 100,
+            "fontSize": 13,
+            "right": 160,
+          },
+        ]
+      }
+    >
+      Average Blocks: 
+    </Text>
+    <Text
+      style={
+        Array [
+          Object {
+            "color": "#D9D9D9",
+            "fontFamily": "Bungee-Regular",
+            "fontSize": 17,
+          },
+          Object {
+            "bottom": 100,
+            "fontSize": 13,
+            "right": 160,
+          },
+        ]
+      }
+    >
+      Average Steals: 
+    </Text>
+    <Text
+      style={
+        Array [
+          Object {
+            "color": "#D9D9D9",
+            "fontFamily": "Bungee-Regular",
+            "fontSize": 17,
+          },
+          Object {
+            "bottom": 100,
+            "fontSize": 13,
+            "right": 160,
+          },
+        ]
+      }
+    >
+      Average Assists: 
+    </Text>
+    <Text
+      style={
+        Array [
+          Object {
+            "color": "#D9D9D9",
+            "fontFamily": "Bungee-Regular",
+            "fontSize": 17,
+          },
+          Object {
+            "bottom": 100,
+            "fontSize": 13,
+            "right": 160,
+          },
+        ]
+      }
+    >
+      Free Throw Percent: 
+    </Text>
+    <Text
+      style={
+        Array [
+          Object {
+            "color": "#D9D9D9",
+            "fontFamily": "Bungee-Regular",
+            "fontSize": 17,
+          },
+          Object {
+            "bottom": 100,
+            "fontSize": 13,
+            "right": 160,
+          },
+        ]
+      }
+    >
+      Shot Percent: 
+    </Text>
+  </View>
+  <View
+    style={
+      Object {
+        "alignItems": "center",
+        "bottom": 680,
+        "justifyContent": "center",
+        "left": 240,
+        "position": "absolute",
+        "right": 0,
+        "top": 0,
+      }
+    }
+  >
+    <View
+      accessible={true}
+      collapsable={false}
+      focusable={true}
+      onClick={[Function]}
+      onResponderGrant={[Function]}
+      onResponderMove={[Function]}
+      onResponderRelease={[Function]}
+      onResponderTerminate={[Function]}
+      onResponderTerminationRequest={[Function]}
+      onStartShouldSetResponder={[Function]}
+      style={
+        Object {
+          "alignItems": "center",
+          "backgroundColor": "transparent",
+          "justifyContent": "center",
+          "opacity": 1,
+          "padding": 30,
+          "paddingHorizontal": 18,
+          "right": 40,
+          "top": 20,
+        }
+      }
+    >
+      <Text
+        style={
+          Object {
+            "color": "white",
+            "fontFamily": "Bungee-Regular",
+            "fontSize": 28,
+          }
+        }
+      >
+         Msgs
+      </Text>
+    </View>
+  </View>
+  <View
+    style={
+      Object {
+        "alignItems": "center",
+        "bottom": 680,
+        "justifyContent": "center",
+        "left": 405,
+        "position": "absolute",
+        "right": 0,
+        "top": 0,
+      }
+    }
+  >
+    <View
+      accessible={true}
+      collapsable={false}
+      focusable={true}
+      onClick={[Function]}
+      onResponderGrant={[Function]}
+      onResponderMove={[Function]}
+      onResponderRelease={[Function]}
+      onResponderTerminate={[Function]}
+      onResponderTerminationRequest={[Function]}
+      onStartShouldSetResponder={[Function]}
+      style={
+        Object {
+          "alignItems": "center",
+          "backgroundColor": "transparent",
+          "justifyContent": "center",
+          "opacity": 1,
+          "padding": 30,
+          "paddingHorizontal": 18,
+          "right": 40,
+          "top": 20,
+        }
+      }
+    >
+      <Text
+        style={
+          Object {
+            "color": "white",
+            "fontFamily": "Bungee-Regular",
+            "fontSize": 28,
+          }
+        }
+      >
+         Profile 
+      </Text>
+    </View>
+  </View>
+  <View
+    style={
+      Object {
+        "alignItems": "center",
+        "bottom": 0,
+        "justifyContent": "center",
+        "left": 200,
+        "position": "absolute",
+        "right": 20,
+        "top": 650,
+      }
+    }
+  >
+    <View
+      accessible={true}
+      collapsable={false}
+      focusable={true}
+      onClick={[Function]}
+      onResponderGrant={[Function]}
+      onResponderMove={[Function]}
+      onResponderRelease={[Function]}
+      onResponderTerminate={[Function]}
+      onResponderTerminationRequest={[Function]}
+      onStartShouldSetResponder={[Function]}
+      style={
+        Object {
+          "alignItems": "center",
+          "backgroundColor": "transparent",
+          "justifyContent": "center",
+          "opacity": 1,
+          "padding": 0,
+          "paddingHorizontal": 30,
+          "top": 500,
+        }
+      }
+    >
+      <Text
+        style={
+          Object {
+            "color": "#FFFFFF",
+            "fontFamily": "monospace",
+          }
+        }
+      >
+         Update Player 
+      </Text>
+    </View>
+  </View>
+  <View
+    style={
+      Object {
+        "alignItems": "center",
+        "bottom": 0,
+        "justifyContent": "center",
+        "left": 0,
+        "position": "absolute",
+        "right": 150,
+        "top": 650,
+      }
+    }
+  >
+    <View
+      accessible={true}
+      collapsable={false}
+      focusable={true}
+      onClick={[Function]}
+      onResponderGrant={[Function]}
+      onResponderMove={[Function]}
+      onResponderRelease={[Function]}
+      onResponderTerminate={[Function]}
+      onResponderTerminationRequest={[Function]}
+      onStartShouldSetResponder={[Function]}
+      style={
+        Object {
+          "alignItems": "center",
+          "backgroundColor": "transparent",
+          "justifyContent": "center",
+          "opacity": 1,
+          "padding": 0,
+          "paddingHorizontal": 30,
+          "top": 500,
+        }
+      }
+    >
+      <Text
+        style={
+          Object {
+            "color": "#FFFFFF",
+            "fontFamily": "monospace",
+          }
+        }
+      >
+         Log Out 
+      </Text>
+    </View>
+  </View>
+  <View
+    style={
+      Object {
+        "alignItems": "center",
+        "bottom": 0,
+        "justifyContent": "center",
+        "left": 200,
+        "position": "absolute",
+        "right": 20,
+        "top": 650,
+      }
+    }
+  >
+    <View
+      accessible={true}
+      collapsable={false}
+      focusable={true}
+      onClick={[Function]}
+      onResponderGrant={[Function]}
+      onResponderMove={[Function]}
+      onResponderRelease={[Function]}
+      onResponderTerminate={[Function]}
+      onResponderTerminationRequest={[Function]}
+      onStartShouldSetResponder={[Function]}
+      style={
+        Object {
+          "alignItems": "center",
+          "backgroundColor": "#CA5A37",
+          "justifyContent": "center",
+          "opacity": 1,
+          "padding": 0,
+          "paddingHorizontal": 30,
+        }
+      }
+    >
+      <Text
+        style={
+          Object {
+            "color": "#FFFFFF",
+            "fontFamily": "monospace",
+          }
+        }
+      >
+         Send Requests 
+      </Text>
+    </View>
+  </View>
+</View>
+`;
+
+exports[`renders requests correctly 1`] = `
+<RCTSafeAreaView
+  style={
+    Object {
+      "flex": 1,
+    }
+  }
+>
+  <View
+    style={
+      Object {
+        "backgroundColor": "#171414",
+        "flex": 1,
+      }
+    }
+  >
+    <View
+      style={
+        Object {
+          "flex": 1,
+        }
+      }
+    >
+      <RCTScrollView
+        ItemSeparatorComponent={[Function]}
+        data={
+          Array [
+            Object {
+              "content": "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
+              "id": 0,
+              "recieverUsername": "jane_doe",
+              "senderUsername": "john_doe",
+            },
+          ]
+        }
+        getItem={[Function]}
+        getItemCount={[Function]}
+        keyExtractor={[Function]}
+        onContentSizeChange={[Function]}
+        onLayout={[Function]}
+        onMomentumScrollBegin={[Function]}
+        onMomentumScrollEnd={[Function]}
+        onScroll={[Function]}
+        onScrollBeginDrag={[Function]}
+        onScrollEndDrag={[Function]}
+        removeClippedSubviews={false}
+        renderItem={[Function]}
+        scrollEventThrottle={50}
+        stickyHeaderIndices={Array []}
+        viewabilityConfigCallbackPairs={Array []}
+      >
+        <View>
+          <View
+            onLayout={[Function]}
+            style={null}
+          >
+            <View
+              style={
+                Object {
+                  "backgroundColor": "#383434",
+                  "borderRadius": 10,
+                  "marginTop": 20,
+                  "padding": 30,
+                }
+              }
+            >
+              <Text
+                style={
+                  Object {
+                    "color": "white",
+                    "fontSize": 12,
+                    "fontWeight": "700",
+                  }
+                }
+              >
+                Notifcation ID
+              </Text>
+              <Text
+                style={
+                  Object {
+                    "color": "white",
+                    "fontSize": 18,
+                  }
+                }
+              >
+                0
+              </Text>
+              <Text
+                style={
+                  Object {
+                    "color": "white",
+                    "fontSize": 12,
+                    "fontWeight": "700",
+                  }
+                }
+              >
+                Sender Username
+              </Text>
+              <Text
+                style={
+                  Object {
+                    "color": "white",
+                    "fontSize": 18,
+                  }
+                }
+              >
+                john_doe
+              </Text>
+              <Text
+                style={
+                  Object {
+                    "color": "white",
+                    "fontSize": 12,
+                    "fontWeight": "700",
+                  }
+                }
+              >
+                Reciever Username
+              </Text>
+              <Text
+                style={
+                  Object {
+                    "color": "white",
+                    "fontSize": 18,
+                  }
+                }
+              >
+                jane_doe
+              </Text>
+              <Text
+                style={
+                  Object {
+                    "color": "white",
+                    "fontSize": 12,
+                    "fontWeight": "700",
+                  }
+                }
+              >
+                Notification Content
+              </Text>
+              <Text
+                style={
+                  Object {
+                    "color": "white",
+                    "fontSize": 18,
+                  }
+                }
+              >
+                Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+              </Text>
+            </View>
+          </View>
+        </View>
+      </RCTScrollView>
+    </View>
+  </View>
+</RCTSafeAreaView>
+`;
+
+exports[`renders schedule correctly 1`] = `
+<RCTSafeAreaView
+  style={
+    Object {
+      "flex": 1,
+    }
+  }
+>
+  <View
+    style={
+      Object {
+        "backgroundColor": "#171414",
+        "flex": 1,
+      }
+    }
+  >
+    <View
+      style={
+        Object {
+          "flex": 1,
+        }
+      }
+    >
+      <RCTScrollView
+        ItemSeparatorComponent={[Function]}
+        data={Array []}
+        getItem={[Function]}
+        getItemCount={[Function]}
+        keyExtractor={[Function]}
+        onContentSizeChange={[Function]}
+        onLayout={[Function]}
+        onMomentumScrollBegin={[Function]}
+        onMomentumScrollEnd={[Function]}
+        onScroll={[Function]}
+        onScrollBeginDrag={[Function]}
+        onScrollEndDrag={[Function]}
+        removeClippedSubviews={false}
+        renderItem={[Function]}
+        scrollEventThrottle={50}
+        stickyHeaderIndices={Array []}
+        viewabilityConfigCallbackPairs={Array []}
+      >
+        <View />
+      </RCTScrollView>
+    </View>
+  </View>
+</RCTSafeAreaView>
+`;
+
+exports[`renders season manager correctly 1`] = `
+<RCTSafeAreaView
+  style={
+    Object {
+      "flex": 1,
+    }
+  }
+>
+  <View
+    style={
+      Object {
+        "backgroundColor": "#171414",
+        "flex": 1,
+      }
+    }
+  >
+    <View
+      style={
+        Object {
+          "flex": 1,
+        }
+      }
+    >
+      <RCTScrollView
+        ItemSeparatorComponent={[Function]}
+        data={Array []}
+        getItem={[Function]}
+        getItemCount={[Function]}
+        keyExtractor={[Function]}
+        onContentSizeChange={[Function]}
+        onLayout={[Function]}
+        onMomentumScrollBegin={[Function]}
+        onMomentumScrollEnd={[Function]}
+        onScroll={[Function]}
+        onScrollBeginDrag={[Function]}
+        onScrollEndDrag={[Function]}
+        removeClippedSubviews={false}
+        renderItem={[Function]}
+        scrollEventThrottle={50}
+        stickyHeaderIndices={Array []}
+        viewabilityConfigCallbackPairs={Array []}
+      >
+        <View />
+      </RCTScrollView>
+    </View>
+  </View>
+</RCTSafeAreaView>
+`;
+
+exports[`renders seasonedit correctly 1`] = `
+<View
+  style={
+    Object {
+      "alignItems": "center",
+      "flex": 1,
+      "justifyContent": "center",
+    }
+  }
+>
+  <View
+    accessibilityIgnoresInvertColors={true}
+    style={
+      Object {
+        "height": "100%",
+        "width": "100%",
+      }
+    }
+  >
+    <Image
+      source={
+        Object {
+          "testUri": "../../../profilebg.png",
+        }
+      }
+      style={
+        Array [
+          Object {
+            "bottom": 0,
+            "left": 0,
+            "position": "absolute",
+            "right": 0,
+            "top": 0,
+          },
+          Object {
+            "height": "100%",
+            "width": "100%",
+          },
+          undefined,
+        ]
+      }
+    />
+  </View>
+  <View
+    style={
+      Object {
+        "alignItems": "center",
+        "bottom": 500,
+        "justifyContent": "center",
+        "left": 0,
+        "position": "absolute",
+        "right": 0,
+        "top": 0,
+      }
+    }
+  >
+    <Text
+      style={
+        Object {
+          "color": "#D9D9D9",
+          "fontFamily": "Bungee-Regular",
+          "fontSize": 35,
+        }
+      }
+    >
+      Current Matches
+    </Text>
+  </View>
+  <View
+    style={
+      Object {
+        "alignItems": "center",
+        "bottom": 300,
+        "justifyContent": "center",
+        "left": 0,
+        "position": "absolute",
+        "right": 0,
+        "top": 0,
+      }
+    }
+  >
+    <Text
+      style={
+        Object {
+          "color": "#D9D9D9",
+          "fontFamily": "Bungee-Regular",
+          "fontSize": 35,
+        }
+      }
+    >
+      Current: 
+    </Text>
+  </View>
+  <View
+    style={
+      Object {
+        "alignItems": "center",
+        "bottom": 0,
+        "justifyContent": "center",
+        "left": 0,
+        "position": "absolute",
+        "right": 0,
+        "top": 0,
+      }
+    }
+  >
+    <TextInput
+      keyboardType="email-address"
+      onChangeText={[Function]}
+      placeholder="Matches"
+      style={
+        Array [
+          Object {
+            "backgroundColor": "white",
+            "borderColor": "gray",
+            "borderRadius": 7,
+            "borderWidth": 2,
+            "color": "black",
+            "padding": 3,
+            "width": "90%",
+          },
+          Object {
+            "width": "90%",
+          },
+        ]
+      }
+      textAlign="center"
+    />
+  </View>
+  <View
+    style={
+      Object {
+        "alignItems": "center",
+        "bottom": 0,
+        "justifyContent": "center",
+        "left": 0,
+        "position": "absolute",
+        "right": 180,
+        "top": 650,
+      }
+    }
+  >
+    <View
+      accessible={true}
+      collapsable={false}
+      focusable={true}
+      onClick={[Function]}
+      onResponderGrant={[Function]}
+      onResponderMove={[Function]}
+      onResponderRelease={[Function]}
+      onResponderTerminate={[Function]}
+      onResponderTerminationRequest={[Function]}
+      onStartShouldSetResponder={[Function]}
+      style={
+        Object {
+          "alignItems": "center",
+          "backgroundColor": "#CA5A37",
+          "justifyContent": "center",
+          "opacity": 1,
+          "padding": 5,
+          "paddingHorizontal": 16,
+        }
+      }
+    >
+      <Text
+        style={
+          Object {
+            "color": "white",
+            "fontFamily": "Bungee-Regular",
+            "fontSize": 14,
+          }
+        }
+      >
+         Add Game 
+      </Text>
+    </View>
+  </View>
+  <View
+    style={
+      Object {
+        "alignItems": "center",
+        "bottom": 0,
+        "justifyContent": "center",
+        "left": 0,
+        "position": "absolute",
+        "right": 180,
+        "top": 650,
+      }
+    }
+  >
+    <View
+      accessible={true}
+      collapsable={false}
+      focusable={true}
+      onClick={[Function]}
+      onResponderGrant={[Function]}
+      onResponderMove={[Function]}
+      onResponderRelease={[Function]}
+      onResponderTerminate={[Function]}
+      onResponderTerminationRequest={[Function]}
+      onStartShouldSetResponder={[Function]}
+      style={
+        Object {
+          "alignItems": "center",
+          "backgroundColor": "#CA5A37",
+          "justifyContent": "center",
+          "left": 200,
+          "opacity": 1,
+          "padding": 5,
+          "paddingHorizontal": 16,
+        }
+      }
+    >
+      <Text
+        style={
+          Object {
+            "color": "white",
+            "fontFamily": "Bungee-Regular",
+            "fontSize": 14,
+          }
+        }
+      >
+         Remove Game 
+      </Text>
+    </View>
+  </View>
+</View>
+`;
+
+exports[`renders seasonview correctly 1`] = `
+<View
+  style={
+    Object {
+      "alignItems": "center",
+      "flex": 1,
+      "justifyContent": "center",
+    }
+  }
+>
+  <View
+    accessibilityIgnoresInvertColors={true}
+    style={
+      Object {
+        "height": "100%",
+        "width": "100%",
+      }
+    }
+  >
+    <Image
+      source={
+        Object {
+          "testUri": "../../../profilebg.png",
+        }
+      }
+      style={
+        Array [
+          Object {
+            "bottom": 0,
+            "left": 0,
+            "position": "absolute",
+            "right": 0,
+            "top": 0,
+          },
+          Object {
+            "height": "100%",
+            "width": "100%",
+          },
+          undefined,
+        ]
+      }
+    />
+  </View>
+  <View
+    style={
+      Array [
+        Object {
+          "bottom": 0,
+          "justifyContent": "flex-start",
+          "left": 30,
+          "position": "absolute",
+          "right": 0,
+          "top": 130,
+        },
+        Object {
+          "position": "absolute",
+        },
+      ]
+    }
+  >
+    <Text
+      style={
+        Array [
+          Object {
+            "color": "#D9D9D9",
+            "fontFamily": "Bungee-Regular",
+            "fontSize": 17,
+          },
+          Object {
+            "fontSize": 30,
+            "justifyContent": "center",
+            "left": 60,
+          },
+        ]
+      }
+    >
+          Season: 
+    </Text>
+    <Text
+      style={
+        Object {
+          "alignContent": "center",
+          "bottom": 30,
+          "color": "#CA5A37",
+          "fontSize": 25,
+        }
+      }
+    >
+         ____________________________
+    </Text>
+    <Text
+      style={
+        Array [
+          Object {
+            "color": "#D9D9D9",
+            "fontFamily": "Bungee-Regular",
+            "fontSize": 17,
+          },
+          Object {
+            "fontSize": 17,
+          },
+        ]
+      }
+    />
+  </View>
+  <View
+    style={
+      Array [
+        Object {
+          "bottom": 250,
+          "justifyContent": "center",
+          "left": 100,
+          "position": "absolute",
+          "right": 0,
+        },
+        Object {
+          "position": "absolute",
+        },
+      ]
+    }
+  >
+    <RCTScrollView
+      data=""
+      getItem={[Function]}
+      getItemCount={[Function]}
+      keyExtractor={[Function]}
+      onContentSizeChange={[Function]}
+      onLayout={[Function]}
+      onMomentumScrollBegin={[Function]}
+      onMomentumScrollEnd={[Function]}
+      onScroll={[Function]}
+      onScrollBeginDrag={[Function]}
+      onScrollEndDrag={[Function]}
+      removeClippedSubviews={false}
+      renderItem={[Function]}
+      scrollEventThrottle={50}
+      stickyHeaderIndices={Array []}
+      viewabilityConfigCallbackPairs={Array []}
+    >
+      <View />
+    </RCTScrollView>
+  </View>
+  <View
+    style={
+      Object {
+        "justifyContent": "center",
+        "position": "absolute",
+      }
+    }
+  >
+    <RCTScrollView
+      data=""
+      getItem={[Function]}
+      getItemCount={[Function]}
+      keyExtractor={[Function]}
+      onContentSizeChange={[Function]}
+      onLayout={[Function]}
+      onMomentumScrollBegin={[Function]}
+      onMomentumScrollEnd={[Function]}
+      onScroll={[Function]}
+      onScrollBeginDrag={[Function]}
+      onScrollEndDrag={[Function]}
+      removeClippedSubviews={false}
+      renderItem={[Function]}
+      scrollEventThrottle={50}
+      stickyHeaderIndices={Array []}
+      viewabilityConfigCallbackPairs={Array []}
+    >
+      <View />
+    </RCTScrollView>
+  </View>
+  <View
+    style={
+      Object {
+        "alignItems": "center",
+        "bottom": 680,
+        "justifyContent": "center",
+        "left": 240,
+        "position": "absolute",
+        "right": 0,
+        "top": 0,
+      }
+    }
+  >
+    <View
+      accessible={true}
+      collapsable={false}
+      focusable={true}
+      onClick={[Function]}
+      onResponderGrant={[Function]}
+      onResponderMove={[Function]}
+      onResponderRelease={[Function]}
+      onResponderTerminate={[Function]}
+      onResponderTerminationRequest={[Function]}
+      onStartShouldSetResponder={[Function]}
+      style={
+        Object {
+          "alignItems": "center",
+          "backgroundColor": "transparent",
+          "justifyContent": "center",
+          "opacity": 1,
+          "padding": 30,
+          "paddingHorizontal": 18,
+          "right": 40,
+          "top": 20,
+        }
+      }
+    >
+      <Text
+        style={
+          Object {
+            "color": "white",
+            "fontFamily": "Bungee-Regular",
+            "fontSize": 28,
+          }
+        }
+      >
+         Msgs
+      </Text>
+    </View>
+  </View>
+  <View
+    style={
+      Object {
+        "alignItems": "center",
+        "bottom": 680,
+        "justifyContent": "center",
+        "left": 405,
+        "position": "absolute",
+        "right": 0,
+        "top": 0,
+      }
+    }
+  >
+    <View
+      accessible={true}
+      collapsable={false}
+      focusable={true}
+      onClick={[Function]}
+      onResponderGrant={[Function]}
+      onResponderMove={[Function]}
+      onResponderRelease={[Function]}
+      onResponderTerminate={[Function]}
+      onResponderTerminationRequest={[Function]}
+      onStartShouldSetResponder={[Function]}
+      style={
+        Object {
+          "alignItems": "center",
+          "backgroundColor": "transparent",
+          "justifyContent": "center",
+          "opacity": 1,
+          "padding": 30,
+          "paddingHorizontal": 18,
+          "right": 40,
+          "top": 20,
+        }
+      }
+    >
+      <Text
+        style={
+          Object {
+            "color": "white",
+            "fontFamily": "Bungee-Regular",
+            "fontSize": 30,
+          }
+        }
+      >
+         Profile 
+      </Text>
+    </View>
+  </View>
+  <View
+    style={
+      Object {
+        "alignItems": "center",
+        "bottom": 0,
+        "justifyContent": "center",
+        "left": 200,
+        "position": "absolute",
+        "right": 20,
+        "top": 650,
+      }
+    }
+  />
+</View>
+`;
+
+exports[`renders teamedit correctly 1`] = `
+<View
+  style={
+    Object {
+      "alignItems": "center",
+      "flex": 1,
+      "justifyContent": "center",
+    }
+  }
+>
+  <View
+    accessibilityIgnoresInvertColors={true}
+    style={
+      Object {
+        "height": "100%",
+        "width": "100%",
+      }
+    }
+  >
+    <Image
+      source={
+        Object {
+          "testUri": "../../../profilebg.png",
+        }
+      }
+      style={
+        Array [
+          Object {
+            "bottom": 0,
+            "left": 0,
+            "position": "absolute",
+            "right": 0,
+            "top": 0,
+          },
+          Object {
+            "height": "100%",
+            "width": "100%",
+          },
+          undefined,
+        ]
+      }
+    />
+  </View>
+  <View
+    style={
+      Object {
+        "alignItems": "center",
+        "bottom": 0,
+        "justifyContent": "center",
+        "left": 0,
+        "position": "absolute",
+        "right": 0,
+        "top": -470,
+      }
+    }
+  >
+    <TextInput
+      keyboardType="default"
+      onChangeText={[Function]}
+      placeholder="Team Name"
+      style={
+        Array [
+          Object {
+            "backgroundColor": "white",
+            "borderColor": "gray",
+            "borderRadius": 7,
+            "borderWidth": 2,
+            "color": "black",
+            "padding": 3,
+            "width": "90%",
+          },
+          Object {
+            "width": "90%",
+          },
+        ]
+      }
+      textAlign="center"
+    />
+  </View>
+  <View
+    style={
+      Object {
+        "alignItems": "center",
+        "bottom": 0,
+        "justifyContent": "center",
+        "left": 0,
+        "position": "absolute",
+        "right": 0,
+        "top": -390,
+      }
+    }
+  >
+    <TextInput
+      keyboardType="default"
+      onChangeText={[Function]}
+      placeholder="Record"
+      style={
+        Array [
+          Object {
+            "backgroundColor": "white",
+            "borderColor": "gray",
+            "borderRadius": 7,
+            "borderWidth": 2,
+            "color": "black",
+            "padding": 3,
+            "width": "90%",
+          },
+          Object {
+            "width": "90%",
+          },
+        ]
+      }
+      textAlign="center"
+    />
+  </View>
+  <View
+    style={
+      Object {
+        "alignItems": "center",
+        "bottom": 0,
+        "justifyContent": "center",
+        "left": 0,
+        "position": "absolute",
+        "right": 0,
+        "top": 170,
+      }
+    }
+  >
+    <TextInput
+      keyboardType="default"
+      onChangeText={[Function]}
+      placeholder="Average Points"
+      style={
+        Array [
+          Object {
+            "backgroundColor": "white",
+            "borderColor": "gray",
+            "borderRadius": 7,
+            "borderWidth": 2,
+            "color": "black",
+            "padding": 3,
+            "width": "90%",
+          },
+          Object {
+            "width": "90%",
+          },
+        ]
+      }
+      textAlign="center"
+    />
+  </View>
+  <View
+    style={
+      Object {
+        "alignItems": "center",
+        "bottom": 0,
+        "justifyContent": "center",
+        "left": 0,
+        "position": "absolute",
+        "right": 0,
+        "top": 250,
+      }
+    }
+  >
+    <TextInput
+      keyboardType="default"
+      onChangeText={[Function]}
+      placeholder="Average Blocks"
+      style={
+        Array [
+          Object {
+            "backgroundColor": "white",
+            "borderColor": "gray",
+            "borderRadius": 7,
+            "borderWidth": 2,
+            "color": "black",
+            "padding": 3,
+            "width": "90%",
+          },
+          Object {
+            "width": "90%",
+          },
+        ]
+      }
+      textAlign="center"
+    />
+  </View>
+  <View
+    style={
+      Object {
+        "alignItems": "center",
+        "bottom": 0,
+        "justifyContent": "center",
+        "left": 0,
+        "position": "absolute",
+        "right": 0,
+        "top": 330,
+      }
+    }
+  >
+    <TextInput
+      keyboardType="default"
+      onChangeText={[Function]}
+      placeholder="Average Steals"
+      style={
+        Array [
+          Object {
+            "backgroundColor": "white",
+            "borderColor": "gray",
+            "borderRadius": 7,
+            "borderWidth": 2,
+            "color": "black",
+            "padding": 3,
+            "width": "90%",
+          },
+          Object {
+            "width": "90%",
+          },
+        ]
+      }
+      textAlign="center"
+    />
+  </View>
+  <View
+    style={
+      Object {
+        "alignItems": "center",
+        "bottom": 0,
+        "justifyContent": "center",
+        "left": 0,
+        "position": "absolute",
+        "right": 0,
+        "top": 410,
+      }
+    }
+  >
+    <TextInput
+      keyboardType="default"
+      onChangeText={[Function]}
+      placeholder="Assists"
+      style={
+        Array [
+          Object {
+            "backgroundColor": "white",
+            "borderColor": "gray",
+            "borderRadius": 7,
+            "borderWidth": 2,
+            "color": "black",
+            "padding": 3,
+            "width": "90%",
+          },
+          Object {
+            "width": "90%",
+          },
+        ]
+      }
+      textAlign="center"
+    />
+  </View>
+  <View
+    style={
+      Object {
+        "alignItems": "center",
+        "bottom": 0,
+        "justifyContent": "center",
+        "left": 0,
+        "position": "absolute",
+        "right": 0,
+        "top": 495,
+      }
+    }
+  >
+    <TextInput
+      keyboardType="numeric"
+      onChangeText={[Function]}
+      placeholder="Free Throw %"
+      style={
+        Array [
+          Object {
+            "backgroundColor": "white",
+            "borderColor": "gray",
+            "borderRadius": 7,
+            "borderWidth": 2,
+            "color": "black",
+            "padding": 3,
+            "width": "90%",
+          },
+          Object {
+            "width": "90%",
+          },
+        ]
+      }
+      textAlign="center"
+      value={[Function]}
+    />
+  </View>
+  <View
+    style={
+      Object {
+        "alignItems": "center",
+        "bottom": 0,
+        "justifyContent": "center",
+        "left": 0,
+        "position": "absolute",
+        "right": 0,
+        "top": 580,
+      }
+    }
+  >
+    <TextInput
+      onChangeText={[Function]}
+      placeholder="Shot Accuracy"
+      style={
+        Array [
+          Object {
+            "backgroundColor": "white",
+            "borderColor": "gray",
+            "borderRadius": 7,
+            "borderWidth": 2,
+            "color": "black",
+            "padding": 3,
+            "width": "90%",
+          },
+          Object {
+            "width": "90%",
+          },
+        ]
+      }
+      textAlign="center"
+    />
+  </View>
+  <View
+    style={
+      Object {
+        "alignItems": "center",
+        "bottom": 680,
+        "justifyContent": "center",
+        "left": 240,
+        "position": "absolute",
+        "right": 0,
+        "top": 0,
+      }
+    }
+  >
+    <View
+      accessible={true}
+      collapsable={false}
+      focusable={true}
+      onClick={[Function]}
+      onResponderGrant={[Function]}
+      onResponderMove={[Function]}
+      onResponderRelease={[Function]}
+      onResponderTerminate={[Function]}
+      onResponderTerminationRequest={[Function]}
+      onStartShouldSetResponder={[Function]}
+      style={
+        Object {
+          "alignItems": "center",
+          "backgroundColor": "transparent",
+          "justifyContent": "center",
+          "opacity": 1,
+          "padding": 0,
+          "paddingHorizontal": 30,
+        }
+      }
+    >
+      <Text
+        style={
+          Object {
+            "color": "transparent",
+            "fontFamily": "Bungee-Regular",
+            "fontSize": 28,
+          }
+        }
+      >
+         
+      </Text>
+    </View>
+  </View>
+  <View
+    style={
+      Object {
+        "alignItems": "center",
+        "bottom": 680,
+        "justifyContent": "center",
+        "left": 380,
+        "position": "absolute",
+        "right": 0,
+        "top": 0,
+      }
+    }
+  >
+    <View
+      accessible={true}
+      collapsable={false}
+      focusable={true}
+      onClick={[Function]}
+      onResponderGrant={[Function]}
+      onResponderMove={[Function]}
+      onResponderRelease={[Function]}
+      onResponderTerminate={[Function]}
+      onResponderTerminationRequest={[Function]}
+      onStartShouldSetResponder={[Function]}
+      style={
+        Object {
+          "alignItems": "center",
+          "backgroundColor": "transparent",
+          "justifyContent": "center",
+          "opacity": 1,
+          "padding": 0,
+          "paddingHorizontal": 30,
+        }
+      }
+    >
+      <Text
+        style={
+          Object {
+            "color": "transparent",
+            "fontFamily": "Bungee-Regular",
+            "fontSize": 28,
+          }
+        }
+      >
+         
+      </Text>
+    </View>
+  </View>
+  <View
+    style={
+      Object {
+        "alignItems": "center",
+        "bottom": 0,
+        "justifyContent": "center",
+        "left": 0,
+        "position": "absolute",
+        "right": 180,
+        "top": 650,
+      }
+    }
+  >
+    <View
+      accessible={true}
+      collapsable={false}
+      focusable={true}
+      onClick={[Function]}
+      onResponderGrant={[Function]}
+      onResponderMove={[Function]}
+      onResponderRelease={[Function]}
+      onResponderTerminate={[Function]}
+      onResponderTerminationRequest={[Function]}
+      onStartShouldSetResponder={[Function]}
+      style={
+        Object {
+          "alignItems": "center",
+          "backgroundColor": "#CA5A37",
+          "justifyContent": "center",
+          "opacity": 1,
+          "padding": 5,
+          "paddingHorizontal": 16,
+        }
+      }
+    >
+      <Text
+        style={
+          Object {
+            "color": "white",
+            "fontFamily": "Bungee-Regular",
+            "fontSize": 14,
+          }
+        }
+      >
+         Submit Changes 
+      </Text>
+    </View>
+  </View>
+</View>
+`;
+
+exports[`renders teamlist correctly 1`] = `
+<RCTSafeAreaView
+  style={
+    Object {
+      "flex": 1,
+    }
+  }
+>
+  <View
+    style={
+      Object {
+        "backgroundColor": "#171414",
+        "flex": 1,
+      }
+    }
+  >
+    <View
+      style={
+        Object {
+          "flex": 1,
+        }
+      }
+    >
+      <RCTScrollView
+        ItemSeparatorComponent={[Function]}
+        data={
+          Array [
+            Object {
+              "avgAssists": 0,
+              "avgBlocks": 0,
+              "avgPoints": 0,
+              "avgSteals": 0,
+              "freethrowPercent": 0,
+              "players": Array [],
+              "record": "0-0-0",
+              "shotPercent": 0,
+              "teamManager": "joe",
+              "teamName": "test_team",
+            },
+            Object {
+              "avgAssists": 0,
+              "avgBlocks": 0,
+              "avgPoints": 0,
+              "avgSteals": 0,
+              "freethrowPercent": 0,
+              "players": Array [],
+              "record": "0-0-0",
+              "shotPercent": 0,
+              "teamManager": "joe",
+              "teamName": "away_test",
+            },
+          ]
+        }
+        getItem={[Function]}
+        getItemCount={[Function]}
+        keyExtractor={[Function]}
+        onContentSizeChange={[Function]}
+        onLayout={[Function]}
+        onMomentumScrollBegin={[Function]}
+        onMomentumScrollEnd={[Function]}
+        onScroll={[Function]}
+        onScrollBeginDrag={[Function]}
+        onScrollEndDrag={[Function]}
+        removeClippedSubviews={false}
+        renderItem={[Function]}
+        scrollEventThrottle={50}
+        stickyHeaderIndices={Array []}
+        viewabilityConfigCallbackPairs={Array []}
+      >
+        <View>
+          <View
+            onLayout={[Function]}
+            style={null}
+          >
+            <View
+              style={
+                Object {
+                  "backgroundColor": "#383434",
+                  "borderRadius": 10,
+                  "marginTop": 20,
+                  "padding": 30,
+                }
+              }
+            >
+              <Text
+                style={
+                  Object {
+                    "color": "white",
+                    "fontSize": 12,
+                    "fontWeight": "700",
+                  }
+                }
+              >
+                Team Name
+              </Text>
+              <Text
+                style={
+                  Object {
+                    "color": "white",
+                    "fontSize": 18,
+                  }
+                }
+              >
+                test_team
+              </Text>
+              <Text
+                style={
+                  Object {
+                    "color": "white",
+                    "fontSize": 12,
+                    "fontWeight": "700",
+                  }
+                }
+              >
+                Manager
+              </Text>
+              <Text
+                style={
+                  Object {
+                    "color": "white",
+                    "fontSize": 18,
+                  }
+                }
+              >
+                joe
+              </Text>
+              <View
+                style={
+                  Object {
+                    "alignItems": "center",
+                    "justifyContent": "center",
+                    "left": 220,
+                    "position": "absolute",
+                  }
+                }
+              >
+                <View
+                  accessible={true}
+                  collapsable={false}
+                  focusable={true}
+                  onClick={[Function]}
+                  onResponderGrant={[Function]}
+                  onResponderMove={[Function]}
+                  onResponderRelease={[Function]}
+                  onResponderTerminate={[Function]}
+                  onResponderTerminationRequest={[Function]}
+                  onStartShouldSetResponder={[Function]}
+                  style={
+                    Object {
+                      "alignItems": "center",
+                      "backgroundColor": "#B62727",
+                      "opacity": 1,
+                      "padding": 15,
+                    }
+                  }
+                >
+                  <Text
+                    style={
+                      Object {
+                        "color": "#FFFFFF",
+                        "fontFamily": "monospace",
+                      }
+                    }
+                  >
+                    View Full Profile
+                  </Text>
+                </View>
+              </View>
+            </View>
+            <View
+              style={
+                Object {
+                  "backgroundColor": "#171414",
+                  "height": 0.2,
+                  "width": "100%",
+                }
+              }
+            />
+          </View>
+          <View
+            onLayout={[Function]}
+            style={null}
+          >
+            <View
+              style={
+                Object {
+                  "backgroundColor": "#383434",
+                  "borderRadius": 10,
+                  "marginTop": 20,
+                  "padding": 30,
+                }
+              }
+            >
+              <Text
+                style={
+                  Object {
+                    "color": "white",
+                    "fontSize": 12,
+                    "fontWeight": "700",
+                  }
+                }
+              >
+                Team Name
+              </Text>
+              <Text
+                style={
+                  Object {
+                    "color": "white",
+                    "fontSize": 18,
+                  }
+                }
+              >
+                away_test
+              </Text>
+              <Text
+                style={
+                  Object {
+                    "color": "white",
+                    "fontSize": 12,
+                    "fontWeight": "700",
+                  }
+                }
+              >
+                Manager
+              </Text>
+              <Text
+                style={
+                  Object {
+                    "color": "white",
+                    "fontSize": 18,
+                  }
+                }
+              >
+                joe
+              </Text>
+              <View
+                style={
+                  Object {
+                    "alignItems": "center",
+                    "justifyContent": "center",
+                    "left": 220,
+                    "position": "absolute",
+                  }
+                }
+              >
+                <View
+                  accessible={true}
+                  collapsable={false}
+                  focusable={true}
+                  onClick={[Function]}
+                  onResponderGrant={[Function]}
+                  onResponderMove={[Function]}
+                  onResponderRelease={[Function]}
+                  onResponderTerminate={[Function]}
+                  onResponderTerminationRequest={[Function]}
+                  onStartShouldSetResponder={[Function]}
+                  style={
+                    Object {
+                      "alignItems": "center",
+                      "backgroundColor": "#B62727",
+                      "opacity": 1,
+                      "padding": 15,
+                    }
+                  }
+                >
+                  <Text
+                    style={
+                      Object {
+                        "color": "#FFFFFF",
+                        "fontFamily": "monospace",
+                      }
+                    }
+                  >
+                    View Full Profile
+                  </Text>
+                </View>
+              </View>
+            </View>
+          </View>
+        </View>
+      </RCTScrollView>
+    </View>
+  </View>
+</RCTSafeAreaView>
+`;
+
+exports[`renders teamview correctly 1`] = `
+<View
+  style={
+    Object {
+      "alignItems": "center",
+      "flex": 1,
+      "justifyContent": "center",
+    }
+  }
+>
+  <View
+    accessibilityIgnoresInvertColors={true}
+    style={
+      Object {
+        "height": "100%",
+        "width": "100%",
+      }
+    }
+  >
+    <Image
+      source={
+        Object {
+          "testUri": "../../../profilebg.png",
+        }
+      }
+      style={
+        Array [
+          Object {
+            "bottom": 0,
+            "left": 0,
+            "position": "absolute",
+            "right": 0,
+            "top": 0,
+          },
+          Object {
+            "height": "100%",
+            "width": "100%",
+          },
+          undefined,
+        ]
+      }
+    />
+  </View>
+  <View
+    style={
+      Object {
+        "alignItems": "center",
+        "height": 30,
+        "left": 50,
+        "position": "absolute",
+        "resizeMode": "stretch",
+        "top": 200,
+        "width": 30,
+      }
+    }
+  >
+    <Image
+      source={
+        Object {
+          "testUri": "../../../headshot3.png",
+        }
+      }
+    />
+  </View>
+  <View
+    style={
+      Object {
+        "bottom": 0,
+        "justifyContent": "flex-start",
+        "left": 10,
+        "position": "absolute",
+        "right": 0,
+        "top": 300,
+      }
+    }
+  >
+    <Text
+      style={
+        Array [
+          Object {
+            "color": "#D9D9D9",
+            "fontFamily": "Bungee-Regular",
+            "fontSize": 20,
+          },
+          Object {
+            "bottom": 200,
+            "fontSize": 30,
+          },
+        ]
+      }
+    >
+      Team: 
+    </Text>
+    <Text
+      style={
+        Array [
+          Object {
+            "color": "#D9D9D9",
+            "fontFamily": "Bungee-Regular",
+            "fontSize": 20,
+          },
+          Object {
+            "bottom": 230,
+            "fontSize": 19,
+            "left": 250,
+          },
+        ]
+      }
+    >
+      ROSTER
+    </Text>
+    <Text
+      style={
+        Array [
+          Object {
+            "color": "#D9D9D9",
+            "fontFamily": "Bungee-Regular",
+            "fontSize": 20,
+          },
+          Object {
+            "bottom": 270,
+            "fontSize": 15,
+            "left": 5,
+          },
+        ]
+      }
+    >
+      Record: 
+    </Text>
+  </View>
+  <View
+    style={
+      Object {
+        "bottom": 0,
+        "justifyContent": "flex-start",
+        "left": 190,
+        "position": "absolute",
+        "right": 0,
+        "top": 180,
+      }
+    }
+  >
+    <Text
+      style={
+        Array [
+          Object {
+            "color": "#D9D9D9",
+            "fontFamily": "Bungee-Regular",
+            "fontSize": 20,
+          },
+          Object {
+            "fontSize": 15,
+            "right": 180,
+            "top": 180,
+          },
+        ]
+      }
+    >
+      Manager: 
+    </Text>
+    <Text
+      style={
+        Object {
+          "color": "white",
+          "fontSize": 15,
+          "right": 180,
+          "top": 160,
+        }
+      }
+    >
+      ___________________
+    </Text>
+    <Text
+      style={
+        Array [
+          Object {
+            "color": "#D9D9D9",
+            "fontFamily": "Bungee-Regular",
+            "fontSize": 20,
+          },
+          Object {
+            "fontSize": 13,
+            "right": 180,
+            "top": 170,
+          },
+        ]
+      }
+    >
+      Average Points: 
+    </Text>
+    <Text
+      style={
+        Array [
+          Object {
+            "color": "#D9D9D9",
+            "fontFamily": "Bungee-Regular",
+            "fontSize": 20,
+          },
+          Object {
+            "fontSize": 13,
+            "right": 180,
+            "top": 170,
+          },
+        ]
+      }
+    >
+      Average Blocks: 
+    </Text>
+    <Text
+      style={
+        Array [
+          Object {
+            "color": "#D9D9D9",
+            "fontFamily": "Bungee-Regular",
+            "fontSize": 20,
+          },
+          Object {
+            "fontSize": 13,
+            "right": 180,
+            "top": 170,
+          },
+        ]
+      }
+    >
+      Average Steals: 
+    </Text>
+    <Text
+      style={
+        Array [
+          Object {
+            "color": "#D9D9D9",
+            "fontFamily": "Bungee-Regular",
+            "fontSize": 20,
+          },
+          Object {
+            "fontSize": 13,
+            "right": 180,
+            "top": 170,
+          },
+        ]
+      }
+    >
+      Average Assists: 
+    </Text>
+    <Text
+      style={
+        Array [
+          Object {
+            "color": "#D9D9D9",
+            "fontFamily": "Bungee-Regular",
+            "fontSize": 20,
+          },
+          Object {
+            "fontSize": 13,
+            "right": 180,
+            "top": 170,
+          },
+        ]
+      }
+    >
+      Free Throw Percent: 
+    </Text>
+    <Text
+      style={
+        Array [
+          Object {
+            "color": "#D9D9D9",
+            "fontFamily": "Bungee-Regular",
+            "fontSize": 20,
+          },
+          Object {
+            "fontSize": 13,
+            "right": 180,
+            "top": 170,
+          },
+        ]
+      }
+    >
+      Shot Percent: 
+    </Text>
+  </View>
+  <RCTSafeAreaView
+    style={
+      Object {
+        "bottom": 0,
+        "justifyContent": "flex-end",
+        "left": 200,
+        "marginBottom": 100,
+        "marginTop": 20,
+        "position": "absolute",
+        "right": 0,
+        "top": 180,
+      }
+    }
+  >
+    <RCTScrollView
+      ItemSeparatorComponent={[Function]}
+      data=""
+      getItem={[Function]}
+      getItemCount={[Function]}
+      keyExtractor={[Function]}
+      onContentSizeChange={[Function]}
+      onLayout={[Function]}
+      onMomentumScrollBegin={[Function]}
+      onMomentumScrollEnd={[Function]}
+      onScroll={[Function]}
+      onScrollBeginDrag={[Function]}
+      onScrollEndDrag={[Function]}
+      removeClippedSubviews={false}
+      renderItem={[Function]}
+      scrollEventThrottle={50}
+      stickyHeaderIndices={Array []}
+      viewabilityConfigCallbackPairs={Array []}
+    >
+      <View />
+    </RCTScrollView>
+  </RCTSafeAreaView>
+  <View
+    style={
+      Object {
+        "alignItems": "center",
+        "bottom": 680,
+        "justifyContent": "center",
+        "left": 240,
+        "position": "absolute",
+        "right": 0,
+        "top": 0,
+      }
+    }
+  >
+    <View
+      accessible={true}
+      collapsable={false}
+      focusable={true}
+      onClick={[Function]}
+      onResponderGrant={[Function]}
+      onResponderMove={[Function]}
+      onResponderRelease={[Function]}
+      onResponderTerminate={[Function]}
+      onResponderTerminationRequest={[Function]}
+      onStartShouldSetResponder={[Function]}
+      style={
+        Object {
+          "alignItems": "center",
+          "backgroundColor": "transparent",
+          "justifyContent": "center",
+          "opacity": 1,
+          "padding": 30,
+          "paddingHorizontal": 18,
+          "right": 40,
+          "top": 20,
+        }
+      }
+    >
+      <Text
+        style={
+          Object {
+            "color": "white",
+            "fontFamily": "Bungee-Regular",
+            "fontSize": 28,
+          }
+        }
+      >
+         Msgs
+      </Text>
+    </View>
+  </View>
+  <View
+    style={
+      Object {
+        "alignItems": "center",
+        "bottom": 680,
+        "justifyContent": "center",
+        "left": 405,
+        "position": "absolute",
+        "right": 0,
+        "top": 0,
+      }
+    }
+  >
+    <View
+      accessible={true}
+      collapsable={false}
+      focusable={true}
+      onClick={[Function]}
+      onResponderGrant={[Function]}
+      onResponderMove={[Function]}
+      onResponderRelease={[Function]}
+      onResponderTerminate={[Function]}
+      onResponderTerminationRequest={[Function]}
+      onStartShouldSetResponder={[Function]}
+      style={
+        Object {
+          "alignItems": "center",
+          "backgroundColor": "transparent",
+          "justifyContent": "center",
+          "opacity": 1,
+          "padding": 30,
+          "paddingHorizontal": 18,
+          "right": 40,
+          "top": 20,
+        }
+      }
+    >
+      <Text
+        style={
+          Object {
+            "color": "white",
+            "fontFamily": "Bungee-Regular",
+            "fontSize": 30,
+          }
+        }
+      >
+         Profile 
+      </Text>
+    </View>
+  </View>
+  <View
+    style={
+      Object {
+        "alignItems": "center",
+        "bottom": 0,
+        "justifyContent": "center",
+        "left": 200,
+        "position": "absolute",
+        "right": 20,
+        "top": 650,
+      }
+    }
+  >
+    <View
+      accessible={true}
+      collapsable={false}
+      focusable={true}
+      onClick={[Function]}
+      onResponderGrant={[Function]}
+      onResponderMove={[Function]}
+      onResponderRelease={[Function]}
+      onResponderTerminate={[Function]}
+      onResponderTerminationRequest={[Function]}
+      onStartShouldSetResponder={[Function]}
+      style={
+        Object {
+          "alignItems": "center",
+          "backgroundColor": "#B62727",
+          "justifyContent": "center",
+          "opacity": 1,
+          "padding": 5,
+          "paddingHorizontal": 50,
+        }
+      }
+    >
+      <Text
+        style={
+          Object {
+            "color": "#FFFFFF",
+            "fontFamily": "monospace",
+          }
+        }
+      >
+         Leave Team 
+      </Text>
+    </View>
+  </View>
+  <View
+    style={
+      Object {
+        "alignItems": "center",
+        "bottom": 0,
+        "justifyContent": "center",
+        "left": 20,
+        "position": "absolute",
+        "right": 200,
+        "top": 650,
+      }
+    }
+  />
+</View>
+`;
+
+exports[`renders userlist correctly 1`] = `
+<RCTSafeAreaView
+  style={
+    Object {
+      "flex": 1,
+    }
+  }
+>
+  <View
+    style={
+      Object {
+        "backgroundColor": "#171414",
+        "flex": 1,
+      }
+    }
+  >
+    <View
+      style={
+        Object {
+          "flex": 1,
+        }
+      }
+    >
+      <RCTScrollView
+        ItemSeparatorComponent={[Function]}
+        data={
+          Array [
+            Object {
+              "pass": "test_password",
+              "username": "test_user@gmail.com",
+            },
+          ]
+        }
+        getItem={[Function]}
+        getItemCount={[Function]}
+        keyExtractor={[Function]}
+        onContentSizeChange={[Function]}
+        onLayout={[Function]}
+        onMomentumScrollBegin={[Function]}
+        onMomentumScrollEnd={[Function]}
+        onScroll={[Function]}
+        onScrollBeginDrag={[Function]}
+        onScrollEndDrag={[Function]}
+        removeClippedSubviews={false}
+        renderItem={[Function]}
+        scrollEventThrottle={50}
+        stickyHeaderIndices={Array []}
+        viewabilityConfigCallbackPairs={Array []}
+      >
+        <View>
+          <View
+            onLayout={[Function]}
+            style={null}
+          >
+            <View
+              style={
+                Object {
+                  "backgroundColor": "#383434",
+                  "borderRadius": 10,
+                  "marginTop": 20,
+                  "padding": 30,
+                }
+              }
+            >
+              <Text
+                style={
+                  Object {
+                    "color": "white",
+                    "fontSize": 12,
+                    "fontWeight": "700",
+                  }
+                }
+              >
+                Email
+              </Text>
+              <Text
+                style={
+                  Object {
+                    "color": "white",
+                    "fontSize": 18,
+                  }
+                }
+              >
+                test_user@gmail.com
+              </Text>
+              <Text
+                style={
+                  Object {
+                    "color": "white",
+                    "fontSize": 12,
+                    "fontWeight": "700",
+                  }
+                }
+              >
+                Password
+              </Text>
+              <Text
+                style={
+                  Object {
+                    "color": "white",
+                    "fontSize": 18,
+                  }
+                }
+              >
+                test_password
+              </Text>
+            </View>
+          </View>
+        </View>
+      </RCTScrollView>
+      <Text
+        style={
+          Object {
+            "color": "white",
+            "fontFamily": "monospace",
+            "fontSize": 20,
+          }
+        }
+      >
+        Email
+      </Text>
+      <TextInput
+        keyboardType="number-pad"
+        onChangeText={[Function]}
+        placeholder="Email"
+        placeholderTextColor="white"
+        style={
+          Object {
+            "backgroundColor": "#383434",
+            "borderRadius": 3,
+            "borderWidth": 2,
+            "color": "white",
+            "padding": 10,
+            "width": "100%",
+          }
+        }
+        textAlign="center"
+      />
+      <Text
+        style={
+          Object {
+            "color": "white",
+            "fontFamily": "monospace",
+            "fontSize": 20,
+          }
+        }
+      >
+        Password
+      </Text>
+      <TextInput
+        keyboardType="email-address"
+        onChangeText={[Function]}
+        placeholder="Password"
+        placeholderTextColor="white"
+        style={
+          Array [
+            Object {
+              "backgroundColor": "#383434",
+              "borderRadius": 3,
+              "borderWidth": 2,
+              "color": "white",
+              "padding": 10,
+              "width": "100%",
+            },
+            Object {
+              "color": "white",
+            },
+          ]
+        }
+        textAlign="center"
+      />
+      <View
+        accessible={true}
+        collapsable={false}
+        focusable={true}
+        onClick={[Function]}
+        onResponderGrant={[Function]}
+        onResponderMove={[Function]}
+        onResponderRelease={[Function]}
+        onResponderTerminate={[Function]}
+        onResponderTerminationRequest={[Function]}
+        onStartShouldSetResponder={[Function]}
+        style={
+          Object {
+            "alignItems": "center",
+            "backgroundColor": "#B62727",
+            "opacity": 1,
+            "padding": 15,
+          }
+        }
+      >
+        <Text
+          style={
+            Object {
+              "color": "#FFFFFF",
+              "fontFamily": "monospace",
+            }
+          }
+        >
+          Delete User
+        </Text>
+      </View>
+      <View
+        accessible={true}
+        collapsable={false}
+        focusable={true}
+        onClick={[Function]}
+        onResponderGrant={[Function]}
+        onResponderMove={[Function]}
+        onResponderRelease={[Function]}
+        onResponderTerminate={[Function]}
+        onResponderTerminationRequest={[Function]}
+        onStartShouldSetResponder={[Function]}
+        style={
+          Object {
+            "alignItems": "center",
+            "backgroundColor": "#CA5A37",
+            "opacity": 1,
+            "padding": 15,
+          }
+        }
+      >
+        <Text
+          style={
+            Object {
+              "color": "#FFFFFF",
+              "fontFamily": "monospace",
+            }
+          }
+        >
+          Update User
+        </Text>
+      </View>
+    </View>
+  </View>
+</RCTSafeAreaView>
+`;

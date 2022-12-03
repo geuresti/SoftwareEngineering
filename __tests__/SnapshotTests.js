@@ -1,8 +1,5 @@
-
-
 import 'react-native';
 import React from 'react';
-//import App from '../App';
 import MatchCreate from '../MatchCreate.js'
 import CreateTeam from '../CreateTeam';
 import AdminPage from '../AdminPage';
@@ -25,88 +22,105 @@ import Inbox from '../Inbox.js';
 import Home from '../Home.js';
 // Note: test renderer must be required after react-native.
 import renderer from 'react-test-renderer';
+import { User } from 'realm';
+
 
 it('renders createteam correctly', () => {
-  renderer.create(<CreateTeam />);
+    const create_team_render = renderer.create(<CreateTeam />).toJSON();
+    expect(create_team_render).toMatchSnapshot();
 });
 
 it('renders matchcreate correctly', () => {
-    renderer.create(<MatchCreate />);
-  });
+    const match_create_render = renderer.create(<MatchCreate />).toJSON();
+    expect(match_create_render).toMatchSnapshot();
+});
 
 it("renders adminpage correctly", () => {
-    renderer.create(<AdminPage />);
+    const admin_render = renderer.create(<AdminPage />).toJSON();
+    expect(admin_render).toMatchSnapshot();
 });
 
 it("renders teamlist correctly", () => {
-    renderer.create(<TeamList />);
+    const team_list_render = renderer.create(<TeamList />).toJSON();
+    expect(team_list_render).toMatchSnapshot();
 });
 
 it("renders playerlist correctly", () => {
-    renderer.create(<PlayerList />);
+    const player_list_render = renderer.create(<PlayerList />).toJSON();
+    expect(player_list_render).toMatchSnapshot();
 });
 
 it("renders userlist correctly", () => {
-    renderer.create(<UserList />);
-});
-
-it("renders userlist correctly", () => {
-    renderer.create(<UserList />);
+    const user_list_render = renderer.create(<UserList />).toJSON();
+    expect(user_list_render).toMatchSnapshot();
 });
 
 it("renders loginscreen correctly", () => {
-    renderer.create(<LoginScreen />);
+    const login_screen_render = renderer.create(<LoginScreen />).toJSON();
+    expect(login_screen_render).toMatchSnapshot();
 });
 
 it("renders profileedit correctly", () => {
-    renderer.create(<ProfileEdit />);
+    const profile_edit_render = renderer.create(<ProfileEdit />).toJSON();
+    expect(profile_edit_render).toMatchSnapshot();
 });
 
 it("renders profileview correctly", () => {
-    renderer.create(<ProfileView2 />);
+    const profile_view_render = renderer.create(<ProfileView2 />).toJSON();
+    expect(profile_view_render).toMatchSnapshot();
 });
 
 it("renders teamview correctly", () => {
-    renderer.create(<TeamView />);
+    const team_view_render = renderer.create(<TeamView />).toJSON();
+    expect(team_view_render).toMatchSnapshot();
 });
 
 it("renders teamedit correctly", () => {
-    renderer.create(<TeamEdit />);
+    const team_edit_render = renderer.create(<TeamEdit />).toJSON();
+    expect(team_edit_render).toMatchSnapshot();
 });
 
 it("renders seasonedit correctly", () => {
-    renderer.create(<SeasonEdit />);
+    const season_edit_render = renderer.create(<SeasonEdit />).toJSON();
+    expect(season_edit_render).toMatchSnapshot();
 });
 
 it("renders seasonview correctly", () => {
-    renderer.create(<SeasonView />);
+    const season_view_render = renderer.create(<SeasonView />).toJSON();
+    expect(season_view_render).toMatchSnapshot();
 });
 
 it("renders matchview correctly", () => {
-    renderer.create(<MatchView />);
+    const match_view_render = renderer.create(<MatchView />).toJSON();
+    expect(match_view_render).toMatchSnapshot();
 });
 
 it("renders schedule correctly", () => {
-    renderer.create(<Schedule />);
+    const schedule_render = renderer.create(<Schedule />).toJSON();
+    expect(schedule_render).toMatchSnapshot();
 });
 
-it("renders seasonmanager correctly", () => {
-    renderer.create(<SeasonManager />);
+it("renders season manager correctly", () => {
+    const season_manager_render = renderer.create(<SeasonManager />).toJSON();
+    expect(season_manager_render).toMatchSnapshot();
 });
 
-it("renders notificationmanager correctly", () => {
-    renderer.create(<NotificationManager />);
+it("renders notification manager correctly", () => {
+    const notification_manager_render = renderer.create(<NotificationManager />).toJSON();
+    expect(notification_manager_render).toMatchSnapshot();
 });
 
 it("renders requests correctly", () => {
-    renderer.create(<Request />);
+    const request_render = renderer.create(<Request />).toJSON();
+    expect(request_render).toMatchSnapshot();
 });
 
 it("renders inbox correctly", () => {
-    renderer.create(<Inbox />);
+    const inbox_render = renderer.create(<Inbox />).toJSON();
+    expect(inbox_render).toMatchSnapshot();
 });
 
 it("renders home correctly", () => {
-    renderer.create(<Home />);
+    const home_render = renderer.create(<Home />).toJSON();
+    expect(home_render).toMatchSnapshot();
 });
-
