@@ -1,6 +1,5 @@
-import React, { useEffect, useState } from 'react';
-import { Text, View, Image, ImageBackground, TouchableOpacity, TextInput, StyleSheet, Button, Alert, SafeAreaView, FlatList} from "react-native";
-import Player from './model/PlayerDao';
+import React from 'react';
+import { Text, View, ImageBackground, TouchableOpacity, StyleSheet } from "react-native";
 
 const AdminPage = ({ navigation }) => {
   const styles = StyleSheet.create({
@@ -14,7 +13,6 @@ const AdminPage = ({ navigation }) => {
       padding: 10,
     },
     button1: {
-        //flex: 1,
         alignItems: "center",
         backgroundColor: "#B62727",
         padding: 5,
@@ -22,17 +20,13 @@ const AdminPage = ({ navigation }) => {
         justifyContent: 'center'    
     },
     button2: {
-      //flex: 1,
       alignItems: "center",
       backgroundColor: "#CA5A37",
       padding: 5,
       paddingHorizontal: 1,
       justifyContent: 'center'
-
-      
   },
   button3: {
-    //flex: 1,
     alignItems: "center",
     backgroundColor: "transparent",
     padding: 30,
@@ -40,8 +34,6 @@ const AdminPage = ({ navigation }) => {
     justifyContent: 'center',
     top:20,
     right:40
-
-    
 }
   });
    return (
@@ -49,15 +41,12 @@ const AdminPage = ({ navigation }) => {
     <View style={{flex:1, alignItems:'center', justifyContent:'center'}}>
          <ImageBackground
           style={{
-            //resizeMode: "center",
             height: '100%',
             width: '100%'
           }}
           source={require("./profilebg.png")}
         />
 
-
-        
             <Text style={{position: 'absolute', top: 100, left: 60, right: 0, bottom: 300, color: "#FFFFFF", fontSize: 40, fontFamily: 'Bungee-Regular'}}>ADMIN PAGE</Text> 
             <View style={{position: 'absolute', top: 0, left: 0, right: 200, bottom: 200, justifyContent: 'center', alignItems: 'center'}}>
             <TouchableOpacity
@@ -124,8 +113,6 @@ const AdminPage = ({ navigation }) => {
         
         <View style={{position: 'absolute', top: 0, left: 240, right: 0, bottom: 680, justifyContent: 'center', alignItems: 'center'}}>
         <TouchableOpacity
-            //inbox button, transparent
-            //onPress={() => console.log("button pressed!")} 
             onPress={() => navigation.navigate('Inbox', {data:[]})} 
             style={styles.button3}>
         <Text style={{color: "white", fontSize: 14, fontFamily: 'Bungee-Regular'}}> Msgs</Text>
@@ -134,18 +121,14 @@ const AdminPage = ({ navigation }) => {
 
         <View style={{position: 'absolute', top: 0, left: 405, right: 0, bottom: 680, justifyContent: 'center', alignItems: 'center'}}>
         <TouchableOpacity
-            //profile button, transparent
-            //onPress={() => console.log("button pressed!")} 
             onPress={() => navigation.navigate('ProfileView2')} 
-            //customClick={() => navigation.navigate('ProfileView')}
             style={styles.button3}>
         <Text style={{color: "white", fontSize: 30, fontFamily: 'Bungee-Regular'}}> Profile </Text>
         </TouchableOpacity>
         </View>
     </View>
-    //<Login />
 
    );
 }
-export default AdminPage
 
+export default AdminPage
