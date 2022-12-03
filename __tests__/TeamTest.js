@@ -13,7 +13,7 @@ beforeEach(function(){
     playerDao = new PlayerDao()
     teamDao.deleteTeam("test_team")
     playerDao.deletePlayer("joe")
-    playerDao.deletePlayer("jo")
+    playerDao.deletePlayer("bob")
     teamDao.deleteTeam("test_team2")
 
 });

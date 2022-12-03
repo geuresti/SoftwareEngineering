@@ -95,7 +95,9 @@ export default class Team {
             if(record) {
                 updated.record = record;
                 let standingsDao = new StandingsDao()
-                standingsDao.updateStandings(standingsDao.getStandingToView().standing_id, teamInput, record)
+                if(standingsDao.getStandingToView()){
+                    standingsDao.updateStandings(standingsDao.getStandingToView().standing_id, teamInput, record)
+                }
             }
             if(avgPoints) {
                 updated.avgPoints = avgPoints;

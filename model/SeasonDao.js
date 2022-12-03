@@ -25,8 +25,7 @@ export default class Season {
     
     createSeason() {
         let standingsDao = new StandingsDao()
-        standingsDao.create()
-        const db = season_realm.objects("Season");
+        const db = this.getAllSeasons()
         let next_ID;
 
         if (db.length > 0) {
@@ -38,7 +37,7 @@ export default class Season {
         season_realm.write(() => {
             season_realm.create("Season", {id: next_ID, matches: []});
         })
-
+        standingsDao.create()
         let new_season = season_realm.objectForPrimaryKey("Season", next_ID);
         //console.log("CREATED NEW SEASON:", new_season);
         return new_season
@@ -84,11 +83,13 @@ export default class Season {
 
     deleteSeason(season_id)
     {
+        let standingsDao = new StandingsDao()
         season_realm.write(() => {
             let seasonToDelete = season_realm.objectForPrimaryKey("Season", season_id);
             if (seasonToDelete) {
               //  console.log("ATTEMPTING TO DELETE:", seasonToDelete);
                 season_realm.delete(seasonToDelete)
+                standingsDao.deleteStandings(season_id)
               //  console.log("SUCCESSFULLY DELETED");
                 return true
             } else {
@@ -96,7 +97,8 @@ export default class Season {
                 //return false
             }
         })
-        return false
+
+        return this.getSeasonByID(season_id)
     }
 
     deleteAllSeasons() {

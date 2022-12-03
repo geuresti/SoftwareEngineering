@@ -16,7 +16,7 @@ schema:[
 schemaVersion:1
 }); 
 
-var standingView = 0
+var standingView = 0;
 
 export default class Standings {
 
@@ -42,6 +42,7 @@ export default class Standings {
         standings_realm.write(() => {
             standings_realm.create("Standings", {
                 standing_id: next_ID,
+                teamRecords: {}
             });   
         })
         return this.readStandings(next_ID)
@@ -86,6 +87,29 @@ export default class Standings {
         }
         //records = records.sort(function(a,b){return b[4].localeCompare(a[4])}); 
         return standings_list
+    }
+    
+    deleteStandings(_id){
+
+        standings_realm.write(() => {
+            let standingsToDelete = standings_realm.objectForPrimaryKey("Standings", _id);
+            if (standingsToDelete) {
+                standings_realm.delete(standingsToDelete)
+            } else {
+                console.log("NOTIFICATION UNSUCCESSFULLY DELETED");
+                //return false
+            }
+        })
+
+        return this.readStandings(_id)
+    }
+
+    deleteAllStandings() {
+        let standings = standings_realm.objects("Standings");
+        for (let i = 0; i < standings.length; i++) {
+            this.deleteStandings(standings[i].standing_id);
+        }
+        
     }
        
 }
