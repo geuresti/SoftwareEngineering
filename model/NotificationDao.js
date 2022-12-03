@@ -93,10 +93,7 @@ export default class Notification {
                 notification_realm.delete(notifs)
                 console.log("SUCCESSFULLY DELETED DB");
                 return true
-            } else {
-                console.log("NOTIFICATION DB UNSUCCESSFULLY DELETED");
-                return false
-            }
+            } 
         })
     }
 }
