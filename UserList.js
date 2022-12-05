@@ -115,21 +115,16 @@ const UserList = ({ navigation }) => {
               [
                 {
                   text: 'Confirm',
-                  //onPress: () => console.log("confirm"),
                   onPress: () => userDao.deleteUser(userEmail),
                 
                 },
                 {
                   text: 'Cancel',
-                  //onPress: () => console.log("cancel"),
                   onPress: () => navigation.navigate('UserList'),
                 },
-                navigation.navigate('UserList')
               ],
               { cancelable: false }
             );
-
-            
           }
           
           else{
@@ -229,14 +224,12 @@ const UserList = ({ navigation }) => {
         
       
           <TouchableOpacity
-            //onPress={() => console.log("button pressed!")} 
                 onPress={delUser}
                 style={styles.button}>
                 <Text style={{color: "#FFFFFF", fontFamily: 'monospace'}}>Delete User</Text>
               </TouchableOpacity>
 
               <TouchableOpacity
-            //onPress={() => console.log("button pressed!")} 
                 onPress={updateUser}
                 style={[styles.button , {backgroundColor: "#CA5A37"}]}>
                 <Text style={{color: "#FFFFFF", fontFamily: 'monospace'}}>Update User</Text>

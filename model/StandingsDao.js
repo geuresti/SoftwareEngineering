@@ -56,8 +56,9 @@ export default class Standings {
     updateStandings(_id, teamname, record){
         standings_realm.write(() => {
             let updated = standings_realm.objectForPrimaryKey("Standings", _id)
-            let recs = updated.teamRecords
-            if (teamname && record){
+            let recs
+            if(updated){recs = updated.teamRecords}
+            if (updated && teamname && record){
                 recs[teamname] = record
                 console.log(recs)
             }

@@ -213,7 +213,7 @@ let listItemView = (item) => {
         <TouchableOpacity
             //profile button, transparent
             //onPress={() => console.log("button pressed!")} 
-            onPress={() => navigation.navigate('ProfileView2')} 
+            onPress={() => navigation.navigate('ProfileView')} 
             //customClick={() => navigation.navigate('ProfileView')}
             style={styles.button3}>
         <Text style={{color: "white", fontSize: 30, fontFamily: 'Bungee-Regular'}}> Profile </Text>

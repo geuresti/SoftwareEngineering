@@ -64,7 +64,6 @@ const SeasonEdit = ({navigation}) => {
 
       let addMatch = () => {
         matches = parseInt(matches)
-        //console.log(matchDao.readMatch(matches).away_team)
         try{
         
           if (matchDao.readMatch(matches).away_team != null)
@@ -94,7 +93,6 @@ const SeasonEdit = ({navigation}) => {
                 text: 'Ok',
                 onPress: () => navigation.navigate('SeasonView'),
               },
-              navigation.navigate('SeasonView')
             ],
             { cancelable: false }
           );
@@ -120,7 +118,6 @@ const SeasonEdit = ({navigation}) => {
               //onPress: () => console.log("cancel"),
               onPress: () => navigation.navigate('SeasonView'),
             },
-            navigation.navigate('SeasonView')
           ],
           { cancelable: false }
         );
@@ -161,10 +158,6 @@ return (
 
         <View style={{position: 'absolute', top: 650, left: 0, right: 180, bottom: 0, justifyContent: 'center', alignItems: 'center'}}>
         <TouchableOpacity
-            //submit changes button
-            //onPress={() => console.log("button pressed!")} 
-            // onPress={() =>Alert.alert("Changes Saved!")}
-            // onPress={() => navigation.navigate('ProfileList')}
             onPress={() => addMatch()}
             style={styles.button2}>
         <Text style={{color: "white", fontSize: 14, fontFamily: 'Bungee-Regular'}}> Add Game </Text>
@@ -173,10 +166,6 @@ return (
 
     <View style={{position: 'absolute', top: 650, left: 0, right: 180, bottom: 0, justifyContent: 'center', alignItems: 'center'}}>
         <TouchableOpacity
-            //submit changes button
-            //onPress={() => console.log("button pressed!")} 
-            // onPress={() =>Alert.alert("Changes Saved!")}
-            // onPress={() => navigation.navigate('ProfileList')}
             onPress={() => deleteMatch()}
             style={[styles.button2, {left: 200}]}>
         <Text style={{color: "white", fontSize: 14, fontFamily: 'Bungee-Regular'}}> Remove Game </Text>

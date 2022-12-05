@@ -7,9 +7,8 @@ import CreateTeam from './CreateTeam.js';
 import TeamList from './TeamList.js';
 import LoginScreen from './LoginScreen.js';
 import UserList from './UserList.js';
-import Realm from "realm";
 import ProfileEdit from './ProfileEdit.js';
-import ProfileView2 from './ProfileView2.js';
+import ProfileView from './ProfileView.js';
 import NotificationManager from './NotificationManager.js'
 import PlayerList from './PlayerList.js';
 import Inbox from './Inbox.js';
@@ -38,7 +37,6 @@ const App = () => {
           component={LoginScreen}
           options={{
             title: 'Login', //Set Header Title
-            
           }}
         />
 
@@ -100,8 +98,8 @@ const App = () => {
         />
 
         <Stack.Screen
-          name="ProfileView2"
-          component={ProfileView2}
+          name="ProfileView"
+          component={ProfileView}
           options={{
             title: 'Player Profile', //Set Header Title
             

@@ -114,9 +114,6 @@ button2:{
         style={{ backgroundColor: '#383434',marginTop: 0, marginBottom: 12, bottom: 1,padding: 0, borderRadius: 1 }}>
   
     <Text style={[styles.texttype, {fontSize: 14, left: 10}]}>Player:  {item}</Text>
-    
-
-    
     </View>
     
       );
@@ -252,10 +249,6 @@ let requestJoin = () => {
         <Text style={[styles.texttype, {right: 180, top: 170,fontSize: 13}]}>Average Assists: {team ? team.assists:""}</Text>
         <Text style={[styles.texttype, {right: 180, top: 170,fontSize: 13}]}>Free Throw Percent: {team ? team.freethrowPrecent:""}</Text>
         <Text style={[styles.texttype, {right: 180, top: 170,fontSize: 13}]}>Shot Percent: {team ? team.shotPercent:""}</Text>
-
-
-
-        
         </View>
 
         <SafeAreaView style={styles.players}>
@@ -278,19 +271,11 @@ let requestJoin = () => {
 
         <View style={{position: 'absolute', top: 0, left: 405, right: 0, bottom: 680, justifyContent: 'center', alignItems: 'center'}}>
         <TouchableOpacity
-            //profile button, transparent
-            //onPress={() => console.log("button pressed!")} 
-            onPress={() => navigation.navigate('ProfileView2')} 
-            //customClick={() => navigation.navigate('ProfileView')}
+            onPress={() => navigation.navigate('ProfileView')} 
             style={styles.button3}>
         <Text style={{color: "white", fontSize: 30, fontFamily: 'Bungee-Regular'}}> Profile </Text>
         </TouchableOpacity>
         </View>
-
-
-  
-
-  
 
         <View style={{position: 'absolute', top: 650, left: 200, right: 20, bottom: 0, justifyContent: 'center', alignItems: 'center'}}>
           {changeButton()}

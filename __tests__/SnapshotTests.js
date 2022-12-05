@@ -9,7 +9,7 @@ import LoginScreen from '../LoginScreen.js';
 import ProfileEdit from '../ProfileEdit.js';
 import UserList from '../UserList.js';
 import MatchView from '../MatchView.js'
-import ProfileView2 from '../ProfileView2.js';
+import ProfileView2 from '../ProfileView.js';
 import TeamView from '../TeamView.js';
 import TeamEdit from '../TeamEdit.js';
 import SeasonEdit from '../SeasonEdit.js'

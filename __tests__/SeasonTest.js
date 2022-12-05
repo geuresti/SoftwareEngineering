@@ -14,10 +14,10 @@ let playerDao = new PlayerDao();
 let standingsDao = new StandingsDao();
 
 beforeEach(function(){
-    playerDao.deletePlayer("joe")
-    playerDao.deletePlayer("moe")
-    teamDao.deleteTeam("away_test")
-    teamDao.deleteTeam("home_test")
+    playerDao.deletePlayer("jo")
+    playerDao.deletePlayer("mo")
+    teamDao.deleteTeam("away")
+    teamDao.deleteTeam("home")
     matchDao.deleteMatch(0)
     seasonDao.deleteAllSeasons();
     standingsDao.deleteAllStandings()
@@ -60,13 +60,13 @@ test('get specific season', () => {
 })
 
 test('add game to season', () => {
-    let away_team = "away_test"
-    let home_team = "home_test"
+    let away_team = "away"
+    let home_team = "home"
 
-    playerDao.createPlayer("joe")
-    playerDao.createPlayer("moe")
-    teamDao.createTeam(away_team, "joe")
-    teamDao.createTeam(home_team, "moe")
+    playerDao.createPlayer("jo")
+    playerDao.createPlayer("mo")
+    teamDao.createTeam(away_team, "jo")
+    teamDao.createTeam(home_team, "mo")
 
     let time = "7"
     let match = matchDao.createMatch(away_team, home_team, time)
@@ -76,13 +76,13 @@ test('add game to season', () => {
 })
 
 test('remove game from season', () => {
-    let away_team = "away_test"
-    let home_team = "home_test"
+    let away_team = "away"
+    let home_team = "home"
 
-    playerDao.createPlayer("joe")
-    playerDao.createPlayer("moe")
-    teamDao.createTeam(away_team, "joe")
-    teamDao.createTeam(home_team, "moe")
+    playerDao.createPlayer("jo")
+    playerDao.createPlayer("mo")
+    teamDao.createTeam(away_team, "jo")
+    teamDao.createTeam(home_team, "mo")
 
     let time = "7"
     let match = matchDao.createMatch(away_team, home_team, time)
@@ -102,10 +102,10 @@ test('delete season', () => {
 
 test('update standings', () =>{
     let standings = standingsDao.create()
-    let away_team = "away_test"
+    let away_team = "away"
 
-    playerDao.createPlayer("joe")
-    teamDao.createTeam(away_team, "joe")
+    playerDao.createPlayer("jo")
+    teamDao.createTeam(away_team, "jo")
     let updated = standingsDao.updateStandings(0, away_team, "1-1-1")
     expect(updated.teamRecords[away_team]).toBe("1-1-1")
 
@@ -113,10 +113,10 @@ test('update standings', () =>{
 
 test('standings display', () => {
     let standings = standingsDao.create()
-    let away_team = "away_test"
+    let away_team = "away"
 
-    playerDao.createPlayer("joe")
-    teamDao.createTeam(away_team, "joe")
+    playerDao.createPlayer("jo")
+    teamDao.createTeam(away_team, "jo")
     let updated = standingsDao.updateStandings(0, away_team, "1-1-1")
     let display = standingsDao.getStandingsDisplay(0)
     expect(display[0]).toStrictEqual([away_team, "1","1","1",4])

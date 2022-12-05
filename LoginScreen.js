@@ -33,7 +33,6 @@ const styles = StyleSheet.create({
   let login_user = () => {
     let loggedUser = userDao.authenticateUser(userEmail, userPassword)
     if(loggedUser && !(userEmail.localeCompare("admin") === 0)){
-      console.log(userEmail, "admin")
       playerDao.setCurrentPlayer(userEmail)
       playerDao.setProfileToView(userEmail)
       Alert.alert(
@@ -65,7 +64,7 @@ const styles = StyleSheet.create({
     }
     else{
 
-      alert(
+      Alert.alert(
         'Log in info does not exist',
         [
           {
@@ -103,7 +102,7 @@ const styles = StyleSheet.create({
     {
     playerDao.setCurrentPlayer(userEmail)
     playerDao.setProfileToView(userEmail)
-    Alert.alert(
+    alert(
       'Success',
       'You are Registered Successfully',
       [
@@ -122,7 +121,7 @@ const styles = StyleSheet.create({
     {
     playerDao.setCurrentPlayer(userEmail)
     playerDao.setProfileToView(userEmail)
-    Alert.alert(
+    alert(
       'Success',
       'You are Registered Successfully',
       [

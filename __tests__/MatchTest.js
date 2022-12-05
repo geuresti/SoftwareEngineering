@@ -11,8 +11,8 @@ beforeEach(function(){
     matchDao = new MatchDao()
     teamDao = new TeamDao()
     playerDao = new PlayerDao()
-    playerDao.deletePlayer("joe")
-    playerDao.deletePlayer("moe")
+    playerDao.deletePlayer("han")
+    playerDao.deletePlayer("chris")
     teamDao.deleteTeam("away_test")
     teamDao.deleteTeam("home_test")
     matchDao.deleteMatch(0)
@@ -24,10 +24,10 @@ test('create match', () => {
     let away_team = "away_test"
     let home_team = "home_test"
 
-    playerDao.createPlayer("joe")
-    playerDao.createPlayer("moe")
-    teamDao.createTeam(away_team, "joe")
-    teamDao.createTeam(home_team, "moe")
+    playerDao.createPlayer("han")
+    playerDao.createPlayer("chris")
+    teamDao.createTeam(away_team, "han")
+    teamDao.createTeam(home_team, "chris")
 
     let time = "7"
     let match_id = 0
@@ -50,10 +50,10 @@ test('create match', () => {
     let away_team = "away_test"
     let home_team = "home_test"
 
-    playerDao.createPlayer("joe")
-    playerDao.createPlayer("moe")
-    teamDao.createTeam(away_team, "joe")
-    teamDao.createTeam(home_team, "moe")
+    playerDao.createPlayer("han")
+    playerDao.createPlayer("chris")
+    teamDao.createTeam(away_team, "han")
+    teamDao.createTeam(home_team, "chris")
 
     let time = "7"
     let created = matchDao.createMatch(away_team, home_team, time)
@@ -68,10 +68,10 @@ test('create match', () => {
     let home_team = "home_test"
     let time = "7"
 
-    playerDao.createPlayer("joe")
-    playerDao.createPlayer("moe")
-    teamDao.createTeam(away_team, "joe")
-    teamDao.createTeam(home_team, "moe")
+    playerDao.createPlayer("han")
+    playerDao.createPlayer("chris")
+    teamDao.createTeam(away_team, "han")
+    teamDao.createTeam(home_team, "chris")
 
     let created = matchDao.createMatch(away_team, home_team, time)
     let read = matchDao.readMatch(match_id)
@@ -90,10 +90,10 @@ test('create match', () => {
     let away_team = "away_test"
     let home_team = "home_test"
 
-    playerDao.createPlayer("joe")
-    playerDao.createPlayer("moe")
-    teamDao.createTeam(away_team, "joe")
-    teamDao.createTeam(home_team, "moe")
+    playerDao.createPlayer("han")
+    playerDao.createPlayer("chris")
+    teamDao.createTeam(away_team, "han")
+    teamDao.createTeam(home_team, "chris")
 
     let time = "7"
     let match = matchDao.readAllMatches()
@@ -110,10 +110,10 @@ test('create match', () => {
     let away_team = "away_test"
     let home_team = "home_test"
 
-    playerDao.createPlayer("joe")
-    playerDao.createPlayer("moe")
-    teamDao.createTeam(away_team, "joe")
-    teamDao.createTeam(home_team, "moe")
+    playerDao.createPlayer("han")
+    playerDao.createPlayer("chris")
+    teamDao.createTeam(away_team, "han")
+    teamDao.createTeam(home_team, "chris")
 
     let time = "7"
     let created = matchDao.createMatch(away_team, home_team, time)

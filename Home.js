@@ -98,7 +98,6 @@ const Home = ({ navigation }) => {
             <View style={{position: 'absolute', top: 0, left: 0, right: 200, bottom: 0, justifyContent: 'center', alignItems: 'center'}}>
             <TouchableOpacity
               onPress={() => navigation.navigate('Schedule')} 
-              customClick={() => navigation.navigate('Schedule')}
             style={[styles.button1]}>
             <Text style={{color: "#FFFFFF", fontSize: 20, fontFamily: 'Bungee-Regular'}}>        SCHEDULE        </Text>
             </TouchableOpacity>
@@ -107,8 +106,6 @@ const Home = ({ navigation }) => {
         <View style={{position: 'absolute', top: 200, left: 0, right: 200, bottom: 0, justifyContent: 'center', alignItems: 'center'}}>
         <TouchableOpacity
             onPress={() => navigation.navigate('TeamList')} 
-        
-            customClick={() => navigation.navigate('TeamList')}
             style={styles.button2}>
         <Text style={{color: "#FFFFFF", fontSize: 20, fontFamily: 'Bungee-Regular'}}>   BROWSE TEAMS    </Text>
         </TouchableOpacity>
@@ -122,7 +119,6 @@ const Home = ({ navigation }) => {
         <View style={{position: 'absolute', top: 0, left: 200, right: 0, bottom: 0, justifyContent: 'center', alignItems: 'center'}}>
         <TouchableOpacity
             onPress={() => navigation.navigate('PlayerList')} 
-            customClick={() => navigation.navigate('PlayerList')}
             style={[styles.button1, {padding: 10}]}>
         <Text style={{color: "#FFFFFF", fontSize: 17, fontFamily: 'Bungee-Regular'}}>  BROWSE PLAYERS  </Text>
         </TouchableOpacity>
@@ -131,7 +127,6 @@ const Home = ({ navigation }) => {
         <View style={{position: 'absolute', top: 200, left: 200, right: 0, bottom: 0, justifyContent: 'center', alignItems: 'center'}}>
         <TouchableOpacity
             onPress={() => navigation.navigate('SeasonManager')} 
-            customClick={() => navigation.navigate('SeasonManager')}
             style={[styles.button2, {padding: 10}]}>
         <Text style={{color: "#FFFFFF", fontSize: 17, fontFamily: 'Bungee-Regular'}}>  BROWSE SEASONS  </Text>
         </TouchableOpacity>
@@ -140,8 +135,6 @@ const Home = ({ navigation }) => {
         
         <View style={{position: 'absolute', top: 0, left: 240, right: 0, bottom: 680, justifyContent: 'center', alignItems: 'center'}}>
         <TouchableOpacity
-            //inbox button, transparent
-            //onPress={() => console.log("button pressed!")} 
             onPress={() => navigation.navigate('Inbox', {data:[]})} 
             style={styles.button3}>
         <Text style={{color: "white", fontSize: 14, fontFamily: 'Bungee-Regular'}}> Msgs</Text>
@@ -150,16 +143,12 @@ const Home = ({ navigation }) => {
 
         <View style={{position: 'absolute', top: 0, left: 405, right: 0, bottom: 680, justifyContent: 'center', alignItems: 'center'}}>
         <TouchableOpacity
-            //profile button, transparent
-            //onPress={() => console.log("button pressed!")} 
-            onPress={() => navigation.navigate('ProfileView2')} 
-            //customClick={() => navigation.navigate('ProfileView')}
+            onPress={() => navigation.navigate('ProfileView')} 
             style={styles.button3}>
         <Text style={{color: "white", fontSize: 30, fontFamily: 'Bungee-Regular'}}> Profile </Text>
         </TouchableOpacity>
         </View>
     </View>
-    //<Login />
 
    );
 }

@@ -84,5 +84,6 @@ test('delete all notifications', () => {
     notifDao.createNotification(senderUsername, receiverUsername, content)
     
     const db = notifDao.getAllNotifications()
+    notifDao.deleteAllNotifications()
     expect(db.length).toBe(0)
 })

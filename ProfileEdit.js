@@ -94,7 +94,7 @@ input: {
       //  console.log("NEW FIRST NAME:", f_new);
       //  console.log("NEW HEIGHT:", h_new);
        //  console.log("email", playerDao.userEmail)
-        alert(
+        Alert.alert(
         'Success',
         'You have Updated Successfully',
         [
@@ -111,7 +111,7 @@ input: {
   
   
     else{
-      alert(
+      Alert.alert(
         'Player does not exist',
         [
           {
@@ -129,7 +129,7 @@ input: {
 
 let deletePlayer = () => {
   playerDao.deletePlayer(userEmail);
-  alert(
+  Alert.alertalert(
     'Success',
     'You have Updated Successfully',
     [

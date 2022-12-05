@@ -7,6 +7,7 @@ let userDao = null
 beforeEach(function(){
     userDao = new UserDao()
     userDao.deleteUser("test_user@gmail.com")
+    userDao.deleteUser("admin")
 
 });
 
@@ -94,4 +95,12 @@ test('read user by email', () => {
     
   });
 
+  test('admin', () => {
+    let email = "admin"
+    let password = "adminpass"
+    let created = userDao.createUser(email, password)
+
+    let auth = userDao.authenticateUser(email, password)
+    expect(auth).toBeTruthy()
+  })
 

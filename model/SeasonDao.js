@@ -75,8 +75,8 @@ export default class Season {
             let updated = season_realm.objectForPrimaryKey("Season", season_id)
             let matchList = updated.matches
             let index = matchList.indexOf(gameInt)
-            matchList.splice(index,1)
-            updated.matches = matchList
+            const result = matchList.filter(match => match != index );
+            updated.matches = result
         })
         return this.getSeasonByID(season_id)
     }
@@ -87,14 +87,11 @@ export default class Season {
         season_realm.write(() => {
             let seasonToDelete = season_realm.objectForPrimaryKey("Season", season_id);
             if (seasonToDelete) {
-              //  console.log("ATTEMPTING TO DELETE:", seasonToDelete);
                 season_realm.delete(seasonToDelete)
                 standingsDao.deleteStandings(season_id)
-              //  console.log("SUCCESSFULLY DELETED");
                 return true
             } else {
-                console.log("NOTIFICATION UNSUCCESSFULLY DELETED");
-                //return false
+
             }
         })
 

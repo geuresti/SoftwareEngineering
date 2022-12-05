@@ -94,7 +94,6 @@ const TeamList = ({ navigation }) => {
                   //onPress: () => console.log("cancel"),
                   onPress: () => navigation.navigate('TeamList'),
                 },
-                navigation.navigate('TeamList')
               ],
               { cancelable: false }
             );
@@ -118,51 +117,6 @@ const TeamList = ({ navigation }) => {
           };
           }
 
-          
-    
-        let updateTeam = () => {
-      
-          if (!teamName) {
-            alert('Please fill team name');
-            return;
-          }
-
-          let read = teamDao.readTeam(teamName)
-          
-          if(read){
-            teamDao.updateTeam(
-              teamName, read.teamManager, read.players, read.record, read.avgPoints, 
-              read.avgBlocks, read.avgSteals, read.avgAssists, read.freethrowPercent, read.shotPercent
-              )
-            
-              alert(
-              'Success',
-              'You have Updated Successfully',
-              [
-                {
-                  text: 'Ok',
-                  onPress: () => navigation.navigate('TeamList'),
-                },
-              ],
-              { cancelable: false }
-            );
-          
-          }
-        
-          else{
-            alert(
-              'Team does not exist',
-              [
-                {
-                text: 'Ok',
-                onPress: () => navigation.navigate('TeamList'),
-              },
-            ],
-            { cancelable: false }
-          );
-          
-        };
-        }
         let playerDao = new PlayerDao()
         let currPlayer = playerDao.getProfileToView()
         if(currPlayer){
@@ -192,11 +146,6 @@ const TeamList = ({ navigation }) => {
           <Text style={{color: "#FFFFFF", fontFamily: 'monospace'}}>Delete Team</Text>
         </TouchableOpacity>,
 
-        <TouchableOpacity
-          onPress={updateTeam}
-          style={[styles.button , {backgroundColor: "#CA5A37"}]}>
-          <Text style={{color: "#FFFFFF", fontFamily: 'monospace'}}>Update Team</Text>
-        </TouchableOpacity>
           
           
           

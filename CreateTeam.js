@@ -31,8 +31,6 @@ const CreateTeam = ({ navigation }) => {
   let [teamname, setTeamName] = useState('');
 
   let register_team = () => {
-    console.log(teamname);
-
     if (!teamname) {
       alert('Please fill team name');
       return
@@ -61,18 +59,15 @@ const CreateTeam = ({ navigation }) => {
       Alert.alert(
         'Success',
         'Team Registered Successfully',
-        [
-          {
+        [{
             text: 'Ok',
             onPress: () => navigation.navigate('Home'),
           },
         ],
         { cancelable: false }
       );
-    }
-    
+    } 
   };
-
 
    return (
       <View style={{flex:1, alignItems:'center', justifyContent:'center'}}>
