@@ -154,7 +154,7 @@ style={[styles.button2, {top:0}]}>
         <View style={[styles.players, {position: 'absolute'}]}>
           <FlatList
             data={curr ? curr.matches.filter(function(e) { return e !== "" }): ""} 
-            renderItem={({item}) => <Text style={[styles.texttype, {fontSize: 15, }]}>Match {item}: {item ? matchDao.readMatch(item).home_team:""} vs. {matchDao.readMatch(item).away_team}</Text>}
+            renderItem={({item}) => <Text style={[styles.texttype, {fontSize: 15, }]}>Match {item}: {matchDao.readMatch(item).home_team} vs. {matchDao.readMatch(item).away_team}</Text>}
           />
           </View>
         <View style={{justifyContent:'center', position: 'absolute'}}>

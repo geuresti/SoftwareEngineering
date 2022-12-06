@@ -24,6 +24,7 @@ import SeasonView from './SeasonView.js'
 import SeasonEdit from './SeasonEdit.js'
 import Home from './Home.js'
 
+
 const Stack = createStackNavigator();
 
 const App = () => {
@@ -75,7 +76,6 @@ const App = () => {
 
           }}
         />
-
 
 
         <Stack.Screen
