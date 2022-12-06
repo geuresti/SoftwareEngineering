@@ -8,7 +8,7 @@ import PlayerDao from "./model/PlayerDao"
 let matchDao = new MatchDao()
 
 const Schedule = ({ navigation }) => {
-
+  let [matchID, setMatchID] = useState('');
     const styles = StyleSheet.create({
         textheader: {
           color: 'white',
@@ -50,13 +50,34 @@ const Schedule = ({ navigation }) => {
       let changeButton = () =>
       {
         if((currPlayer) && currPlayer.email.localeCompare("admin") === 0){
-        return(
+        return([<Text style={{fontSize:20 , fontFamily: 'monospace', color: 'white'}}>Game ID</Text>,
+        <TextInput 
+      style = {styles.input} keyboardType="number-pad"
+      textAlign={'center'}
+      placeholder="Team Name"
+      placeholderTextColor="white" 
+      onChangeText={
+        (matchID) => setMatchID(matchID)
+      }
+      />,
+      <TouchableOpacity
+      onPress={deleteMatch}
+      style={styles.button}>
+      <Text style={{color: "#FFFFFF", fontFamily: 'monospace'}}>Delete Match</Text>
+    </TouchableOpacity>,
+
+      
+      
+      
+      
+      
           <TouchableOpacity
           //onPress={() => console.log("button pressed!")} 
               onPress={() => {navigation.navigate('MatchCreate')}}
               style={styles.button}>
               <Text style={{color: "#FFFFFF", fontFamily: 'monospace'}}>Create Game</Text>
             </TouchableOpacity>
+        ] 
         )
       }
       }
@@ -67,7 +88,43 @@ const Schedule = ({ navigation }) => {
           FlatListItems: allMatches,
         };
     
+        let deleteMatch = () => {
 
+          if(matchDao.readMatch(parseInt(matchID))){
+          Alert.alert(
+            'Delete Season?',
+            'Press Confirm or Cancel',
+            [
+              {
+                text: 'Confirm',
+                //onPress: () => console.log("confirm"),
+                onPress: () => matchDao.deleteMatch(parseInt(matchID)),
+              
+              },
+              {
+                text: 'Cancel',
+                //onPress: () => console.log("cancel"),
+                
+              },
+              
+            ],
+            { cancelable: false }
+          );
+        }
+        else{
+          Alert.alert(
+            'Match does not exist?',
+            [
+              {
+                text: 'ok',
+                //onPress: () => console.log("confirm"),
+              
+              },
+            ],
+            { cancelable: false }
+          );
+        }
+        }
       let listViewItemSeparator = () => {
         return (
           <View
@@ -81,7 +138,7 @@ const Schedule = ({ navigation }) => {
         <View
             key={item.email}
             style={{ backgroundColor: '#383434', marginTop: 20, padding: 30, borderRadius: 10 }}>
-
+        <Text style={styles.textheader}>ID: {item.match_id} </Text>
         <Text style={styles.textheader}>Home Team: {item.home_team} </Text>
         <Text style={styles.textheader}>Score: {item.home_team_score} </Text>
         <Text style={styles.textheader}>Away Team: {item.away_team}</Text>
