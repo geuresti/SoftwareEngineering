@@ -65,6 +65,7 @@ const styles = StyleSheet.create({
     else{
 
       Alert.alert(
+        'Failed to log in',
         'Log in info does not exist',
         [
           {
@@ -121,7 +122,7 @@ const styles = StyleSheet.create({
     {
     playerDao.setCurrentPlayer(userEmail)
     playerDao.setProfileToView(userEmail)
-    alert(
+    Alert.alert(
       'Success',
       'You are Registered Successfully',
       [
