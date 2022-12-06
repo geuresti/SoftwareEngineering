@@ -159,5 +159,14 @@ export default class Matches {
         return this.readMatch(matchInput);
     }
 
-
+    deleteAllMatches() {
+        match_realm.write(() => {
+            let matches = this.readAllMatches()
+            if (matches) {
+                match_realm.delete(matches)
+                console.log("SUCCESSFULLY DELETED MATCHES DB");
+                return true
+            } 
+        })
+    }
 }
