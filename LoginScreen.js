@@ -102,7 +102,7 @@ const styles = StyleSheet.create({
     {
     playerDao.setCurrentPlayer(userEmail)
     playerDao.setProfileToView(userEmail)
-    alert(
+    Alert.alert(
       'Success',
       'You are Registered Successfully',
       [
