@@ -44,7 +44,7 @@ const Schedule = ({ navigation }) => {
         playerDao.setProfileToView(playerDao.getCurrentPlayer().email)
       }
       let player
-      if(player){
+      if(currPlayer){
         player = playerDao.readPlayer(currPlayer.email)
       }
       let changeButton = () =>

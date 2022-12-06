@@ -116,13 +116,6 @@ const MatchView = ({ navigation }) => {
     FlatListItems2: standings_list
   };
   
-let listViewItemSeparator = () => {
-  return (
-    <View
-      style={{ height: 0.2, width: '100%', backgroundColor: '#171414' }}
-    />
-  );
-};
 
 let changeButton = () =>
 {
@@ -138,30 +131,6 @@ style={[styles.button2, {top:0}]}>
   )
 }
 }
-
-
-
-let listItemView = (item) => {
-  return (
-  <View
-      key={item.id}
-      style={{ backgroundColor: '#383434', marginTop: 20, padding: 30, borderRadius: 10 }}>
-
-  <Text style={styles.textheader}>Season ID</Text>
-  <Text style={styles.textbottom}>{item.id}</Text>
-  <Text style={styles.textheader}>Matches:</Text>
-  <Text style={styles.textbottom}>{item.matches}</Text>
-  
-  <TouchableOpacity 
-  onPress={() => deleteSeason(item)} >
-  <Text style={{color: "#FFFFFF", fontFamily: 'monospace'}}>Delete</Text>
-  </TouchableOpacity>
-  </View>
-  
-    );
-    
-  };
-
 
    return (
     <View style={{flex:1, alignItems:'center', justifyContent:'center'}}>

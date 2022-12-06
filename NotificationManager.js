@@ -122,7 +122,7 @@ const TestingList = ({ navigation }) => {
           }
 
           notifDao.createNotification(senderUser, receiverUser, notifContent);
-          navigation.navigate('NotificationManager')
+          //navigation.navigate('NotificationManager')
           Alert.alert(
             'Success',
             'Notification Successfully Created',

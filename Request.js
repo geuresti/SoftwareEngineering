@@ -4,7 +4,7 @@ import PlayerDao from "./model/PlayerDao.js"
 import NotificationDao from "./model/NotificationDao.js"
 
 
-const TestingList = ({ navigation }) => {
+const Request = ({ navigation }) => {
 
   var notifDao = new NotificationDao()
 
@@ -108,26 +108,6 @@ const TestingList = ({ navigation }) => {
           );
         }
 
-        let recruitPlayer = () => {
-
-            notifContent = player.email + " would like to recruit you!";
-            console.log(player.email, player2.email)
-            notifDao.createNotification(player.email, player2.email, notifContent);
-  
-            Alert.alert(
-              'Success',
-              'Notification Successfully Created',
-              [
-                {
-                  text: 'Ok',
-                  onPress: () => navigation.navigate('Request'),
-                },
-              ],
-              { cancelable: false }
-            );
-          }
-    
-
         return (
           <SafeAreaView style={{ flex: 1 }}>
             <View style={{ flex: 1, backgroundColor: '#171414' }}>
@@ -138,13 +118,10 @@ const TestingList = ({ navigation }) => {
                   keyExtractor={(item, index) => index.toString()}
                   renderItem={({ item }) => listItemView(item)}
                 />
-
-        
-
               </View>
             </View>
           </SafeAreaView>
         );
       };
       
-      export default TestingList;
+      export default Request;
