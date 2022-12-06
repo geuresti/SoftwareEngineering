@@ -1,10 +1,8 @@
-import { Text, View, Image, ImageBackground, TouchableOpacity, TextInput, StyleSheet, Alert, SafeAreaView, FlatList, navigation} from "react-native";
+import { Text, View, Image, ImageBackground, TouchableOpacity, StyleSheet, Alert, SafeAreaView, FlatList } from "react-native";
 import TeamDao from "./model/TeamDao"
 import PlayerDao from "./model/PlayerDao"
 import React, { useEffect, useState } from 'react';
-import Realm from "realm";
 import NotificationDao from './model/NotificationDao'
-
 
 
 const TeamView = ({ navigation }) => {
@@ -188,7 +186,7 @@ let requestJoin = () => {
     [
       {
         text: 'Ok',
-        onPress: () => navigation.navigate('Request'),
+        onPress: () => navigation.navigate('TeamView'),
       },
     ],
     { cancelable: false }
