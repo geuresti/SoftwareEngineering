@@ -106,10 +106,7 @@ const ProfileView = ({ navigation }) => {
     if ((curr) && curr.email != playerDao.getCurrentPlayer().email)
     {
       myProf = false
-      console.log("false")
-      console.log(curr.email, playerDao.getCurrentPlayer().email)
 
-  
     }
     else if ((curr) && curr.email === playerDao.getCurrentPlayer().email)
     {
