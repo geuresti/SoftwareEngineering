@@ -152,7 +152,7 @@ let recruitPlayerToTeam = () => {
               [
                 {
                   text: 'Ok',
-                  onPress: () => navigation.navigate('Request'),
+                  onPress: () => navigation.navigate('ProfileView'),
                 },
               ],
               { cancelable: false }

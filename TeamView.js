@@ -205,7 +205,7 @@ let requestJoin = () => {
       [
         {
           text: 'Ok',
-          onPress: () => navigation.navigate('Request'),
+          onPress: () => navigation.navigate('TeamView'),
         },
       ],
       { cancelable: false }
