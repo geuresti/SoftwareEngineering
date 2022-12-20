@@ -47,11 +47,15 @@ const MatchView = ({ navigation }) => {
   
         },
         players: {
-            position: 'absolute',
-            left: 100, 
-            right: 0,
-            bottom: 250,
-            justifyContent: 'center',
+          position: 'absolute',
+          left: 90, 
+          right: 0,
+          bottom: 0,
+          top: 470,
+          //flex: 1,
+          marginTop: 20,
+          marginBottom: 100,
+          justifyContent: 'flex-end',
           },
   
         button2Inv:{
@@ -100,7 +104,41 @@ const MatchView = ({ navigation }) => {
     db = curr.matches
     standings_list = standingsDao.getStandingsDisplay(curr.id)
   }
+  let listViewItemSeparator = () => {
+    return (
+      <View
+        style={{ height: 0.2, width: '100%' }}
+      />
+    );
+  };
+
+  let listItemView = (item) => {
+    return (
+    <View
+        key={item.name}
+        style={{ marginTop: 0, marginBottom: 12, bottom: 1,padding: 0, borderRadius: 1 }}>
   
+  <Text style={[styles.texttype, {fontSize: 15, }]}>Match {item}: {matchDao.readMatch(item).home_team} vs. {matchDao.readMatch(item).away_team}</Text>
+    </View>
+    
+      );
+      
+    };
+    let standingsView = (item) => {
+      return (
+      <View
+          key={item.name}
+          style={{ marginTop: 0, marginBottom: 12, bottom: 1,padding: 0, borderRadius: 1 }}>
+    
+    <View>
+            <Text style={[styles.texttype, {fontSize: 22, textAlign: 'center'}]}>Team Name: {item[0]}</Text>
+            <Text style={[styles.texttype, {fontSize: 13, textAlign: 'center'}]}>Wins: {item[1]} Ties: {item[2]} Loses: {item[3]} Points {item[4]}</Text>
+            </View>
+      </View>
+      
+        );
+        
+      };
   let matchDao = new MatchDao()
 
   let playerDao = new PlayerDao()
@@ -151,23 +189,24 @@ style={[styles.button2, {top:0}]}>
         
         </View>
 
-        <View style={[styles.players, {position: 'absolute'}]}>
+        <SafeAreaView  style={styles.players}>
           <FlatList
             data={curr ? curr.matches.filter(function(e) { return e !== "" }): ""} 
-            renderItem={({item}) => <Text style={[styles.texttype, {fontSize: 15, }]}>Match {item}: {matchDao.readMatch(item).home_team} vs. {matchDao.readMatch(item).away_team}</Text>}
+            ItemSeparatorComponent={listViewItemSeparator}
+            keyExtractor={(item, index) => index.toString()}
+            renderItem={({item}) => listItemView(item)}
           />
-          </View>
-        <View style={{justifyContent:'center', position: 'absolute'}}>
+          </SafeAreaView >
+          <Text style={{position: 'absolute', color: "#B62727", fontSize: 25, bottom: 230, alignContent:'center'}}>   ____________________________</Text>
+        <SafeAreaView  style={[styles.players, {top: 200, left: 20, marginBottom: 250}]}>
         <FlatList
             data={standings_list ? standings_list: ""} 
-            renderItem={({item}) => (
-            <View>
-            <Text style={[styles.texttype, {fontSize: 22, textAlign: 'center'}]}>Team Name: {item[0]}</Text>
-            <Text style={[styles.texttype, {fontSize: 13, textAlign: 'center'}]}>Wins: {item[1]} Ties: {item[2]} Loses: {item[3]} Points {item[4]}</Text>
-            </View>
-            )}
+            ItemSeparatorComponent={listViewItemSeparator}
+            keyExtractor={(item, index) => index.toString()}
+            renderItem={({item}) => standingsView(item)}
+            
           />
-        </View>
+        </SafeAreaView >
         <View style={{position: 'absolute', top: 0, left: 240, right: 0, bottom: 680, justifyContent: 'center', alignItems: 'center'}}>
         <TouchableOpacity
             //inbox button, transparent
