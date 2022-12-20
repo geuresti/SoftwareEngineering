@@ -135,7 +135,8 @@ const TestingList = ({ navigation }) => {
         let newSeason = () => {
 
           seasonDao.createSeason();
-          navigation.navigate('SeasonManager')
+          navigation.navigate('AdminPage')
+          /*
           Alert.alert(
             'Success',
             'New Season Successfully Created',
@@ -147,7 +148,7 @@ const TestingList = ({ navigation }) => {
               
             ],
             { cancelable: false }
-          );
+          ); */
         }
     
         return (

@@ -43,6 +43,8 @@ const CreateTeam = ({ navigation }) => {
     teamDao.addPlayer(teamname, curr.email)
     if(curr.email.localeCompare("admin") === 0)
     {
+      navigation.navigate('AdminPage')
+      /*
     Alert.alert(
       'Success',
       'Team Registered Successfully',
@@ -54,8 +56,11 @@ const CreateTeam = ({ navigation }) => {
       ],
       { cancelable: false }
     );
+    */
     }
     else{
+      navigation.navigate('Home')
+      /*
       Alert.alert(
         'Success',
         'Team Registered Successfully',
@@ -66,6 +71,7 @@ const CreateTeam = ({ navigation }) => {
         ],
         { cancelable: false }
       );
+      */
     } 
   };
 

@@ -68,7 +68,7 @@ const TeamList = ({ navigation }) => {
             }
             
             style={styles.button}>
-            <Text style={{color: "#FFFFFF", fontFamily: 'monospace'}}>View Full Profile</Text>
+            <Text style={{color: "#FFFFFF", fontFamily: 'monospace'}}>View Team Profile</Text>
         </TouchableOpacity>
         </View> 
         </View>

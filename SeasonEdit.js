@@ -66,9 +66,11 @@ const SeasonEdit = ({navigation}) => {
         matches = parseInt(matches)
         try{
         
-          if (matchDao.readMatch(matches).away_team != null)
+        if (matchDao.readMatch(matches).away_team != null)
         {
-        seasonDao.addGame(curr.id, matches)
+          seasonDao.addGame(curr.id, matches)
+          navigation.navigate('SeasonView') 
+        /*
         Alert.alert(
           'Success',
           'You have Updated Successfully',
@@ -80,7 +82,7 @@ const SeasonEdit = ({navigation}) => {
             navigation.navigate('SeasonView')
           ],
           { cancelable: false }
-        );
+        ); */
         }
       }
         catch(error)

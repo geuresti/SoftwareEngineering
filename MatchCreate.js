@@ -94,7 +94,6 @@ const styles = StyleSheet.create({
       <Text style={{fontSize:35 , fontFamily: 'Bungee-Regular', color: '#D9D9D9'}}>Create Match</Text>
       </View>
       <View style={{position: 'absolute', top: 0, left: 0, right: 270, bottom: 250, justifyContent: 'center', alignItems: 'center'}}>
-      <Text style={{fontSize:20 , fontFamily: 'monospace', color: '#D9D9D9'}}>Match Number</Text>
       </View>
       <View style={{position: 'absolute', top: 0, left: 0, right: 0, bottom: 90, justifyContent: 'center', alignItems: 'center'}}>
       <TextInput 

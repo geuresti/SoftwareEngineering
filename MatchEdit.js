@@ -82,7 +82,8 @@ const MatchEdit = ({navigation}) => {
 
       let updateMatch = () => {
         matchDao.updateMatch(curr.match_id,  parseFloat(home_team_score), parseFloat(away_team_score), game_time, parseFloat(h_team_blocks), parseInt(h_team_steals), parseInt(h_team_assists), parseInt(h_team_frees), parseInt(h_team_shot_percent), parseFloat(a_team_blocks), parseInt(a_team_steals), parseInt(a_team_assists), parseInt(a_team_frees), parseInt(a_team_shot_percent) )
-        alert(
+        navigation.navigate('MatchView')
+        /*alert(
             'Success',
             'You have Updated Successfully',
             [
@@ -92,7 +93,7 @@ const MatchEdit = ({navigation}) => {
               },
             ],
             { cancelable: false }
-          );
+          ); */
       }
       let deleteMatch = () => {
         matchDao.deleteMatch(match_id);

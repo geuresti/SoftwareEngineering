@@ -35,7 +35,8 @@ const styles = StyleSheet.create({
     if(loggedUser && !(userEmail.localeCompare("admin") === 0)){
       playerDao.setCurrentPlayer(userEmail)
       playerDao.setProfileToView(userEmail)
-      Alert.alert(
+      navigation.navigate('Home')
+    /*  Alert.alert(
         'Success',
         'You have logged in successfully',
         [
@@ -45,12 +46,13 @@ const styles = StyleSheet.create({
           },
         ],
         { cancelable: false }
-      );
+      ); */
     }
     else if(loggedUser && userEmail.localeCompare("admin") === 0){
       playerDao.setCurrentPlayer(userEmail)
       playerDao.setProfileToView(userEmail)
-      Alert.alert(
+      navigation.navigate('AdminPage')
+     /* Alert.alert(
         'Success',
         'You have logged in successfully',
         [
@@ -60,12 +62,12 @@ const styles = StyleSheet.create({
           },
         ],
         { cancelable: false }
-      );
+      ); */
     }
     else{
 
       Alert.alert(
-        'Failed to log in',
+        'Error',
         'Log in info does not exist',
         [
           {
